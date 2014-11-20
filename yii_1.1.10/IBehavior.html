@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>IBehavior</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>IBehavior</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.base">system.base</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>interface IBehavior</td>
+</tr>
+<tr>
+  <th>子类</th>
+  <td><a href="CActiveRecordBehavior.html">CActiveRecordBehavior</a>, <a href="CBehavior.html">CBehavior</a>, <a href="CModelBehavior.html">CModelBehavior</a>, <a href="CTimestampBehavior.html">CTimestampBehavior</a></td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: interfaces.php 3515 2011-12-28 12:29:24Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php">framework/base/interfaces.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+IBehavior是所有行为类必须实现的接口。
+<br/><br/>
+行为是一种可以增强组件的附加方法附加方法定义在行为类中，
+而在组件类中没有。</div>
+<a name="properties"></a>
+
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="attach">
+  <td><a href="IBehavior.html#attach-detail">attach()</a></td>
+  <td>附加行为对象到组件。</td>
+  <td>IBehavior</td>
+</tr>
+<tr id="detach">
+  <td><a href="IBehavior.html#detach-detail">detach()</a></td>
+  <td>从组件分离行为。</td>
+  <td>IBehavior</td>
+</tr>
+<tr id="getEnabled">
+  <td><a href="IBehavior.html#getEnabled-detail">getEnabled()</a></td>
+  <td>返回是否启用行为</td>
+  <td>IBehavior</td>
+</tr>
+<tr id="setEnabled">
+  <td><a href="IBehavior.html#setEnabled-detail">setEnabled()</a></td>
+  <td>设置行为是否被启用</td>
+  <td>IBehavior</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="attach-detail">
+attach()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>attach</b>(<a href="CComponent.html">CComponent</a> $component)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$component</td>
+  <td class="paramTypeCol"><a href="CComponent.html">CComponent</a></td>
+  <td class="paramDescCol">要附加行为的组件。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#515">framework/base/interfaces.php#515</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">attach</span><span style="color: #007700">(</span><span style="color: #0000BB">$component</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>附加行为对象到组件。</p>
+
+
+<div class="detailHeader" id="detach-detail">
+detach()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>detach</b>(<a href="CComponent.html">CComponent</a> $component)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$component</td>
+  <td class="paramTypeCol"><a href="CComponent.html">CComponent</a></td>
+  <td class="paramDescCol">要分离行为的组件。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#520">framework/base/interfaces.php#520</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">detach</span><span style="color: #007700">(</span><span style="color: #0000BB">$component</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>从组件分离行为。</p>
+
+
+<div class="detailHeader" id="getEnabled-detail">
+getEnabled()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public boolean <b>getEnabled</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">是否启用行为</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#524">framework/base/interfaces.php#524</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getEnabled</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="setEnabled-detail">
+setEnabled()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>setEnabled</b>(boolean $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">行为是否被启用</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#528">framework/base/interfaces.php#528</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setEnabled</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

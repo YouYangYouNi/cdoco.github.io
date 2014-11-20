@@ -1,0 +1,953 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CTreeView</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CTreeView</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.web.widgets">system.web.widgets</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CTreeView &raquo;
+<a href="CWidget.html">CWidget</a> &raquo;
+<a href="CBaseController.html">CBaseController</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CTreeView.php 3144 2011-03-30 07:03:48Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/CTreeView.php">framework/web/widgets/CTreeView.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CTreeView 显示分层数据的树形图。
+<br/><br/>
+这个类封装了jQuery的一个优秀的树形图插件
+(<a href="http://bassistance.de/jquery-plugins/jquery-plugin-treeview/">http://bassistance.de/jquery-plugins/jquery-plugin-treeview/</a>).
+<br/><br/>
+要使用CTreeView，只需要简单地将<a href="CTreeView.html#data">data</a>设置为你所需要
+表现的数据即可。
+<br/><br/>
+CTreeView也支持通过AJAX动态地加载数据。要完成此目的，设置
+<a href="CTreeView.html#url">url</a>为可以根据请求提供树形图所需数据的URL。</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="actionPrefix">
+  <td><a href="CWidget.html#actionPrefix-detail">actionPrefix</a></td>
+  <td>string</td>
+  <td><a href="CTreeView.html#actions">actions</a>的ID的前缀。
+当微件在<a href="CController.html#actions">CController::actions</a>中声明了
+动作提供者，可以为其动作的ID指定前缀以区别
+于别的微件或控制器。当微件用于控制器
+的视图中时，必须配置同样的前缀。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="animated">
+  <td><a href="CTreeView.html#animated-detail">animated</a></td>
+  <td>string|integer</td>
+  <td>动画速度。这个值可以是三个预定义的速度之一
+("slow", "normal", or "fast")或以毫秒为单位的数值（例如 1000）。
+如果没有设置，将不会使用动画效果。</td>
+  <td>CTreeView</td>
+</tr>
+<tr id="collapsed">
+  <td><a href="CTreeView.html#collapsed-detail">collapsed</a></td>
+  <td>boolean</td>
+  <td>树形图是否随着所有分支收起而开始。默认值是false。</td>
+  <td>CTreeView</td>
+</tr>
+<tr id="control">
+  <td><a href="CTreeView.html#control-detail">control</a></td>
+  <td>string</td>
+  <td>一个树形控件的容器，允许用户通过一次点击完成展开、收起和开关所有分支。
+在此容器中，点击第一个超链接将收起树形图；第二个超链接展开树形图；第三个超链接用于
+开关树形图。
+这个属性是一个有效的jQuery选择器（例如，“#treecontrol”。这儿“treecontrol”是包
+含有这些超链接的“DIV”元素的ID）。</td>
+  <td>CTreeView</td>
+</tr>
+<tr class="inherited" id="controller">
+  <td><a href="CWidget.html#controller-detail">controller</a></td>
+  <td><a href="CController.html">CController</a></td>
+  <td>返回此微件所属的控制器。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="cookieId">
+  <td><a href="CTreeView.html#cookieId-detail">cookieId</a></td>
+  <td>string</td>
+  <td>通过"cookie"进行持久化时使用的cookie的名字。默认值为“treeview”。</td>
+  <td>CTreeView</td>
+</tr>
+<tr id="cssFile">
+  <td><a href="CTreeView.html#cssFile-detail">cssFile</a></td>
+  <td>mixed</td>
+  <td>此微件使用的CSS文件。默认为null，表示
+使用此微件包含的默认CSS文件。
+如果设置为false，则不使用CSS文件。其他情况下，指定
+的CSS文件将被包含在此微件中。</td>
+  <td>CTreeView</td>
+</tr>
+<tr id="data">
+  <td><a href="CTreeView.html#data-detail">data</a></td>
+  <td>array</td>
+  <td>用于生成树形图内容的数据。
+每个数据元素按以下格式对应于一个树形图节点：
+<ul>
+<li>text: string, required, 与此节点关联的HTML文本。</li>
+<li>expanded: boolean, optional, 此节点是否为已展开状态。</li>
+<li>id: string, optional, 识别此节点的ID。用于动态加载树形
+  图（参见<a href="CTreeView.html#url">url</a>）。</li>
+<li>hasChildren: boolean, optional, 默认值为false，点击此
+  节点是否触发从服务器动态加态更多树形图节点。
+  必须设置<a href="CTreeView.html#url">url</a>属性以使此选项生效。</li>
+<li>children: array, optional, 此节点的子节点。</li>
+<li>htmlOptions: array, 附加的HTML属性（参见<a href="CHtml.html#tag">CHtml::tag</a>）。
+  此选项从1.</td>
+  <td>CTreeView</td>
+</tr>
+<tr id="htmlOptions">
+  <td><a href="CTreeView.html#htmlOptions-detail">htmlOptions</a></td>
+  <td>array</td>
+  <td>需要在UL标签中进行渲染的附加HTML属性。
+树形图预定义了下列CSS类，
+可以直接使用它们：
+<ul>
+<li>treeview-black</li>
+<li>treeview-gray</li>
+<li>treeview-red</li>
+<li>treeview-famfamfam</li>
+<li>filetree</li>
+</ul></td>
+  <td>CTreeView</td>
+</tr>
+<tr class="inherited" id="id">
+  <td><a href="CWidget.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>返回此微件的ID。如果需要的话，将生产一个新的ID并将其返回。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="options">
+  <td><a href="CTreeView.html#options-detail">options</a></td>
+  <td>array</td>
+  <td>传递给树形图的JavaScript对象的构造器的附加选项。</td>
+  <td>CTreeView</td>
+</tr>
+<tr class="inherited" id="owner">
+  <td><a href="CWidget.html#owner-detail">owner</a></td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+  <td>返回此微件的所有者或创建者。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="persist">
+  <td><a href="CTreeView.html#persist-detail">persist</a></td>
+  <td>string</td>
+  <td>将树的状态持久化到cookies中或页面位置中。如果设置为“location”，寻找
+匹配“location.</td>
+  <td>CTreeView</td>
+</tr>
+<tr id="prerendered">
+  <td><a href="CTreeView.html#prerendered-detail">prerendered</a></td>
+  <td>boolean</td>
+  <td>此属性设置为真时将不对点击区DIV标签和CSS类渲染，假设服务器端已完成此工作。默认值是false。</td>
+  <td>CTreeView</td>
+</tr>
+<tr class="inherited" id="skin">
+  <td><a href="CWidget.html#skin-detail">skin</a></td>
+  <td>mixed</td>
+  <td>微件使用的皮肤的名称。默认为“default”。
+如果此属性设置为false，微件将不会有皮肤被使用。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="toggle">
+  <td><a href="CTreeView.html#toggle-detail">toggle</a></td>
+  <td>string</td>
+  <td>开关一个分支时调用的回调函数。参数：“this”指向UL表明是显示或隐藏</td>
+  <td>CTreeView</td>
+</tr>
+<tr id="unique">
+  <td><a href="CTreeView.html#unique-detail">unique</a></td>
+  <td>boolean</td>
+  <td>设置此属性可以实现在同一层次仅可展开一个分支（在展开时将关闭兄弟分支）。
+默认值是false。</td>
+  <td>CTreeView</td>
+</tr>
+<tr id="url">
+  <td><a href="CTreeView.html#url-detail">url</a></td>
+  <td>string|array</td>
+  <td>用于树形图动态加载的URL（使用AJAX）。
+参见<a href="CHtml.html#normalizeUrl">CHtml::normalizeUrl</a>以了解可用的URL格式。
+设置此属性将使树形图的动态加载可用。
+当页面显示后，浏览器将使用一个名为“root”，值为“source”的
+GET参数请求这个URL。服务器脚本将根据树形图的根生成所需的树形
+图数据（参见<a href="CTreeView.html#saveDataAsJson">saveDataAsJson</a>）。
+如果一个节点有CSS类“hasChildren”，那么展开这个节点将导致对
+它的子节点的动态加载。在这种情况下，GET参数“root”的值是此节
+点的ID属性值。</td>
+  <td>CTreeView</td>
+</tr>
+<tr class="inherited" id="viewPath">
+  <td><a href="CWidget.html#viewPath-detail">viewPath</a></td>
+  <td>string</td>
+  <td>返回包含此微件所需的视图文件的路径。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docProperty">
+<h2>受保护属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="clientOptions">
+  <td><a href="CTreeView.html#clientOptions-detail">clientOptions</a></td>
+  <td>array</td>
+  <td>返回JavaScript选项。</td>
+  <td>CTreeView</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>如果类中没有调的方法名，则调用这个方法。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CWidget.html#__construct-detail">__construct()</a></td>
+  <td>构造器。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>返回一个属性值、一个事件处理程序列表或一个行为名称。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>检查一个属性是否为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>设置一个组件的属性值。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>设置一个组件的属性为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="actions">
+  <td><a href="CWidget.html#actions-detail">actions()</a></td>
+  <td>返回此widget使用的动作的列表。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>返回这个名字的行为对象。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>附加一个行为到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>附加一个行为列表到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>为事件附加一个事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="beginCache">
+  <td><a href="CBaseController.html#beginCache-detail">beginCache()</a></td>
+  <td>Begins fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginClip">
+  <td><a href="CBaseController.html#beginClip-detail">beginClip()</a></td>
+  <td>Begins recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginContent">
+  <td><a href="CBaseController.html#beginContent-detail">beginContent()</a></td>
+  <td>Begins the rendering of content that is to be decorated by the specified view.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginWidget">
+  <td><a href="CBaseController.html#beginWidget-detail">beginWidget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>确定属性是否可读。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>确定属性是否可写。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="createWidget">
+  <td><a href="CBaseController.html#createWidget-detail">createWidget()</a></td>
+  <td>Creates a widget and initializes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>从组件中分离一个行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>从组件中分离所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>分离一个存在的事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>禁用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>禁用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>启用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>启用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="endCache">
+  <td><a href="CBaseController.html#endCache-detail">endCache()</a></td>
+  <td>Ends fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endClip">
+  <td><a href="CBaseController.html#endClip-detail">endClip()</a></td>
+  <td>Ends recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endContent">
+  <td><a href="CBaseController.html#endContent-detail">endContent()</a></td>
+  <td>Ends the rendering of content.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endWidget">
+  <td><a href="CBaseController.html#endWidget-detail">endWidget()</a></td>
+  <td>Ends the execution of the named widget.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>计算一个PHP表达式，或根据组件上下文执行回调。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getController">
+  <td><a href="CWidget.html#getController-detail">getController()</a></td>
+  <td>返回此微件所属的控制器。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>返回一个事件的附加处理程序列表。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getId">
+  <td><a href="CWidget.html#getId-detail">getId()</a></td>
+  <td>返回此微件的ID。如果需要的话，将生产一个新的ID并将其返回。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getOwner">
+  <td><a href="CWidget.html#getOwner-detail">getOwner()</a></td>
+  <td>返回此微件的所有者或创建者。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getViewFile">
+  <td><a href="CWidget.html#getViewFile-detail">getViewFile()</a></td>
+  <td>根据视图名查找视图文件。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getViewPath">
+  <td><a href="CWidget.html#getViewPath-detail">getViewPath()</a></td>
+  <td>返回包含此微件所需的视图文件的路径。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>确定一个事件是否定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>检查事件是否有附加的处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>确定属性是否被定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CTreeView.html#init-detail">init()</a></td>
+  <td>初始化此微件。</td>
+  <td>CTreeView</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>发起一个事件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="render">
+  <td><a href="CWidget.html#render-detail">render()</a></td>
+  <td>渲染一个视图。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="renderFile">
+  <td><a href="CBaseController.html#renderFile-detail">renderFile()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="renderInternal">
+  <td><a href="CBaseController.html#renderInternal-detail">renderInternal()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr id="run">
+  <td><a href="CTreeView.html#run-detail">run()</a></td>
+  <td>结束此微件的运行。</td>
+  <td>CTreeView</td>
+</tr>
+<tr id="saveDataAsHtml">
+  <td><a href="CTreeView.html#saveDataAsHtml-detail">saveDataAsHtml()</a></td>
+  <td>根据数组中的数据，在HTML页面生成树形图的节点。</td>
+  <td>CTreeView</td>
+</tr>
+<tr id="saveDataAsJson">
+  <td><a href="CTreeView.html#saveDataAsJson-detail">saveDataAsJson()</a></td>
+  <td>将树形图数据保存为JSON格式。</td>
+  <td>CTreeView</td>
+</tr>
+<tr class="inherited" id="setId">
+  <td><a href="CWidget.html#setId-detail">setId()</a></td>
+  <td>设置此微件的ID。</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="widget">
+  <td><a href="CBaseController.html#widget-detail">widget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="getClientOptions">
+  <td><a href="CTreeView.html#getClientOptions-detail">getClientOptions()</a></td>
+  <td>返回返回JavaScript选项。</td>
+  <td>CTreeView</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>属性详细</h2>
+<div class="detailHeader" id="animated-detail">
+animated<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string|integer <b>$animated</b>;</div>
+
+<p>动画速度。这个值可以是三个预定义的速度之一
+("slow", "normal", or "fast")或以毫秒为单位的数值（例如 1000）。
+如果没有设置，将不会使用动画效果。</p>
+
+
+<div class="detailHeader" id="clientOptions-detail">
+clientOptions<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+protected array <a href="CTreeView.html#getClientOptions"><b>getClientOptions</b></a>()</div>
+
+<p>返回JavaScript选项。</p>
+
+
+<div class="detailHeader" id="collapsed-detail">
+collapsed<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$collapsed</b>;</div>
+
+<p>树形图是否随着所有分支收起而开始。默认值是false。</p>
+
+
+<div class="detailHeader" id="control-detail">
+control<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$control</b>;</div>
+
+<p>一个树形控件的容器，允许用户通过一次点击完成展开、收起和开关所有分支。
+在此容器中，点击第一个超链接将收起树形图；第二个超链接展开树形图；第三个超链接用于
+开关树形图。
+这个属性是一个有效的jQuery选择器（例如，“#treecontrol”。这儿“treecontrol”是包
+含有这些超链接的“DIV”元素的ID）。</p>
+
+
+<div class="detailHeader" id="cookieId-detail">
+cookieId<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$cookieId</b>;</div>
+
+<p>通过"cookie"进行持久化时使用的cookie的名字。默认值为“treeview”。</p>
+
+
+<div class="detailHeader" id="cssFile-detail">
+cssFile<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public mixed <b>$cssFile</b>;</div>
+
+<p>此微件使用的CSS文件。默认为null，表示
+使用此微件包含的默认CSS文件。
+如果设置为false，则不使用CSS文件。其他情况下，指定
+的CSS文件将被包含在此微件中。</p>
+
+
+<div class="detailHeader" id="data-detail">
+data<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public array <b>$data</b>;</div>
+
+<p>用于生成树形图内容的数据。
+每个数据元素按以下格式对应于一个树形图节点：
+<ul>
+<li>text: string, required, 与此节点关联的HTML文本。</li>
+<li>expanded: boolean, optional, 此节点是否为已展开状态。</li>
+<li>id: string, optional, 识别此节点的ID。用于动态加载树形
+  图（参见<a href="CTreeView.html#url">url</a>）。</li>
+<li>hasChildren: boolean, optional, 默认值为false，点击此
+  节点是否触发从服务器动态加态更多树形图节点。
+  必须设置<a href="CTreeView.html#url">url</a>属性以使此选项生效。</li>
+<li>children: array, optional, 此节点的子节点。</li>
+<li>htmlOptions: array, 附加的HTML属性（参见<a href="CHtml.html#tag">CHtml::tag</a>）。
+  此选项从1.1.7版开始可用。</li>
+</ul>
+注意：包含在“beginWidget”和“endWidget”这两个调用之间的
+任何内容也将作为树形图的内容看待，被添加到这个属性生成的内容
+之后。</p>
+
+
+<div class="detailHeader" id="htmlOptions-detail">
+htmlOptions<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public array <b>$htmlOptions</b>;</div>
+
+<p>需要在UL标签中进行渲染的附加HTML属性。
+树形图预定义了下列CSS类，
+可以直接使用它们：
+<ul>
+<li>treeview-black</li>
+<li>treeview-gray</li>
+<li>treeview-red</li>
+<li>treeview-famfamfam</li>
+<li>filetree</li>
+</ul></p>
+
+
+<div class="detailHeader" id="options-detail">
+options<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public array <b>$options</b>;</div>
+
+<p>传递给树形图的JavaScript对象的构造器的附加选项。</p>
+
+
+<div class="detailHeader" id="persist-detail">
+persist<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$persist</b>;</div>
+
+<p>将树的状态持久化到cookies中或页面位置中。如果设置为“location”，寻找
+匹配“location.href”的锚并激活它在树形图中的部分。
+常用于基于超链接的状态保存。如果设置为“cookie”，在每次点击后
+会将树的状态保存到一个cookie中，然后在页面加载时恢复它。</p>
+
+
+<div class="detailHeader" id="prerendered-detail">
+prerendered<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$prerendered</b>;</div>
+
+<p>此属性设置为真时将不对点击区DIV标签和CSS类渲染，假设服务器端已完成此工作。默认值是false。</p>
+
+
+<div class="detailHeader" id="toggle-detail">
+toggle<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$toggle</b>;</div>
+
+<p>开关一个分支时调用的回调函数。参数：“this”指向UL表明是显示或隐藏</p>
+
+
+<div class="detailHeader" id="unique-detail">
+unique<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$unique</b>;</div>
+
+<p>设置此属性可以实现在同一层次仅可展开一个分支（在展开时将关闭兄弟分支）。
+默认值是false。</p>
+
+
+<div class="detailHeader" id="url-detail">
+url<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string|array <b>$url</b>;</div>
+
+<p>用于树形图动态加载的URL（使用AJAX）。
+参见<a href="CHtml.html#normalizeUrl">CHtml::normalizeUrl</a>以了解可用的URL格式。
+设置此属性将使树形图的动态加载可用。
+当页面显示后，浏览器将使用一个名为“root”，值为“source”的
+GET参数请求这个URL。服务器脚本将根据树形图的根生成所需的树形
+图数据（参见<a href="CTreeView.html#saveDataAsJson">saveDataAsJson</a>）。
+如果一个节点有CSS类“hasChildren”，那么展开这个节点将导致对
+它的子节点的动态加载。在这种情况下，GET参数“root”的值是此节
+点的ID属性值。</p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="getClientOptions-detail">
+getClientOptions()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected array <b>getClientOptions</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">返回JavaScript选项。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/CTreeView.php#168">framework/web/widgets/CTreeView.php#168</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">getClientOptions</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">options</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(array(</span><span style="color: #DD0000">'url'</span><span style="color: #007700">,</span><span style="color: #DD0000">'animated'</span><span style="color: #007700">,</span><span style="color: #DD0000">'collapsed'</span><span style="color: #007700">,</span><span style="color: #DD0000">'control'</span><span style="color: #007700">,</span><span style="color: #DD0000">'unique'</span><span style="color: #007700">,</span><span style="color: #DD0000">'toggle'</span><span style="color: #007700">,</span><span style="color: #DD0000">'persist'</span><span style="color: #007700">,</span><span style="color: #DD0000">'cookieId'</span><span style="color: #007700">,</span><span style="color: #DD0000">'prerendered'</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/CTreeView.php#135">framework/web/widgets/CTreeView.php#135</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getId</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">url</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">url</span><span style="color: #007700">=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">normalizeUrl</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">url</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getClientScript</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">registerCoreScript</span><span style="color: #007700">(</span><span style="color: #DD0000">'treeview'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getClientOptions</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">$options</span><span style="color: #007700">===array()?</span><span style="color: #DD0000">'{}'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">CJavaScript</span><span style="color: #007700">::</span><span style="color: #0000BB">encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">registerScript</span><span style="color: #007700">(</span><span style="color: #DD0000">'Yii.CTreeView#'</span><span style="color: #007700">.</span><span style="color: #0000BB">$id</span><span style="color: #007700">,</span><span style="color: #DD0000">"jQuery(\"#</span><span style="color: #007700">{</span><span style="color: #0000BB">$id</span><span style="color: #007700">}</span><span style="color: #DD0000">\").treeview(</span><span style="color: #0000BB">$options</span><span style="color: #DD0000">);"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cssFile</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">registerCssFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCoreScriptUrl</span><span style="color: #007700">().</span><span style="color: #DD0000">'/treeview/jquery.treeview.css'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cssFile</span><span style="color: #007700">!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">registerCssFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cssFile</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">tag</span><span style="color: #007700">(</span><span style="color: #DD0000">'ul'</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">,</span><span style="color: #0000BB">false</span><span style="color: #007700">,</span><span style="color: #0000BB">false</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">saveDataAsHtml</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">data</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>初始化此微件。
+此方法注册所有必须的客户端脚本然后渲染
+树形图的内容。</p>
+
+
+<div class="detailHeader" id="run-detail">
+run()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>run</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/CTreeView.php#160">framework/web/widgets/CTreeView.php#160</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;/ul&gt;"</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>结束此微件的运行。</p>
+
+
+<div class="detailHeader" id="saveDataAsHtml-detail">
+saveDataAsHtml()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static string <b>saveDataAsHtml</b>(array $data)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">树形图所用的数据（参见<a href="CTreeView.html#data">data</a>了解可用的数据结构）。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">生成的树形图的HTML代码。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/CTreeView.php#184">framework/web/widgets/CTreeView.php#184</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">saveDataAsHtml</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$node</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'text'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'expanded'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$css</span><span style="color: #007700">=</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'expanded'</span><span style="color: #007700">]&nbsp;?&nbsp;</span><span style="color: #DD0000">'open'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'closed'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$css</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'hasChildren'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'hasChildren'</span><span style="color: #007700">])<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$css</span><span style="color: #007700">!==</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$css</span><span style="color: #007700">.=</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$css</span><span style="color: #007700">.=</span><span style="color: #DD0000">'hasChildren'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=isset(</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'htmlOptions'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'htmlOptions'</span><span style="color: #007700">]&nbsp;:&nbsp;array();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$css</span><span style="color: #007700">!==</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">].=</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$css</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$css</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">];<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">.=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">tag</span><span style="color: #007700">(</span><span style="color: #DD0000">'li'</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">,</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'text'</span><span style="color: #007700">],</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!empty(</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'children'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">.=</span><span style="color: #DD0000">"\n&lt;ul&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">.=</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">saveDataAsHtml</span><span style="color: #007700">(</span><span style="color: #0000BB">$node</span><span style="color: #007700">[</span><span style="color: #DD0000">'children'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">.=</span><span style="color: #DD0000">"&lt;/ul&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">.=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">closeTag</span><span style="color: #007700">(</span><span style="color: #DD0000">'li'</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>根据数组中的数据，在HTML页面生成树形图的节点。</p>
+
+
+<div class="detailHeader" id="saveDataAsJson-detail">
+saveDataAsJson()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static string <b>saveDataAsJson</b>(array $data)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">树形图所用的数据（参见<a href="CTreeView.html#data">data</a>了解可用的数据结构）。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">以JSON格式表示的数据</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/CTreeView.php#239">framework/web/widgets/CTreeView.php#239</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">saveDataAsJson</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(empty(</span><span style="color: #0000BB">$data</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'[]'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CJavaScript</span><span style="color: #007700">::</span><span style="color: #0000BB">jsonEncode</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>将树形图数据保存为JSON格式。
+通常在当服务器端代码需要将
+树形图数据发送到客户端时使
+用此方法。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

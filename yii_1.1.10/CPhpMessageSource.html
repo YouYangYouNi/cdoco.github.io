@@ -1,0 +1,561 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CPhpMessageSource</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CPhpMessageSource</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+| <a href="#events">事件</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.i18n">system.i18n</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CPhpMessageSource &raquo;
+<a href="CMessageSource.html">CMessageSource</a> &raquo;
+<a href="CApplicationComponent.html">CApplicationComponent</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>实现</th>
+  <td><a href="IApplicationComponent.html">IApplicationComponent</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CPhpMessageSource.php 3515 2011-12-28 12:29:24Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/i18n/CPhpMessageSource.php">framework/i18n/CPhpMessageSource.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CPhpMessageSource代表翻译的信息和信息源存储在PHP脚本。
+<br/><br/>
+CPhpMessageSource使用PHP文件和数组来保存翻译信息。
+<ul>
+<li>所有翻译被保存在<a href="CPhpMessageSource.html#basePath">basePath</a>目录下。</li>
+<li>每种语言都会保存在独立目录的PHP文件里面，
+  它的名字跟语言ID相同。
+  每个PHP文件都包含相同的信息类别，文件名称和类别名称相同。</li>
+<li>PHP文件里会返回数组（源，翻译）。
+例如：
+<pre>
+return array(
+    'original message 1' =&gt; 'translated message 1',
+    'original message 2' =&gt; 'translated message 2',
+);
+</pre>
+</li>
+</ul>
+当<a href="CPhpMessageSource.html#cachingDuration">cachingDuration</a>设置为正数，翻译的信息将被缓存。
+<br/><br/>
+扩展类的信息（例如：挂件，模块）可以指定管理和使用。
+特别注意：
+如果信息名是Xyz的扩展，那么信息分类可以指定为'Xyz.categoryName'。 
+相关信息文件会被认为是‘BasePath/messages/LanguageID/categoryName.php’，在‘BasePath’关联到包含扩展类文件的目录。
+当使用Yii::t()来翻译一个扩展信息时，
+那么分类名称会被设为‘Xyz.categoryName’。</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="basePath">
+  <td><a href="CPhpMessageSource.html#basePath-detail">basePath</a></td>
+  <td>string</td>
+  <td>翻译信息的基本路径。
+默认为null，这意味着‘messages’是应用程序子目录（如：“protected/messages”）。</td>
+  <td>CPhpMessageSource</td>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CApplicationComponent.html#behaviors-detail">behaviors</a></td>
+  <td>array</td>
+  <td>这个应用组件附加的行为。
+这此行为将在应用组件调用<a href="CPhpMessageSource.html#init">init</a>时附加在应用组件上。
+请参照<a href="CModel.html#behaviors">CModel::behaviors</a>如何指定此属性值。</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="cacheID">
+  <td><a href="CPhpMessageSource.html#cacheID-detail">cacheID</a></td>
+  <td>string</td>
+  <td>用来缓存信息的缓存应用程序组件ID.</td>
+  <td>CPhpMessageSource</td>
+</tr>
+<tr id="cachingDuration">
+  <td><a href="CPhpMessageSource.html#cachingDuration-detail">cachingDuration</a></td>
+  <td>integer</td>
+  <td>缓存中信息的生命周期。
+默认为0，意思这个缓存被禁止。</td>
+  <td>CPhpMessageSource</td>
+</tr>
+<tr class="inherited" id="forceTranslation">
+  <td><a href="CMessageSource.html#forceTranslation-detail">forceTranslation</a></td>
+  <td>boolean</td>
+  <td>当源语言和目标语言相同时，是否强制翻译信息。
+默认为false，意思是源语言和目标语言不同时执行。</td>
+  <td><a href="CMessageSource.html">CMessageSource</a></td>
+</tr>
+<tr class="inherited" id="isInitialized">
+  <td><a href="CApplicationComponent.html#isInitialized-detail">isInitialized</a></td>
+  <td>boolean</td>
+  <td>检查应用组件是否已经初始化。</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr class="inherited" id="language">
+  <td><a href="CMessageSource.html#language-detail">language</a></td>
+  <td>string</td>
+  <td>返回源信息的书写语言。
+默认为<a href="CApplication.html#language">application language</a>。</td>
+  <td><a href="CMessageSource.html">CMessageSource</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>如果类中没有调的方法名，则调用这个方法。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>返回一个属性值、一个事件处理程序列表或一个行为名称。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>检查一个属性是否为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>设置一个组件的属性值。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>设置一个组件的属性为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>返回这个名字的行为对象。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>附加一个行为到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>附加一个行为列表到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>为事件附加一个事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>确定属性是否可读。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>确定属性是否可写。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>从组件中分离一个行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>从组件中分离所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>分离一个存在的事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>禁用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>禁用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>启用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>启用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>计算一个PHP表达式，或根据组件上下文执行回调。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>返回一个事件的附加处理程序列表。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getIsInitialized">
+  <td><a href="CApplicationComponent.html#getIsInitialized-detail">getIsInitialized()</a></td>
+  <td>检查应用组件是否已经初始化。</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr class="inherited" id="getLanguage">
+  <td><a href="CMessageSource.html#getLanguage-detail">getLanguage()</a></td>
+  <td>返回返回源信息的书写语言。
+默认为<a href="CApplication.html#language">application language</a>。</td>
+  <td><a href="CMessageSource.html">CMessageSource</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>确定一个事件是否定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>检查事件是否有附加的处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>确定属性是否被定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CPhpMessageSource.html#init-detail">init()</a></td>
+  <td>初始化应用程序组件。</td>
+  <td>CPhpMessageSource</td>
+</tr>
+<tr class="inherited" id="onMissingTranslation">
+  <td><a href="CMessageSource.html#onMissingTranslation-detail">onMissingTranslation()</a></td>
+  <td>当信息不能被翻译时发起。</td>
+  <td><a href="CMessageSource.html">CMessageSource</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>发起一个事件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="setLanguage">
+  <td><a href="CMessageSource.html#setLanguage-detail">setLanguage()</a></td>
+  <td>设置设置源信息的书写语言。</td>
+  <td><a href="CMessageSource.html">CMessageSource</a></td>
+</tr>
+<tr class="inherited" id="translate">
+  <td><a href="CMessageSource.html#translate-detail">translate()</a></td>
+  <td>翻译信息到指定语言。</td>
+  <td><a href="CMessageSource.html">CMessageSource</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="getMessageFile">
+  <td><a href="CPhpMessageSource.html#getMessageFile-detail">getMessageFile()</a></td>
+  <td>基于指定的类别和语言来决定信息文件。</td>
+  <td>CPhpMessageSource</td>
+</tr>
+<tr id="loadMessages">
+  <td><a href="CPhpMessageSource.html#loadMessages-detail">loadMessages()</a></td>
+  <td>加载指定语言和类别的信息翻译。</td>
+  <td>CPhpMessageSource</td>
+</tr>
+<tr class="inherited" id="translateMessage">
+  <td><a href="CMessageSource.html#translateMessage-detail">translateMessage()</a></td>
+  <td>翻译指定信息。</td>
+  <td><a href="CMessageSource.html">CMessageSource</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<div class="summary docEvent">
+<h2>事件</h2>
+
+<p><a href="#" class="toggle">隐藏继承事件</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-event" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>事件</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="onMissingTranslation">
+  <td><a href="CMessageSource.html#onMissingTranslation-detail">onMissingTranslation</a></td>
+  <td>当信息不能被翻译时发起。</td>
+  <td><a href="CMessageSource.html">CMessageSource</a></td>
+</tr>
+</table>
+</div>
+<h2>属性详细</h2>
+<div class="detailHeader" id="basePath-detail">
+basePath<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$basePath</b>;</div>
+
+<p>翻译信息的基本路径。
+默认为null，这意味着‘messages’是应用程序子目录（如：“protected/messages”）。</p>
+
+
+<div class="detailHeader" id="cacheID-detail">
+cacheID<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$cacheID</b>;</div>
+
+<p>用来缓存信息的缓存应用程序组件ID.
+默认为‘cache’，这里指缓存应用程序组件。
+设置为false，将禁止缓存信息。</p>
+
+
+<div class="detailHeader" id="cachingDuration-detail">
+cachingDuration<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$cachingDuration</b>;</div>
+
+<p>缓存中信息的生命周期。
+默认为0，意思这个缓存被禁止。</p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="getMessageFile-detail">
+getMessageFile()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected string <b>getMessageFile</b>(string $category, string $language)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$category</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">类别名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$language</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">语言ID</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">信息文件路径</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/i18n/CPhpMessageSource.php#89">framework/i18n/CPhpMessageSource.php#89</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">getMessageFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$category</span><span style="color: #007700">,</span><span style="color: #0000BB">$language</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_files</span><span style="color: #007700">[</span><span style="color: #0000BB">$category</span><span style="color: #007700">][</span><span style="color: #0000BB">$language</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$category</span><span style="color: #007700">,</span><span style="color: #DD0000">'.'</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$moduleClass</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$category</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$moduleCategory</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$category</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">$moduleClass</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_files</span><span style="color: #007700">[</span><span style="color: #0000BB">$category</span><span style="color: #007700">][</span><span style="color: #0000BB">$language</span><span style="color: #007700">]=</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">$class</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getFileName</span><span style="color: #007700">()).</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #DD0000">'messages'</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$language</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$moduleCategory</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_files</span><span style="color: #007700">[</span><span style="color: #0000BB">$category</span><span style="color: #007700">][</span><span style="color: #0000BB">$language</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">basePath</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$language</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$category</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_files</span><span style="color: #007700">[</span><span style="color: #0000BB">$category</span><span style="color: #007700">][</span><span style="color: #0000BB">$language</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p>基于指定的类别和语言来决定信息文件。
+如果类别名称包含一个点，它将会被分配成模块类名称和类别名称。
+这种情况下，
+信息文件会认为是保存在模块类文件目录下的‘messages’子目录。
+否则，信息文件会认为保存在<a href="CPhpMessageSource.html#basePath">basePath</a>。</p>
+
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/i18n/CPhpMessageSource.php#72">framework/i18n/CPhpMessageSource.php#72</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">basePath</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">basePath</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">getPathOfAlias</span><span style="color: #007700">(</span><span style="color: #DD0000">'application.messages'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>初始化应用程序组件。
+这个方法重写了父类方法，
+实现了为用户数据请求做一些预处理。</p>
+
+
+<div class="detailHeader" id="loadMessages-detail">
+loadMessages()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected array <b>loadMessages</b>(string $category, string $language)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$category</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">信息类别</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$language</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">目录语言</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">加载好的信息</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/i18n/CPhpMessageSource.php#112">framework/i18n/CPhpMessageSource.php#112</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">loadMessages</span><span style="color: #007700">(</span><span style="color: #0000BB">$category</span><span style="color: #007700">,</span><span style="color: #0000BB">$language</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$messageFile</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessageFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$category</span><span style="color: #007700">,</span><span style="color: #0000BB">$language</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cachingDuration</span><span style="color: #007700">&gt;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cacheID</span><span style="color: #007700">!==</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$cache</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getComponent</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cacheID</span><span style="color: #007700">))!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">CACHE_KEY_PREFIX&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$messageFile</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$data</span><span style="color: #007700">=</span><span style="color: #0000BB">$cache</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$messageFile</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$messages</span><span style="color: #007700">=include(</span><span style="color: #0000BB">$messageFile</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$messages</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$messages</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$cache</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dependency</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CFileCacheDependency</span><span style="color: #007700">(</span><span style="color: #0000BB">$messageFile</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cache</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">,</span><span style="color: #0000BB">serialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$messages</span><span style="color: #007700">),</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cachingDuration</span><span style="color: #007700">,</span><span style="color: #0000BB">$dependency</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$messages</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>加载指定语言和类别的信息翻译。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

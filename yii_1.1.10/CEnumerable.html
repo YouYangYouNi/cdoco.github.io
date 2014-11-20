@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CEnumerable</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CEnumerable</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.base">system.base</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CEnumerable</td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CComponent.php 3521 2011-12-29 22:10:57Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CComponent.php">framework/base/CComponent.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CEnumerable是所有枚举类的基类。
+<br/><br/>
+定义一个枚举类型，继承CEnumberable并定义字符串常量。
+每一个枚举值代表一个常数。
+常量的名字必须与常量的值相同。
+例如，
+<pre>
+class TextAlign extends CEnumerable
+{
+    const Left='Left';
+    const Right='Right';
+}
+</pre>
+然后，
+可以使用TextAlign::Left和TextAlign::Right的枚举值。</div>
+<a name="properties"></a>
+
+<a name="methods"></a>
+
+<a name="events"></a>
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

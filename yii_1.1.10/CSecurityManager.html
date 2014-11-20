@@ -1,0 +1,951 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CSecurityManager</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CSecurityManager</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.base">system.base</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CSecurityManager &raquo;
+<a href="CApplicationComponent.html">CApplicationComponent</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>实现</th>
+  <td><a href="IApplicationComponent.html">IApplicationComponent</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CSecurityManager.php 3555 2012-02-09 10:29:44Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php">framework/base/CSecurityManager.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CSecurityManager提供了私有密钥，哈希和加密功能。
+<br/><br/>
+使用CSecurityManager为Yii组件和应用程序提供安全相关功能。
+例如，它应用在cookie验证功能
+以防止cookie数据被伪造。
+<br/><br/>
+CSecurityManager主要是用来保护数据不被篡改和查看。
+它可以生成HMAC和加密数据。
+通过设置<a href="CSecurityManager.html#setValidationKey">ValidationKey</a>来设置私钥来生成HMAC。
+用来加密数据的密钥是由<a href="CSecurityManager.html#setEncryptionKey">EncryptionKey</a>指定。
+如果上面的密钥没有明确设定，那么会生成和使用随机密钥。
+<br/><br/>
+为了能使用HMAC来保护数据，请调用<a href="CSecurityManager.html#hashData">hashData()</a>；然后检查数据是否被篡改，
+如果数据没有被篡改，那么调用<a href="CSecurityManager.html#validateData">validateData()</a>时会返回真实的数据。
+用来生成HMAC的算法是由
+<a href="CSecurityManager.html#validation">validation</a>指定的。
+<br/><br/>
+分别调用<a href="CSecurityManager.html#encrypt">encrypt()</a>和<a href="CSecurityManager.html#decrypt">decrypt()</a>来加密和解密，
+这个过程会使用3DES加密算法。
+注意，一定要安装和加载PHP Mcrypt。
+<br/><br/>
+CSecurityManager是一个内核级应用组件，
+可以通过<a href="CApplication.html#getSecurityManager">CApplication::getSecurityManager()</a>进行访问。</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CApplicationComponent.html#behaviors-detail">behaviors</a></td>
+  <td>array</td>
+  <td>这个应用组件附加的行为。
+这此行为将在应用组件调用<a href="CSecurityManager.html#init">init</a>时附加在应用组件上。
+请参照<a href="CModel.html#behaviors">CModel::behaviors</a>如何指定此属性值。</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="cryptAlgorithm">
+  <td><a href="CSecurityManager.html#cryptAlgorithm-detail">cryptAlgorithm</a></td>
+  <td>mixed</td>
+  <td>用于<a href="CSecurityManager.html#encrypt">encrypt</a>和<a href="CSecurityManager.html#decrypt">decrypt</a>的加密算法名字。
+这个会作为第一个参数传递给{@link http://php.</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr id="encryptionKey">
+  <td><a href="CSecurityManager.html#encryptionKey-detail">encryptionKey</a></td>
+  <td>string</td>
+  <td>用来加密/解密数据的私钥。
+如果没有明确指定密钥，那么会生成和使用随机密钥。</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr id="hashAlgorithm">
+  <td><a href="CSecurityManager.html#hashAlgorithm-detail">hashAlgorithm</a></td>
+  <td>string</td>
+  <td>用于<a href="CSecurityManager.html#computeHMAC">computeHMAC</a>的哈希算法名字。
+参见{@link http://php.</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr class="inherited" id="isInitialized">
+  <td><a href="CApplicationComponent.html#isInitialized-detail">isInitialized</a></td>
+  <td>boolean</td>
+  <td>检查应用组件是否已经初始化。</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="validation">
+  <td><a href="CSecurityManager.html#validation-detail">validation</a></td>
+  <td>string</td>
+  <td>这个方法自版本1.1.3被弃用。</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr id="validationKey">
+  <td><a href="CSecurityManager.html#validationKey-detail">validationKey</a></td>
+  <td>string</td>
+  <td>用来生成HMAC的私钥。
+如果没有明确指定密钥，那么会生成和使用随机密钥。</td>
+  <td>CSecurityManager</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>如果类中没有调的方法名，则调用这个方法。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>返回一个属性值、一个事件处理程序列表或一个行为名称。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>检查一个属性是否为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>设置一个组件的属性值。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>设置一个组件的属性为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>返回这个名字的行为对象。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>附加一个行为到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>附加一个行为列表到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>为事件附加一个事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>确定属性是否可读。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>确定属性是否可写。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="decrypt">
+  <td><a href="CSecurityManager.html#decrypt-detail">decrypt()</a></td>
+  <td>解密数据</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>从组件中分离一个行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>从组件中分离所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>分离一个存在的事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>禁用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>禁用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>启用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>启用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="encrypt">
+  <td><a href="CSecurityManager.html#encrypt-detail">encrypt()</a></td>
+  <td>加密数据。</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>计算一个PHP表达式，或根据组件上下文执行回调。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getEncryptionKey">
+  <td><a href="CSecurityManager.html#getEncryptionKey-detail">getEncryptionKey()</a></td>
+  <td>返回用来加密/解密数据的私钥。
+如果没有明确指定密钥，那么会生成和使用随机密钥。</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>返回一个事件的附加处理程序列表。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getIsInitialized">
+  <td><a href="CApplicationComponent.html#getIsInitialized-detail">getIsInitialized()</a></td>
+  <td>检查应用组件是否已经初始化。</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="getValidation">
+  <td><a href="CSecurityManager.html#getValidation-detail">getValidation()</a></td>
+  <td>这个方法自版本1.1.3被弃用。</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr id="getValidationKey">
+  <td><a href="CSecurityManager.html#getValidationKey-detail">getValidationKey()</a></td>
+  <td>返回用来生成HMAC的私钥。
+如果没有明确指定密钥，那么会生成和使用随机密钥。</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>确定一个事件是否定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>检查事件是否有附加的处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>确定属性是否被定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="hashData">
+  <td><a href="CSecurityManager.html#hashData-detail">hashData()</a></td>
+  <td>将HMAC作为数据的前缀。</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr id="init">
+  <td><a href="CSecurityManager.html#init-detail">init()</a></td>
+  <td></td>
+  <td>CSecurityManager</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>发起一个事件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="setEncryptionKey">
+  <td><a href="CSecurityManager.html#setEncryptionKey-detail">setEncryptionKey()</a></td>
+  <td>设置用于加密/解密数据的密钥。</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr id="setValidation">
+  <td><a href="CSecurityManager.html#setValidation-detail">setValidation()</a></td>
+  <td>这个方法自版本1.1.3被弃用。</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr id="setValidationKey">
+  <td><a href="CSecurityManager.html#setValidationKey-detail">setValidationKey()</a></td>
+  <td>设置用来产生HMAC的密钥</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr id="validateData">
+  <td><a href="CSecurityManager.html#validateData-detail">validateData()</a></td>
+  <td>验证数据是否被篡改过。</td>
+  <td>CSecurityManager</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="computeHMAC">
+  <td><a href="CSecurityManager.html#computeHMAC-detail">computeHMAC()</a></td>
+  <td>计算<a href="CSecurityManager.html#getValidationKey">ValidationKey</a>数据的HMAC。</td>
+  <td>CSecurityManager</td>
+</tr>
+<tr id="generateRandomKey">
+  <td><a href="CSecurityManager.html#generateRandomKey-detail">generateRandomKey()</a></td>
+  <td></td>
+  <td>CSecurityManager</td>
+</tr>
+<tr id="openCryptModule">
+  <td><a href="CSecurityManager.html#openCryptModule-detail">openCryptModule()</a></td>
+  <td>根据指定配置打开<a href="CSecurityManager.html#cryptAlgorithm">cryptAlgorithm</a>指定的配置mcrypt的模块。</td>
+  <td>CSecurityManager</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>属性详细</h2>
+<div class="detailHeader" id="cryptAlgorithm-detail">
+cryptAlgorithm<span class="detailHeaderTag">
+属性
+（可用自 v1.1.3）
+</span>
+</div>
+
+<div class="signature">
+public mixed <b>$cryptAlgorithm</b>;</div>
+
+<p>用于<a href="CSecurityManager.html#encrypt">encrypt</a>和<a href="CSecurityManager.html#decrypt">decrypt</a>的加密算法名字。
+这个会作为第一个参数传递给<a href="http://php.net/manual/en/function.mcrypt-module-open.php">mcrypt_module_open</a>。
+<br/><br/>
+这个属性也可以配置为数组。这种情况下，数组元素会作为参数按顺序传递给mcrypt_module_open。
+例如，<code>array('rijndael-256', '', 'ofb', '')</code>。
+<br/><br/>
+默认是‘des’，意味着使用DES加密算法。</p>
+
+
+<div class="detailHeader" id="encryptionKey-detail">
+encryptionKey<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CSecurityManager.html#getEncryptionKey"><b>getEncryptionKey</b></a>()<br/>public void <a href="CSecurityManager.html#setEncryptionKey"><b>setEncryptionKey</b></a>(string $value)</div>
+
+<p>用来加密/解密数据的私钥。
+如果没有明确指定密钥，那么会生成和使用随机密钥。</p>
+
+
+<div class="detailHeader" id="hashAlgorithm-detail">
+hashAlgorithm<span class="detailHeaderTag">
+属性
+（可用自 v1.1.3）
+</span>
+</div>
+
+<div class="signature">
+public string <b>$hashAlgorithm</b>;</div>
+
+<p>用于<a href="CSecurityManager.html#computeHMAC">computeHMAC</a>的哈希算法名字。
+参见<a href="http://php.net/manual/en/function.hash-algos.php">hash-algos</a>查看可使用的哈希算法。
+注意，如果你使用PHP 5.1.1或更低版本，只能使用‘sha1’或者‘md5’。
+<br/><br/>
+默认是‘sha1’，意味着使用SHA1哈希算法。</p>
+
+
+<div class="detailHeader" id="validation-detail">
+validation<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CSecurityManager.html#getValidation"><b>getValidation</b></a>()<br/>public void <a href="CSecurityManager.html#setValidation"><b>setValidation</b></a>(string $value)</div>
+
+<p>这个方法自版本1.1.3被弃用。
+请另用<a href="CSecurityManager.html#hashAlgorithm">hashAlgorithm</a>代替。</p>
+
+
+<div class="detailHeader" id="validationKey-detail">
+validationKey<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CSecurityManager.html#getValidationKey"><b>getValidationKey</b></a>()<br/>public void <a href="CSecurityManager.html#setValidationKey"><b>setValidationKey</b></a>(string $value)</div>
+
+<p>用来生成HMAC的私钥。
+如果没有明确指定密钥，那么会生成和使用随机密钥。</p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="computeHMAC-detail">
+computeHMAC()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected string <b>computeHMAC</b>(string $data, string $key=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">用来生成HMAC的数据</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">用来生成HMAC的私钥。默认为null，意味着使用<a href="CSecurityManager.html#validationKey">validationKey</a>。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">数据的HMAC</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#280">framework/base/CSecurityManager.php#280</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">computeHMAC</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$key</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getValidationKey</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'hash_hmac'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">hash_hmac</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hashAlgorithm</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hashAlgorithm</span><span style="color: #007700">,</span><span style="color: #DD0000">'sha1'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pack</span><span style="color: #007700">=</span><span style="color: #DD0000">'H40'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">=</span><span style="color: #DD0000">'sha1'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pack</span><span style="color: #007700">=</span><span style="color: #DD0000">'H32'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">=</span><span style="color: #DD0000">'md5'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">)&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">64</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">pack</span><span style="color: #007700">(</span><span style="color: #0000BB">$pack</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">)&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">64</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">str_pad</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">64</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">64</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">((</span><span style="color: #0000BB">str_repeat</span><span style="color: #007700">(</span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">0x5C</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">64</span><span style="color: #007700">)&nbsp;^&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">pack</span><span style="color: #007700">(</span><span style="color: #0000BB">$pack</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">((</span><span style="color: #0000BB">str_repeat</span><span style="color: #007700">(</span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">0x36</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">64</span><span style="color: #007700">)&nbsp;^&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">)));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>计算<a href="CSecurityManager.html#getValidationKey">ValidationKey</a>数据的HMAC。</p>
+
+
+<div class="detailHeader" id="decrypt-detail">
+decrypt()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>decrypt</b>(string $data, string $key=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">要解密的数据。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">解密密钥。默认为null，意味着使用<a href="CSecurityManager.html#getEncryptionKey">EncryptionKey</a>。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">解密的数据</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#206">framework/base/CSecurityManager.php#206</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">decrypt</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$module</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">openCryptModule</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">md5</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getEncryptionKey</span><span style="color: #007700">())&nbsp;:&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">mcrypt_enc_get_key_size</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ivSize</span><span style="color: #007700">=</span><span style="color: #0000BB">mcrypt_enc_get_iv_size</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$iv</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$ivSize</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mcrypt_generic_init</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">,</span><span style="color: #0000BB">$iv</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$decrypted</span><span style="color: #007700">=</span><span style="color: #0000BB">mdecrypt_generic</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$ivSize</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">)));<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mcrypt_generic_deinit</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mcrypt_module_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">rtrim</span><span style="color: #007700">(</span><span style="color: #0000BB">$decrypted</span><span style="color: #007700">,</span><span style="color: #DD0000">"\0"</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>解密数据</p>
+
+
+<div class="detailHeader" id="encrypt-detail">
+encrypt()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>encrypt</b>(string $data, string $key=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">要加密的数据。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">加密密钥。默认为null，意味着使用<a href="CSecurityManager.html#getEncryptionKey">EncryptionKey</a>。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">加密的数据</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#186">framework/base/CSecurityManager.php#186</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">encrypt</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$module</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">openCryptModule</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">md5</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getEncryptionKey</span><span style="color: #007700">())&nbsp;:&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">mcrypt_enc_get_key_size</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">srand</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$iv</span><span style="color: #007700">=</span><span style="color: #0000BB">mcrypt_create_iv</span><span style="color: #007700">(</span><span style="color: #0000BB">mcrypt_enc_get_iv_size</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">MCRYPT_RAND</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mcrypt_generic_init</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">,</span><span style="color: #0000BB">$iv</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$encrypted</span><span style="color: #007700">=</span><span style="color: #0000BB">$iv</span><span style="color: #007700">.</span><span style="color: #0000BB">mcrypt_generic</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mcrypt_generic_deinit</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mcrypt_module_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$module</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$encrypted</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>加密数据。</p>
+
+
+<div class="detailHeader" id="generateRandomKey-detail">
+generateRandomKey()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected string <b>generateRandomKey</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">随机生成的私钥</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#86">framework/base/CSecurityManager.php#86</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">generateRandomKey</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">'%08x%08x%08x%08x'</span><span style="color: #007700">,</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(),</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(),</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(),</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">());<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getEncryptionKey-detail">
+getEncryptionKey()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getEncryptionKey</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">用来加密/解密数据的私钥。
+如果没有明确指定密钥，那么会生成和使用随机密钥。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#129">framework/base/CSecurityManager.php#129</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getEncryptionKey</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_encryptionKey</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_encryptionKey</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getGlobalState</span><span style="color: #007700">(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">STATE_ENCRYPTION_KEY</span><span style="color: #007700">))!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setEncryptionKey</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">generateRandomKey</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setEncryptionKey</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">setGlobalState</span><span style="color: #007700">(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">STATE_ENCRYPTION_KEY</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_encryptionKey</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getValidation-detail">
+getValidation()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getValidation</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol"></td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#164">framework/base/CSecurityManager.php#164</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getValidation</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hashAlgorithm</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>这个方法自版本1.1.3被弃用。
+请另用<a href="CSecurityManager.html#hashAlgorithm">hashAlgorithm</a>代替。</p>
+
+
+<div class="detailHeader" id="getValidationKey-detail">
+getValidationKey()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getValidationKey</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">用来生成HMAC的私钥。
+如果没有明确指定密钥，那么会生成和使用随机密钥。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#95">framework/base/CSecurityManager.php#95</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getValidationKey</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_validationKey</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_validationKey</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getGlobalState</span><span style="color: #007700">(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">STATE_VALIDATION_KEY</span><span style="color: #007700">))!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setValidationKey</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">generateRandomKey</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setValidationKey</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">setGlobalState</span><span style="color: #007700">(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">STATE_VALIDATION_KEY</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_validationKey</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="hashData-detail">
+hashData()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>hashData</b>(string $data, string $key=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">要哈希的数据。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">用来生成HMAC的私钥。默认为 null，意味着使用<a href="CSecurityManager.html#validationKey">validationKey</a>。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">以HMAC为前缀的数据</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#248">framework/base/CSecurityManager.php#248</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">hashData</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">computeHMAC</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">).</span><span style="color: #0000BB">$data</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>将HMAC作为数据的前缀。</p>
+
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#77">framework/base/CSecurityManager.php#77</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_mbstring</span><span style="color: #007700">=</span><span style="color: #0000BB">extension_loaded</span><span style="color: #007700">(</span><span style="color: #DD0000">'mbstring'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="openCryptModule-detail">
+openCryptModule()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.3）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected resource <b>openCryptModule</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">resource</td>
+  <td class="paramDescCol">mycrypt 模块处理。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#224">framework/base/CSecurityManager.php#224</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">openCryptModule</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">extension_loaded</span><span style="color: #007700">(</span><span style="color: #DD0000">'mcrypt'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cryptAlgorithm</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$module</span><span style="color: #007700">=@</span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'mcrypt_module_open'</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cryptAlgorithm</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$module</span><span style="color: #007700">=@</span><span style="color: #0000BB">mcrypt_module_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cryptAlgorithm</span><span style="color: #007700">,</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MCRYPT_MODE_CBC</span><span style="color: #007700">,</span><span style="color: #DD0000">''</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$module</span><span style="color: #007700">===</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Failed&nbsp;to&nbsp;initialize&nbsp;the&nbsp;mcrypt&nbsp;module.'</span><span style="color: #007700">));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$module</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CSecurityManager&nbsp;requires&nbsp;PHP&nbsp;mcrypt&nbsp;extension&nbsp;to&nbsp;be&nbsp;loaded&nbsp;in&nbsp;order&nbsp;to&nbsp;use&nbsp;data&nbsp;encryption&nbsp;feature.'</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>根据指定配置打开<a href="CSecurityManager.html#cryptAlgorithm">cryptAlgorithm</a>指定的配置mcrypt的模块。</p>
+
+
+<div class="detailHeader" id="setEncryptionKey-detail">
+setEncryptionKey()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setEncryptionKey</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">用于加密/解密数据的密钥。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#151">framework/base/CSecurityManager.php#151</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setEncryptionKey</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!empty(</span><span style="color: #0000BB">$value</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_encryptionKey</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CSecurityManager.encryptionKey&nbsp;cannot&nbsp;be&nbsp;empty.'</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="setValidation-detail">
+setValidation()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setValidation</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">-</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#174">framework/base/CSecurityManager.php#174</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setValidation</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hashAlgorithm</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>这个方法自版本1.1.3被弃用。
+请另用<a href="CSecurityManager.html#hashAlgorithm">hashAlgorithm</a>代替。</p>
+
+
+<div class="detailHeader" id="setValidationKey-detail">
+setValidationKey()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setValidationKey</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">用来产生HMAC的密钥</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#117">framework/base/CSecurityManager.php#117</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setValidationKey</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!empty(</span><span style="color: #0000BB">$value</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_validationKey</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CSecurityManager.validationKey&nbsp;cannot&nbsp;be&nbsp;empty.'</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="validateData-detail">
+validateData()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>validateData</b>(string $data, string $key=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">要验证的数据。
+数据一定是事前使用<a href="CSecurityManager.html#hashData">hashData()</a>来生成的。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">用来生成HMAC的私钥。默认为null，意味着使用<a href="CSecurityManager.html#validationKey">validationKey</a>。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">与HMAC剥离的真实数据。
+如果数据被篡改过，则返回 false。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/CSecurityManager.php#261">framework/base/CSecurityManager.php#261</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">validateData</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$len</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">computeHMAC</span><span style="color: #007700">(</span><span style="color: #DD0000">'test'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">)&gt;=</span><span style="color: #0000BB">$len</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$hmac</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$len</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$data2</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$len</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$hmac</span><span style="color: #007700">===</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">computeHMAC</span><span style="color: #007700">(</span><span style="color: #0000BB">$data2</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">)?</span><span style="color: #0000BB">$data2</span><span style="color: #007700">:</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>验证数据是否被篡改过。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

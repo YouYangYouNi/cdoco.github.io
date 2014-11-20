@@ -1,0 +1,1105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CConsoleCommand</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CConsoleCommand</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.console">system.console</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>abstract class CConsoleCommand &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>子类</th>
+  <td><a href="CHelpCommand.html">CHelpCommand</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CConsoleCommand.php 3548 2012-01-24 11:42:59Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php">framework/console/CConsoleCommand.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CConsoleCommand代表一个可执行的控制台命令。
+<br/><br/>
+它的工作原理跟<a href="CController.html">CController</a>一样，通过解析命令行选项和根据适当的选项值将
+请求调度到一个指定的动作。
+<br/><br/>
+用户通过以下命令格式来调用控制台命令：
+<pre>
+yiic CommandName ActionName --Option1=Value1 --Option2=Value2 ...
+</pre>
+<br/><br/>
+子类主要实现各种动作方法，这个动作方法名必 须以“action”作为前缀。
+传递给动作方法的参数被认为是指定动作的选项。
+通过指定<a href="CConsoleCommand.html#defaultAction">defaultAction</a>来实现当用户没有在命令里面明确调用某个命令时
+默认会调用哪个动作。
+<br/><br/>
+选项通过参数名称绑定到动作参数。例如，下面
+的动作方法会允许我们运行命令<code>yiic sitemap --type=News</code>:
+<pre>
+class SitemapCommand {
+    public function actionIndex($type) {
+        ....
+    }
+}
+</pre></div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="commandRunner">
+  <td><a href="CConsoleCommand.html#commandRunner-detail">commandRunner</a></td>
+  <td><a href="CConsoleCommandRunner.html">CConsoleCommandRunner</a></td>
+  <td>命令执行对象的实例</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="defaultAction">
+  <td><a href="CConsoleCommand.html#defaultAction-detail">defaultAction</a></td>
+  <td>string</td>
+  <td>默认动作的名字。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="help">
+  <td><a href="CConsoleCommand.html#help-detail">help</a></td>
+  <td>string</td>
+  <td>提供命令描述。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="name">
+  <td><a href="CConsoleCommand.html#name-detail">name</a></td>
+  <td>string</td>
+  <td>命令名字。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="optionHelp">
+  <td><a href="CConsoleCommand.html#optionHelp-detail">optionHelp</a></td>
+  <td>array</td>
+  <td>提供命令帮助信息选项。</td>
+  <td>CConsoleCommand</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>如果类中没有调的方法名，则调用这个方法。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="__construct">
+  <td><a href="CConsoleCommand.html#__construct-detail">__construct()</a></td>
+  <td>构造方法。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>返回一个属性值、一个事件处理程序列表或一个行为名称。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>检查一个属性是否为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>设置一个组件的属性值。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>设置一个组件的属性为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>返回这个名字的行为对象。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>附加一个行为到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>附加一个行为列表到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>为事件附加一个事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="buildFileList">
+  <td><a href="CConsoleCommand.html#buildFileList-detail">buildFileList()</a></td>
+  <td>建立目录的文件列表。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>确定属性是否可读。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>确定属性是否可写。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="confirm">
+  <td><a href="CConsoleCommand.html#confirm-detail">confirm()</a></td>
+  <td>通过输入y或者n来询问用户确定。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="copyFiles">
+  <td><a href="CConsoleCommand.html#copyFiles-detail">copyFiles()</a></td>
+  <td>将文件从一个地方复制到另一个地方。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>从组件中分离一个行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>从组件中分离所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>分离一个存在的事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>禁用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>禁用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>启用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>启用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="ensureDirectory">
+  <td><a href="CConsoleCommand.html#ensureDirectory-detail">ensureDirectory()</a></td>
+  <td>所有的父目录中如果哪个不存在，则创建它。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>计算一个PHP表达式，或根据组件上下文执行回调。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getCommandRunner">
+  <td><a href="CConsoleCommand.html#getCommandRunner-detail">getCommandRunner()</a></td>
+  <td>返回命令执行对象的实例</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>返回一个事件的附加处理程序列表。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getHelp">
+  <td><a href="CConsoleCommand.html#getHelp-detail">getHelp()</a></td>
+  <td>提供命令描述。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="getName">
+  <td><a href="CConsoleCommand.html#getName-detail">getName()</a></td>
+  <td>返回命令名字。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="getOptionHelp">
+  <td><a href="CConsoleCommand.html#getOptionHelp-detail">getOptionHelp()</a></td>
+  <td>提供命令帮助信息选项。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>确定一个事件是否定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>检查事件是否有附加的处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>确定属性是否被定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CConsoleCommand.html#init-detail">init()</a></td>
+  <td>初始化命令对象。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="pluralize">
+  <td><a href="CConsoleCommand.html#pluralize-detail">pluralize()</a></td>
+  <td>将单词转换为它的复数形式。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="prompt">
+  <td><a href="CConsoleCommand.html#prompt-detail">prompt()</a></td>
+  <td>如果readline这个PHP扩展可用，则通过它读取输入的内容，否则通过fgets()来读取。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>发起一个事件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="renderFile">
+  <td><a href="CConsoleCommand.html#renderFile-detail">renderFile()</a></td>
+  <td>渲染一个视图文件。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="run">
+  <td><a href="CConsoleCommand.html#run-detail">run()</a></td>
+  <td>执行命令。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="usageError">
+  <td><a href="CConsoleCommand.html#usageError-detail">usageError()</a></td>
+  <td>显示一个运行错误。</td>
+  <td>CConsoleCommand</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="afterAction">
+  <td><a href="CConsoleCommand.html#afterAction-detail">afterAction()</a></td>
+  <td>这个方法会在一个动作执行完成后发起。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="beforeAction">
+  <td><a href="CConsoleCommand.html#beforeAction-detail">beforeAction()</a></td>
+  <td>这个方法会在一个动作执行前发起。</td>
+  <td>CConsoleCommand</td>
+</tr>
+<tr id="resolveRequest">
+  <td><a href="CConsoleCommand.html#resolveRequest-detail">resolveRequest()</a></td>
+  <td>解析命令行参数然后决定要运行哪个动作。</td>
+  <td>CConsoleCommand</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>属性详细</h2>
+<div class="detailHeader" id="commandRunner-detail">
+commandRunner<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CConsoleCommandRunner.html">CConsoleCommandRunner</a> <a href="CConsoleCommand.html#getCommandRunner"><b>getCommandRunner</b></a>()</div>
+
+<p>命令执行对象的实例</p>
+
+
+<div class="detailHeader" id="defaultAction-detail">
+defaultAction<span class="detailHeaderTag">
+属性
+（可用自 v1.1.5）
+</span>
+</div>
+
+<div class="signature">
+public string <b>$defaultAction</b>;</div>
+
+<p>默认动作的名字。</p>
+
+
+<div class="detailHeader" id="help-detail">
+help<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CConsoleCommand.html#getHelp"><b>getHelp</b></a>()</div>
+
+<p>提供命令描述。
+这个方法可被重写，然后返回实际的命令描述。</p>
+
+
+<div class="detailHeader" id="name-detail">
+name<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CConsoleCommand.html#getName"><b>getName</b></a>()</div>
+
+<p>命令名字。</p>
+
+
+<div class="detailHeader" id="optionHelp-detail">
+optionHelp<span class="detailHeaderTag">
+属性
+ <em>只读</em> （可用自 v1.1.5）
+</span>
+</div>
+
+<div class="signature">
+public array <a href="CConsoleCommand.html#getOptionHelp"><b>getOptionHelp</b></a>()</div>
+
+<p>提供命令帮助信息选项。
+默认实现的是返回所有可用的动作，
+同时返回相关的选项信息。</p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="__construct-detail">
+__construct()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>__construct</b>(string $name, <a href="CConsoleCommandRunner.html">CConsoleCommandRunner</a> $runner)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">命令名字</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$runner</td>
+  <td class="paramTypeCol"><a href="CConsoleCommandRunner.html">CConsoleCommandRunner</a></td>
+  <td class="paramDescCol">命令执行对象</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#64">framework/console/CConsoleCommand.php#64</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$runner</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_name</span><span style="color: #007700">=</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_runner</span><span style="color: #007700">=</span><span style="color: #0000BB">$runner</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>构造方法。</p>
+
+
+<div class="detailHeader" id="afterAction-detail">
+afterAction()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>afterAction</b>(string $action, array $params)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$action</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">动作名字</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">传递给动作方法的参数。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#164">framework/console/CConsoleCommand.php#164</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">afterAction</span><span style="color: #007700">(</span><span style="color: #0000BB">$action</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>这个方法会在一个动作执行完成后发起。
+你可以重写这个方法在动作之后来做一些最后处理。</p>
+
+
+<div class="detailHeader" id="beforeAction-detail">
+beforeAction()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected boolean <b>beforeAction</b>(string $action, array $params)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$action</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">动作名字</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">传递给动作方法的参数。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">返回值说明这个动作是否会执行。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#153">framework/console/CConsoleCommand.php#153</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">beforeAction</span><span style="color: #007700">(</span><span style="color: #0000BB">$action</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>这个方法会在一个动作执行前发起。
+你可以重写这个方法，使它在动作执行前来做一些处理。</p>
+
+
+<div class="detailHeader" id="buildFileList-detail">
+buildFileList()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>buildFileList</b>(string $sourceDir, string $targetDir, string $baseDir='')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$sourceDir</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">源目录</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$targetDir</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">目标目录</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$baseDir</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">根目录</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">文件列表（参考<a href="CConsoleCommand.html#copyFiles">copyFiles</a>）</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#375">framework/console/CConsoleCommand.php#375</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">buildFileList</span><span style="color: #007700">(</span><span style="color: #0000BB">$sourceDir</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$targetDir</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$baseDir</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$list</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$handle</span><span style="color: #007700">=</span><span style="color: #0000BB">opendir</span><span style="color: #007700">(</span><span style="color: #0000BB">$sourceDir</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;while((</span><span style="color: #0000BB">$file</span><span style="color: #007700">=</span><span style="color: #0000BB">readdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">===</span><span style="color: #DD0000">'.'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">===</span><span style="color: #DD0000">'..'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">===</span><span style="color: #DD0000">'.svn'&nbsp;</span><span style="color: #007700">||</span><span style="color: #0000BB">$file</span><span style="color: #007700">===</span><span style="color: #DD0000">'.yii'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sourcePath</span><span style="color: #007700">=</span><span style="color: #0000BB">$sourceDir</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$targetPath</span><span style="color: #007700">=</span><span style="color: #0000BB">$targetDir</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$baseDir</span><span style="color: #007700">===</span><span style="color: #DD0000">''</span><span style="color: #007700">?</span><span style="color: #0000BB">$file&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">$baseDir</span><span style="color: #007700">.</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$list</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=array(</span><span style="color: #DD0000">'source'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$sourcePath</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'target'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$targetPath</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_dir</span><span style="color: #007700">(</span><span style="color: #0000BB">$sourcePath</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$list</span><span style="color: #007700">=</span><span style="color: #0000BB">array_merge</span><span style="color: #007700">(</span><span style="color: #0000BB">$list</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">buildFileList</span><span style="color: #007700">(</span><span style="color: #0000BB">$sourcePath</span><span style="color: #007700">,</span><span style="color: #0000BB">$targetPath</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">closedir</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$list</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>建立目录的文件列表。
+这个方法遍历指定的目录，
+然后建立文件列表和它们包含的子目录。
+这个方法的结果可以传递给<a href="CConsoleCommand.html#copyFiles">copyFiles</a>。</p>
+
+
+<div class="detailHeader" id="confirm-detail">
+confirm()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.9）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public bool <b>confirm</b>(string $message)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$message</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">在用户输入之前输出的内容</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">bool</td>
+  <td class="paramDescCol">返回值说明用户是否确定。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#497">framework/console/CConsoleCommand.php#497</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">confirm</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$message</span><span style="color: #007700">.</span><span style="color: #DD0000">'&nbsp;[yes|no]&nbsp;'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;!</span><span style="color: #0000BB">strncasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">fgets</span><span style="color: #007700">(</span><span style="color: #0000BB">STDIN</span><span style="color: #007700">)),</span><span style="color: #DD0000">'y'</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>通过输入y或者n来询问用户确定。</p>
+
+
+<div class="detailHeader" id="copyFiles-detail">
+copyFiles()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>copyFiles</b>(array $fileList)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$fileList</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">要复制的文件列表（名字＝》说明）。
+在复制过程中，数组键名是显示出来的名字，数组键值是复制的
+文件的规格。每一个数组值一定是以下的数组结构：
+<ul>
+<li>源：必须提供, 要复制的源文件/目录的完整路径</li>
+<li>目录：必须提供，要复制去的目标文件/目录的完整路径</li>
+<li>回调: 可选，当复制文件的时候要调用的回调函数。
+  这个回调函数应该如下面定义：
+  <pre>
+  function foo($source,$params)
+  </pre>
+  $source参数是源文件路径，
+  函数返回的内容会被保存到目标文件。</li>
+<li>参数：可选，要传递给回调的参数。</li>
+</ul></td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#306">framework/console/CConsoleCommand.php#306</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">copyFiles</span><span style="color: #007700">(</span><span style="color: #0000BB">$fileList</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$overwriteAll</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$fileList&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$file</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$source</span><span style="color: #007700">=</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">[</span><span style="color: #DD0000">'source'</span><span style="color: #007700">],</span><span style="color: #DD0000">'/\\'</span><span style="color: #007700">,</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$target</span><span style="color: #007700">=</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">[</span><span style="color: #DD0000">'target'</span><span style="color: #007700">],</span><span style="color: #DD0000">'/\\'</span><span style="color: #007700">,</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$callback</span><span style="color: #007700">=isset(</span><span style="color: #0000BB">$file</span><span style="color: #007700">[</span><span style="color: #DD0000">'callback'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">[</span><span style="color: #DD0000">'callback'</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">=isset(</span><span style="color: #0000BB">$file</span><span style="color: #007700">[</span><span style="color: #DD0000">'params'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">[</span><span style="color: #DD0000">'params'</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_dir</span><span style="color: #007700">(</span><span style="color: #0000BB">$source</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ensureDirectory</span><span style="color: #007700">(</span><span style="color: #0000BB">$target</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$callback</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$content</span><span style="color: #007700">=</span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(</span><span style="color: #0000BB">$callback</span><span style="color: #007700">,</span><span style="color: #0000BB">$source</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$content</span><span style="color: #007700">=</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$source</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$target</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$content</span><span style="color: #007700">===</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$target</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;unchanged&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$overwriteAll</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;overwrite&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exist&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...overwrite?&nbsp;[Yes|No|All|Quit]&nbsp;"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$answer</span><span style="color: #007700">=</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">fgets</span><span style="color: #007700">(</span><span style="color: #0000BB">STDIN</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">strncasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$answer</span><span style="color: #007700">,</span><span style="color: #DD0000">'q'</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(!</span><span style="color: #0000BB">strncasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$answer</span><span style="color: #007700">,</span><span style="color: #DD0000">'y'</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;overwrite&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(!</span><span style="color: #0000BB">strncasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$answer</span><span style="color: #007700">,</span><span style="color: #DD0000">'a'</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;overwrite&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$overwriteAll</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skip&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ensureDirectory</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">$target</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;&nbsp;generate&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$target</span><span style="color: #007700">,</span><span style="color: #0000BB">$content</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>将文件从一个地方复制到另一个地方。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="CConsoleCommand.html#buildFileList">buildFileList</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="ensureDirectory-detail">
+ensureDirectory()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>ensureDirectory</b>(string $directory)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$directory</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">要检查的目录</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#398">framework/console/CConsoleCommand.php#398</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">ensureDirectory</span><span style="color: #007700">(</span><span style="color: #0000BB">$directory</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">is_dir</span><span style="color: #007700">(</span><span style="color: #0000BB">$directory</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ensureDirectory</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">$directory</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mkdir&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #0000BB">$directory</span><span style="color: #007700">,</span><span style="color: #DD0000">'\\'</span><span style="color: #007700">,</span><span style="color: #DD0000">'/'</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mkdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$directory</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>所有的父目录中如果哪个不存在，则创建它。</p>
+
+
+<div class="detailHeader" id="getCommandRunner-detail">
+getCommandRunner()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CConsoleCommandRunner.html">CConsoleCommandRunner</a> <b>getCommandRunner</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CConsoleCommandRunner.html">CConsoleCommandRunner</a></td>
+  <td class="paramDescCol">命令执行对象的实例</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#215">framework/console/CConsoleCommand.php#215</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCommandRunner</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_runner</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getHelp-detail">
+getHelp()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getHelp</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">命令描述。默认是‘Usage: php entry-script.php command-name’。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#225">framework/console/CConsoleCommand.php#225</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getHelp</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$help</span><span style="color: #007700">=</span><span style="color: #DD0000">'Usage:&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCommandRunner</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getScriptName</span><span style="color: #007700">().</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOptionHelp</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(empty(</span><span style="color: #0000BB">$options</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$help</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">)===</span><span style="color: #0000BB">1</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$help</span><span style="color: #007700">.</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$help</span><span style="color: #007700">.=</span><span style="color: #DD0000">"&nbsp;&lt;action&gt;\nActions:\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$options&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$option</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$help</span><span style="color: #007700">.=</span><span style="color: #DD0000">'&nbsp;&nbsp;&nbsp;&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$option</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$help</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>提供命令描述。
+这个方法可被重写，然后返回实际的命令描述。</p>
+
+
+<div class="detailHeader" id="getName-detail">
+getName()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">命令名字。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#207">framework/console/CConsoleCommand.php#207</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getName</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_name</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getOptionHelp-detail">
+getOptionHelp()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.5）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getOptionHelp</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">命令帮助信息选项。每一个数组元素描述了
+一个独立的动作帮助信息。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#247">framework/console/CConsoleCommand.php#247</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getOptionHelp</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$class</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMethods</span><span style="color: #007700">(</span><span style="color: #0000BB">ReflectionMethod</span><span style="color: #007700">::</span><span style="color: #0000BB">IS_PUBLIC</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$method</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$method</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">strncasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #DD0000">'action'</span><span style="color: #007700">,</span><span style="color: #0000BB">6</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&gt;</span><span style="color: #0000BB">6</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">6</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]=</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$help</span><span style="color: #007700">=</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$method</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParameters</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$param</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$optional</span><span style="color: #007700">=</span><span style="color: #0000BB">$param</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isDefaultValueAvailable</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">=</span><span style="color: #0000BB">$optional&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">$param</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getDefaultValue</span><span style="color: #007700">()&nbsp;:&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$param</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$optional</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$help</span><span style="color: #007700">.=</span><span style="color: #DD0000">"&nbsp;[--</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">=</span><span style="color: #0000BB">$defaultValue</span><span style="color: #DD0000">]"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$help</span><span style="color: #007700">.=</span><span style="color: #DD0000">"&nbsp;--</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">=value"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$help</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>提供命令帮助信息选项。
+默认实现的是返回所有可用的动作，
+同时返回相关的选项信息。</p>
+
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.6）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#76">framework/console/CConsoleCommand.php#76</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>初始化命令对象。
+这个方法是在命令对象被创建然后根据配置初始化之后执行的。
+你可以重写这个方法，使它在命令执行之前来做更多的处理。</p>
+
+
+<div class="detailHeader" id="pluralize-detail">
+pluralize()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>pluralize</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">要变成复数的单词</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">已经变成复数的单词</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#437">framework/console/CConsoleCommand.php#437</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">pluralize</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$rules</span><span style="color: #007700">=array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/move$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'moves'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/foot$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'feet'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/child$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'children'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/human$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'humans'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/man$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'men'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/tooth$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'teeth'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/person$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'people'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/([m|l])ouse$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1ice'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(x|ch|ss|sh|us|as|is|os)$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1es'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/([^aeiouy]|qu)y$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1ies'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(?:([^f])fe|([lr])f)$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1\2ves'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(shea|lea|loa|thie)f$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1ves'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/([ti])um$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1a'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(tomat|potat|ech|her|vet)o$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1oes'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(bu)s$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1ses'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(ax|test)is$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1es'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/s$/'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'s'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$rules&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$rule</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$replacement</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">,</span><span style="color: #0000BB">$replacement</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">.</span><span style="color: #DD0000">'s'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>将单词转换为它的复数形式。</p>
+
+
+<div class="detailHeader" id="prompt-detail">
+prompt()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.9）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>prompt</b>(string $message)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$message</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">在用户输入之前输出的内容</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">将整行内容当作字符串返回，如果已经停止输入则返回false。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#474">framework/console/CConsoleCommand.php#474</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">prompt</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">extension_loaded</span><span style="color: #007700">(</span><span style="color: #DD0000">'readline'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$input&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">readline</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">.</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">readline_add_history</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$input</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$message</span><span style="color: #007700">.</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">fgets</span><span style="color: #007700">(</span><span style="color: #0000BB">STDIN</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>如果readline这个PHP扩展可用，则通过它读取输入的内容，否则通过fgets()来读取。</p>
+
+
+<div class="detailHeader" id="renderFile-detail">
+renderFile()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>renderFile</b>(string $_viewFile_, array $_data_=NULL, boolean $_return_=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$_viewFile_</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">视图文件路径</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$_data_</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">要提取的作为视图参数的可选数据</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$_return_</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">要返回渲染结果还是直接显示它</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">如果需要的话，则返回渲染结果。否则返回Null。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#415">framework/console/CConsoleCommand.php#415</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$_viewFile_</span><span style="color: #007700">,</span><span style="color: #0000BB">$_data_</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">$_return_</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$_data_</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">extract</span><span style="color: #007700">(</span><span style="color: #0000BB">$_data_</span><span style="color: #007700">,</span><span style="color: #0000BB">EXTR_PREFIX_SAME</span><span style="color: #007700">,</span><span style="color: #DD0000">'data'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">=</span><span style="color: #0000BB">$_data_</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$_return_</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_start</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_implicit_flush</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;require(</span><span style="color: #0000BB">$_viewFile_</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">ob_get_clean</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;require(</span><span style="color: #0000BB">$_viewFile_</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>渲染一个视图文件。</p>
+
+
+<div class="detailHeader" id="resolveRequest-detail">
+resolveRequest()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.5）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected array <b>resolveRequest</b>(array $args)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$args</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">命令行参数</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">动作名字，已经命名的选项（名字＝》值），还有没有命名的选项</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#174">framework/console/CConsoleCommand.php#174</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">resolveRequest</span><span style="color: #007700">(</span><span style="color: #0000BB">$args</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=array();&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;named&nbsp;parameters<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">=array();&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;unnamed&nbsp;parameters<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$args&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$arg</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #DD0000">'/^--(\w+)(=(.*))?$/'</span><span style="color: #007700">,</span><span style="color: #0000BB">$arg</span><span style="color: #007700">,</span><span style="color: #0000BB">$matches</span><span style="color: #007700">))&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;an&nbsp;option<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$matches</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">=isset(</span><span style="color: #0000BB">$matches</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$matches</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=array(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">][]=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(isset(</span><span style="color: #0000BB">$action</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$arg</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$action</span><span style="color: #007700">=</span><span style="color: #0000BB">$arg</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$action</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$action</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">defaultAction</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(</span><span style="color: #0000BB">$action</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>解析命令行参数然后决定要运行哪个动作。</p>
+
+
+<div class="detailHeader" id="run-detail">
+run()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>run</b>(array $args)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$args</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">这个命令的命令行参数。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#87">framework/console/CConsoleCommand.php#87</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">(</span><span style="color: #0000BB">$args</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;list(</span><span style="color: #0000BB">$action</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$args</span><span style="color: #007700">)=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">resolveRequest</span><span style="color: #007700">(</span><span style="color: #0000BB">$args</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$methodName</span><span style="color: #007700">=</span><span style="color: #DD0000">'action'</span><span style="color: #007700">.</span><span style="color: #0000BB">$action</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #DD0000">'/^\w+$/'</span><span style="color: #007700">,</span><span style="color: #0000BB">$action</span><span style="color: #007700">)&nbsp;||&nbsp;!</span><span style="color: #0000BB">method_exists</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #0000BB">$methodName</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">usageError</span><span style="color: #007700">(</span><span style="color: #DD0000">"Unknown&nbsp;action:&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$action</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$method</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">ReflectionMethod</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #0000BB">$methodName</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;named&nbsp;and&nbsp;unnamed&nbsp;options<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$method</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParameters</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$param</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$param</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$param</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isArray</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">[]=</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;:&nbsp;array(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(!</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">usageError</span><span style="color: #007700">(</span><span style="color: #DD0000">"Option&nbsp;--</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">&nbsp;requires&nbsp;a&nbsp;scalar.&nbsp;Array&nbsp;is&nbsp;given."</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$name</span><span style="color: #007700">===</span><span style="color: #DD0000">'args'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$args</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$param</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isDefaultValueAvailable</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$param</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getDefaultValue</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">usageError</span><span style="color: #007700">(</span><span style="color: #DD0000">"Missing&nbsp;required&nbsp;option&nbsp;--</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">."</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;try&nbsp;global&nbsp;options<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(!empty(</span><span style="color: #0000BB">$options</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$options&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$class</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hasProperty</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$property</span><span style="color: #007700">=</span><span style="color: #0000BB">$class</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProperty</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$property</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isPublic</span><span style="color: #007700">()&nbsp;&amp;&amp;&nbsp;!</span><span style="color: #0000BB">$property</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isStatic</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(!empty(</span><span style="color: #0000BB">$options</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">usageError</span><span style="color: #007700">(</span><span style="color: #DD0000">"Unknown&nbsp;options:&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">',&nbsp;'</span><span style="color: #007700">,</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">)));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">beforeAction</span><span style="color: #007700">(</span><span style="color: #0000BB">$action</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$method</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">invokeArgs</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">afterAction</span><span style="color: #007700">(</span><span style="color: #0000BB">$action</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>执行命令。
+默认实现的是解析输入的参数，
+然后根据命令请求相关的选项值
+调度对应的动作。</p>
+
+
+<div class="detailHeader" id="usageError-detail">
+usageError()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>usageError</b>(string $message)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$message</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">错误信息</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/console/CConsoleCommand.php#281">framework/console/CConsoleCommand.php#281</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">usageError</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error:&nbsp;</span><span style="color: #0000BB">$message</span><span style="color: #DD0000">\n\n"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getHelp</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;exit(</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>显示一个运行错误。
+这个方法会终止当前应用的执行。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

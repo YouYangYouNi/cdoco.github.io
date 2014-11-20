@@ -1,0 +1,1227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>Yii Framework Class Reference</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>类参考</h1>
+
+<table class="summaryTable docIndex">
+<colgroup>
+	<col class="col-package" />
+	<col class="col-class" />
+	<col class="col-description" />
+</colgroup>
+<tr>
+  <th>包</th><th>类</th><th>描述</th>
+</tr>
+<tr>
+  <td rowspan="2"><a name="system"></a>system</td>
+  <td><a href="Yii.html">Yii</a></td>
+  <td>Yii是一个服务于整个框架辅助类。</td>
+</tr>
+<tr>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+  <td>YiiBase是一个助手类，它服务于整个框架。</td>
+</tr>
+<tr>
+  <td rowspan="27"><a name="system.base"></a>system.base</td>
+  <td><a href="CApplication.html">CApplication</a></td>
+  <td>CApplication是所有应用程序类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+  <td>CApplicationComponent是所有应用组件类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+  <td>CBehavior是所有行为类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CComponent.html">CComponent</a></td>
+  <td>CComponent 是所有组件类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CEnumerable.html">CEnumerable</a></td>
+  <td>CEnumerable是所有枚举类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CErrorEvent.html">CErrorEvent</a></td>
+  <td>CErrorEvent表示由<a href="CApplication.html#onError">onError</a>事件产生异常。</td>
+</tr>
+<tr>
+  <td><a href="CErrorHandler.html">CErrorHandler</a></td>
+  <td>CErrorHandler是用来处理未捕获的PHP错误和异常。</td>
+</tr>
+<tr>
+  <td><a href="CEvent.html">CEvent</a></td>
+  <td>CEvent是所有事件类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CException.html">CException</a></td>
+  <td>CException表示一个适合所有情况的异常。</td>
+</tr>
+<tr>
+  <td><a href="CExceptionEvent.html">CExceptionEvent</a></td>
+  <td>CExceptionEvent表示为<a href="CApplication.html#onException">onException</a>事件提供的参数.</td>
+</tr>
+<tr>
+  <td><a href="CHttpException.html">CHttpException</a></td>
+  <td>CHttpException表示由最终用户非法操导致的异常。</td>
+</tr>
+<tr>
+  <td><a href="CModel.html">CModel</a></td>
+  <td>CModel是为数据模型对象提供共同特性的基类。</td>
+</tr>
+<tr>
+  <td><a href="CModelBehavior.html">CModelBehavior</a></td>
+  <td>CModelBehavior是所有模型组件附加行为的基类。</td>
+</tr>
+<tr>
+  <td><a href="CModelEvent.html">CModelEvent</a></td>
+  <td>CModelEvent类.</td>
+</tr>
+<tr>
+  <td><a href="CModule.html">CModule</a></td>
+  <td>CModule是模块和应用程序类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CSecurityManager.html">CSecurityManager</a></td>
+  <td>CSecurityManager提供了私有密钥，哈希和加密功能。</td>
+</tr>
+<tr>
+  <td><a href="CStatePersister.html">CStatePersister</a></td>
+  <td>CStatePersister实现一个基于文件的持久数据存储。</td>
+</tr>
+<tr>
+  <td><a href="IAction.html">IAction</a></td>
+  <td>IAction是控制器动作类必须实现的接口。</td>
+</tr>
+<tr>
+  <td><a href="IApplicationComponent.html">IApplicationComponent</a></td>
+  <td>IApplicationComponent是所有应用组件必须实现的接口。</td>
+</tr>
+<tr>
+  <td><a href="IAuthManager.html">IAuthManager</a></td>
+  <td>IAuthManager是验证管理组件必须实现的接口。</td>
+</tr>
+<tr>
+  <td><a href="IBehavior.html">IBehavior</a></td>
+  <td>IBehavior是所有行为类必须实现的接口。</td>
+</tr>
+<tr>
+  <td><a href="IFilter.html">IFilter</a></td>
+  <td>IFilter是动作过滤器必须实现的接口。</td>
+</tr>
+<tr>
+  <td><a href="IStatePersister.html">IStatePersister</a></td>
+  <td>IStatePersister是持久状态类必须实现的接口。</td>
+</tr>
+<tr>
+  <td><a href="IUserIdentity.html">IUserIdentity</a></td>
+  <td>IUserIdentity接口是由一个用户验证类实现的。</td>
+</tr>
+<tr>
+  <td><a href="IViewRenderer.html">IViewRenderer</a></td>
+  <td>IViewRenderer是视图渲染类必须实现的接口。</td>
+</tr>
+<tr>
+  <td><a href="IWebServiceProvider.html">IWebServiceProvider</a></td>
+  <td>IWebServiceProvider是Web service提供类必须实现的接口。</td>
+</tr>
+<tr>
+  <td><a href="IWebUser.html">IWebUser</a></td>
+  <td>IWebUser是<a href="CWebApplication.html#user">用户应用组件</a>必须实现的接口。</td>
+</tr>
+<tr>
+  <td rowspan="13"><a name="system.caching"></a>system.caching</td>
+  <td><a href="CApcCache.html">CApcCache</a></td>
+  <td>CApcCache为应用程序组件提供APC缓存。</td>
+</tr>
+<tr>
+  <td><a href="CCache.html">CCache</a></td>
+  <td>CCache是用不同的缓存存储实现缓存类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CDbCache.html">CDbCache</a></td>
+  <td>CDbCache以将缓存数据存储在数据库中的方式实现一个缓存应用组件。</td>
+</tr>
+<tr>
+  <td><a href="CDummyCache.html">CDummyCache</a></td>
+  <td>CDummyCache是一个占位缓存组件。</td>
+</tr>
+<tr>
+  <td><a href="CEAcceleratorCache.html">CEAcceleratorCache</a></td>
+  <td>CEAcceleratorCache基于<a href="http://eaccelerator.net/">eaccelerator</a>实现缓存应用模块。</td>
+</tr>
+<tr>
+  <td><a href="CFileCache.html">CFileCache</a></td>
+  <td>CFileCache提供了一个基于文件的缓存机制。</td>
+</tr>
+<tr>
+  <td><a href="CMemCache.html">CMemCache</a></td>
+  <td>CMemCache基于<a href="http://memcached.org/">memcached</a>实现一个缓存应用组件。</td>
+</tr>
+<tr>
+  <td><a href="CMemCacheServerConfiguration.html">CMemCacheServerConfiguration</a></td>
+  <td>CMemCacheServerConfiguration代表单个memcache的服务器的配置数据。</td>
+</tr>
+<tr>
+  <td><a href="CWinCache.html">CWinCache</a></td>
+  <td>CWinCache基于<a href="http://www.iis.net/expand/wincacheforphp">WinCache</a>实现一个缓存应用组件。</td>
+</tr>
+<tr>
+  <td><a href="CXCache.html">CXCache</a></td>
+  <td>CXCache基于<a href="http://xcache.lighttpd.net/">xcache</a>实现一个缓存应用模块。</td>
+</tr>
+<tr>
+  <td><a href="CZendDataCache.html">CZendDataCache</a></td>
+  <td>CZendDataCache基于<a href="http://www.zend.com/en/products/server/">ZendServer</a></td>
+</tr>
+<tr>
+  <td><a href="ICache.html">ICache</a></td>
+  <td>ICache是所有缓存组件必须实现的接口。</td>
+</tr>
+<tr>
+  <td><a href="ICacheDependency.html">ICacheDependency</a></td>
+  <td>ICacheDependency是所有缓存依赖类必须实现的接口。</td>
+</tr>
+<tr>
+  <td rowspan="7"><a name="system.caching.dependencies"></a>system.caching.dependencies</td>
+  <td><a href="CCacheDependency.html">CCacheDependency</a></td>
+  <td>CCacheDependency是所有缓存依赖类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CChainedCacheDependency.html">CChainedCacheDependency</a></td>
+  <td>CChainedCacheDependency指一系列缓存依赖项。</td>
+</tr>
+<tr>
+  <td><a href="CDbCacheDependency.html">CDbCacheDependency</a></td>
+  <td>CDbCacheDependency指基于SQL语句查询结果的依赖项。</td>
+</tr>
+<tr>
+  <td><a href="CDirectoryCacheDependency.html">CDirectoryCacheDependency</a></td>
+  <td>CDirectoryCacheDependency指基于目录改变的依赖项。</td>
+</tr>
+<tr>
+  <td><a href="CExpressionDependency.html">CExpressionDependency</a></td>
+  <td>CExpressionDependency指基于PHP表达式结果的依赖项。</td>
+</tr>
+<tr>
+  <td><a href="CFileCacheDependency.html">CFileCacheDependency</a></td>
+  <td>CFileCacheDependency指基于一个文件最后修改时间的依赖项。</td>
+</tr>
+<tr>
+  <td><a href="CGlobalStateCacheDependency.html">CGlobalStateCacheDependency</a></td>
+  <td>CGlobalStateCacheDependency指基于全局状态值的依赖项。</td>
+</tr>
+<tr>
+  <td rowspan="12"><a name="system.collections"></a>system.collections</td>
+  <td><a href="CAttributeCollection.html">CAttributeCollection</a></td>
+  <td>CAttributeCollection实现了为储存的属性名称和值的集合。</td>
+</tr>
+<tr>
+  <td><a href="CConfiguration.html">CConfiguration</a></td>
+  <td>CConfiguration代表基于数组的配置.</td>
+</tr>
+<tr>
+  <td><a href="CList.html">CList</a></td>
+  <td>CList实现一个整数索引的集合类。</td>
+</tr>
+<tr>
+  <td><a href="CListIterator.html">CListIterator</a></td>
+  <td>CListIterator为<a href="CList.html">CList</a>实现的一个迭代器。</td>
+</tr>
+<tr>
+  <td><a href="CMap.html">CMap</a></td>
+  <td>CMap实现了一个键名－键值对的集合.</td>
+</tr>
+<tr>
+  <td><a href="CMapIterator.html">CMapIterator</a></td>
+  <td>CMapIterator为<a href="CMap.html">CMap</a>实现一个迭代器。</td>
+</tr>
+<tr>
+  <td><a href="CQueue.html">CQueue</a></td>
+  <td>CQueue实现了一个队列。</td>
+</tr>
+<tr>
+  <td><a href="CQueueIterator.html">CQueueIterator</a></td>
+  <td>CQueueIterator 为<a href="CQueue.html">CQueue</a>实现一个迭代器。</td>
+</tr>
+<tr>
+  <td><a href="CStack.html">CStack</a></td>
+  <td>CStack实现一个栈。</td>
+</tr>
+<tr>
+  <td><a href="CStackIterator.html">CStackIterator</a></td>
+  <td>CStackIterator为<a href="CStack.html">CStack</a>实现一个迭代器。</td>
+</tr>
+<tr>
+  <td><a href="CTypedList.html">CTypedList</a></td>
+  <td>CTypedList代表一个项目的某些类型的列表。</td>
+</tr>
+<tr>
+  <td><a href="CTypedMap.html">CTypedMap</a></td>
+  <td>CTypedMap代表一个项目的某些类型的的map。</td>
+</tr>
+<tr>
+  <td rowspan="4"><a name="system.console"></a>system.console</td>
+  <td><a href="CConsoleApplication.html">CConsoleApplication</a></td>
+  <td>CConsoleApplication代表一个控制台应用程序。</td>
+</tr>
+<tr>
+  <td><a href="CConsoleCommand.html">CConsoleCommand</a></td>
+  <td>CConsoleCommand代表一个可执行的控制台命令。</td>
+</tr>
+<tr>
+  <td><a href="CConsoleCommandRunner.html">CConsoleCommandRunner</a></td>
+  <td>CConsoleCommandRunner管理命令和执行请求的命令。</td>
+</tr>
+<tr>
+  <td><a href="CHelpCommand.html">CHelpCommand</a></td>
+  <td>CHelpCommand代表控制台帮助命令。</td>
+</tr>
+<tr>
+  <td rowspan="6"><a name="system.db"></a>system.db</td>
+  <td><a href="CDbCommand.html">CDbCommand</a></td>
+  <td>CDbCommand表示一个针对数据库执行的SQL语句。</td>
+</tr>
+<tr>
+  <td><a href="CDbConnection.html">CDbConnection</a></td>
+  <td>CDbConnection代表一个到数据库的连接。</td>
+</tr>
+<tr>
+  <td><a href="CDbDataReader.html">CDbDataReader</a></td>
+  <td>CDbDataReader代表一个查询结果集的行的只进流。</td>
+</tr>
+<tr>
+  <td><a href="CDbException.html">CDbException</a></td>
+  <td>CDbException代表一个数据库相关操作导致的异常。</td>
+</tr>
+<tr>
+  <td><a href="CDbMigration.html">CDbMigration</a></td>
+  <td>CDbMigration是表示一个数据库迁移的基类。</td>
+</tr>
+<tr>
+  <td><a href="CDbTransaction.html">CDbTransaction</a></td>
+  <td>CDbTransaction表示一个数据库事务。</td>
+</tr>
+<tr>
+  <td rowspan="14"><a name="system.db.ar"></a>system.db.ar</td>
+  <td><a href="CActiveFinder.html">CActiveFinder</a></td>
+  <td>CActiveFinder实现贪婪加载和延迟加载的关系活动记录。</td>
+</tr>
+<tr>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+  <td>CActiveRecord代表关系数据的类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CActiveRecordBehavior.html">CActiveRecordBehavior</a></td>
+  <td>CActiveRecordBehavior是能附加到<a href="CActiveRecord.html">CActiveRecord</a>的行为的基类。</td>
+</tr>
+<tr>
+  <td><a href="CActiveRecordMetaData.html">CActiveRecordMetaData</a></td>
+  <td>CActiveRecordMetaData表示一个活动记录类的源数据。</td>
+</tr>
+<tr>
+  <td><a href="CActiveRelation.html">CActiveRelation</a></td>
+  <td>CActiveRelation是基类，它表示带回相关对象的活动关系。</td>
+</tr>
+<tr>
+  <td><a href="CBaseActiveRelation.html">CBaseActiveRelation</a></td>
+  <td>CBaseActiveRelation是所有活动关系类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CBelongsToRelation.html">CBelongsToRelation</a></td>
+  <td>CBelongsToRelation表示此参数指定一个 BELONGS_TO 关系。</td>
+</tr>
+<tr>
+  <td><a href="CHasManyRelation.html">CHasManyRelation</a></td>
+  <td>CHasManyRelation表示此参数指定一个HAS_MANY 关系。</td>
+</tr>
+<tr>
+  <td><a href="CHasOneRelation.html">CHasOneRelation</a></td>
+  <td>CHasOneRelation表示指定 HAS_ONE 关系的参数。</td>
+</tr>
+<tr>
+  <td><a href="CJoinElement.html">CJoinElement</a></td>
+  <td>CJoinElement表示一个在关联树中由<a href="CActiveFinder.html">CActiveFinder</a>创建的子树节点。</td>
+</tr>
+<tr>
+  <td><a href="CJoinQuery.html">CJoinQuery</a></td>
+  <td>CJoinQuery代表着一个关联查询 SQL 语句。</td>
+</tr>
+<tr>
+  <td><a href="CManyManyRelation.html">CManyManyRelation</a></td>
+  <td>CManyManyRelation表示此参数指定一个 MANY_MANY 关系。</td>
+</tr>
+<tr>
+  <td><a href="CStatElement.html">CStatElement</a></td>
+  <td>CStatElement代表<a href="CActiveFinder.html">CActiveFinder</a>的 STAT 连接元素。</td>
+</tr>
+<tr>
+  <td><a href="CStatRelation.html">CStatRelation</a></td>
+  <td>CStatRelation表示一个统计关系查询。</td>
+</tr>
+<tr>
+  <td rowspan="6"><a name="system.db.schema"></a>system.db.schema</td>
+  <td><a href="CDbColumnSchema.html">CDbColumnSchema</a></td>
+  <td>CDbColumnSchema类描述数据表的列元数据。</td>
+</tr>
+<tr>
+  <td><a href="CDbCommandBuilder.html">CDbCommandBuilder</a></td>
+  <td>CDbCommandBuilder provides basic methods to create query commands for tables.</td>
+</tr>
+<tr>
+  <td><a href="CDbCriteria.html">CDbCriteria</a></td>
+  <td>CDbCriteria represents a query criteria, such as conditions, ordering by, limit/offset.</td>
+</tr>
+<tr>
+  <td><a href="CDbExpression.html">CDbExpression</a></td>
+  <td>CDbExpression指需要转义的数据表达式。</td>
+</tr>
+<tr>
+  <td><a href="CDbSchema.html">CDbSchema</a></td>
+  <td>CDbSchema is the base class for retrieving metadata information.</td>
+</tr>
+<tr>
+  <td><a href="CDbTableSchema.html">CDbTableSchema</a></td>
+  <td>CDbTableSchema是代表数据表元数据的基类。</td>
+</tr>
+<tr>
+  <td rowspan="5"><a name="system.db.schema.mssql"></a>system.db.schema.mssql</td>
+  <td><a href="CMssqlColumnSchema.html">CMssqlColumnSchema</a></td>
+  <td>CMssqlColumnSchema类描述MSSQL表的列元数据。</td>
+</tr>
+<tr>
+  <td><a href="CMssqlCommandBuilder.html">CMssqlCommandBuilder</a></td>
+  <td>CMssqlCommandBuilder提供为MSSQL数据表创建查询语句的基本方法。</td>
+</tr>
+<tr>
+  <td><a href="CMssqlPdoAdapter.html">CMssqlPdoAdapter</a></td>
+  <td>这是一个仅为MSSQL驱动而写的默认PDO类的扩展。</td>
+</tr>
+<tr>
+  <td><a href="CMssqlSchema.html">CMssqlSchema</a></td>
+  <td>CMssqlSchema是从MSSQL数据库检索元数据信息的类。</td>
+</tr>
+<tr>
+  <td><a href="CMssqlTableSchema.html">CMssqlTableSchema</a></td>
+  <td>CMssqlTableSchema指MSSQL表的元数据。</td>
+</tr>
+<tr>
+  <td rowspan="3"><a name="system.db.schema.mysql"></a>system.db.schema.mysql</td>
+  <td><a href="CMysqlColumnSchema.html">CMysqlColumnSchema</a></td>
+  <td>CMysqlColumnSchema类描述MySQL表的列元数据。</td>
+</tr>
+<tr>
+  <td><a href="CMysqlSchema.html">CMysqlSchema</a></td>
+  <td>CMysqlSchema是从MySQL（4.1.x和5.x）数据库检索元数据信息的类。</td>
+</tr>
+<tr>
+  <td><a href="CMysqlTableSchema.html">CMysqlTableSchema</a></td>
+  <td>CMysqlTableSchema指MySQL表的元数据。</td>
+</tr>
+<tr>
+  <td rowspan="4"><a name="system.db.schema.oci"></a>system.db.schema.oci</td>
+  <td><a href="COciColumnSchema.html">COciColumnSchema</a></td>
+  <td>COciColumnSchema类描述Oracle表的列元数据。</td>
+</tr>
+<tr>
+  <td><a href="COciCommandBuilder.html">COciCommandBuilder</a></td>
+  <td>COciCommandBuilder提供为数据表创建查询语句的基本方法。</td>
+</tr>
+<tr>
+  <td><a href="COciSchema.html">COciSchema</a></td>
+  <td>COciSchema是从Oracle数据库检索元数据信息的类。</td>
+</tr>
+<tr>
+  <td><a href="COciTableSchema.html">COciTableSchema</a></td>
+  <td>COciTableSchema指Oracle表的元数据。</td>
+</tr>
+<tr>
+  <td rowspan="3"><a name="system.db.schema.pgsql"></a>system.db.schema.pgsql</td>
+  <td><a href="CPgsqlColumnSchema.html">CPgsqlColumnSchema</a></td>
+  <td>CPgsqlColumnSchema描述PostgreSQL表的列元数据。</td>
+</tr>
+<tr>
+  <td><a href="CPgsqlSchema.html">CPgsqlSchema</a></td>
+  <td>CPgsqlSchema是从PostgreSQL数据库检索元数据信息的类。</td>
+</tr>
+<tr>
+  <td><a href="CPgsqlTableSchema.html">CPgsqlTableSchema</a></td>
+  <td>CPgsqlTable指PostgreSQL表的元数据。</td>
+</tr>
+<tr>
+  <td rowspan="3"><a name="system.db.schema.sqlite"></a>system.db.schema.sqlite</td>
+  <td><a href="CSqliteColumnSchema.html">CSqliteColumnSchema</a></td>
+  <td>CSqliteColumnSchema描述SQLite表的列元数据。</td>
+</tr>
+<tr>
+  <td><a href="CSqliteCommandBuilder.html">CSqliteCommandBuilder</a></td>
+  <td>CSqliteCommandBuilder提供为SQLite表创建查询语句的基本方法。</td>
+</tr>
+<tr>
+  <td><a href="CSqliteSchema.html">CSqliteSchema</a></td>
+  <td>CSqliteSchema是从SQLite（2/3）数据库检索元数据信息的类。</td>
+</tr>
+<tr>
+  <td rowspan="5"><a name="system.gii"></a>system.gii</td>
+  <td><a href="CCodeFile.html">CCodeFile</a></td>
+  <td>CCodeFile表示生成的一个代码文件。</td>
+</tr>
+<tr>
+  <td><a href="CCodeForm.html">CCodeForm</a></td>
+  <td>CCodeForm表示一个用来收集生成代码所需参数的表单。</td>
+</tr>
+<tr>
+  <td><a href="CCodeGenerator.html">CCodeGenerator</a></td>
+  <td>CCodeGenerator是各种代码生成器类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CCodeModel.html">CCodeModel</a></td>
+  <td>CCodeModel是代码生成时用到的各种模型类的基类。</td>
+</tr>
+<tr>
+  <td><a href="GiiModule.html">GiiModule</a></td>
+  <td>GiiModule 是一个模块，它提供基于Web的代码生成功能。</td>
+</tr>
+<tr>
+  <td rowspan="9"><a name="system.i18n"></a>system.i18n</td>
+  <td><a href="CChoiceFormat.html">CChoiceFormat</a></td>
+  <td>CChoiceFormat是一个助手类，可以根据指定的数值来选择一个合适消息。</td>
+</tr>
+<tr>
+  <td><a href="CDateFormatter.html">CDateFormatter</a></td>
+  <td>CDateFormatter提供日期/时间本地化功能。</td>
+</tr>
+<tr>
+  <td><a href="CDbMessageSource.html">CDbMessageSource</a></td>
+  <td>CDbMessageSource代表翻译消息的数据来源存储在数据库中。</td>
+</tr>
+<tr>
+  <td><a href="CGettextMessageSource.html">CGettextMessageSource</a></td>
+  <td>CGettextMessageSource表示信息来源是基于GNU的Gettext。</td>
+</tr>
+<tr>
+  <td><a href="CLocale.html">CLocale</a></td>
+  <td>CLocale代表一个区域的相关数据。</td>
+</tr>
+<tr>
+  <td><a href="CMessageSource.html">CMessageSource</a></td>
+  <td>CMessageSource是消息翻译类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CMissingTranslationEvent.html">CMissingTranslationEvent</a></td>
+  <td>CMissingTranslationEvent代表<a href="CMessageSource.html#onMissingTranslation">onMissingTranslation</a>的事件参数。</td>
+</tr>
+<tr>
+  <td><a href="CNumberFormatter.html">CNumberFormatter</a></td>
+  <td>CNumberFormatter提供数字转换为本地化功能。</td>
+</tr>
+<tr>
+  <td><a href="CPhpMessageSource.html">CPhpMessageSource</a></td>
+  <td>CPhpMessageSource代表翻译的信息和信息源存储在PHP脚本。</td>
+</tr>
+<tr>
+  <td rowspan="3"><a name="system.i18n.gettext"></a>system.i18n.gettext</td>
+  <td><a href="CGettextFile.html">CGettextFile</a></td>
+  <td>CGettextFile是Gettext信息文件的基类。</td>
+</tr>
+<tr>
+  <td><a href="CGettextMoFile.html">CGettextMoFile</a></td>
+  <td>CGettextMoFile代表一个MO的Gettext信息文件。</td>
+</tr>
+<tr>
+  <td><a href="CGettextPoFile.html">CGettextPoFile</a></td>
+  <td>CGettextPoFile代表一个PO的Gettext信息文件。</td>
+</tr>
+<tr>
+  <td rowspan="9"><a name="system.logging"></a>system.logging</td>
+  <td><a href="CDbLogRoute.html">CDbLogRoute</a></td>
+  <td>CDbLogRoute存储日志信息到数据库表中。</td>
+</tr>
+<tr>
+  <td><a href="CEmailLogRoute.html">CEmailLogRoute</a></td>
+  <td>CEmailLogRoute发送已选择的日志信息到email地址。</td>
+</tr>
+<tr>
+  <td><a href="CFileLogRoute.html">CFileLogRoute</a></td>
+  <td>CFileLogRoute用文件记录日志信息。</td>
+</tr>
+<tr>
+  <td><a href="CLogFilter.html">CLogFilter</a></td>
+  <td>CLogFilter在被一个日志路由处理之前预处理已记录的日志信息。</td>
+</tr>
+<tr>
+  <td><a href="CLogRoute.html">CLogRoute</a></td>
+  <td>CLogRoute是所有日志路由类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CLogRouter.html">CLogRouter</a></td>
+  <td>CLogRouter管理用不同媒体记录日志信息的日志路由。</td>
+</tr>
+<tr>
+  <td><a href="CLogger.html">CLogger</a></td>
+  <td>CLogger在内存中记录一条日志信息。</td>
+</tr>
+<tr>
+  <td><a href="CProfileLogRoute.html">CProfileLogRoute</a></td>
+  <td>CProfileLogRoute在网页中显示分析结果。</td>
+</tr>
+<tr>
+  <td><a href="CWebLogRoute.html">CWebLogRoute</a></td>
+  <td>CWebLogRoute显示日志内容到当前网页。</td>
+</tr>
+<tr>
+  <td rowspan="4"><a name="system.test"></a>system.test</td>
+  <td><a href="CDbFixtureManager.html">CDbFixtureManager</a></td>
+  <td>CDbFixtureManager manages database fixtures during tests.</td>
+</tr>
+<tr>
+  <td><a href="CDbTestCase.html">CDbTestCase</a></td>
+  <td>CDbTestCase is the base class for test cases about DB-related features.</td>
+</tr>
+<tr>
+  <td><a href="CTestCase.html">CTestCase</a></td>
+  <td>CTestCase所有测试类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CWebTestCase.html">CWebTestCase</a></td>
+  <td>CWebTestCase is the base class for Web-based functional test case classes.</td>
+</tr>
+<tr>
+  <td rowspan="7"><a name="system.utils"></a>system.utils</td>
+  <td><a href="CDateTimeParser.html">CDateTimeParser</a></td>
+  <td>CDateTimeParser按照给定的模式，将一个日期/时间字符串转换为一个UNIX时间戳。</td>
+</tr>
+<tr>
+  <td><a href="CFileHelper.html">CFileHelper</a></td>
+  <td>CFileHelper提供了一系列用于常用的文件系统操作的助手方法。</td>
+</tr>
+<tr>
+  <td><a href="CFormatter.html">CFormatter</a></td>
+  <td>CFormatter provides a set of commonly used data formatting methods.</td>
+</tr>
+<tr>
+  <td><a href="CMarkdownParser.html">CMarkdownParser</a></td>
+  <td>CMarkdownParser is a wrapper of <a href="http://michelf.com/projects/php-markdown/extra/">MarkdownExtra_Parser</a>.</td>
+</tr>
+<tr>
+  <td><a href="CPropertyValue.html">CPropertyValue</a></td>
+  <td>CPropertyValue是一个助手类，它提供了一系列静态方法以转换组件的属性值为指定的类型。</td>
+</tr>
+<tr>
+  <td><a href="CTimestamp.html">CTimestamp</a></td>
+  <td>CTimestamp represents a timestamp.</td>
+</tr>
+<tr>
+  <td><a href="CVarDumper.html">CVarDumper</a></td>
+  <td>CVarDumper旨在替换简陋的PHP函数var_dump和print_r。</td>
+</tr>
+<tr>
+  <td rowspan="21"><a name="system.validators"></a>system.validators</td>
+  <td><a href="CBooleanValidator.html">CBooleanValidator</a></td>
+  <td>CBooleanValidator 验证<a href="CBooleanValidator.html#trueValue">trueValue</a>或者<a href="CBooleanValidator.html#falseValue">falseValue</a>属性值。</td>
+</tr>
+<tr>
+  <td><a href="CCaptchaValidator.html">CCaptchaValidator</a></td>
+  <td>CCaptchaValidator 用于验证属性值和验证码中显示的一致。</td>
+</tr>
+<tr>
+  <td><a href="CCompareValidator.html">CCompareValidator</a></td>
+  <td>CCompareValidator使用给定的属性值与另一个值进行比较，验证他们是否相等。</td>
+</tr>
+<tr>
+  <td><a href="CDateValidator.html">CDateValidator</a></td>
+  <td>CDateValidator检验此属性是否描述了一个日期、时间或日期时间。</td>
+</tr>
+<tr>
+  <td><a href="CDefaultValueValidator.html">CDefaultValueValidator</a></td>
+  <td>CDefaultValueValidator使用给定的值为属性赋值。</td>
+</tr>
+<tr>
+  <td><a href="CEmailValidator.html">CEmailValidator</a></td>
+  <td>CEmailValidator验证此属性值是否一个有效的email地址。</td>
+</tr>
+<tr>
+  <td><a href="CExistValidator.html">CExistValidator</a></td>
+  <td>CExistValidator验证属性值在数据库中是否存在。</td>
+</tr>
+<tr>
+  <td><a href="CFileValidator.html">CFileValidator</a></td>
+  <td>CFileValidator验证一个属性是否接收到一个有效的上传文件。</td>
+</tr>
+<tr>
+  <td><a href="CFilterValidator.html">CFilterValidator</a></td>
+  <td>CFilterValidator基于一个过滤器将数据进行变换。</td>
+</tr>
+<tr>
+  <td><a href="CInlineValidator.html">CInlineValidator</a></td>
+  <td>CInlineValidator是一个验证器，它作为需要验证的对象中的一个方法被定义。</td>
+</tr>
+<tr>
+  <td><a href="CNumberValidator.html">CNumberValidator</a></td>
+  <td>CNumberValidator验证此属性的值是一个数字。</td>
+</tr>
+<tr>
+  <td><a href="CRangeValidator.html">CRangeValidator</a></td>
+  <td>CRangeValidator验证此属性值在列表之中（通过<a href="CRangeValidator.html#range">range</a>指定）。</td>
+</tr>
+<tr>
+  <td><a href="CRegularExpressionValidator.html">CRegularExpressionValidator</a></td>
+  <td>CRegularExpressionValidator验证此属性值是否与给定的<a href="CRegularExpressionValidator.html#pattern">regular expression</a>相匹配。</td>
+</tr>
+<tr>
+  <td><a href="CRequiredValidator.html">CRequiredValidator</a></td>
+  <td>CRequiredValidator验证指定的属性的值不为null或empty。</td>
+</tr>
+<tr>
+  <td><a href="CSafeValidator.html">CSafeValidator</a></td>
+  <td>CSafeValidator将相应的属性标志为在批量赋值时是安全的。</td>
+</tr>
+<tr>
+  <td><a href="CStringValidator.html">CStringValidator</a></td>
+  <td>CStringValidator验证属性值有确定的长度。</td>
+</tr>
+<tr>
+  <td><a href="CTypeValidator.html">CTypeValidator</a></td>
+  <td>CTypeValidator验证属性的类型是否为<a href="CTypeValidator.html#type">type</a>所指定的类型.</td>
+</tr>
+<tr>
+  <td><a href="CUniqueValidator.html">CUniqueValidator</a></td>
+  <td>CUniqueValidator验证属性值在相关数据库表中是否唯一。</td>
+</tr>
+<tr>
+  <td><a href="CUnsafeValidator.html">CUnsafeValidator</a></td>
+  <td>CUnsafeValidator将相关属性标志为不安全的，所以他们不能被批量赋值。</td>
+</tr>
+<tr>
+  <td><a href="CUrlValidator.html">CUrlValidator</a></td>
+  <td>CUrlValidator验证属性值是一个有效的http或https地址。</td>
+</tr>
+<tr>
+  <td><a href="CValidator.html">CValidator</a></td>
+  <td>CValidator是所有验证器类的基类。</td>
+</tr>
+<tr>
+  <td rowspan="31"><a name="system.web"></a>system.web</td>
+  <td><a href="CActiveDataProvider.html">CActiveDataProvider</a></td>
+  <td>CActiveDataProvider是基于ActiveRecord实现的一个数据数据提供者。</td>
+</tr>
+<tr>
+  <td><a href="CArrayDataProvider.html">CArrayDataProvider</a></td>
+  <td>CArrayDataProvider是基于一个原始数据的数组实现的数据提供者。</td>
+</tr>
+<tr>
+  <td><a href="CAssetManager.html">CAssetManager</a></td>
+  <td>CAssetManager 是一个应用组件，它可以管理私有文件（称之为 assets）并且让用户可以访问到。</td>
+</tr>
+<tr>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+  <td>CBaseController is the base class for <a href="CController.html">CController</a> and <a href="CWidget.html">CWidget</a>.</td>
+</tr>
+<tr>
+  <td><a href="CBaseUrlRule.html">CBaseUrlRule</a></td>
+  <td>CBaseUrlRule is the base class for a URL rule class.</td>
+</tr>
+<tr>
+  <td><a href="CCacheHttpSession.html">CCacheHttpSession</a></td>
+  <td>CCacheHttpSession实现了使用缓存作为存储介质的会话组件。</td>
+</tr>
+<tr>
+  <td><a href="CClientScript.html">CClientScript</a></td>
+  <td>CClientScript manages JavaScript and CSS stylesheets for views.</td>
+</tr>
+<tr>
+  <td><a href="CController.html">CController</a></td>
+  <td>CController manages a set of actions which deal with the corresponding user requests.</td>
+</tr>
+<tr>
+  <td><a href="CCookieCollection.html">CCookieCollection</a></td>
+  <td>CCookieCollection implements a collection class to store cookies.</td>
+</tr>
+<tr>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+  <td>CDataProvider是实现<a href="IDataProvider.html">IDataProvider</a>接口的基类。</td>
+</tr>
+<tr>
+  <td><a href="CDbHttpSession.html">CDbHttpSession</a></td>
+  <td>CDbHttpSession extends <a href="CHttpSession.html">CHttpSession</a> by using database as session data storage.</td>
+</tr>
+<tr>
+  <td><a href="CExtController.html">CExtController</a></td>
+  <td>CExtController是作为扩展分布式控制器的基类。</td>
+</tr>
+<tr>
+  <td><a href="CFormModel.html">CFormModel</a></td>
+  <td>CFormModel代表收集HTML表单输入的数据模型。</td>
+</tr>
+<tr>
+  <td><a href="CHttpCookie.html">CHttpCookie</a></td>
+  <td>一个CHttpCookie实例存储一个cookie，包括cookie的名称，值，域名，路径，过期，和安全。</td>
+</tr>
+<tr>
+  <td><a href="CHttpRequest.html">CHttpRequest</a></td>
+  <td>CHttpRequest encapsulates the $_SERVER variable and resolves its inconsistency among different Web servers.</td>
+</tr>
+<tr>
+  <td><a href="CHttpSession.html">CHttpSession</a></td>
+  <td>CHttpSession provides session-level data management and the related configurations.</td>
+</tr>
+<tr>
+  <td><a href="CHttpSessionIterator.html">CHttpSessionIterator</a></td>
+  <td>CHttpSessionIterator实现一个<a href="CHttpSession.html">CHttpSession</a>的迭代。</td>
+</tr>
+<tr>
+  <td><a href="COutputEvent.html">COutputEvent</a></td>
+  <td>COutputEvent代表与输出处理有关的事件的参数。</td>
+</tr>
+<tr>
+  <td><a href="CPagination.html">CPagination</a></td>
+  <td>CPagination呈现相关信息到页码。</td>
+</tr>
+<tr>
+  <td><a href="CSort.html">CSort</a></td>
+  <td>CSort represents information relevant to sorting.</td>
+</tr>
+<tr>
+  <td><a href="CSqlDataProvider.html">CSqlDataProvider</a></td>
+  <td>CSqlDataProvider实现一个基于纯SQL语句的数据提供者。</td>
+</tr>
+<tr>
+  <td><a href="CTheme.html">CTheme</a></td>
+  <td>CTheme表示一个应用程序主题。</td>
+</tr>
+<tr>
+  <td><a href="CThemeManager.html">CThemeManager</a></td>
+  <td>CThemeManager管理web应用程序的主题。</td>
+</tr>
+<tr>
+  <td><a href="CUploadedFile.html">CUploadedFile</a></td>
+  <td>CUploadedFile represents the information for an uploaded file.</td>
+</tr>
+<tr>
+  <td><a href="CUrlManager.html">CUrlManager</a></td>
+  <td>CUrlManager manages the URLs of Yii Web applications.</td>
+</tr>
+<tr>
+  <td><a href="CUrlRule.html">CUrlRule</a></td>
+  <td>CUrlRule represents a URL formatting/parsing rule.</td>
+</tr>
+<tr>
+  <td><a href="CWebApplication.html">CWebApplication</a></td>
+  <td>CWebApplication extends CApplication by providing functionalities specific to Web requests.</td>
+</tr>
+<tr>
+  <td><a href="CWebModule.html">CWebModule</a></td>
+  <td>CWebModule represents an application module.</td>
+</tr>
+<tr>
+  <td><a href="CWidgetFactory.html">CWidgetFactory</a></td>
+  <td>CWidgetFactory creates new widgets to be used in views.</td>
+</tr>
+<tr>
+  <td><a href="IDataProvider.html">IDataProvider</a></td>
+  <td>IDataProvider是数据提供者类必须实现的接口。</td>
+</tr>
+<tr>
+  <td><a href="IWidgetFactory.html">IWidgetFactory</a></td>
+  <td>IWidgetFactory是挂件工厂类必须实现的接口。</td>
+</tr>
+<tr>
+  <td rowspan="3"><a name="system.web.actions"></a>system.web.actions</td>
+  <td><a href="CAction.html">CAction</a></td>
+  <td>CAction是所有控制器动作类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CInlineAction.html">CInlineAction</a></td>
+  <td>CInlineAction表示一个被定义在控制器中的动作。</td>
+</tr>
+<tr>
+  <td><a href="CViewAction.html">CViewAction</a></td>
+  <td>CViewAction表示一个动作按照用户指定的参数显示一个视图。</td>
+</tr>
+<tr>
+  <td rowspan="10"><a name="system.web.auth"></a>system.web.auth</td>
+  <td><a href="CAccessControlFilter.html">CAccessControlFilter</a></td>
+  <td>CAccessControlFilter执行指定的授权检查操作。</td>
+</tr>
+<tr>
+  <td><a href="CAccessRule.html">CAccessRule</a></td>
+  <td>CAccessRule代表由<a href="CAccessControlFilter.html">CAccessControlFilter</a>管理的访问规则。</td>
+</tr>
+<tr>
+  <td><a href="CAuthAssignment.html">CAuthAssignment</a></td>
+  <td>CAuthAssignment代表分配给用户角色的任务。</td>
+</tr>
+<tr>
+  <td><a href="CAuthItem.html">CAuthItem</a></td>
+  <td>CAuthItem代表的授权项目。</td>
+</tr>
+<tr>
+  <td><a href="CAuthManager.html">CAuthManager</a></td>
+  <td>CAuthManager是授权管理类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CBaseUserIdentity.html">CBaseUserIdentity</a></td>
+  <td>CBaseUserIdentity是<a href="IUserIdentity.html">IUserIdentity</a>基类的实现。</td>
+</tr>
+<tr>
+  <td><a href="CDbAuthManager.html">CDbAuthManager</a></td>
+  <td>CDbAuthManager代表一种在数据库里存储授权信息的授权管理器。</td>
+</tr>
+<tr>
+  <td><a href="CPhpAuthManager.html">CPhpAuthManager</a></td>
+  <td>CPhpAuthManager代表授权信息存储在一个PHP文件的授权管理器。</td>
+</tr>
+<tr>
+  <td><a href="CUserIdentity.html">CUserIdentity</a></td>
+  <td>CUserIdentity是一个基于用户名验证的身份和密码的基类</td>
+</tr>
+<tr>
+  <td><a href="CWebUser.html">CWebUser</a></td>
+  <td>CWebUser代表一个Web应用程序的持久状态。</td>
+</tr>
+<tr>
+  <td rowspan="3"><a name="system.web.filters"></a>system.web.filters</td>
+  <td><a href="CFilter.html">CFilter</a></td>
+  <td>CFilter是所有过滤器的基类。</td>
+</tr>
+<tr>
+  <td><a href="CFilterChain.html">CFilterChain</a></td>
+  <td>CFilterChain代表被应用到一个动作的过滤器列表。</td>
+</tr>
+<tr>
+  <td><a href="CInlineFilter.html">CInlineFilter</a></td>
+  <td>CInlineFilter代表作为控制器的方法定义一个过滤器。</td>
+</tr>
+<tr>
+  <td rowspan="6"><a name="system.web.form"></a>system.web.form</td>
+  <td><a href="CForm.html">CForm</a></td>
+  <td>CForm 代表一个包含指定表单输入的表单对象。</td>
+</tr>
+<tr>
+  <td><a href="CFormButtonElement.html">CFormButtonElement</a></td>
+  <td>CFormButtonElement 代表一个表单按钮元素。</td>
+</tr>
+<tr>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+  <td>CFormElement 是各种表单元素的基类。</td>
+</tr>
+<tr>
+  <td><a href="CFormElementCollection.html">CFormElementCollection</a></td>
+  <td>CFormElementCollection 实现存储表单元素的集合。</td>
+</tr>
+<tr>
+  <td><a href="CFormInputElement.html">CFormInputElement</a></td>
+  <td>CFormInputElement 代表表单输入元素。</td>
+</tr>
+<tr>
+  <td><a href="CFormStringElement.html">CFormStringElement</a></td>
+  <td>CFormStringElement 描绘表单中的一个字符串。</td>
+</tr>
+<tr>
+  <td rowspan="4"><a name="system.web.helpers"></a>system.web.helpers</td>
+  <td><a href="CGoogleApi.html">CGoogleApi</a></td>
+  <td>CGoogleApi 提供辅助方法以便用户更加容易的使用<a href="http://code.google.com/apis/ajax/">谷歌AJAX接口</a>。</td>
+</tr>
+<tr>
+  <td><a href="CHtml.html">CHtml</a></td>
+  <td>CHtml是一个静态类，提供了一个用于创建HTML视图的辅助方法。</td>
+</tr>
+<tr>
+  <td><a href="CJSON.html">CJSON</a></td>
+  <td>CJSON用于转换PHP数据到JSON格式基从JSON格式转换为PHP数据。</td>
+</tr>
+<tr>
+  <td><a href="CJavaScript.html">CJavaScript</a></td>
+  <td>CJavaScript 是一个包含JavaScript相关处理函数的助手类。</td>
+</tr>
+<tr>
+  <td rowspan="2"><a name="system.web.renderers"></a>system.web.renderers</td>
+  <td><a href="CPradoViewRenderer.html">CPradoViewRenderer</a></td>
+  <td>CPradoViewRenderer实现一个视图渲染器，它允许用户使用类似于PRADO模板的模板语法。</td>
+</tr>
+<tr>
+  <td><a href="CViewRenderer.html">CViewRenderer</a></td>
+  <td>CViewRenderer 是视图渲染类的基类。</td>
+</tr>
+<tr>
+  <td rowspan="4"><a name="system.web.services"></a>system.web.services</td>
+  <td><a href="CSoapObjectWrapper.html">CSoapObjectWrapper</a></td>
+  <td>CSoapObjectWrapper是一个内部封装类，当SoapServer::setObject()未定义时则使用此类。</td>
+</tr>
+<tr>
+  <td><a href="CWebService.html">CWebService</a></td>
+  <td>CWebService封装了SOAP服务和提供基于WSDL的WebService。</td>
+</tr>
+<tr>
+  <td><a href="CWebServiceAction.html">CWebServiceAction</a></td>
+  <td>CWebServiceAction实现一个提供Web服务的动作。</td>
+</tr>
+<tr>
+  <td><a href="CWsdlGenerator.html">CWsdlGenerator</a></td>
+  <td>CWsdlGenerator是一个给定的服务类生成WSDL。</td>
+</tr>
+<tr>
+  <td rowspan="18"><a name="system.web.widgets"></a>system.web.widgets</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+  <td>CActiveForm提供了一系列方法，这些方法可以帮助简化表单创建的复杂性，</td>
+</tr>
+<tr>
+  <td><a href="CAutoComplete.html">CAutoComplete</a></td>
+  <td>CAutoComplete生成一个自动完成的输入字段。</td>
+</tr>
+<tr>
+  <td><a href="CClipWidget.html">CClipWidget</a></td>
+  <td>CClipWidget 记录下它的内容，使之可以在其他地方使用。</td>
+</tr>
+<tr>
+  <td><a href="CContentDecorator.html">CContentDecorator</a></td>
+  <td>CContentDecorator 装饰放置在指定的view中的内容。</td>
+</tr>
+<tr>
+  <td><a href="CFilterWidget.html">CFilterWidget</a></td>
+  <td>CFilterWidget 是各种可以用作过滤器的小物件的基类。</td>
+</tr>
+<tr>
+  <td><a href="CFlexWidget.html">CFlexWidget</a></td>
+  <td>CFlexWidget 嵌入一个 Flex 3.x 应用到一个页面中。</td>
+</tr>
+<tr>
+  <td><a href="CHtmlPurifier.html">CHtmlPurifier</a></td>
+  <td>CHtmlPurifier 是<a href="http://htmlpurifier.org">HTML Purifier</a>的一个包装。</td>
+</tr>
+<tr>
+  <td><a href="CInputWidget.html">CInputWidget</a></td>
+  <td>CInputWidget 是各种收集用户输入的小物件类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CMarkdown.html">CMarkdown</a></td>
+  <td>CMarkdown 将获取的内容从markdown格式转换为HTML代码。</td>
+</tr>
+<tr>
+  <td><a href="CMaskedTextField.html">CMaskedTextField</a></td>
+  <td>CMaskedTextField 生成一个支持掩码的输入框。</td>
+</tr>
+<tr>
+  <td><a href="CMultiFileUpload.html">CMultiFileUpload</a></td>
+  <td>CMultiFileUpload 生成一个允许同时上传多个文件的文件输入域。</td>
+</tr>
+<tr>
+  <td><a href="COutputCache.html">COutputCache</a></td>
+  <td>COutputCache 使一个动作或视图片段生成的输出缓冲可用。</td>
+</tr>
+<tr>
+  <td><a href="COutputProcessor.html">COutputProcessor</a></td>
+  <td>COutputProcessor 将内容转换为不同的格式。</td>
+</tr>
+<tr>
+  <td><a href="CStarRating.html">CStarRating</a></td>
+  <td>CStarRating显示一个星级评价控件来收集用户的评价值。</td>
+</tr>
+<tr>
+  <td><a href="CTabView.html">CTabView</a></td>
+  <td>CTabView在多个选项卡中显示内容。</td>
+</tr>
+<tr>
+  <td><a href="CTextHighlighter.html">CTextHighlighter</a></td>
+  <td>CTextHighlighter 使自己主体中的内容格式高亮。</td>
+</tr>
+<tr>
+  <td><a href="CTreeView.html">CTreeView</a></td>
+  <td>CTreeView 显示分层数据的树形图。</td>
+</tr>
+<tr>
+  <td><a href="CWidget.html">CWidget</a></td>
+  <td>CWidget是各种微件类的基类。</td>
+</tr>
+<tr>
+  <td rowspan="2"><a name="system.web.widgets.captcha"></a>system.web.widgets.captcha</td>
+  <td><a href="CCaptcha.html">CCaptcha</a></td>
+  <td>CCaptcha用于渲染验证码图片元素。</td>
+</tr>
+<tr>
+  <td><a href="CCaptchaAction.html">CCaptchaAction</a></td>
+  <td>CCaptchaAction用于生成验证码图片。</td>
+</tr>
+<tr>
+  <td rowspan="3"><a name="system.web.widgets.pagers"></a>system.web.widgets.pagers</td>
+  <td><a href="CBasePager.html">CBasePager</a></td>
+  <td>CBasePager是所有pager类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CLinkPager.html">CLinkPager</a></td>
+  <td>CLinkPager用于显示分页的超链接列表。</td>
+</tr>
+<tr>
+  <td><a href="CListPager.html">CListPager</a></td>
+  <td>CListPager显示一个下拉列表，其中包含导致不同目标页的选项。</td>
+</tr>
+<tr>
+  <td rowspan="1"><a name="zii.behaviors"></a>zii.behaviors</td>
+  <td><a href="CTimestampBehavior.html">CTimestampBehavior</a></td>
+  <td>CTimestampBehavior会自动填充日期和时间相关的属性。</td>
+</tr>
+<tr>
+  <td rowspan="6"><a name="zii.widgets"></a>zii.widgets</td>
+  <td><a href="CBaseListView.html">CBaseListView</a></td>
+  <td>CBaseListView是<a href="CListView.html">CListView</a>和<a href="CGridView.html">CGridView</a>的基类。</td>
+</tr>
+<tr>
+  <td><a href="CBreadcrumbs.html">CBreadcrumbs</a></td>
+  <td>CBreadcrumbs显示一个由当前页面在网站中的位置组成的链接列表。</td>
+</tr>
+<tr>
+  <td><a href="CDetailView.html">CDetailView</a></td>
+  <td>CDetailView显示单个数据模型的详细内容。</td>
+</tr>
+<tr>
+  <td><a href="CListView.html">CListView</a></td>
+  <td>CListView按照列表方式显示数据项。</td>
+</tr>
+<tr>
+  <td><a href="CMenu.html">CMenu</a></td>
+  <td>CMenu使用嵌套的HTML列表显示多级菜单。</td>
+</tr>
+<tr>
+  <td><a href="CPortlet.html">CPortlet</a></td>
+  <td>CPortlet是用于portlet部件的基类。</td>
+</tr>
+<tr>
+  <td rowspan="6"><a name="zii.widgets.grid"></a>zii.widgets.grid</td>
+  <td><a href="CButtonColumn.html">CButtonColumn</a></td>
+  <td>CButtonColumn represents a grid view column that renders one or several buttons.</td>
+</tr>
+<tr>
+  <td><a href="CCheckBoxColumn.html">CCheckBoxColumn</a></td>
+  <td>CCheckBoxColumn表示表格视图中列的复选框。</td>
+</tr>
+<tr>
+  <td><a href="CDataColumn.html">CDataColumn</a></td>
+  <td>CDataColumn代表网格视图的列的数据属性或表达相关联。</td>
+</tr>
+<tr>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+  <td>CGridColumn是所有的表格视图中列类的基类。</td>
+</tr>
+<tr>
+  <td><a href="CGridView.html">CGridView</a></td>
+  <td>CGridView displays a list of data items in terms of a table.</td>
+</tr>
+<tr>
+  <td><a href="CLinkColumn.html">CLinkColumn</a></td>
+  <td>CLinkColumn代表网格视图列呈现在它的每一个数据单元格的超链接。</td>
+</tr>
+<tr>
+  <td rowspan="16"><a name="zii.widgets.jui"></a>zii.widgets.jui</td>
+  <td><a href="CJuiAccordion.html">CJuiAccordion</a></td>
+  <td>CJuiAccordion显示一个可以折叠的部件。</td>
+</tr>
+<tr>
+  <td><a href="CJuiAutoComplete.html">CJuiAutoComplete</a></td>
+  <td>CJuiAutoComplete显示一个自动完成框。</td>
+</tr>
+<tr>
+  <td><a href="CJuiButton.html">CJuiButton</a></td>
+  <td>CJuiButton显示一个按钮部件。</td>
+</tr>
+<tr>
+  <td><a href="CJuiDatePicker.html">CJuiDatePicker</a></td>
+  <td>CJuiDatePicker显示一个日期选择器。</td>
+</tr>
+<tr>
+  <td><a href="CJuiDialog.html">CJuiDialog</a></td>
+  <td>CJuiDialog显示一个对话框部件</td>
+</tr>
+<tr>
+  <td><a href="CJuiDraggable.html">CJuiDraggable</a></td>
+  <td>CJuiDraggable显示一个可拖放的部件。</td>
+</tr>
+<tr>
+  <td><a href="CJuiDroppable.html">CJuiDroppable</a></td>
+  <td>CJuiDroppable显示一个可拖曳的部件。</td>
+</tr>
+<tr>
+  <td><a href="CJuiInputWidget.html">CJuiInputWidget</a></td>
+  <td>CJuiInputWidget是能搜集用户输入的JUI插件的基础类</td>
+</tr>
+<tr>
+  <td><a href="CJuiProgressBar.html">CJuiProgressBar</a></td>
+  <td>CJuiProgressBar显示一个进度条部件。</td>
+</tr>
+<tr>
+  <td><a href="CJuiResizable.html">CJuiResizable</a></td>
+  <td>CJuiResizable显示一个可调整大小的窗口部件。</td>
+</tr>
+<tr>
+  <td><a href="CJuiSelectable.html">CJuiSelectable</a></td>
+  <td>CJuiSelectable显示一个可折叠的部件。</td>
+</tr>
+<tr>
+  <td><a href="CJuiSlider.html">CJuiSlider</a></td>
+  <td>CJuiSlider显示一个滑块。</td>
+</tr>
+<tr>
+  <td><a href="CJuiSliderInput.html">CJuiSliderInput</a></td>
+  <td>CJuiSliderInput显示一个滑块。它能用在表单中并post它的值。</td>
+</tr>
+<tr>
+  <td><a href="CJuiSortable.html">CJuiSortable</a></td>
+  <td>CJuiSortable用鼠标拖动选定的元素排序。</td>
+</tr>
+<tr>
+  <td><a href="CJuiTabs.html">CJuiTabs</a></td>
+  <td>CJuiTabs显示一个选项卡部件。</td>
+</tr>
+<tr>
+  <td><a href="CJuiWidget.html">CJuiWidget</a></td>
+  <td>这是所有JUI widget的基类。</td>
+</tr>
+</table>
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

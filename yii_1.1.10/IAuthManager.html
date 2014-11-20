@@ -1,0 +1,963 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>IAuthManager</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>IAuthManager</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.base">system.base</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>interface IAuthManager</td>
+</tr>
+<tr>
+  <th>子类</th>
+  <td><a href="CAuthManager.html">CAuthManager</a>, <a href="CDbAuthManager.html">CDbAuthManager</a>, <a href="CPhpAuthManager.html">CPhpAuthManager</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: interfaces.php 3515 2011-12-28 12:29:24Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php">framework/base/interfaces.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+IAuthManager是验证管理组件必须实现的接口。
+<br/><br/>
+验证管理主要负责基于角色访问控制（RBAC）的服务。</div>
+<a name="properties"></a>
+
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="addItemChild">
+  <td><a href="IAuthManager.html#addItemChild-detail">addItemChild()</a></td>
+  <td>添加一个授权项作为另一个授权项的子授权项。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="assign">
+  <td><a href="IAuthManager.html#assign-detail">assign()</a></td>
+  <td>为用户分配一个授权项。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="checkAccess">
+  <td><a href="IAuthManager.html#checkAccess-detail">checkAccess()</a></td>
+  <td>检查指定用户的执行权限。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="clearAll">
+  <td><a href="IAuthManager.html#clearAll-detail">clearAll()</a></td>
+  <td>移除所有授权数据。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="clearAuthAssignments">
+  <td><a href="IAuthManager.html#clearAuthAssignments-detail">clearAuthAssignments()</a></td>
+  <td>移除所有授权分配信息。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="createAuthItem">
+  <td><a href="IAuthManager.html#createAuthItem-detail">createAuthItem()</a></td>
+  <td>创建一个授权项。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="executeBizRule">
+  <td><a href="IAuthManager.html#executeBizRule-detail">executeBizRule()</a></td>
+  <td>执行业务规则。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="getAuthAssignment">
+  <td><a href="IAuthManager.html#getAuthAssignment-detail">getAuthAssignment()</a></td>
+  <td>返回授权项分配信息。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="getAuthAssignments">
+  <td><a href="IAuthManager.html#getAuthAssignments-detail">getAuthAssignments()</a></td>
+  <td>返回指定用户的授权项分配信息。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="getAuthItem">
+  <td><a href="IAuthManager.html#getAuthItem-detail">getAuthItem()</a></td>
+  <td>返回指定名字的授权项</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="getAuthItems">
+  <td><a href="IAuthManager.html#getAuthItems-detail">getAuthItems()</a></td>
+  <td>返回指定类型和用户的授权项。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="getItemChildren">
+  <td><a href="IAuthManager.html#getItemChildren-detail">getItemChildren()</a></td>
+  <td>返回指定授权项的子授权项。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="hasItemChild">
+  <td><a href="IAuthManager.html#hasItemChild-detail">hasItemChild()</a></td>
+  <td>返回一个值表示父授权项是否存在子授权项。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="isAssigned">
+  <td><a href="IAuthManager.html#isAssigned-detail">isAssigned()</a></td>
+  <td>返回一个值表示判断授权项是否分配给指定用户。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="removeAuthItem">
+  <td><a href="IAuthManager.html#removeAuthItem-detail">removeAuthItem()</a></td>
+  <td>移除指定授权项。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="removeItemChild">
+  <td><a href="IAuthManager.html#removeItemChild-detail">removeItemChild()</a></td>
+  <td>从父授权项中移除子授权项。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="revoke">
+  <td><a href="IAuthManager.html#revoke-detail">revoke()</a></td>
+  <td>撤销一个用户分配的授权项。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="save">
+  <td><a href="IAuthManager.html#save-detail">save()</a></td>
+  <td>保存授权数据到持久存储。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="saveAuthAssignment">
+  <td><a href="IAuthManager.html#saveAuthAssignment-detail">saveAuthAssignment()</a></td>
+  <td>保存修改的授权信息。</td>
+  <td>IAuthManager</td>
+</tr>
+<tr id="saveAuthItem">
+  <td><a href="IAuthManager.html#saveAuthItem-detail">saveAuthItem()</a></td>
+  <td>保存授权项到持久存储。</td>
+  <td>IAuthManager</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="addItemChild-detail">
+addItemChild()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>addItemChild</b>(string $itemName, string $childName)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$itemName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">父授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$childName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">子授权项名称</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#400">framework/base/interfaces.php#400</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">addItemChild</span><span style="color: #007700">(</span><span style="color: #0000BB">$itemName</span><span style="color: #007700">,</span><span style="color: #0000BB">$childName</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>添加一个授权项作为另一个授权项的子授权项。</p>
+
+
+<div class="detailHeader" id="assign-detail">
+assign()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public <a href="CAuthAssignment.html">CAuthAssignment</a> <b>assign</b>(string $itemName, mixed $userId, string $bizRule=NULL, mixed $data=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$itemName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$userId</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">用户ID（参见 <a href="IWebUser.html#getId">IWebUser::getId</a>）</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$bizRule</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">当调用<a href="IAuthManager.html#checkAccess">checkAccess</a>时
+授权项关联的业务规则</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">授权项关联的附加数据</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CAuthAssignment.html">CAuthAssignment</a></td>
+  <td class="paramDescCol">授权分配信息。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#434">framework/base/interfaces.php#434</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #0000BB">$itemName</span><span style="color: #007700">,</span><span style="color: #0000BB">$userId</span><span style="color: #007700">,</span><span style="color: #0000BB">$bizRule</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>为用户分配一个授权项。</p>
+
+
+<div class="detailHeader" id="checkAccess-detail">
+checkAccess()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public boolean <b>checkAccess</b>(string $itemName, mixed $userId, array $params=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$itemName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">需要权限检查的授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$userId</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">用户ID。它应该是一个整数或一个字符串，
+代表用户的唯一标识，参见<a href="IWebUser.html#getId">IWebUser::getId</a>。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">分配给用户的任务或角色的（键－值对）
+形式的业务规则。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">用户是否有权执行操作。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#348">framework/base/interfaces.php#348</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">checkAccess</span><span style="color: #007700">(</span><span style="color: #0000BB">$itemName</span><span style="color: #007700">,</span><span style="color: #0000BB">$userId</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">=array());</span>
+</span>
+</code></div>
+</div>
+<p>检查指定用户的执行权限。</p>
+
+
+<div class="detailHeader" id="clearAll-detail">
+clearAll()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>clearAll</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#473">framework/base/interfaces.php#473</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">clearAll</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p>移除所有授权数据。</p>
+
+
+<div class="detailHeader" id="clearAuthAssignments-detail">
+clearAuthAssignments()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>clearAuthAssignments</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#477">framework/base/interfaces.php#477</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">clearAuthAssignments</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p>移除所有授权分配信息。</p>
+
+
+<div class="detailHeader" id="createAuthItem-detail">
+createAuthItem()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public <a href="CAuthItem.html">CAuthItem</a> <b>createAuthItem</b>(string $name, integer $type, string $description='', string $bizRule=NULL, mixed $data=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">授权项名称。必须是一个唯一标识。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$type</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">授权项类型（0：操作，1：任务，2：角色）。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$description</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">授权项描述</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$bizRule</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">授权项关联的业务规则。
+这是一块PHP代码，当调用<a href="IAuthManager.html#checkAccess">checkAccess</a>时被执行。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">授权项关联的附加数据。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CAuthItem.html">CAuthItem</a></td>
+  <td class="paramDescCol">授权项</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#365">framework/base/interfaces.php#365</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">createAuthItem</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$type</span><span style="color: #007700">,</span><span style="color: #0000BB">$description</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$bizRule</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>创建一个授权项。
+一个授权项表示允许一个动作（例如，创建一个贴子）。 
+它有三种类型：操作，任务和角色。
+授权项是一个层次结构。
+高级项继承低级项。</p>
+
+
+<div class="detailHeader" id="executeBizRule-detail">
+executeBizRule()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public 是否执行返回true。 <b>executeBizRule</b>(string $bizRule, array $params, mixed $data)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$bizRule</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">执行的业务规则。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">执行业务规则传递的附加参数。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">分配的授权项的相关附加数据。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">是否执行返回true。</td>
+  <td class="paramDescCol">如果业务规则为空，它也将返回true。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#495">framework/base/interfaces.php#495</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">executeBizRule</span><span style="color: #007700">(</span><span style="color: #0000BB">$bizRule</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>执行业务规则。
+业务规则是一块PHP代码当调用<a href="IAuthManager.html#checkAccess">checkAccess</a>时将被执行。</p>
+
+
+<div class="detailHeader" id="getAuthAssignment-detail">
+getAuthAssignment()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public 授权项分配信息。 <b>getAuthAssignment</b>(string $itemName, mixed $userId)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$itemName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$userId</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">用户ID（参见 <a href="IWebUser.html#getId">IWebUser::getId</a>）</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">授权项分配信息。</td>
+  <td class="paramDescCol">如果返回的授权项没有分配给用户将返回null。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#456">framework/base/interfaces.php#456</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getAuthAssignment</span><span style="color: #007700">(</span><span style="color: #0000BB">$itemName</span><span style="color: #007700">,</span><span style="color: #0000BB">$userId</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>返回授权项分配信息。</p>
+
+
+<div class="detailHeader" id="getAuthAssignments-detail">
+getAuthAssignments()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public array <b>getAuthAssignments</b>(mixed $userId)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$userId</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">用户ID（参见 <a href="IWebUser.html#getId">IWebUser::getId</a>）</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">用户的授权项分配信息。
+如果用户没有分配授权项将返回空数组。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#463">framework/base/interfaces.php#463</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getAuthAssignments</span><span style="color: #007700">(</span><span style="color: #0000BB">$userId</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>返回指定用户的授权项分配信息。</p>
+
+
+<div class="detailHeader" id="getAuthItem-detail">
+getAuthItem()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public <a href="CAuthItem.html">CAuthItem</a> <b>getAuthItem</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">授权项名</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CAuthItem.html">CAuthItem</a></td>
+  <td class="paramDescCol">授权项。如果没有找到将返回null。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#386">framework/base/interfaces.php#386</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getAuthItem</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>返回指定名字的授权项</p>
+
+
+<div class="detailHeader" id="getAuthItems-detail">
+getAuthItems()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public array <b>getAuthItems</b>(integer $type=NULL, mixed $userId=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$type</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">授权项类型（0：操作，1：任务，2：角色）。默认为null，
+意味着返回所有类型的授权项。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$userId</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">用户ID。默认为null， 
+意味着返回所有授权项，包括未分配给用户的授权项。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">授权项的具体类型.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#380">framework/base/interfaces.php#380</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getAuthItems</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">$userId</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>返回指定类型和用户的授权项。</p>
+
+
+<div class="detailHeader" id="getItemChildren-detail">
+getItemChildren()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public array <b>getItemChildren</b>(mixed $itemName)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$itemName</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">父授权项名。它可以是字符串或数组。
+后者表示一个授权项名的列表。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">父授权项的所有子授权项</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#422">framework/base/interfaces.php#422</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getItemChildren</span><span style="color: #007700">(</span><span style="color: #0000BB">$itemName</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>返回指定授权项的子授权项。</p>
+
+
+<div class="detailHeader" id="hasItemChild-detail">
+hasItemChild()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public boolean <b>hasItemChild</b>(string $itemName, string $childName)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$itemName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">父授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$childName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">子授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">是否存在子授权项</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#415">framework/base/interfaces.php#415</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">hasItemChild</span><span style="color: #007700">(</span><span style="color: #0000BB">$itemName</span><span style="color: #007700">,</span><span style="color: #0000BB">$childName</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>返回一个值表示父授权项是否存在子授权项。</p>
+
+
+<div class="detailHeader" id="isAssigned-detail">
+isAssigned()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public boolean <b>isAssigned</b>(string $itemName, mixed $userId)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$itemName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$userId</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">用户ID（参见 <a href="IWebUser.html#getId">IWebUser::getId</a>）</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">授权项是否分配给指定用户。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#448">framework/base/interfaces.php#448</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">isAssigned</span><span style="color: #007700">(</span><span style="color: #0000BB">$itemName</span><span style="color: #007700">,</span><span style="color: #0000BB">$userId</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>返回一个值表示判断授权项是否分配给指定用户。</p>
+
+
+<div class="detailHeader" id="removeAuthItem-detail">
+removeAuthItem()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public boolean <b>removeAuthItem</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">无论授权项是否存在都将移除</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#371">framework/base/interfaces.php#371</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">removeAuthItem</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>移除指定授权项。</p>
+
+
+<div class="detailHeader" id="removeItemChild-detail">
+removeItemChild()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public boolean <b>removeItemChild</b>(string $itemName, string $childName)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$itemName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">父授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$childName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">子授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether 是否移除成功</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#408">framework/base/interfaces.php#408</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">removeItemChild</span><span style="color: #007700">(</span><span style="color: #0000BB">$itemName</span><span style="color: #007700">,</span><span style="color: #0000BB">$childName</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>从父授权项中移除子授权项。
+注意，子授权项并不会真正被删除，仅移除父子关系。</p>
+
+
+<div class="detailHeader" id="revoke-detail">
+revoke()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public boolean <b>revoke</b>(string $itemName, mixed $userId)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$itemName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">授权项名称</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$userId</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">用户ID（参见 <a href="IWebUser.html#getId">IWebUser::getId</a>）</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">是否移除成功</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#441">framework/base/interfaces.php#441</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">revoke</span><span style="color: #007700">(</span><span style="color: #0000BB">$itemName</span><span style="color: #007700">,</span><span style="color: #0000BB">$userId</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>撤销一个用户分配的授权项。</p>
+
+
+<div class="detailHeader" id="save-detail">
+save()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>save</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#484">framework/base/interfaces.php#484</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">save</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p>保存授权数据到持久存储。
+如果授权数据有任何改变，
+请确保你调用的这个方法能将改变数据保存到持久存储。</p>
+
+
+<div class="detailHeader" id="saveAuthAssignment-detail">
+saveAuthAssignment()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>saveAuthAssignment</b>(<a href="CAuthAssignment.html">CAuthAssignment</a> $assignment)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$assignment</td>
+  <td class="paramTypeCol"><a href="CAuthAssignment.html">CAuthAssignment</a></td>
+  <td class="paramDescCol">已经修改的授权信息。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#468">framework/base/interfaces.php#468</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">saveAuthAssignment</span><span style="color: #007700">(</span><span style="color: #0000BB">$assignment</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>保存修改的授权信息。</p>
+
+
+<div class="detailHeader" id="saveAuthItem-detail">
+saveAuthItem()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>saveAuthItem</b>(<a href="CAuthItem.html">CAuthItem</a> $item, string $oldName=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$item</td>
+  <td class="paramTypeCol"><a href="CAuthItem.html">CAuthItem</a></td>
+  <td class="paramDescCol">授权项。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$oldName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">授权项名称，如果为null，意味着授权项名没有改变。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/base/interfaces.php#392">framework/base/interfaces.php#392</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">saveAuthItem</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">,</span><span style="color: #0000BB">$oldName</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>保存授权项到持久存储。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

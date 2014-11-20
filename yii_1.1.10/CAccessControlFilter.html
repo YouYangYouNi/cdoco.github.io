@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CAccessControlFilter</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CAccessControlFilter</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.web.auth">system.web.auth</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CAccessControlFilter &raquo;
+<a href="CFilter.html">CFilter</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>实现</th>
+  <td><a href="IFilter.html">IFilter</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CAccessControlFilter.php 3515 2011-12-28 12:29:24Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/auth/CAccessControlFilter.php">framework/web/auth/CAccessControlFilter.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CAccessControlFilter执行指定的授权检查操作。
+<br/><br/>
+通过启用此过滤器，控制器的动作执行的时候会检查权限。
+当用户确认通过一个安全规则或允许一个明确的规则时，
+他就可以执行此动作。
+<br/><br/>
+为了更高的安全性，可以考虑增加如下代码：
+<pre>array('deny')</pre>
+使用上述的规则后，默认情况下会拒绝所有的动作。 
+<br/><br/>
+可以通过设置<a href="CAccessControlFilter.html#setRules">rules</a>属性来指定访问规则，
+这些规则应该是一个数组，每个指定的规则是这个数组中的一个元素。如下所示：
+<pre>
+array(
+  'allow',  // or 'deny'
+  //可选规则，本规则适用于列出的所有动作ID（不区分大小写）
+  //如果未指定此项，则规则适用于所有动作。
+  'actions'=&gt;array('edit', 'delete'),
+  //可选规则，本规则适用于列出的所有控制器ID（不区分大小写）
+  'controllers'=&gt;array('post', 'admin/user'),
+  //可选规则，本规则适用于列出的所有用户ID（不区分大小写）
+  //使用*号表示所有用户，？号表示来宾用户，@表示通过身份验证的用户。
+  'users'=&gt;array('thomas', 'kevin'),
+  //可选规则，本规则适用于列出的所有角色（区分大小写）。
+  'roles'=&gt;array('admin', 'editor'),
+  //可选规则，本规则适用于列出的所有IP地址。
+  //如127.0.0.1, 127.0.0.*
+  'ips'=&gt;array('127.0.0.1'),
+  //可选规则，本规则适用于列出的所有请求类型（区分大小写）。
+  'verbs'=&gt;array('GET', 'POST'),
+  //可选规则，一个PHP表达式，其值表示此规则是否适用
+  'expression'=&gt;'!$user-&gt;isGuest &amp;&amp; $user-&gt;level==2',
+  //可选规则，显示自定义的错误消息
+  //自1.1.1版后，此选项开始使用。
+  'message'=&gt;'Access Denied.',
+)
+</pre></div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="message">
+  <td><a href="CAccessControlFilter.html#message-detail">message</a></td>
+  <td>string</td>
+  <td>授权失败时显示错误消息。
+这个属性可以通过个别访问规则覆盖<a href="CAccessRule.html#message">CAccessRule::message</a>。
+如果这个属性未被设置，则会显示默认的错误提示。</td>
+  <td>CAccessControlFilter</td>
+</tr>
+<tr id="rules">
+  <td><a href="CAccessControlFilter.html#rules-detail">rules</a></td>
+  <td>array</td>
+  <td>访问规则列表。</td>
+  <td>CAccessControlFilter</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>如果类中没有调的方法名，则调用这个方法。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>返回一个属性值、一个事件处理程序列表或一个行为名称。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>检查一个属性是否为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>设置一个组件的属性值。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>设置一个组件的属性为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>返回这个名字的行为对象。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>附加一个行为到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>附加一个行为列表到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>为事件附加一个事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>确定属性是否可读。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>确定属性是否可写。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>从组件中分离一个行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>从组件中分离所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>分离一个存在的事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>禁用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>禁用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>启用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>启用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>计算一个PHP表达式，或根据组件上下文执行回调。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="filter">
+  <td><a href="CFilter.html#filter-detail">filter()</a></td>
+  <td>执行过滤。</td>
+  <td><a href="CFilter.html">CFilter</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>返回一个事件的附加处理程序列表。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getRules">
+  <td><a href="CAccessControlFilter.html#getRules-detail">getRules()</a></td>
+  <td>返回访问规则列表。</td>
+  <td>CAccessControlFilter</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>确定一个事件是否定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>检查事件是否有附加的处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>确定属性是否被定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="init">
+  <td><a href="CFilter.html#init-detail">init()</a></td>
+  <td>初始化过滤器。</td>
+  <td><a href="CFilter.html">CFilter</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>发起一个事件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="setRules">
+  <td><a href="CAccessControlFilter.html#setRules-detail">setRules()</a></td>
+  <td>设置访问规则列表。</td>
+  <td>CAccessControlFilter</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="accessDenied">
+  <td><a href="CAccessControlFilter.html#accessDenied-detail">accessDenied()</a></td>
+  <td>拒绝用户访问。</td>
+  <td>CAccessControlFilter</td>
+</tr>
+<tr class="inherited" id="postFilter">
+  <td><a href="CFilter.html#postFilter-detail">postFilter()</a></td>
+  <td>执行post操作过滤器。</td>
+  <td><a href="CFilter.html">CFilter</a></td>
+</tr>
+<tr id="preFilter">
+  <td><a href="CAccessControlFilter.html#preFilter-detail">preFilter()</a></td>
+  <td>执行行动前的过滤。</td>
+  <td>CAccessControlFilter</td>
+</tr>
+<tr id="resolveErrorMessage">
+  <td><a href="CAccessControlFilter.html#resolveErrorMessage-detail">resolveErrorMessage()</a></td>
+  <td>解析要显示的错误信息。</td>
+  <td>CAccessControlFilter</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>属性详细</h2>
+<div class="detailHeader" id="message-detail">
+message<span class="detailHeaderTag">
+属性
+（可用自 v1.1.1）
+</span>
+</div>
+
+<div class="signature">
+public string <b>$message</b>;</div>
+
+<p>授权失败时显示错误消息。
+这个属性可以通过个别访问规则覆盖<a href="CAccessRule.html#message">CAccessRule::message</a>。
+如果这个属性未被设置，则会显示默认的错误提示。</p>
+
+
+<div class="detailHeader" id="rules-detail">
+rules<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public array <a href="CAccessControlFilter.html#getRules"><b>getRules</b></a>()<br/>public void <a href="CAccessControlFilter.html#setRules"><b>setRules</b></a>(array $rules)</div>
+
+<p>访问规则列表。</p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="accessDenied-detail">
+accessDenied()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>accessDenied</b>(<a href="IWebUser.html">IWebUser</a> $user, string $message)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$user</td>
+  <td class="paramTypeCol"><a href="IWebUser.html">IWebUser</a></td>
+  <td class="paramDescCol">当前用户</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$message</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">要显示的错误信息</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/auth/CAccessControlFilter.php#152">framework/web/auth/CAccessControlFilter.php#152</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">accessDenied</span><span style="color: #007700">(</span><span style="color: #0000BB">$user</span><span style="color: #007700">,</span><span style="color: #0000BB">$message</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getIsGuest</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loginRequired</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpException</span><span style="color: #007700">(</span><span style="color: #0000BB">403</span><span style="color: #007700">,</span><span style="color: #0000BB">$message</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>拒绝用户访问。
+访问检查失败时，调用此方法。</p>
+
+
+<div class="detailHeader" id="getRules-detail">
+getRules()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getRules</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">访问规则列表。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/auth/CAccessControlFilter.php#72">framework/web/auth/CAccessControlFilter.php#72</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getRules</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_rules</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="preFilter-detail">
+preFilter()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected boolean <b>preFilter</b>(<a href="CFilterChain.html">CFilterChain</a> $filterChain)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$filterChain</td>
+  <td class="paramTypeCol"><a href="CFilterChain.html">CFilterChain</a></td>
+  <td class="paramDescCol">已经开启的过滤器链</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">过滤过程中是否应该继续
+执行该动作。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/auth/CAccessControlFilter.php#106">framework/web/auth/CAccessControlFilter.php#106</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">preFilter</span><span style="color: #007700">(</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$app</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$request</span><span style="color: #007700">=</span><span style="color: #0000BB">$app</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRequest</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">=</span><span style="color: #0000BB">$app</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getUser</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$verb</span><span style="color: #007700">=</span><span style="color: #0000BB">$request</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRequestType</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ip</span><span style="color: #007700">=</span><span style="color: #0000BB">$request</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getUserHostAddress</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRules</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$rule</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$allow</span><span style="color: #007700">=</span><span style="color: #0000BB">$rule</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isUserAllowed</span><span style="color: #007700">(</span><span style="color: #0000BB">$user</span><span style="color: #007700">,</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">controller</span><span style="color: #007700">,</span><span style="color: #0000BB">$filterChain</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">,</span><span style="color: #0000BB">$ip</span><span style="color: #007700">,</span><span style="color: #0000BB">$verb</span><span style="color: #007700">))&gt;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;</span><span style="color: #FF8000">//&nbsp;allowed<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">break;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$allow</span><span style="color: #007700">&lt;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;</span><span style="color: #FF8000">//&nbsp;denied<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">accessDenied</span><span style="color: #007700">(</span><span style="color: #0000BB">$user</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">resolveErrorMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>执行行动前的过滤。</p>
+
+
+<div class="detailHeader" id="resolveErrorMessage-detail">
+resolveErrorMessage()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.1）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected string <b>resolveErrorMessage</b>(<a href="CAccessRule.html">CAccessRule</a> $rule)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$rule</td>
+  <td class="paramTypeCol"><a href="CAccessRule.html">CAccessRule</a></td>
+  <td class="paramDescCol">访问规则</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">错误信息</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/auth/CAccessControlFilter.php#136">framework/web/auth/CAccessControlFilter.php#136</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">resolveErrorMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">message</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$rule</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">message</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">message</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">message</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'You&nbsp;are&nbsp;not&nbsp;authorized&nbsp;to&nbsp;perform&nbsp;this&nbsp;action.'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>解析要显示的错误信息。
+这个方法会检查<a href="CAccessControlFilter.html#message">message</a>和<a href="CAccessRule.html#message">CAccessRule::message</a>以确定
+要显示什么内容的错误信息。</p>
+
+
+<div class="detailHeader" id="setRules-detail">
+setRules()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setRules</b>(array $rules)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$rules</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">访问规则列表。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/auth/CAccessControlFilter.php#80">framework/web/auth/CAccessControlFilter.php#80</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setRules</span><span style="color: #007700">(</span><span style="color: #0000BB">$rules</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$rules&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$rule</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;isset(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CAccessRule</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">allow</span><span style="color: #007700">=</span><span style="color: #0000BB">$rule</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]===</span><span style="color: #DD0000">'allow'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">array_slice</span><span style="color: #007700">(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$name</span><span style="color: #007700">===</span><span style="color: #DD0000">'expression'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">===</span><span style="color: #DD0000">'roles'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">===</span><span style="color: #DD0000">'message'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">array_map</span><span style="color: #007700">(</span><span style="color: #DD0000">'strtolower'</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_rules</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$r</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

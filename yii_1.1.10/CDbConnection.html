@@ -1,0 +1,2767 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CDbConnection</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CDbConnection</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.db">system.db</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CDbConnection &raquo;
+<a href="CApplicationComponent.html">CApplicationComponent</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>实现</th>
+  <td><a href="IApplicationComponent.html">IApplicationComponent</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CDbConnection.php 3515 2011-12-28 12:29:24Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php">framework/db/CDbConnection.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CDbConnection代表一个到数据库的连接。
+<br/><br/>
+CDbConnection与<a href="CDbCommand.html">CDbCommand</a>, <a href="CDbDataReader.html">CDbDataReader</a>
+和 <a href="CDbTransaction.html">CDbTransaction</a>一起提供了根据 DBMS 通用 API 来访问数据功能。
+它们是<a href="http://www.php.net/manual/en/ref.pdo.php">PDO</a>
+PHP 扩展的简化。
+<br/><br/>
+要建立一个连接，在指定<a href="CDbConnection.html#connectionString">connectionString</a>, <a href="CDbConnection.html#username">username</a> 和 <a href="CDbConnection.html#password">password</a>之后，
+设置<a href="CDbConnection.html#setActive">active</a>为true，。
+<br/><br/>
+下面的例子显示了怎样创建一个CDbConnection实例和建立实际的连接：
+:
+<pre>
+$connection=new CDbConnection($dsn,$username,$password);
+$connection-&gt;active=true;
+</pre>
+<br/><br/>
+在DB连接建立之后，可以执行一个像下面这样的 SQL 语句：
+<pre>
+$command=$connection-&gt;createCommand($sqlStatement);
+$command-&gt;execute();   // a non-query SQL statement execution
+// or execute an SQL query and fetch the result set
+$reader=$command-&gt;query();
+
+// each $row is an array representing a row of data
+foreach($reader as $row) ...
+</pre>
+<br/><br/>
+也能执行一个准备好的 SQL 语句，并绑定参数到准备好的 SQL:
+<pre>
+$command=$connection-&gt;createCommand($sqlStatement);
+$command-&gt;bindParam($name1,$value1);
+$command-&gt;bindParam($name2,$value2);
+$command-&gt;execute();
+</pre>
+<br/><br/>
+要使用事务，像下面这样做：
+<pre>
+$transaction=$connection-&gt;beginTransaction();
+try
+{
+   $connection-&gt;createCommand($sql1)-&gt;execute();
+   $connection-&gt;createCommand($sql2)-&gt;execute();
+   //.... other SQL executions
+   $transaction-&gt;commit();
+}
+catch(Exception $e)
+{
+   $transaction-&gt;rollBack();
+}
+</pre>
+<br/><br/>
+CDbConnection也提供一套方法来支持设置和查询特定的DBMS属性，
+例如 <a href="CDbConnection.html#getNullConversion">nullConversion</a>。
+<br/><br/>
+因为CDbConnection实现了IApplicationComponent接口，它能被用作一个应用程序组件，
+并在应用程序中进行配置。
+如下：
+<pre>
+array(
+    'components'=&gt;array(
+        'db'=&gt;array(
+            'class'=&gt;'CDbConnection',
+            'connectionString'=&gt;'sqlite:path/to/dbfile',
+        ),
+    ),
+)
+</pre></div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="active">
+  <td><a href="CDbConnection.html#active-detail">active</a></td>
+  <td>boolean</td>
+  <td>返回DB连接是否已经建立。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="attributes">
+  <td><a href="CDbConnection.html#attributes-detail">attributes</a></td>
+  <td>array</td>
+  <td>返回先前为数据库连接显式设置的属性。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="autoCommit">
+  <td><a href="CDbConnection.html#autoCommit-detail">autoCommit</a></td>
+  <td>boolean</td>
+  <td>返回是否创建或更新数据库记录将自动提交。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="autoConnect">
+  <td><a href="CDbConnection.html#autoConnect-detail">autoConnect</a></td>
+  <td>boolean</td>
+  <td>数据库是否应自动建立连接
+此组件将被初始化。默认为true。注意，这个属性仅仅有效果当
+CDbConnection对象被用作一个应用程序组件。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CApplicationComponent.html#behaviors-detail">behaviors</a></td>
+  <td>array</td>
+  <td>这个应用组件附加的行为。
+这此行为将在应用组件调用<a href="CDbConnection.html#init">init</a>时附加在应用组件上。
+请参照<a href="CModel.html#behaviors">CModel::behaviors</a>如何指定此属性值。</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="charset">
+  <td><a href="CDbConnection.html#charset-detail">charset</a></td>
+  <td>string</td>
+  <td>用于数据库连接charset字符串。这个属性仅仅用于
+MySQL 和 PostgreSQL 数据库。默认为 null, 
+意味着使用此数据库指定的默认的charset。
+<br/><br/>
+注意如果你使用 GBK 或 BIG5 ，那么推荐更新到
+PHP 5.</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="clientVersion">
+  <td><a href="CDbConnection.html#clientVersion-detail">clientVersion</a></td>
+  <td>string</td>
+  <td>返回数据库驱动程序的版本信息。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="columnCase">
+  <td><a href="CDbConnection.html#columnCase-detail">columnCase</a></td>
+  <td>mixed</td>
+  <td>返回列名称的大小写情况</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="commandBuilder">
+  <td><a href="CDbConnection.html#commandBuilder-detail">commandBuilder</a></td>
+  <td><a href="CDbCommandBuilder.html">CDbCommandBuilder</a></td>
+  <td>返回为当前DB连接的SQL命令生成器。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="connectionStatus">
+  <td><a href="CDbConnection.html#connectionStatus-detail">connectionStatus</a></td>
+  <td>string</td>
+  <td>返回连接的状态。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="connectionString">
+  <td><a href="CDbConnection.html#connectionString-detail">connectionString</a></td>
+  <td>string</td>
+  <td>数据源名称或 DSN，包含连接到数据库所需的信息。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="currentTransaction">
+  <td><a href="CDbConnection.html#currentTransaction-detail">currentTransaction</a></td>
+  <td><a href="CDbTransaction.html">CDbTransaction</a></td>
+  <td>返回当前活动的事务。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="driverMap">
+  <td><a href="CDbConnection.html#driverMap-detail">driverMap</a></td>
+  <td>array</td>
+  <td>PDO驱动程序和schema类名之间的映射。
+使用路径别名指定一个 schema 类。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="driverName">
+  <td><a href="CDbConnection.html#driverName-detail">driverName</a></td>
+  <td>string</td>
+  <td>返回的数据库驱动程序的名称。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="emulatePrepare">
+  <td><a href="CDbConnection.html#emulatePrepare-detail">emulatePrepare</a></td>
+  <td>boolean</td>
+  <td>是否打开准备模拟。默认为 false，
+意味着PDO将准备使用本地预备支持，如果可用。对于某些数据库 (如 MySQL),
+这将需要设置为true 以至于 PDO 能模拟该预备支持
+绕过buggy本地预备支持。注意，这个属性仅仅在PHP 5.</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="enableParamLogging">
+  <td><a href="CDbConnection.html#enableParamLogging-detail">enableParamLogging</a></td>
+  <td>boolean</td>
+  <td>是否记录的值绑定到一个准备的SQL语句。
+默认为 false。在开发阶段，你应该考虑设置这个属性为true
+以至于参数值能被绑定到SQL语句以记录用于高度目的。
+你应该知道记录参数值代价是高昂的，
+将很大程度影响你的应用程序的性能。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="enableProfiling">
+  <td><a href="CDbConnection.html#enableProfiling-detail">enableProfiling</a></td>
+  <td>boolean</td>
+  <td>正在执行的SQL语句是否启用分析。
+默认为 false。这个主要
+启用它主要用于开发阶段找出SQL执行的瓶颈。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="initSQLs">
+  <td><a href="CDbConnection.html#initSQLs-detail">initSQLs</a></td>
+  <td>array</td>
+  <td>DB连接建立后执行的SQL语句列表。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr class="inherited" id="isInitialized">
+  <td><a href="CApplicationComponent.html#isInitialized-detail">isInitialized</a></td>
+  <td>boolean</td>
+  <td>检查应用组件是否已经初始化。</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="lastInsertID">
+  <td><a href="CDbConnection.html#lastInsertID-detail">lastInsertID</a></td>
+  <td>string</td>
+  <td>返回最后一个插入的行的ID或序列值。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="nullConversion">
+  <td><a href="CDbConnection.html#nullConversion-detail">nullConversion</a></td>
+  <td>mixed</td>
+  <td>返回null与empty字符串如何转化的情况。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="password">
+  <td><a href="CDbConnection.html#password-detail">password</a></td>
+  <td>string</td>
+  <td>建立数据连接的密码。默认为空字符串。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="pdoClass">
+  <td><a href="CDbConnection.html#pdoClass-detail">pdoClass</a></td>
+  <td>string</td>
+  <td>自定义PDO封装类。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="pdoInstance">
+  <td><a href="CDbConnection.html#pdoInstance-detail">pdoInstance</a></td>
+  <td>PDO</td>
+  <td>返回PDO实例。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="persistent">
+  <td><a href="CDbConnection.html#persistent-detail">persistent</a></td>
+  <td>boolean</td>
+  <td>返回数据库连接是否持久的。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="prefetch">
+  <td><a href="CDbConnection.html#prefetch-detail">prefetch</a></td>
+  <td>boolean</td>
+  <td>返回数据库连接是否可执行数据预获取。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="queryCacheID">
+  <td><a href="CDbConnection.html#queryCacheID-detail">queryCacheID</a></td>
+  <td>string</td>
+  <td>缓存应用程序组件的ID，用于查询缓存。
+默认为'cache'，它指的是主缓存应用程序组件。
+设置这个属性为false，如果你想禁用查询缓存。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="queryCachingCount">
+  <td><a href="CDbConnection.html#queryCachingCount-detail">queryCachingCount</a></td>
+  <td>integer</td>
+  <td>下次将被缓存的SQL语句的数目。
+如果它是 0，即使查询缓存被启用，查询也不会被缓存。
+注意每次执行一条SQL语句之后 (是否在DB服务器上执行或从查询缓存中获取)，
+这个属性将被减少1至0。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="queryCachingDependency">
+  <td><a href="CDbConnection.html#queryCachingDependency-detail">queryCachingDependency</a></td>
+  <td><a href="CCacheDependency.html">CCacheDependency</a></td>
+  <td>当查询结果保存到缓存时，使用的依赖。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="queryCachingDuration">
+  <td><a href="CDbConnection.html#queryCachingDuration-detail">queryCachingDuration</a></td>
+  <td>integer</td>
+  <td>查询结果被保留在缓存中有效的秒数。
+使用0或负数值指示不缓存查询结果 (默认 behavior).</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="schema">
+  <td><a href="CDbConnection.html#schema-detail">schema</a></td>
+  <td><a href="CDbSchema.html">CDbSchema</a></td>
+  <td>返回当前连接的数据库结构</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="schemaCacheID">
+  <td><a href="CDbConnection.html#schemaCacheID-detail">schemaCacheID</a></td>
+  <td>string</td>
+  <td>缓存应用程序组件的ID，用于缓存表的元数据。
+默认为'cache' 它指的是主缓存应用程序组件。
+如果要禁用缓存表的元数据，此属性设置为false。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="schemaCachingDuration">
+  <td><a href="CDbConnection.html#schemaCachingDuration-detail">schemaCachingDuration</a></td>
+  <td>integer</td>
+  <td>数据表中元数据在缓存中保存的秒钟数。
+使用0或负值指示不缓存schema。
+如果大于0和正数，cache被启用，表的元数据将被缓存。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="schemaCachingExclude">
+  <td><a href="CDbConnection.html#schemaCachingExclude-detail">schemaCachingExclude</a></td>
+  <td>array</td>
+  <td>元数据不被缓存的列的列表。默认为空字符串。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="serverInfo">
+  <td><a href="CDbConnection.html#serverInfo-detail">serverInfo</a></td>
+  <td>string</td>
+  <td>返回DBMS服务器的信息。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="serverVersion">
+  <td><a href="CDbConnection.html#serverVersion-detail">serverVersion</a></td>
+  <td>string</td>
+  <td>返回DBMS服务器的版本信息。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="stats">
+  <td><a href="CDbConnection.html#stats-detail">stats</a></td>
+  <td>array</td>
+  <td>返回SQL执行的统计结果。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="tablePrefix">
+  <td><a href="CDbConnection.html#tablePrefix-detail">tablePrefix</a></td>
+  <td>string</td>
+  <td>表名称的默认前缀。默认为 null，意味着没有表前缀。
+通过设置这个属性，任何标记像 '{{tableName}}' 在 <a href="CDbCommand.html#text">CDbCommand::text</a> 
+将 'prefixTableName'替换， 这里 'prefix' 指的是这个属性值。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="timeout">
+  <td><a href="CDbConnection.html#timeout-detail">timeout</a></td>
+  <td>integer</td>
+  <td>返回连接的超时设置。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="username">
+  <td><a href="CDbConnection.html#username-detail">username</a></td>
+  <td>string</td>
+  <td>建立数据连接的用户名。默认为空字符串。</td>
+  <td>CDbConnection</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>如果类中没有调的方法名，则调用这个方法。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="__construct">
+  <td><a href="CDbConnection.html#__construct-detail">__construct()</a></td>
+  <td>构造函数。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>返回一个属性值、一个事件处理程序列表或一个行为名称。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>检查一个属性是否为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>设置一个组件的属性值。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="__sleep">
+  <td><a href="CDbConnection.html#__sleep-detail">__sleep()</a></td>
+  <td>序列化时关闭连接。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>设置一个组件的属性为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>返回这个名字的行为对象。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>附加一个行为到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>附加一个行为列表到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>为事件附加一个事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="beginTransaction">
+  <td><a href="CDbConnection.html#beginTransaction-detail">beginTransaction()</a></td>
+  <td>启动事务。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="cache">
+  <td><a href="CDbConnection.html#cache-detail">cache()</a></td>
+  <td>设置关于查询缓存的参数。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>确定属性是否可读。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>确定属性是否可写。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="createCommand">
+  <td><a href="CDbConnection.html#createCommand-detail">createCommand()</a></td>
+  <td>创建用于执行的命令。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>从组件中分离一个行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>从组件中分离所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>分离一个存在的事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>禁用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>禁用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>启用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>启用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>计算一个PHP表达式，或根据组件上下文执行回调。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getActive">
+  <td><a href="CDbConnection.html#getActive-detail">getActive()</a></td>
+  <td>返回DB连接是否已经建立。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getAttribute">
+  <td><a href="CDbConnection.html#getAttribute-detail">getAttribute()</a></td>
+  <td>获取指定的数据库连接属性信息。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getAttributes">
+  <td><a href="CDbConnection.html#getAttributes-detail">getAttributes()</a></td>
+  <td>返回先前为数据库连接显式设置的属性。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getAutoCommit">
+  <td><a href="CDbConnection.html#getAutoCommit-detail">getAutoCommit()</a></td>
+  <td>返回是否创建或更新数据库记录将自动提交。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getAvailableDrivers">
+  <td><a href="CDbConnection.html#getAvailableDrivers-detail">getAvailableDrivers()</a></td>
+  <td>返回一个可用的PDO驱动程序的列表。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getClientVersion">
+  <td><a href="CDbConnection.html#getClientVersion-detail">getClientVersion()</a></td>
+  <td>返回数据库驱动程序的版本信息。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getColumnCase">
+  <td><a href="CDbConnection.html#getColumnCase-detail">getColumnCase()</a></td>
+  <td>返回列名称的大小写情况</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getCommandBuilder">
+  <td><a href="CDbConnection.html#getCommandBuilder-detail">getCommandBuilder()</a></td>
+  <td>返回为当前DB连接的SQL命令生成器。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getConnectionStatus">
+  <td><a href="CDbConnection.html#getConnectionStatus-detail">getConnectionStatus()</a></td>
+  <td>返回连接的状态。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getCurrentTransaction">
+  <td><a href="CDbConnection.html#getCurrentTransaction-detail">getCurrentTransaction()</a></td>
+  <td>返回当前活动的事务。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getDriverName">
+  <td><a href="CDbConnection.html#getDriverName-detail">getDriverName()</a></td>
+  <td>返回的数据库驱动程序的名称。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>返回一个事件的附加处理程序列表。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getIsInitialized">
+  <td><a href="CApplicationComponent.html#getIsInitialized-detail">getIsInitialized()</a></td>
+  <td>检查应用组件是否已经初始化。</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="getLastInsertID">
+  <td><a href="CDbConnection.html#getLastInsertID-detail">getLastInsertID()</a></td>
+  <td>返回最后一个插入的行的ID或序列值。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getNullConversion">
+  <td><a href="CDbConnection.html#getNullConversion-detail">getNullConversion()</a></td>
+  <td>返回null与empty字符串如何转化的情况。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getPdoInstance">
+  <td><a href="CDbConnection.html#getPdoInstance-detail">getPdoInstance()</a></td>
+  <td>返回PDO实例。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getPdoType">
+  <td><a href="CDbConnection.html#getPdoType-detail">getPdoType()</a></td>
+  <td>指定的PHP数据类型决定PDO数据类型。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getPersistent">
+  <td><a href="CDbConnection.html#getPersistent-detail">getPersistent()</a></td>
+  <td>返回数据库连接是否持久的。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getPrefetch">
+  <td><a href="CDbConnection.html#getPrefetch-detail">getPrefetch()</a></td>
+  <td>返回数据库连接是否可执行数据预获取。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getSchema">
+  <td><a href="CDbConnection.html#getSchema-detail">getSchema()</a></td>
+  <td>返回当前连接的数据库结构</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getServerInfo">
+  <td><a href="CDbConnection.html#getServerInfo-detail">getServerInfo()</a></td>
+  <td>返回DBMS服务器的信息。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getServerVersion">
+  <td><a href="CDbConnection.html#getServerVersion-detail">getServerVersion()</a></td>
+  <td>返回DBMS服务器的版本信息。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getStats">
+  <td><a href="CDbConnection.html#getStats-detail">getStats()</a></td>
+  <td>返回SQL执行的统计结果。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="getTimeout">
+  <td><a href="CDbConnection.html#getTimeout-detail">getTimeout()</a></td>
+  <td>返回连接的超时设置。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>确定一个事件是否定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>检查事件是否有附加的处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>确定属性是否被定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CDbConnection.html#init-detail">init()</a></td>
+  <td>初始化组件。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="quoteColumnName">
+  <td><a href="CDbConnection.html#quoteColumnName-detail">quoteColumnName()</a></td>
+  <td>在一个查询中引用一个列名称。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="quoteTableName">
+  <td><a href="CDbConnection.html#quoteTableName-detail">quoteTableName()</a></td>
+  <td>在一个查询中引用的表名。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="quoteValue">
+  <td><a href="CDbConnection.html#quoteValue-detail">quoteValue()</a></td>
+  <td>在一个查询中引用一个字符串值。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>发起一个事件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="setActive">
+  <td><a href="CDbConnection.html#setActive-detail">setActive()</a></td>
+  <td>打开或关闭DB连接。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="setAttribute">
+  <td><a href="CDbConnection.html#setAttribute-detail">setAttribute()</a></td>
+  <td>设置数据库连接上的一个属性。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="setAttributes">
+  <td><a href="CDbConnection.html#setAttributes-detail">setAttributes()</a></td>
+  <td>设置一套数据库连接的属性。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="setAutoCommit">
+  <td><a href="CDbConnection.html#setAutoCommit-detail">setAutoCommit()</a></td>
+  <td>设置是否创建或更新数据库记录将自动提交。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="setColumnCase">
+  <td><a href="CDbConnection.html#setColumnCase-detail">setColumnCase()</a></td>
+  <td>设置列名称的大小写。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="setNullConversion">
+  <td><a href="CDbConnection.html#setNullConversion-detail">setNullConversion()</a></td>
+  <td>设置null和empty 字符串如何转换。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="setPersistent">
+  <td><a href="CDbConnection.html#setPersistent-detail">setPersistent()</a></td>
+  <td>设置此连接是否是持久连接。</td>
+  <td>CDbConnection</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="close">
+  <td><a href="CDbConnection.html#close-detail">close()</a></td>
+  <td>关闭当前连接的数据库连接。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="createPdoInstance">
+  <td><a href="CDbConnection.html#createPdoInstance-detail">createPdoInstance()</a></td>
+  <td>创建一个 PDO 实例。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="initConnection">
+  <td><a href="CDbConnection.html#initConnection-detail">initConnection()</a></td>
+  <td>初始化开放数据库连接。</td>
+  <td>CDbConnection</td>
+</tr>
+<tr id="open">
+  <td><a href="CDbConnection.html#open-detail">open()</a></td>
+  <td>打开数据库连接，如果它当前没有打开</td>
+  <td>CDbConnection</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>属性详细</h2>
+<div class="detailHeader" id="active-detail">
+active<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <a href="CDbConnection.html#getActive"><b>getActive</b></a>()<br/>public void <a href="CDbConnection.html#setActive"><b>setActive</b></a>(boolean $value)</div>
+
+<p>返回DB连接是否已经建立。</p>
+
+
+<div class="detailHeader" id="attributes-detail">
+attributes<span class="detailHeaderTag">
+属性
+（可用自 v1.1.7）
+</span>
+</div>
+
+<div class="signature">
+public array <a href="CDbConnection.html#getAttributes"><b>getAttributes</b></a>()<br/>public void <a href="CDbConnection.html#setAttributes"><b>setAttributes</b></a>(array $values)</div>
+
+<p>返回先前为数据库连接显式设置的属性。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="CDbConnection.html#setAttributes">setAttributes</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="autoCommit-detail">
+autoCommit<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <a href="CDbConnection.html#getAutoCommit"><b>getAutoCommit</b></a>()<br/>public void <a href="CDbConnection.html#setAutoCommit"><b>setAutoCommit</b></a>(boolean $value)</div>
+
+<p>返回是否创建或更新数据库记录将自动提交。
+某些 DBMS (如 sqlite) 可能不支持这个特征。</p>
+
+
+<div class="detailHeader" id="autoConnect-detail">
+autoConnect<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$autoConnect</b>;</div>
+
+<p>数据库是否应自动建立连接
+此组件将被初始化。默认为true。注意，这个属性仅仅有效果当
+CDbConnection对象被用作一个应用程序组件。</p>
+
+
+<div class="detailHeader" id="charset-detail">
+charset<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$charset</b>;</div>
+
+<p>用于数据库连接charset字符串。这个属性仅仅用于
+MySQL 和 PostgreSQL 数据库。默认为 null, 
+意味着使用此数据库指定的默认的charset。
+<br/><br/>
+注意如果你使用 GBK 或 BIG5 ，那么推荐更新到
+PHP 5.3.6+和通过DSN指定 charset 像下面这样
+'mysql:dbname=mydatabase;host=127.0.0.1;charset=GBK;'。</p>
+
+
+<div class="detailHeader" id="clientVersion-detail">
+clientVersion<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CDbConnection.html#getClientVersion"><b>getClientVersion</b></a>()</div>
+
+<p>返回数据库驱动程序的版本信息。</p>
+
+
+<div class="detailHeader" id="columnCase-detail">
+columnCase<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public mixed <a href="CDbConnection.html#getColumnCase"><b>getColumnCase</b></a>()<br/>public void <a href="CDbConnection.html#setColumnCase"><b>setColumnCase</b></a>(mixed $value)</div>
+
+<p>返回列名称的大小写情况</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/pdo.setattribute.php">http://www.php.net/manual/en/pdo.setattribute.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="commandBuilder-detail">
+commandBuilder<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CDbCommandBuilder.html">CDbCommandBuilder</a> <a href="CDbConnection.html#getCommandBuilder"><b>getCommandBuilder</b></a>()</div>
+
+<p>返回为当前DB连接的SQL命令生成器。</p>
+
+
+<div class="detailHeader" id="connectionStatus-detail">
+connectionStatus<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CDbConnection.html#getConnectionStatus"><b>getConnectionStatus</b></a>()</div>
+
+<p>返回连接的状态。
+一些 DBMS (如 sqlite) 可能不支持这个特征。</p>
+
+
+<div class="detailHeader" id="connectionString-detail">
+connectionString<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$connectionString</b>;</div>
+
+<p>数据源名称或 DSN，包含连接到数据库所需的信息。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/function.PDO-construct.php">注意，如果你使用的是 GBK 或 BIG5 ，推荐你更新到PHP 5.3.6+ ，
+并指定通过DSN指定charset像下面这样：
+‘mysql:dbname=mydatabase;host=127.0.0.1;charset=GBK;’。</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="currentTransaction-detail">
+currentTransaction<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CDbTransaction.html">CDbTransaction</a> <a href="CDbConnection.html#getCurrentTransaction"><b>getCurrentTransaction</b></a>()</div>
+
+<p>返回当前活动的事务。</p>
+
+
+<div class="detailHeader" id="driverMap-detail">
+driverMap<span class="detailHeaderTag">
+属性
+（可用自 v1.1.6）
+</span>
+</div>
+
+<div class="signature">
+public array <b>$driverMap</b>;</div>
+
+<p>PDO驱动程序和schema类名之间的映射。
+使用路径别名指定一个 schema 类。</p>
+
+
+<div class="detailHeader" id="driverName-detail">
+driverName<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CDbConnection.html#getDriverName"><b>getDriverName</b></a>()</div>
+
+<p>返回的数据库驱动程序的名称。</p>
+
+
+<div class="detailHeader" id="emulatePrepare-detail">
+emulatePrepare<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$emulatePrepare</b>;</div>
+
+<p>是否打开准备模拟。默认为 false，
+意味着PDO将准备使用本地预备支持，如果可用。对于某些数据库 (如 MySQL),
+这将需要设置为true 以至于 PDO 能模拟该预备支持
+绕过buggy本地预备支持。注意，这个属性仅仅在PHP 5.1.3及以上有效。
+默认值为 null，这将不改变PDO的 ATTR_EMULATE_PREPARES 值。</p>
+
+
+<div class="detailHeader" id="enableParamLogging-detail">
+enableParamLogging<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$enableParamLogging</b>;</div>
+
+<p>是否记录的值绑定到一个准备的SQL语句。
+默认为 false。在开发阶段，你应该考虑设置这个属性为true
+以至于参数值能被绑定到SQL语句以记录用于高度目的。
+你应该知道记录参数值代价是高昂的，
+将很大程度影响你的应用程序的性能。</p>
+
+
+<div class="detailHeader" id="enableProfiling-detail">
+enableProfiling<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$enableProfiling</b>;</div>
+
+<p>正在执行的SQL语句是否启用分析。
+默认为 false。这个主要
+启用它主要用于开发阶段找出SQL执行的瓶颈。</p>
+
+
+<div class="detailHeader" id="initSQLs-detail">
+initSQLs<span class="detailHeaderTag">
+属性
+（可用自 v1.1.1）
+</span>
+</div>
+
+<div class="signature">
+public array <b>$initSQLs</b>;</div>
+
+<p>DB连接建立后执行的SQL语句列表。</p>
+
+
+<div class="detailHeader" id="lastInsertID-detail">
+lastInsertID<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CDbConnection.html#getLastInsertID"><b>getLastInsertID</b></a>(string $sequenceName='')</div>
+
+<p>返回最后一个插入的行的ID或序列值。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/function.PDO-lastInsertId.php">http://www.php.net/manual/en/function.PDO-lastInsertId.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="nullConversion-detail">
+nullConversion<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public mixed <a href="CDbConnection.html#getNullConversion"><b>getNullConversion</b></a>()<br/>public void <a href="CDbConnection.html#setNullConversion"><b>setNullConversion</b></a>(mixed $value)</div>
+
+<p>返回null与empty字符串如何转化的情况。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/pdo.setattribute.php">http://www.php.net/manual/en/pdo.setattribute.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="password-detail">
+password<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$password</b>;</div>
+
+<p>建立数据连接的密码。默认为空字符串。</p>
+
+
+<div class="detailHeader" id="pdoClass-detail">
+pdoClass<span class="detailHeaderTag">
+属性
+（可用自 v1.1.8）
+</span>
+</div>
+
+<div class="signature">
+public string <b>$pdoClass</b>;</div>
+
+<p>自定义PDO封装类。</p>
+
+
+<div class="detailHeader" id="pdoInstance-detail">
+pdoInstance<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public PDO <a href="CDbConnection.html#getPdoInstance"><b>getPdoInstance</b></a>()</div>
+
+<p>返回PDO实例。</p>
+
+
+<div class="detailHeader" id="persistent-detail">
+persistent<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <a href="CDbConnection.html#getPersistent"><b>getPersistent</b></a>()<br/>public void <a href="CDbConnection.html#setPersistent"><b>setPersistent</b></a>(boolean $value)</div>
+
+<p>返回数据库连接是否持久的。
+某些 DBMS (如 sqlite) 可能不支持这个特征。</p>
+
+
+<div class="detailHeader" id="prefetch-detail">
+prefetch<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public boolean <a href="CDbConnection.html#getPrefetch"><b>getPrefetch</b></a>()</div>
+
+<p>返回数据库连接是否可执行数据预获取。</p>
+
+
+<div class="detailHeader" id="queryCacheID-detail">
+queryCacheID<span class="detailHeaderTag">
+属性
+（可用自 v1.1.7）
+</span>
+</div>
+
+<div class="signature">
+public string <b>$queryCacheID</b>;</div>
+
+<p>缓存应用程序组件的ID，用于查询缓存。
+默认为'cache'，它指的是主缓存应用程序组件。
+设置这个属性为false，如果你想禁用查询缓存。</p>
+
+
+<div class="detailHeader" id="queryCachingCount-detail">
+queryCachingCount<span class="detailHeaderTag">
+属性
+（可用自 v1.1.7）
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$queryCachingCount</b>;</div>
+
+<p>下次将被缓存的SQL语句的数目。
+如果它是 0，即使查询缓存被启用，查询也不会被缓存。
+注意每次执行一条SQL语句之后 (是否在DB服务器上执行或从查询缓存中获取)，
+这个属性将被减少1至0。</p>
+
+
+<div class="detailHeader" id="queryCachingDependency-detail">
+queryCachingDependency<span class="detailHeaderTag">
+属性
+（可用自 v1.1.7）
+</span>
+</div>
+
+<div class="signature">
+public <a href="CCacheDependency.html">CCacheDependency</a> <b>$queryCachingDependency</b>;</div>
+
+<p>当查询结果保存到缓存时，使用的依赖。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="CDbConnection.html#queryCachingDuration">queryCachingDuration</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="queryCachingDuration-detail">
+queryCachingDuration<span class="detailHeaderTag">
+属性
+（可用自 v1.1.7）
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$queryCachingDuration</b>;</div>
+
+<p>查询结果被保留在缓存中有效的秒数。
+使用0或负数值指示不缓存查询结果 (默认 behavior).
+<br/><br/>
+为了启用查询缓存，这个属性必须被设置为正数。
+并且 <a href="CDbConnection.html#queryCacheID">queryCacheID</a> 必须指向一个有效的缓存组件 ID。
+<br/><br/>
+该方法<a href="CDbConnection.html#cache">cache()</a> 提供一种方便的方法设置此属性
+和 <a href="CDbConnection.html#queryCachingDependency">queryCachingDependency</a>。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="CDbConnection.html#cache">cache</a></li>
+	<li><a href="CDbConnection.html#queryCachingDependency">queryCachingDependency</a></li>
+	<li><a href="CDbConnection.html#queryCacheID">queryCacheID</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="schema-detail">
+schema<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CDbSchema.html">CDbSchema</a> <a href="CDbConnection.html#getSchema"><b>getSchema</b></a>()</div>
+
+<p>返回当前连接的数据库结构</p>
+
+
+<div class="detailHeader" id="schemaCacheID-detail">
+schemaCacheID<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$schemaCacheID</b>;</div>
+
+<p>缓存应用程序组件的ID，用于缓存表的元数据。
+默认为'cache' 它指的是主缓存应用程序组件。
+如果要禁用缓存表的元数据，此属性设置为false。</p>
+
+
+<div class="detailHeader" id="schemaCachingDuration-detail">
+schemaCachingDuration<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$schemaCachingDuration</b>;</div>
+
+<p>数据表中元数据在缓存中保存的秒钟数。
+使用0或负值指示不缓存schema。
+如果大于0和正数，cache被启用，表的元数据将被缓存。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="CDbConnection.html#schemaCachingExclude">schemaCachingExclude</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="schemaCachingExclude-detail">
+schemaCachingExclude<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public array <b>$schemaCachingExclude</b>;</div>
+
+<p>元数据不被缓存的列的列表。默认为空字符串。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="CDbConnection.html#schemaCachingDuration">schemaCachingDuration</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="serverInfo-detail">
+serverInfo<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CDbConnection.html#getServerInfo"><b>getServerInfo</b></a>()</div>
+
+<p>返回DBMS服务器的信息。</p>
+
+
+<div class="detailHeader" id="serverVersion-detail">
+serverVersion<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CDbConnection.html#getServerVersion"><b>getServerVersion</b></a>()</div>
+
+<p>返回DBMS服务器的版本信息。</p>
+
+
+<div class="detailHeader" id="stats-detail">
+stats<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public array <a href="CDbConnection.html#getStats"><b>getStats</b></a>()</div>
+
+<p>返回SQL执行的统计结果。
+返回的结果包含执行SQL语句的数目和
+所花费的总时间。
+为了使用此方法，<a href="CDbConnection.html#enableProfiling">enableProfiling</a>必须设置为 true。</p>
+
+
+<div class="detailHeader" id="tablePrefix-detail">
+tablePrefix<span class="detailHeaderTag">
+属性
+（可用自 v1.1.0）
+</span>
+</div>
+
+<div class="signature">
+public string <b>$tablePrefix</b>;</div>
+
+<p>表名称的默认前缀。默认为 null，意味着没有表前缀。
+通过设置这个属性，任何标记像 '{{tableName}}' 在 <a href="CDbCommand.html#text">CDbCommand::text</a> 
+将 'prefixTableName'替换， 这里 'prefix' 指的是这个属性值。</p>
+
+
+<div class="detailHeader" id="timeout-detail">
+timeout<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public integer <a href="CDbConnection.html#getTimeout"><b>getTimeout</b></a>()</div>
+
+<p>返回连接的超时设置。</p>
+
+
+<div class="detailHeader" id="username-detail">
+username<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$username</b>;</div>
+
+<p>建立数据连接的用户名。默认为空字符串。</p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="__construct-detail">
+__construct()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>__construct</b>(string $dsn='', string $username='', string $password='')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$dsn</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">数据源名称，或 DSN，包含连接到数据库所需的信息。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$username</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">DSN 字符串的用户名。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$password</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">DSN 字符串的密码。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#271">framework/db/CDbConnection.php#271</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$username</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$password</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connectionString</span><span style="color: #007700">=</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">username</span><span style="color: #007700">=</span><span style="color: #0000BB">$username</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">password</span><span style="color: #007700">=</span><span style="color: #0000BB">$password</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>构造函数。
+注意，当连接实例创建的时候，并不会连接数据库。
+设置 <a href="CDbConnection.html#setActive">active</a> 属性为true，
+来建立此连接。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/function.PDO-construct.php">http://www.php.net/manual/en/function.PDO-construct.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="__sleep-detail">
+__sleep()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>__sleep</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol"></td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#282">framework/db/CDbConnection.php#282</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">__sleep</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">get_object_vars</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>序列化时关闭连接。</p>
+
+
+<div class="detailHeader" id="beginTransaction-detail">
+beginTransaction()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CDbTransaction.html">CDbTransaction</a> <b>beginTransaction</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbTransaction.html">CDbTransaction</a></td>
+  <td class="paramDescCol">返回事务启动</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#490">framework/db/CDbConnection.php#490</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">beginTransaction</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">trace</span><span style="color: #007700">(</span><span style="color: #DD0000">'Starting&nbsp;transaction'</span><span style="color: #007700">,</span><span style="color: #DD0000">'system.db.CDbConnection'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setActive</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">beginTransaction</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_transaction</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CDbTransaction</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>启动事务。</p>
+
+
+<div class="detailHeader" id="cache-detail">
+cache()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.7）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public CDbConnection <b>cache</b>(integer $duration, <a href="CCacheDependency.html">CCacheDependency</a> $dependency=NULL, integer $queryCount=1)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$duration</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">查询结果保持在缓存中有效的秒数。
+如果它是0，缓存将被禁用。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$dependency</td>
+  <td class="paramTypeCol"><a href="CCacheDependency.html">CCacheDependency</a></td>
+  <td class="paramDescCol">当查询结果保存到缓存时，使用的依赖。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$queryCount</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">在调用此方法后，需要缓存的SQL查询的数目。
+默认为 1，意味着下一条SQL查询将被缓存。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">CDbConnection</td>
+  <td class="paramDescCol">返回连接实例本身。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#353">framework/db/CDbConnection.php#353</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">cache</span><span style="color: #007700">(</span><span style="color: #0000BB">$duration</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dependency</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$queryCount</span><span style="color: #007700">=</span><span style="color: #0000BB">1</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">queryCachingDuration</span><span style="color: #007700">=</span><span style="color: #0000BB">$duration</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">queryCachingDependency</span><span style="color: #007700">=</span><span style="color: #0000BB">$dependency</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">queryCachingCount</span><span style="color: #007700">=</span><span style="color: #0000BB">$queryCount</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>设置关于查询缓存的参数。
+此方法可用于启用或禁用查询缓存。
+通过设置$duration参数为0，查询缓存将被禁用。
+要不然， 新的SQL语句执行的查询结果将被保存在缓存中，
+并且在指定时间段内有效。
+如果同样的查询再次执行，结果将直接从缓存中读取，
+而不是执行实际的SQL语句。</p>
+
+
+<div class="detailHeader" id="close-detail">
+close()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>close</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#398">framework/db/CDbConnection.php#398</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">close</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">trace</span><span style="color: #007700">(</span><span style="color: #DD0000">'Closing&nbsp;DB&nbsp;connection'</span><span style="color: #007700">,</span><span style="color: #DD0000">'system.db.CDbConnection'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_active</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_schema</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>关闭当前连接的数据库连接。
+如果连接已经关闭，它不执行任何操作。</p>
+
+
+<div class="detailHeader" id="createCommand-detail">
+createCommand()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CDbCommand.html">CDbCommand</a> <b>createCommand</b>(mixed $query=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$query</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">要执行的DB查询。这可以是一个字符串，表示一个SQL语句，
+或一个数组，它表示SQL语句的不同片段。请参阅 <a href="CDbCommand.html#__construct">CDbCommand::__construct</a>
+有关更多详细信息有关如何将数组作为查询。如果这个参数没有给定，
+你必须调用查询生成器的 <a href="CDbCommand.html">CDbCommand</a> 方法去建立数据库查询。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbCommand.html">CDbCommand</a></td>
+  <td class="paramDescCol">数据库命令</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#466">framework/db/CDbConnection.php#466</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">createCommand</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setActive</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;</span><span style="color: #0000BB">CDbCommand</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>创建用于执行的命令。</p>
+
+
+<div class="detailHeader" id="createPdoInstance-detail">
+createPdoInstance()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected PDO <b>createPdoInstance</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">PDO</td>
+  <td class="paramDescCol">返回pdo实例</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#412">framework/db/CDbConnection.php#412</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">createPdoInstance</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pdoClass</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">pdoClass</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connectionString</span><span style="color: #007700">,</span><span style="color: #DD0000">':'</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$driver</span><span style="color: #007700">=</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connectionString</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$driver</span><span style="color: #007700">===</span><span style="color: #DD0000">'mssql'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$driver</span><span style="color: #007700">===</span><span style="color: #DD0000">'dblib'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$driver</span><span style="color: #007700">===</span><span style="color: #DD0000">'sqlsrv'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pdoClass</span><span style="color: #007700">=</span><span style="color: #DD0000">'CMssqlPdoAdapter'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;</span><span style="color: #0000BB">$pdoClass</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connectionString</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">username</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">password</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_attributes</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>创建一个 PDO 实例。
+pdo驱动程序中缺少某些功能时，
+我们可以使用一个适配器类，以提供它们。</p>
+
+
+<div class="detailHeader" id="getActive-detail">
+getActive()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getActive</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">返回DB连接是否已经建立</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#316">framework/db/CDbConnection.php#316</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getActive</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_active</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回DB连接是否已经建立。</p>
+
+
+<div class="detailHeader" id="getAttribute-detail">
+getAttribute()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>getAttribute</b>(integer $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">要查询的属性。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">相应的属性信息</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#747">framework/db/CDbConnection.php#747</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setActive</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>获取指定的数据库连接属性信息。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/function.PDO-getAttribute.php">http://www.php.net/manual/en/function.PDO-getAttribute.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getAttributes-detail">
+getAttributes()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.7）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getAttributes</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">返回先前为数据库连接显式设置的属性(name=>value)。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#773">framework/db/CDbConnection.php#773</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getAttributes</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_attributes</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回先前为数据库连接显式设置的属性。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="CDbConnection.html#setAttributes">setAttributes</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getAutoCommit-detail">
+getAutoCommit()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getAutoCommit</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">返回是否创建或更新DB记录将自动提交。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#640">framework/db/CDbConnection.php#640</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getAutoCommit</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_AUTOCOMMIT</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回是否创建或更新数据库记录将自动提交。
+某些 DBMS (如 sqlite) 可能不支持这个特征。</p>
+
+
+<div class="detailHeader" id="getAvailableDrivers-detail">
+getAvailableDrivers()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static array <b>getAvailableDrivers</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">返回一个可用的PDO驱动程序的列表</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#293">framework/db/CDbConnection.php#293</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getAvailableDrivers</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">getAvailableDrivers</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回一个可用的PDO驱动程序的列表。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/function.PDO-getAvailableDrivers.php">http://www.php.net/manual/en/function.PDO-getAvailableDrivers.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getClientVersion-detail">
+getClientVersion()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getClientVersion</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">返回数据库驱动程序的版本信息</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#690">framework/db/CDbConnection.php#690</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getClientVersion</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_CLIENT_VERSION</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回数据库驱动程序的版本信息。</p>
+
+
+<div class="detailHeader" id="getColumnCase-detail">
+getColumnCase()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>getColumnCase</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">列的大小写情况</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#600">framework/db/CDbConnection.php#600</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getColumnCase</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_CASE</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回列名称的大小写情况</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/pdo.setattribute.php">http://www.php.net/manual/en/pdo.setattribute.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getCommandBuilder-detail">
+getCommandBuilder()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CDbCommandBuilder.html">CDbCommandBuilder</a> <b>getCommandBuilder</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbCommandBuilder.html">CDbCommandBuilder</a></td>
+  <td class="paramDescCol">返回此命令生成器</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#521">framework/db/CDbConnection.php#521</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCommandBuilder</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSchema</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getCommandBuilder</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回为当前DB连接的SQL命令生成器。</p>
+
+
+<div class="detailHeader" id="getConnectionStatus-detail">
+getConnectionStatus()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getConnectionStatus</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">返回连接的状态</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#700">framework/db/CDbConnection.php#700</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getConnectionStatus</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_CONNECTION_STATUS</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回连接的状态。
+一些 DBMS (如 sqlite) 可能不支持这个特征。</p>
+
+
+<div class="detailHeader" id="getCurrentTransaction-detail">
+getCurrentTransaction()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CDbTransaction.html">CDbTransaction</a> <b>getCurrentTransaction</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbTransaction.html">CDbTransaction</a></td>
+  <td class="paramDescCol">返回当前活动的事务。如果没有活动事务返回null。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#476">framework/db/CDbConnection.php#476</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCurrentTransaction</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_transaction</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_transaction</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getActive</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_transaction</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回当前活动的事务。</p>
+
+
+<div class="detailHeader" id="getDriverName-detail">
+getDriverName()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getDriverName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">返回的DB驱动程序的名称</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#679">framework/db/CDbConnection.php#679</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getDriverName</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connectionString</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">':'</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connectionString</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pos</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;return&nbsp;$this-&gt;getAttribute(PDO::ATTR_DRIVER_NAME);<br /></span><span style="color: #007700">}</span>
+</span>
+</code></div>
+</div>
+<p>返回的数据库驱动程序的名称。</p>
+
+
+<div class="detailHeader" id="getLastInsertID-detail">
+getLastInsertID()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getLastInsertID</b>(string $sequenceName='')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$sequenceName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">序列对象的名称 (某些DBMS要求)</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">最后插入的行的 ID，或从序列对象中取回的最后的值。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#532">framework/db/CDbConnection.php#532</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getLastInsertID</span><span style="color: #007700">(</span><span style="color: #0000BB">$sequenceName</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setActive</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">lastInsertId</span><span style="color: #007700">(</span><span style="color: #0000BB">$sequenceName</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回最后一个插入的行的ID或序列值。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/function.PDO-lastInsertId.php">http://www.php.net/manual/en/function.PDO-lastInsertId.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getNullConversion-detail">
+getNullConversion()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>getNullConversion</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">返回值说明null和空字符串是怎样转换的。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#620">framework/db/CDbConnection.php#620</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getNullConversion</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_ORACLE_NULLS</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回null与empty字符串如何转化的情况。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/pdo.setattribute.php">http://www.php.net/manual/en/pdo.setattribute.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getPdoInstance-detail">
+getPdoInstance()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public PDO <b>getPdoInstance</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">PDO</td>
+  <td class="paramDescCol">返回PDO实例，如果连接还没有建立返回null</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#453">framework/db/CDbConnection.php#453</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPdoInstance</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回PDO实例。</p>
+
+
+<div class="detailHeader" id="getPdoType-detail">
+getPdoType()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>getPdoType</b>(string $type)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$type</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">PHP类型（通过调用gettype()获得）。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">返回相应的PDO类型</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#583">framework/db/CDbConnection.php#583</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPdoType</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$map</span><span style="color: #007700">=array<br />&nbsp;&nbsp;&nbsp;&nbsp;(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'boolean'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_BOOL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'integer'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_INT</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'string'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'NULL'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$map</span><span style="color: #007700">[</span><span style="color: #0000BB">$type</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$map</span><span style="color: #007700">[</span><span style="color: #0000BB">$type</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_STR</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>指定的PHP数据类型决定PDO数据类型。</p>
+
+
+<div class="detailHeader" id="getPersistent-detail">
+getPersistent()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getPersistent</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">返回连接是否是持久连接</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#660">framework/db/CDbConnection.php#660</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPersistent</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_PERSISTENT</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回数据库连接是否持久的。
+某些 DBMS (如 sqlite) 可能不支持这个特征。</p>
+
+
+<div class="detailHeader" id="getPrefetch-detail">
+getPrefetch()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getPrefetch</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">返回是否连接执行数据预读取</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#709">framework/db/CDbConnection.php#709</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPrefetch</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_PREFETCH</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回数据库连接是否可执行数据预获取。</p>
+
+
+<div class="detailHeader" id="getSchema-detail">
+getSchema()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CDbSchema.html">CDbSchema</a> <b>getSchema</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbSchema.html">CDbSchema</a></td>
+  <td class="paramDescCol">当前连接的数据库结构</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#502">framework/db/CDbConnection.php#502</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getSchema</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_schema</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_schema</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$driver</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getDriverName</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">driverMap</span><span style="color: #007700">[</span><span style="color: #0000BB">$driver</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_schema</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">createComponent</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">driverMap</span><span style="color: #007700">[</span><span style="color: #0000BB">$driver</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CDbException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CDbConnection&nbsp;does&nbsp;not&nbsp;support&nbsp;reading&nbsp;schema&nbsp;for&nbsp;{driver}&nbsp;database.'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'{driver}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$driver</span><span style="color: #007700">)));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回当前连接的数据库结构</p>
+
+
+<div class="detailHeader" id="getServerInfo-detail">
+getServerInfo()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getServerInfo</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">返回DBMS服务器的信息。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#718">framework/db/CDbConnection.php#718</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getServerInfo</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_SERVER_INFO</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回DBMS服务器的信息。</p>
+
+
+<div class="detailHeader" id="getServerVersion-detail">
+getServerVersion()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getServerVersion</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">返回DBMS服务器的版本信息。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#727">framework/db/CDbConnection.php#727</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getServerVersion</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_SERVER_VERSION</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回DBMS服务器的版本信息。</p>
+
+
+<div class="detailHeader" id="getStats-detail">
+getStats()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getStats</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">返回的数组中第一个元素指示SQL语句执行的数目，
+第二个元素指示SQL执行的总时间。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#798">framework/db/CDbConnection.php#798</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getStats</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$logger</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">getLogger</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$timings</span><span style="color: #007700">=</span><span style="color: #0000BB">$logger</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProfilingResults</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'system.db.CDbCommand.query'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">=</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$timings</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$time</span><span style="color: #007700">=</span><span style="color: #0000BB">array_sum</span><span style="color: #007700">(</span><span style="color: #0000BB">$timings</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$timings</span><span style="color: #007700">=</span><span style="color: #0000BB">$logger</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProfilingResults</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #DD0000">'system.db.CDbCommand.execute'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">+=</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$timings</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$time</span><span style="color: #007700">+=</span><span style="color: #0000BB">array_sum</span><span style="color: #007700">(</span><span style="color: #0000BB">$timings</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(</span><span style="color: #0000BB">$count</span><span style="color: #007700">,</span><span style="color: #0000BB">$time</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回SQL执行的统计结果。
+返回的结果包含执行SQL语句的数目和
+所花费的总时间。
+为了使用此方法，<a href="CDbConnection.html#enableProfiling">enableProfiling</a>必须设置为 true。</p>
+
+
+<div class="detailHeader" id="getTimeout-detail">
+getTimeout()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>getTimeout</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">返回连接的超时设置。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#736">framework/db/CDbConnection.php#736</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTimeout</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_TIMEOUT</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回连接的超时设置。</p>
+
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#305">framework/db/CDbConnection.php#305</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">autoConnect</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setActive</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>初始化组件。
+该方法对<a href="IApplicationComponent.html">IApplicationComponent</a> 来说是必须的，
+并且当 CDbConnection 被用作一个应用程序组件时触发。
+如果你重写此方法，请确保调用父类实现
+以便可以将组件标记为已初始化。</p>
+
+
+<div class="detailHeader" id="initConnection-detail">
+initConnection()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>initConnection</b>(PDO $pdo)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$pdo</td>
+  <td class="paramTypeCol">PDO</td>
+  <td class="paramDescCol">PDO实例</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#431">framework/db/CDbConnection.php#431</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">initConnection</span><span style="color: #007700">(</span><span style="color: #0000BB">$pdo</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_ERRMODE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ERRMODE_EXCEPTION</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">emulatePrepare</span><span style="color: #007700">!==</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">constant</span><span style="color: #007700">(</span><span style="color: #DD0000">'PDO::ATTR_EMULATE_PREPARES'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_EMULATE_PREPARES</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">emulatePrepare</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">charset</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$driver</span><span style="color: #007700">=</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_DRIVER_NAME</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$driver</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'pgsql'</span><span style="color: #007700">,</span><span style="color: #DD0000">'mysql'</span><span style="color: #007700">,</span><span style="color: #DD0000">'mysqli'</span><span style="color: #007700">)))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">'SET&nbsp;NAMES&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">charset</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">initSQLs</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">initSQLs&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>初始化开放数据库连接。
+在数据库连接建立后，调用此方法对。
+默认的实现是设置MySQL和PostgreSQL数据库连接的charset。</p>
+
+
+<div class="detailHeader" id="open-detail">
+open()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>open</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#365">framework/db/CDbConnection.php#365</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">open</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(empty(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connectionString</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CDbException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CDbConnection.connectionString&nbsp;cannot&nbsp;be&nbsp;empty.'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">trace</span><span style="color: #007700">(</span><span style="color: #DD0000">'Opening&nbsp;DB&nbsp;connection'</span><span style="color: #007700">,</span><span style="color: #DD0000">'system.db.CDbConnection'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">createPdoInstance</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">initConnection</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_active</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(</span><span style="color: #0000BB">PDOException&nbsp;$e</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">YII_DEBUG</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CDbException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CDbConnection&nbsp;failed&nbsp;to&nbsp;open&nbsp;the&nbsp;DB&nbsp;connection:&nbsp;{error}'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'{error}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">())),(int)</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCode</span><span style="color: #007700">(),</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errorInfo</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">log</span><span style="color: #007700">(</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">(),</span><span style="color: #0000BB">CLogger</span><span style="color: #007700">::</span><span style="color: #0000BB">LEVEL_ERROR</span><span style="color: #007700">,</span><span style="color: #DD0000">'exception.CDbException'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CDbException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CDbConnection&nbsp;failed&nbsp;to&nbsp;open&nbsp;the&nbsp;DB&nbsp;connection.'</span><span style="color: #007700">),(int)</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCode</span><span style="color: #007700">(),</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errorInfo</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>打开数据库连接，如果它当前没有打开</p>
+
+
+<div class="detailHeader" id="quoteColumnName-detail">
+quoteColumnName()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>quoteColumnName</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">列名</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">正确引用的列名称</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#573">framework/db/CDbConnection.php#573</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSchema</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>在一个查询中引用一个列名称。
+如果该列名包含前缀，前缀也被恰当的引用。</p>
+
+
+<div class="detailHeader" id="quoteTableName-detail">
+quoteTableName()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>quoteTableName</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">表名</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">正确引用的表名</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#562">framework/db/CDbConnection.php#562</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSchema</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>在一个查询中引用的表名。
+如果此表名包含schema 前缀，前缀也能被恰当的引用。</p>
+
+
+<div class="detailHeader" id="quoteValue-detail">
+quoteValue()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>quoteValue</b>(string $str)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$str</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">被引用的字符串</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">正确引用的字符串</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#544">framework/db/CDbConnection.php#544</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">quoteValue</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_int</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">is_float</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setActive</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;the&nbsp;driver&nbsp;doesn't&nbsp;support&nbsp;quote&nbsp;(e.g.&nbsp;oci)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #DD0000">"'"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">addcslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">"'"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"''"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\000\n\r\\\032"</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"'"</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>在一个查询中引用一个字符串值。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/function.PDO-quote.php">http://www.php.net/manual/en/function.PDO-quote.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="setActive-detail">
+setActive()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setActive</b>(boolean $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">说明数据库连接是开启还是关闭。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#326">framework/db/CDbConnection.php#326</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setActive</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$value</span><span style="color: #007700">!=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_active</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">open</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>打开或关闭DB连接。</p>
+
+
+<div class="detailHeader" id="setAttribute-detail">
+setAttribute()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setAttribute</b>(integer $name, mixed $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">要设置的属性</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">属性值</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#759">framework/db/CDbConnection.php#759</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_attributes</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>设置数据库连接上的一个属性。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/function.PDO-setAttribute.php">http://www.php.net/manual/en/function.PDO-setAttribute.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="setAttributes-detail">
+setAttributes()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.7）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setAttributes</b>(array $values)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$values</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">要被设置的属性(name=>value)。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#784">framework/db/CDbConnection.php#784</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setAttributes</span><span style="color: #007700">(</span><span style="color: #0000BB">$values</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$values&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_attributes</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>设置一套数据库连接的属性。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="CDbConnection.html#setAttribute">setAttribute</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="setAutoCommit-detail">
+setAutoCommit()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setAutoCommit</b>(boolean $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">返回是否创建或更新DB记录将自动提交。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#650">framework/db/CDbConnection.php#650</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setAutoCommit</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_AUTOCOMMIT</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>设置是否创建或更新数据库记录将自动提交。
+某些 DBMS (如 sqlite) 可能不支持这个特征。</p>
+
+
+<div class="detailHeader" id="setColumnCase-detail">
+setColumnCase()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setColumnCase</b>(mixed $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">列名称的大小写</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#610">framework/db/CDbConnection.php#610</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setColumnCase</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_CASE</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>设置列名称的大小写。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/pdo.setattribute.php">http://www.php.net/manual/en/pdo.setattribute.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="setNullConversion-detail">
+setNullConversion()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setNullConversion</b>(mixed $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">null和empty 字符串如何转换。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#630">framework/db/CDbConnection.php#630</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setNullConversion</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_ORACLE_NULLS</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>设置null和empty 字符串如何转换。</p>
+
+<div class="SeeAlso">
+<h4>参见</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/pdo.setattribute.php">http://www.php.net/manual/en/pdo.setattribute.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="setPersistent-detail">
+setPersistent()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setPersistent</b>(boolean $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">此连接是否是持久连接</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/db/CDbConnection.php#670">framework/db/CDbConnection.php#670</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setPersistent</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_PERSISTENT</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>设置此连接是否是持久连接。
+某些 DBMS (如 sqlite) 可能不支持这个特征。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

@@ -1,0 +1,1546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CCodeModel</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CCodeModel</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+| <a href="#events">事件</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.gii">system.gii</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>abstract class CCodeModel &raquo;
+<a href="CFormModel.html">CFormModel</a> &raquo;
+<a href="CModel.html">CModel</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>实现</th>
+  <td>IteratorAggregate, Traversable, ArrayAccess</td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.1.2</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CCodeModel.php 3547 2012-01-24 10:07:28Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php">framework/gii/CCodeModel.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CCodeModel是代码生成时用到的各种模型类的基类。
+<br/><br/>
+每一个代码生成器至少需要有一个从此类扩展而来的代码模型类。
+一个代码模型的作用是表示用户提供的参数，并使用它们来生成自
+定义的代码。
+<br/><br/>
+派生类需要实现<a href="CCodeModel.html#prepare">prepare</a>方法，此方法的主要任务是
+基于用户参数填充<a href="CCodeModel.html#files">files</a>属性。
+<br/><br/>
+<a href="CCodeModel.html#files">files</a>属性将被若干<a href="CCodeFile.html">CCodeFile</a>实例组成的集合填充，
+每个实例表示将生成的一个单一的代码文件。
+<br/><br/>
+CCodeModel实现了粘连属性（sticky attributes）的功能。一个粘连
+属性可以记忆它的最后的有效值，即使用户已经关闭然后再打开浏览器。
+要定义一个属性为粘连属性，只需要简单地将它加入到名为“sticky”
+的验证器的验证规则列表中。</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="answers">
+  <td><a href="CCodeModel.html#answers-detail">answers</a></td>
+  <td>array</td>
+  <td>用户对是否以新生成的代码文件覆盖原有的代码文件的确认信息。
+此属性的值通过此类和<a href="CCodeGenerator.html">CCodeGenerator</a>内部管理。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="attributes">
+  <td><a href="CModel.html#attributes-detail">attributes</a></td>
+  <td>array</td>
+  <td>Returns all attribute values.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="errors">
+  <td><a href="CModel.html#errors-detail">errors</a></td>
+  <td>array</td>
+  <td>Returns the errors for all attribute or a single attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="files">
+  <td><a href="CCodeModel.html#files-detail">files</a></td>
+  <td>array</td>
+  <td><a href="CCodeFile.html">CCodeFile</a>对象的列表，表示将被生成的代码文件。
+<a href="CCodeModel.html#prepare">prepare()</a>方法负责填充此属性。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="iterator">
+  <td><a href="CModel.html#iterator-detail">iterator</a></td>
+  <td><a href="CMapIterator.html">CMapIterator</a></td>
+  <td>Returns an iterator for traversing the attributes in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="keywords">
+  <td><a href="CCodeModel.html#keywords-detail">keywords</a></td>
+  <td></td>
+  <td></td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="safeAttributeNames">
+  <td><a href="CModel.html#safeAttributeNames-detail">safeAttributeNames</a></td>
+  <td>array</td>
+  <td>Returns the attribute names that are safe to be massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="scenario">
+  <td><a href="CModel.html#scenario-detail">scenario</a></td>
+  <td>string</td>
+  <td>Returns the scenario that this model is used in.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="status">
+  <td><a href="CCodeModel.html#status-detail">status</a></td>
+  <td>integer</td>
+  <td>此模型的状态。
+此属性值通过<a href="CCodeGenerator.html">CCodeGenerator</a>内部管理。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="stickyFile">
+  <td><a href="CCodeModel.html#stickyFile-detail">stickyFile</a></td>
+  <td>string</td>
+  <td>存储粘连属性值的文件路径。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="template">
+  <td><a href="CCodeModel.html#template-detail">template</a></td>
+  <td>string</td>
+  <td>用户选择的代码模板的名字。
+此属性的值通过此类和<a href="CCodeGenerator.html">CCodeGenerator</a>内部管理。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="templatePath">
+  <td><a href="CCodeModel.html#templatePath-detail">templatePath</a></td>
+  <td>string</td>
+  <td>包含模板文件的目录。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="templates">
+  <td><a href="CCodeModel.html#templates-detail">templates</a></td>
+  <td>array</td>
+  <td>返回可用的代码模板的列表(name=>directory)。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="validatorList">
+  <td><a href="CModel.html#validatorList-detail">validatorList</a></td>
+  <td><a href="CList.html">CList</a></td>
+  <td>Returns all the validators declared in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="validators">
+  <td><a href="CModel.html#validators-detail">validators</a></td>
+  <td>array</td>
+  <td>Returns the validators applicable to the current <a href="CCodeModel.html#scenario">scenario</a>.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>如果类中没有调的方法名，则调用这个方法。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CFormModel.html#__construct-detail">__construct()</a></td>
+  <td>构造方法。</td>
+  <td><a href="CFormModel.html">CFormModel</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>返回一个属性值、一个事件处理程序列表或一个行为名称。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>检查一个属性是否为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>设置一个组件的属性值。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>设置一个组件的属性为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="addError">
+  <td><a href="CModel.html#addError-detail">addError()</a></td>
+  <td>Adds a new error to the specified attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="addErrors">
+  <td><a href="CModel.html#addErrors-detail">addErrors()</a></td>
+  <td>Adds a list of errors.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>返回这个名字的行为对象。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>附加一个行为到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>附加一个行为列表到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>为事件附加一个事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="attributeLabels">
+  <td><a href="CCodeModel.html#attributeLabels-detail">attributeLabels()</a></td>
+  <td>声明此模型属性的标签。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="attributeNames">
+  <td><a href="CFormModel.html#attributeNames-detail">attributeNames()</a></td>
+  <td>返回属性名列表。</td>
+  <td><a href="CFormModel.html">CFormModel</a></td>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CModel.html#behaviors-detail">behaviors()</a></td>
+  <td>Returns a list of behaviors that this model should behave as.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>确定属性是否可读。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>确定属性是否可写。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="class2id">
+  <td><a href="CCodeModel.html#class2id-detail">class2id()</a></td>
+  <td>将一个类的名字转换为一个 HTML ID。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="class2name">
+  <td><a href="CCodeModel.html#class2name-detail">class2name()</a></td>
+  <td>将一个类的名字转换为以空白分隔的单词。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="class2var">
+  <td><a href="CCodeModel.html#class2var-detail">class2var()</a></td>
+  <td>将一个类的名字转换为一个首字母小写的变量名。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="classExists">
+  <td><a href="CCodeModel.html#classExists-detail">classExists()</a></td>
+  <td>检测给定名字的类是否存在（对大小写敏感）。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="clearErrors">
+  <td><a href="CModel.html#clearErrors-detail">clearErrors()</a></td>
+  <td>Removes errors for all attributes or a single attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="confirmed">
+  <td><a href="CCodeModel.html#confirmed-detail">confirmed()</a></td>
+  <td></td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="createValidators">
+  <td><a href="CModel.html#createValidators-detail">createValidators()</a></td>
+  <td>Creates validator objects based on the specification in <a href="CCodeModel.html#rules">rules</a>.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>从组件中分离一个行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>从组件中分离所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>分离一个存在的事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>禁用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>禁用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>启用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>启用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="errorMessage">
+  <td><a href="CCodeModel.html#errorMessage-detail">errorMessage()</a></td>
+  <td>返回当代码文件保存期间发生错误时需要显示的信息。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>计算一个PHP表达式，或根据组件上下文执行回调。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="generateAttributeLabel">
+  <td><a href="CModel.html#generateAttributeLabel-detail">generateAttributeLabel()</a></td>
+  <td>Generates a user friendly attribute label.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getAttributeLabel">
+  <td><a href="CModel.html#getAttributeLabel-detail">getAttributeLabel()</a></td>
+  <td>Returns the text label for the specified attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getAttributes">
+  <td><a href="CModel.html#getAttributes-detail">getAttributes()</a></td>
+  <td>Returns all attribute values.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getError">
+  <td><a href="CModel.html#getError-detail">getError()</a></td>
+  <td>Returns the first error of the specified attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getErrors">
+  <td><a href="CModel.html#getErrors-detail">getErrors()</a></td>
+  <td>Returns the errors for all attribute or a single attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>返回一个事件的附加处理程序列表。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getIterator">
+  <td><a href="CModel.html#getIterator-detail">getIterator()</a></td>
+  <td>Returns an iterator for traversing the attributes in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getSafeAttributeNames">
+  <td><a href="CModel.html#getSafeAttributeNames-detail">getSafeAttributeNames()</a></td>
+  <td>Returns the attribute names that are safe to be massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getScenario">
+  <td><a href="CModel.html#getScenario-detail">getScenario()</a></td>
+  <td>Returns the scenario that this model is used in.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="getStickyFile">
+  <td><a href="CCodeModel.html#getStickyFile-detail">getStickyFile()</a></td>
+  <td>返回存储粘连属性值的文件路径。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="getTemplatePath">
+  <td><a href="CCodeModel.html#getTemplatePath-detail">getTemplatePath()</a></td>
+  <td>返回包含模板文件的目录。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="getTemplates">
+  <td><a href="CCodeModel.html#getTemplates-detail">getTemplates()</a></td>
+  <td>返回可用的代码模板的列表(name=>directory)。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="getValidatorList">
+  <td><a href="CModel.html#getValidatorList-detail">getValidatorList()</a></td>
+  <td>Returns all the validators declared in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getValidators">
+  <td><a href="CModel.html#getValidators-detail">getValidators()</a></td>
+  <td>Returns the validators applicable to the current <a href="CCodeModel.html#scenario">scenario</a>.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="hasErrors">
+  <td><a href="CModel.html#hasErrors-detail">hasErrors()</a></td>
+  <td>Returns a value indicating whether there is any validation error.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>确定一个事件是否定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>检查事件是否有附加的处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>确定属性是否被定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="init">
+  <td><a href="CFormModel.html#init-detail">init()</a></td>
+  <td>初始化模型。</td>
+  <td><a href="CFormModel.html">CFormModel</a></td>
+</tr>
+<tr class="inherited" id="isAttributeRequired">
+  <td><a href="CModel.html#isAttributeRequired-detail">isAttributeRequired()</a></td>
+  <td>Returns a value indicating whether the attribute is required.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="isAttributeSafe">
+  <td><a href="CModel.html#isAttributeSafe-detail">isAttributeSafe()</a></td>
+  <td>Returns a value indicating whether the attribute is safe for massive assignments.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="loadStickyAttributes">
+  <td><a href="CCodeModel.html#loadStickyAttributes-detail">loadStickyAttributes()</a></td>
+  <td>从文件中载入粘连属性值然后将它们填充到模型中。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="offsetExists">
+  <td><a href="CModel.html#offsetExists-detail">offsetExists()</a></td>
+  <td>Returns whether there is an element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="offsetGet">
+  <td><a href="CModel.html#offsetGet-detail">offsetGet()</a></td>
+  <td>Returns the element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="offsetSet">
+  <td><a href="CModel.html#offsetSet-detail">offsetSet()</a></td>
+  <td>Sets the element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="offsetUnset">
+  <td><a href="CModel.html#offsetUnset-detail">offsetUnset()</a></td>
+  <td>Unsets the element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onAfterConstruct">
+  <td><a href="CModel.html#onAfterConstruct-detail">onAfterConstruct()</a></td>
+  <td>This event is raised after the model instance is created by new operator.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onAfterValidate">
+  <td><a href="CModel.html#onAfterValidate-detail">onAfterValidate()</a></td>
+  <td>This event is raised after the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onBeforeValidate">
+  <td><a href="CModel.html#onBeforeValidate-detail">onBeforeValidate()</a></td>
+  <td>This event is raised before the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onUnsafeAttribute">
+  <td><a href="CModel.html#onUnsafeAttribute-detail">onUnsafeAttribute()</a></td>
+  <td>This method is invoked when an unsafe attribute is being massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="pluralize">
+  <td><a href="CCodeModel.html#pluralize-detail">pluralize()</a></td>
+  <td>将一个单词转换为复数形式。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="prepare">
+  <td><a href="CCodeModel.html#prepare-detail">prepare()</a></td>
+  <td>准备将生成的代码文件。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>发起一个事件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="render">
+  <td><a href="CCodeModel.html#render-detail">render()</a></td>
+  <td>使用指定的代码模板文件生成代码。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="renderResults">
+  <td><a href="CCodeModel.html#renderResults-detail">renderResults()</a></td>
+  <td></td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="requiredTemplates">
+  <td><a href="CCodeModel.html#requiredTemplates-detail">requiredTemplates()</a></td>
+  <td>返回必需的代码模板的列表。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="rules">
+  <td><a href="CCodeModel.html#rules-detail">rules()</a></td>
+  <td>声明此模型的验证规则。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="save">
+  <td><a href="CCodeModel.html#save-detail">save()</a></td>
+  <td>将生成的代码保存到若干文件中。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="saveStickyAttributes">
+  <td><a href="CCodeModel.html#saveStickyAttributes-detail">saveStickyAttributes()</a></td>
+  <td>保存粘连属性值到一个文件中。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="setAttributes">
+  <td><a href="CModel.html#setAttributes-detail">setAttributes()</a></td>
+  <td>Sets the attribute values in a massive way.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="setScenario">
+  <td><a href="CModel.html#setScenario-detail">setScenario()</a></td>
+  <td>Sets the scenario for the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="sticky">
+  <td><a href="CCodeModel.html#sticky-detail">sticky()</a></td>
+  <td>粘连验证器（The "sticky" validator）。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="successMessage">
+  <td><a href="CCodeModel.html#successMessage-detail">successMessage()</a></td>
+  <td>返回当新生成的代码成功保存到文件中时需要显示的信息。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="unsetAttributes">
+  <td><a href="CModel.html#unsetAttributes-detail">unsetAttributes()</a></td>
+  <td>Sets the attributes to be null.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="validate">
+  <td><a href="CModel.html#validate-detail">validate()</a></td>
+  <td>Performs the validation.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="validateReservedWord">
+  <td><a href="CCodeModel.html#validateReservedWord-detail">validateReservedWord()</a></td>
+  <td>验证一个属性没有使用PHP的保留关键字。</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="validateTemplate">
+  <td><a href="CCodeModel.html#validateTemplate-detail">validateTemplate()</a></td>
+  <td>验证模板的选择。</td>
+  <td>CCodeModel</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="afterConstruct">
+  <td><a href="CModel.html#afterConstruct-detail">afterConstruct()</a></td>
+  <td>This method is invoked after a model instance is created by new operator.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="afterValidate">
+  <td><a href="CModel.html#afterValidate-detail">afterValidate()</a></td>
+  <td>This method is invoked after validation ends.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="beforeValidate">
+  <td><a href="CModel.html#beforeValidate-detail">beforeValidate()</a></td>
+  <td>This method is invoked before validation starts.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<div class="summary docEvent">
+<h2>事件</h2>
+
+<p><a href="#" class="toggle">隐藏继承事件</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-event" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>事件</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="onAfterConstruct">
+  <td><a href="CModel.html#onAfterConstruct-detail">onAfterConstruct</a></td>
+  <td>This event is raised after the model instance is created by new operator.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onBeforeValidate">
+  <td><a href="CModel.html#onBeforeValidate-detail">onBeforeValidate</a></td>
+  <td>This event is raised before the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onAfterValidate">
+  <td><a href="CModel.html#onAfterValidate-detail">onAfterValidate</a></td>
+  <td>This event is raised after the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onUnsafeAttribute">
+  <td><a href="CModel.html#onUnsafeAttribute-detail">onUnsafeAttribute</a></td>
+  <td>This method is invoked when an unsafe attribute is being massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+</table>
+</div>
+<h2>属性详细</h2>
+<div class="detailHeader" id="answers-detail">
+answers<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public array <b>$answers</b>;</div>
+
+<p>用户对是否以新生成的代码文件覆盖原有的代码文件的确认信息。
+此属性的值通过此类和<a href="CCodeGenerator.html">CCodeGenerator</a>内部管理。</p>
+
+
+<div class="detailHeader" id="files-detail">
+files<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public array <b>$files</b>;</div>
+
+<p><a href="CCodeFile.html">CCodeFile</a>对象的列表，表示将被生成的代码文件。
+<a href="CCodeModel.html#prepare">prepare()</a>方法负责填充此属性。</p>
+
+
+<div class="detailHeader" id="keywords-detail">
+keywords<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public static <b>$keywords</b>;</div>
+
+<p></p>
+
+
+<div class="detailHeader" id="status-detail">
+status<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$status</b>;</div>
+
+<p>此模型的状态。
+此属性值通过<a href="CCodeGenerator.html">CCodeGenerator</a>内部管理。</p>
+
+
+<div class="detailHeader" id="stickyFile-detail">
+stickyFile<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CCodeModel.html#getStickyFile"><b>getStickyFile</b></a>()</div>
+
+<p>存储粘连属性值的文件路径。</p>
+
+
+<div class="detailHeader" id="template-detail">
+template<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$template</b>;</div>
+
+<p>用户选择的代码模板的名字。
+此属性的值通过此类和<a href="CCodeGenerator.html">CCodeGenerator</a>内部管理。</p>
+
+
+<div class="detailHeader" id="templatePath-detail">
+templatePath<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CCodeModel.html#getTemplatePath"><b>getTemplatePath</b></a>()</div>
+
+<p>包含模板文件的目录。</p>
+
+
+<div class="detailHeader" id="templates-detail">
+templates<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public array <a href="CCodeModel.html#getTemplates"><b>getTemplates</b></a>()</div>
+
+<p>返回可用的代码模板的列表(name=>directory)。
+此方法简单地返回<a href="CCodeGenerator.html#templates">CCodeGenerator::templates</a>属性值。</p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="attributeLabels-detail">
+attributeLabels()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>attributeLabels</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">属性的标签</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#215">framework/gii/CCodeModel.php#215</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">attributeLabels</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'template'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'Code&nbsp;Template'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>声明此模型属性的标签。
+子类必须按下列格式覆盖此方法：
+<pre>
+return array_merge(parent::attributeLabels(), array(
+    ...labels for the child class attributes...
+));
+</pre></p>
+
+
+<div class="detailHeader" id="class2id-detail">
+class2id()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>class2id</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">需要转换的字符串</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">转换的结果</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#440">framework/gii/CCodeModel.php#440</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">class2id</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'_'</span><span style="color: #007700">,</span><span style="color: #DD0000">'-'</span><span style="color: #007700">,</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/(?&lt;![A-Z])[A-Z]/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'-\0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">))),</span><span style="color: #DD0000">'-'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>将一个类的名字转换为一个 HTML ID。
+例如，'PostTag'将转换为'post-tag'。</p>
+
+
+<div class="detailHeader" id="class2name-detail">
+class2name()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>class2name</b>(string $name, boolean $ucwords=true)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">需要数的的字符串。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$ucwords</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">是否将每个单词的首字母转为大写</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">转换的结果</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#452">framework/gii/CCodeModel.php#452</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">class2name</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$ucwords</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">=</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'_'</span><span style="color: #007700">,</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">,</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/(?&lt;![A-Z])[A-Z]/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&nbsp;\0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">))));<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$ucwords&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">ucwords</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>将一个类的名字转换为以空白分隔的单词。
+例如，'PostTag'将转换为'Post Tag'。</p>
+
+
+<div class="detailHeader" id="class2var-detail">
+class2var()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.4）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>class2var</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">类的名字</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">从类的名字转换而来的变量名字</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#465">framework/gii/CCodeModel.php#465</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">class2var</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]=</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>将一个类的名字转换为一个首字母小写的变量名。
+之所以提供此方法，是因为PHP函数lcfirst()只在 PHP5.3+ 可用。</p>
+
+
+<div class="detailHeader" id="classExists-detail">
+classExists()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>classExists</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">需要检测的类的名字</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">此类是否存在</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#200">framework/gii/CCodeModel.php#200</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">classExists</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">class_exists</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">get_declared_classes</span><span style="color: #007700">());<br />}</span>
+</span>
+</code></div>
+</div>
+<p>检测给定名字的类是否存在（对大小写敏感）。</p>
+
+
+<div class="detailHeader" id="confirmed-detail">
+confirmed()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>confirmed</b>(<a href="CCodeFile.html">CCodeFile</a> $file)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$file</td>
+  <td class="paramTypeCol"><a href="CCodeFile.html">CCodeFile</a></td>
+  <td class="paramDescCol">将被保存的代码文件</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#296">framework/gii/CCodeModel.php#296</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">confirmed</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">answers</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">operation</span><span style="color: #007700">===</span><span style="color: #0000BB">CCodeFile</span><span style="color: #007700">::</span><span style="color: #0000BB">OP_NEW<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">answers</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">answers</span><span style="color: #007700">[</span><span style="color: #0000BB">md5</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">path</span><span style="color: #007700">)]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="errorMessage-detail">
+errorMessage()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>errorMessage</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">当代码文件保存期间发生错误时需要显示的信息。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#262">framework/gii/CCodeModel.php#262</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">errorMessage</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'There&nbsp;was&nbsp;some&nbsp;error&nbsp;when&nbsp;generating&nbsp;the&nbsp;code.&nbsp;Please&nbsp;check&nbsp;the&nbsp;following&nbsp;messages.'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回当代码文件保存期间发生错误时需要显示的信息。
+如果子类需要自定义错误提示信息就覆盖此方法。</p>
+
+
+<div class="detailHeader" id="getStickyFile-detail">
+getStickyFile()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getStickyFile</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">存储粘连属性值的文件路径。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#393">framework/gii/CCodeModel.php#393</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getStickyFile</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">runtimePath</span><span style="color: #007700">.</span><span style="color: #DD0000">'/gii-'</span><span style="color: #007700">.</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">getVersion</span><span style="color: #007700">().</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">).</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getTemplatePath-detail">
+getTemplatePath()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getTemplatePath</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">包含模板文件的目录。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#281">framework/gii/CCodeModel.php#281</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTemplatePath</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$templates</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTemplates</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$templates</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$templates</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(empty(</span><span style="color: #0000BB">$templates</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpException</span><span style="color: #007700">(</span><span style="color: #0000BB">500</span><span style="color: #007700">,</span><span style="color: #DD0000">'No&nbsp;templates&nbsp;are&nbsp;available.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpException</span><span style="color: #007700">(</span><span style="color: #0000BB">500</span><span style="color: #007700">,</span><span style="color: #DD0000">'Invalid&nbsp;template&nbsp;selection.'</span><span style="color: #007700">);<br /><br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getTemplates-detail">
+getTemplates()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getTemplates</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">可用的代码模板的列表(name=>directory)。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#272">framework/gii/CCodeModel.php#272</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTemplates</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">controller</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">templates</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回可用的代码模板的列表(name=>directory)。
+此方法简单地返回<a href="CCodeGenerator.html#templates">CCodeGenerator::templates</a>属性值。</p>
+
+
+<div class="detailHeader" id="loadStickyAttributes-detail">
+loadStickyAttributes()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>loadStickyAttributes</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#361">framework/gii/CCodeModel.php#361</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">loadStickyAttributes</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_stickyAttributes</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$path</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStickyFile</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">=@include(</span><span style="color: #0000BB">$path</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_stickyAttributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_stickyAttributes&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">property_exists</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">canSetProperty</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>从文件中载入粘连属性值然后将它们填充到模型中。</p>
+
+
+<div class="detailHeader" id="pluralize-detail">
+pluralize()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>pluralize</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">需要转为复数的单词</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">单词的复数</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#405">framework/gii/CCodeModel.php#405</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">pluralize</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$rules</span><span style="color: #007700">=array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/move$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'moves'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/foot$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'feet'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/child$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'children'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/human$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'humans'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/man$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'men'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/tooth$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'teeth'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/person$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'people'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/([m|l])ouse$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1ice'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(x|ch|ss|sh|us|as|is|os)$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1es'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/([^aeiouy]|qu)y$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1ies'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(?:([^f])fe|([lr])f)$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1\2ves'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(shea|lea|loa|thie)f$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1ves'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/([ti])um$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1a'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(tomat|potat|ech|her|vet)o$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1oes'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(bu)s$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1ses'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(ax|test)is$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1es'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/s$/'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'s'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$rules&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$rule</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$replacement</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">,</span><span style="color: #0000BB">$replacement</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">.</span><span style="color: #DD0000">'s'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>将一个单词转换为复数形式。
+注意：此方法仅针对英语！
+例如，'apple'将转换为'apples'，而'child'将转换为'children'。</p>
+
+
+<div class="detailHeader" id="prepare-detail">
+prepare()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>prepare</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#151">framework/gii/CCodeModel.php#151</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">abstract&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p>准备将生成的代码文件。
+这是子类需要实现的主要方法，它包含了使用将要生成
+的代码文件的列表填充<a href="CCodeModel.html#files">files</a>属性的逻辑。</p>
+
+
+<div class="detailHeader" id="render-detail">
+render()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>render</b>(string $templateFile, array $_params_=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$templateFile</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">代码模板文件路径</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$_params_</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">被提取到代码模板中使用的参数的集合</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">生成的代码</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#309">framework/gii/CCodeModel.php#309</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">render</span><span style="color: #007700">(</span><span style="color: #0000BB">$templateFile</span><span style="color: #007700">,</span><span style="color: #0000BB">$_params_</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$templateFile</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #DD0000">"The&nbsp;template&nbsp;file&nbsp;'</span><span style="color: #0000BB">$templateFile</span><span style="color: #DD0000">'&nbsp;does&nbsp;not&nbsp;exist."</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$_params_</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">extract</span><span style="color: #007700">(</span><span style="color: #0000BB">$_params_</span><span style="color: #007700">,</span><span style="color: #0000BB">EXTR_PREFIX_SAME</span><span style="color: #007700">,</span><span style="color: #DD0000">'params'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">=</span><span style="color: #0000BB">$_params_</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_start</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_implicit_flush</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;require(</span><span style="color: #0000BB">$templateFile</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">ob_get_clean</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>使用指定的代码模板文件生成代码。
+此方法主要在generate中被用于生成代码。</p>
+
+
+<div class="detailHeader" id="renderResults-detail">
+renderResults()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderResults</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">代码生成的结果日志。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#327">framework/gii/CCodeModel.php#327</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderResults</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">=</span><span style="color: #DD0000">'Generating&nbsp;code&nbsp;using&nbsp;template&nbsp;"'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">templatePath</span><span style="color: #007700">.</span><span style="color: #DD0000">"\"...\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">files&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">"&lt;span&nbsp;class=\"error\"&gt;generating&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">relativePath</span><span style="color: #007700">}</span><span style="color: #DD0000">&lt;br/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">}</span><span style="color: #DD0000">&lt;/span&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">operation</span><span style="color: #007700">===</span><span style="color: #0000BB">CCodeFile</span><span style="color: #007700">::</span><span style="color: #0000BB">OP_NEW&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">confirmed</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">'&nbsp;generated&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">relativePath</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">operation</span><span style="color: #007700">===</span><span style="color: #0000BB">CCodeFile</span><span style="color: #007700">::</span><span style="color: #0000BB">OP_OVERWRITE&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">confirmed</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">'&nbsp;overwrote&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">relativePath</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">'&nbsp;&nbsp;&nbsp;skipped&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">relativePath</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">"done!\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="requiredTemplates-detail">
+requiredTemplates()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>requiredTemplates</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">必需的代码模板的列表，它们是与
+<a href="CCodeModel.html#templatePath">templatePath</a>相关联的文件路径。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#228">framework/gii/CCodeModel.php#228</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">requiredTemplates</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回必需的代码模板的列表。
+派生类通常需要覆盖此方法。</p>
+
+
+<div class="detailHeader" id="rules-detail">
+rules()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>rules</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">验证规则</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#163">framework/gii/CCodeModel.php#163</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">rules</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'template'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'required'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'template'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'validateTemplate'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'skipOnError'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">true</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'template'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'sticky'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>声明此模型的验证规则。
+子类必须按下列格式覆盖此方法：
+<pre>
+return array_merge(parent::rules(), array(
+    ...rules for the child class...
+));
+</pre></p>
+
+
+<div class="detailHeader" id="save-detail">
+save()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>save</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#236">framework/gii/CCodeModel.php#236</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">save</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">files&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">confirmed</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">=</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">()&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>将生成的代码保存到若干文件中。</p>
+
+
+<div class="detailHeader" id="saveStickyAttributes-detail">
+saveStickyAttributes()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>saveStickyAttributes</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#383">framework/gii/CCodeModel.php#383</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">saveStickyAttributes</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$path</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStickyFile</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;@</span><span style="color: #0000BB">mkdir</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">),</span><span style="color: #0000BB">0755</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">,</span><span style="color: #DD0000">"&lt;?php\nreturn&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_stickyAttributes</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">).</span><span style="color: #DD0000">";\n"</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>保存粘连属性值到一个文件中。</p>
+
+
+<div class="detailHeader" id="sticky-detail">
+sticky()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>sticky</b>(string $attribute, array $params)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">需要验证的属性</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">验证参数</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#352">framework/gii/CCodeModel.php#352</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">sticky</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hasErrors</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_stickyAttributes</span><span style="color: #007700">[</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>粘连验证器（The "sticky" validator）。
+此验证器并不真的对属性进行验证，
+它实际上是将此属性的值保存在一个文件中以使属性支持粘连功能。</p>
+
+
+<div class="detailHeader" id="successMessage-detail">
+successMessage()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>successMessage</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">当新生成的代码成功保存到文件中时需要显示的信息。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#252">framework/gii/CCodeModel.php#252</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">successMessage</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'The&nbsp;code&nbsp;has&nbsp;been&nbsp;generated&nbsp;successfully.'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回当新生成的代码成功保存到文件中时需要显示的信息。
+如果子类需要自定义提示信息就覆盖此方法。</p>
+
+
+<div class="detailHeader" id="validateReservedWord-detail">
+validateReservedWord()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>validateReservedWord</b>(string $attribute, array $params)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">需要验证的属性</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">验证参数</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#476">framework/gii/CCodeModel.php#476</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">validateReservedWord</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">),</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$keywords</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addError</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttributeLabel</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">).</span><span style="color: #DD0000">'&nbsp;cannot&nbsp;take&nbsp;a&nbsp;reserved&nbsp;PHP&nbsp;keyword.'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>验证一个属性没有使用PHP的保留关键字。</p>
+
+
+<div class="detailHeader" id="validateTemplate-detail">
+validateTemplate()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>validateTemplate</b>(string $attribute, array $params)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">需要验证的属性</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">验证参数</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/gii/CCodeModel.php#179">framework/gii/CCodeModel.php#179</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">validateTemplate</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$templates</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">templates</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$templates</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addError</span><span style="color: #007700">(</span><span style="color: #DD0000">'template'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Invalid&nbsp;template&nbsp;selection.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$templatePath</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">templatePath</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">requiredTemplates</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$template</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$templatePath</span><span style="color: #007700">.</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$template</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addError</span><span style="color: #007700">(</span><span style="color: #DD0000">'template'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;find&nbsp;the&nbsp;required&nbsp;code&nbsp;template&nbsp;file&nbsp;'</span><span style="color: #0000BB">$template</span><span style="color: #DD0000">'."</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>验证模板的选择。
+此方法验证用户是否选择了一个存在的模板，且此模板包含有
+所有在<a href="CCodeModel.html#requiredTemplates">requiredTemplates</a>中指定的必需的模板文件。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

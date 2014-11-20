@@ -1,0 +1,869 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CCaptchaAction</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CCaptchaAction</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.web.widgets.captcha">system.web.widgets.captcha</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CCaptchaAction &raquo;
+<a href="CAction.html">CAction</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>实现</th>
+  <td><a href="IAction.html">IAction</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CCaptchaAction.php 3515 2011-12-28 12:29:24Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/captcha/CCaptchaAction.php">framework/web/widgets/captcha/CCaptchaAction.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CCaptchaAction用于生成验证码图片。
+<br/><br/>
+CCaptchaAction需要<a href="CCaptcha.html">CCaptcha</a>和<a href="CCaptchaValidator.html">CCaptchaValidator</a>
+配合使用来生成所需的验证码<a href="http://en.wikipedia.org/wiki/Captcha">CAPTCHA</a>图片。
+<br/><br/>
+你必须配置CCaptchaAction的属性
+来定制所需的验证码样式。
+<br/><br/>
+注意，CCaptchaAction要求开启PHP的GD2拓展。
+<br/><br/>
+使用验证码包含以下步骤：
+<ol>
+<li>重写<a href="CController.html#actions">CController::actions()</a>并且注册一个继承于CCaptchaAction类ID为‘captcha’的方法。</li>
+<li>在form模型中，声明一个变量用于存储用户输入的验证码并且
+用’captcha‘验证这个变量。</li>
+<li>在控制器的视图表单中插入一个<a href="CCaptcha.html">CCaptcha</a>组件。</li>
+</ol></div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="backColor">
+  <td><a href="CCaptchaAction.html#backColor-detail">backColor</a></td>
+  <td>integer</td>
+  <td>背景颜色。如，0x55FF00。
+默认为0xFFFFFF，意味着白色。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr class="inherited" id="controller">
+  <td><a href="CAction.html#controller-detail">controller</a></td>
+  <td><a href="CController.html">CController</a></td>
+  <td>拥有这个动作的控制器。</td>
+  <td><a href="CAction.html">CAction</a></td>
+</tr>
+<tr id="fixedVerifyCode">
+  <td><a href="CCaptchaAction.html#fixedVerifyCode-detail">fixedVerifyCode</a></td>
+  <td>string</td>
+  <td>固定的验证码。设置这个属性以后，
+<a href="CCaptchaAction.html#getVerifyCode">getVerifyCode</a>方法会一直返回这个值。
+当我们在自动测试中想每次返回
+相同的验证码值时会用到。
+默认是null，这意味着将随机生成验证码。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="fontFile">
+  <td><a href="CCaptchaAction.html#fontFile-detail">fontFile</a></td>
+  <td>string</td>
+  <td>TrueType文字文件。默认为Duality.</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="foreColor">
+  <td><a href="CCaptchaAction.html#foreColor-detail">foreColor</a></td>
+  <td>integer</td>
+  <td>字体颜色。如，0x55FF00。默认是0x2040A0（蓝色）。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="height">
+  <td><a href="CCaptchaAction.html#height-detail">height</a></td>
+  <td>integer</td>
+  <td>验证码图片高度。默认为50。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr class="inherited" id="id">
+  <td><a href="CAction.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>动作的ID。</td>
+  <td><a href="CAction.html">CAction</a></td>
+</tr>
+<tr id="maxLength">
+  <td><a href="CCaptchaAction.html#maxLength-detail">maxLength</a></td>
+  <td>integer</td>
+  <td>生成字符串的最大长度。默认是7。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="minLength">
+  <td><a href="CCaptchaAction.html#minLength-detail">minLength</a></td>
+  <td>integer</td>
+  <td>生成字符串的最小长度。默认是6。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="offset">
+  <td><a href="CCaptchaAction.html#offset-detail">offset</a></td>
+  <td>integer</td>
+  <td>字符间偏移量。默认是-2。
+你可以调整这个值来增加或减少验证码的可读性。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="padding">
+  <td><a href="CCaptchaAction.html#padding-detail">padding</a></td>
+  <td>integer</td>
+  <td>文字周边填充大小。默认为2。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="testLimit">
+  <td><a href="CCaptchaAction.html#testLimit-detail">testLimit</a></td>
+  <td>integer</td>
+  <td>相同验证码出现的次数。默认为3。
+小于等于0的值意味着不限制（自版本1.</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="transparent">
+  <td><a href="CCaptchaAction.html#transparent-detail">transparent</a></td>
+  <td>boolean</td>
+  <td>是否使用透明背景。默认为false。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="verifyCode">
+  <td><a href="CCaptchaAction.html#verifyCode-detail">verifyCode</a></td>
+  <td>string</td>
+  <td>获取验证码。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="width">
+  <td><a href="CCaptchaAction.html#width-detail">width</a></td>
+  <td>integer</td>
+  <td>验证码图片宽度。默认为120。</td>
+  <td>CCaptchaAction</td>
+</tr>
+</table>
+</div>
+<div class="summary docProperty">
+<h2>受保护属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="sessionKey">
+  <td><a href="CCaptchaAction.html#sessionKey-detail">sessionKey</a></td>
+  <td>string</td>
+  <td>返回存储验证码的会话变量名。</td>
+  <td>CCaptchaAction</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>如果类中没有调的方法名，则调用这个方法。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CAction.html#__construct-detail">__construct()</a></td>
+  <td>构造方法。</td>
+  <td><a href="CAction.html">CAction</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>返回一个属性值、一个事件处理程序列表或一个行为名称。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>检查一个属性是否为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>设置一个组件的属性值。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>设置一个组件的属性为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>返回这个名字的行为对象。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>附加一个行为到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>附加一个行为列表到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>为事件附加一个事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>确定属性是否可读。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>确定属性是否可写。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>从组件中分离一个行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>从组件中分离所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>分离一个存在的事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>禁用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>禁用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>启用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>启用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>计算一个PHP表达式，或根据组件上下文执行回调。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="generateValidationHash">
+  <td><a href="CCaptchaAction.html#generateValidationHash-detail">generateValidationHash()</a></td>
+  <td>生成可用于客户端的哈希值。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr class="inherited" id="getController">
+  <td><a href="CAction.html#getController-detail">getController()</a></td>
+  <td>返回拥有这个动作的控制器。</td>
+  <td><a href="CAction.html">CAction</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>返回一个事件的附加处理程序列表。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getId">
+  <td><a href="CAction.html#getId-detail">getId()</a></td>
+  <td>返回动作的ID。</td>
+  <td><a href="CAction.html">CAction</a></td>
+</tr>
+<tr id="getVerifyCode">
+  <td><a href="CCaptchaAction.html#getVerifyCode-detail">getVerifyCode()</a></td>
+  <td>获取验证码。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>确定一个事件是否定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>检查事件是否有附加的处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>确定属性是否被定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>发起一个事件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="run">
+  <td><a href="CCaptchaAction.html#run-detail">run()</a></td>
+  <td>执行动作。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr class="inherited" id="runWithParams">
+  <td><a href="CAction.html#runWithParams-detail">runWithParams()</a></td>
+  <td>运行带有请求参数的对象。</td>
+  <td><a href="CAction.html">CAction</a></td>
+</tr>
+<tr id="validate">
+  <td><a href="CCaptchaAction.html#validate-detail">validate()</a></td>
+  <td>验证用户输入是否匹配生成的验证码。</td>
+  <td>CCaptchaAction</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="generateVerifyCode">
+  <td><a href="CCaptchaAction.html#generateVerifyCode-detail">generateVerifyCode()</a></td>
+  <td>生成一个新验证码。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="getSessionKey">
+  <td><a href="CCaptchaAction.html#getSessionKey-detail">getSessionKey()</a></td>
+  <td>返回存储验证码的会话变量名。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr id="renderImage">
+  <td><a href="CCaptchaAction.html#renderImage-detail">renderImage()</a></td>
+  <td>渲染基于验证码值的验证码图片。</td>
+  <td>CCaptchaAction</td>
+</tr>
+<tr class="inherited" id="runWithParamsInternal">
+  <td><a href="CAction.html#runWithParamsInternal-detail">runWithParamsInternal()</a></td>
+  <td>执行一个带有命名参数的对象的方法。</td>
+  <td><a href="CAction.html">CAction</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>属性详细</h2>
+<div class="detailHeader" id="backColor-detail">
+backColor<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$backColor</b>;</div>
+
+<p>背景颜色。如，0x55FF00。
+默认为0xFFFFFF，意味着白色。</p>
+
+
+<div class="detailHeader" id="fixedVerifyCode-detail">
+fixedVerifyCode<span class="detailHeaderTag">
+属性
+（可用自 v1.1.4）
+</span>
+</div>
+
+<div class="signature">
+public string <b>$fixedVerifyCode</b>;</div>
+
+<p>固定的验证码。设置这个属性以后，
+<a href="CCaptchaAction.html#getVerifyCode">getVerifyCode</a>方法会一直返回这个值。
+当我们在自动测试中想每次返回
+相同的验证码值时会用到。
+默认是null，这意味着将随机生成验证码。</p>
+
+
+<div class="detailHeader" id="fontFile-detail">
+fontFile<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$fontFile</b>;</div>
+
+<p>TrueType文字文件。默认为Duality.ttf，由Yii
+发行版中提供。</p>
+
+
+<div class="detailHeader" id="foreColor-detail">
+foreColor<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$foreColor</b>;</div>
+
+<p>字体颜色。如，0x55FF00。默认是0x2040A0（蓝色）。</p>
+
+
+<div class="detailHeader" id="height-detail">
+height<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$height</b>;</div>
+
+<p>验证码图片高度。默认为50。</p>
+
+
+<div class="detailHeader" id="maxLength-detail">
+maxLength<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$maxLength</b>;</div>
+
+<p>生成字符串的最大长度。默认是7。</p>
+
+
+<div class="detailHeader" id="minLength-detail">
+minLength<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$minLength</b>;</div>
+
+<p>生成字符串的最小长度。默认是6。</p>
+
+
+<div class="detailHeader" id="offset-detail">
+offset<span class="detailHeaderTag">
+属性
+（可用自 v1.1.7）
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$offset</b>;</div>
+
+<p>字符间偏移量。默认是-2。
+你可以调整这个值来增加或减少验证码的可读性。</p>
+
+
+<div class="detailHeader" id="padding-detail">
+padding<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$padding</b>;</div>
+
+<p>文字周边填充大小。默认为2。</p>
+
+
+<div class="detailHeader" id="sessionKey-detail">
+sessionKey<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+protected string <a href="CCaptchaAction.html#getSessionKey"><b>getSessionKey</b></a>()</div>
+
+<p>返回存储验证码的会话变量名。</p>
+
+
+<div class="detailHeader" id="testLimit-detail">
+testLimit<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$testLimit</b>;</div>
+
+<p>相同验证码出现的次数。默认为3。
+小于等于0的值意味着不限制（自版本1.1.2开始支持）。</p>
+
+
+<div class="detailHeader" id="transparent-detail">
+transparent<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$transparent</b>;</div>
+
+<p>是否使用透明背景。默认为false。</p>
+
+
+<div class="detailHeader" id="verifyCode-detail">
+verifyCode<span class="detailHeaderTag">
+属性
+ <em>只读</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CCaptchaAction.html#getVerifyCode"><b>getVerifyCode</b></a>(boolean $regenerate=false)</div>
+
+<p>获取验证码。</p>
+
+
+<div class="detailHeader" id="width-detail">
+width<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$width</b>;</div>
+
+<p>验证码图片宽度。默认为120。</p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="generateValidationHash-detail">
+generateValidationHash()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.7）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>generateValidationHash</b>(string $code)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$code</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">验证码</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">由验证码生成的一个哈希值</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/captcha/CCaptchaAction.php#134">framework/web/widgets/captcha/CCaptchaAction.php#134</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">generateValidationHash</span><span style="color: #007700">(</span><span style="color: #0000BB">$code</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;for(</span><span style="color: #0000BB">$h</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$code</span><span style="color: #007700">)-</span><span style="color: #0000BB">1</span><span style="color: #007700">;</span><span style="color: #0000BB">$i</span><span style="color: #007700">&gt;=</span><span style="color: #0000BB">0</span><span style="color: #007700">;--</span><span style="color: #0000BB">$i</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$h</span><span style="color: #007700">+=</span><span style="color: #0000BB">ord</span><span style="color: #007700">(</span><span style="color: #0000BB">$code</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$h</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>生成可用于客户端的哈希值。</p>
+
+
+<div class="detailHeader" id="generateVerifyCode-detail">
+generateVerifyCode()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected string <b>generateVerifyCode</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">生成的验证码。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/captcha/CCaptchaAction.php#185">framework/web/widgets/captcha/CCaptchaAction.php#185</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">generateVerifyCode</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minLength&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minLength&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">maxLength&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">maxLength&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minLength&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">maxLength</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">maxLength&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minLength</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$length&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minLength</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">maxLength</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$letters&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'bcdfghjklmnpqrstvwxyz'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$vowels&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'aeiou'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;for(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">$length</span><span style="color: #007700">;&nbsp;++</span><span style="color: #0000BB">$i</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">10</span><span style="color: #007700">)&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">||&nbsp;!(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">10</span><span style="color: #007700">)&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">9</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">.=</span><span style="color: #0000BB">$vowels</span><span style="color: #007700">[</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">4</span><span style="color: #007700">)];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">.=</span><span style="color: #0000BB">$letters</span><span style="color: #007700">[</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">20</span><span style="color: #007700">)];<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>生成一个新验证码。</p>
+
+
+<div class="detailHeader" id="getSessionKey-detail">
+getSessionKey()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected string <b>getSessionKey</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">会话变量名称</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/captcha/CCaptchaAction.php#213">framework/web/widgets/captcha/CCaptchaAction.php#213</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">getSessionKey</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">SESSION_VAR_PREFIX&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getId</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">'.'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getController</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getUniqueId</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">'.'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getId</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回存储验证码的会话变量名。</p>
+
+
+<div class="detailHeader" id="getVerifyCode-detail">
+getVerifyCode()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getVerifyCode</b>(boolean $regenerate=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$regenerate</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">验证码是否重新生成。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">验证码。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/captcha/CCaptchaAction.php#146">framework/web/widgets/captcha/CCaptchaAction.php#146</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getVerifyCode</span><span style="color: #007700">(</span><span style="color: #0000BB">$regenerate</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fixedVerifyCode&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fixedVerifyCode</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$session&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">session</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">open</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSessionKey</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$session</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;===&nbsp;</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$regenerate</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">generateVerifyCode</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">[</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p>获取验证码。</p>
+
+
+<div class="detailHeader" id="renderImage-detail">
+renderImage()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected string <b>renderImage</b>(string $code)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$code</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">验证码值</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">图片内容</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/captcha/CCaptchaAction.php#223">framework/web/widgets/captcha/CCaptchaAction.php#223</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">renderImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$code</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$image&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">width</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">height</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$backColor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(int)(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">backColor&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">0x1000000&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">0x10000</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(int)(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">backColor&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">0x10000&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">0x100</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">backColor&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">0x100</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagefilledrectangle</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">width</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">height</span><span style="color: #007700">,</span><span style="color: #0000BB">$backColor</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagecolordeallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,</span><span style="color: #0000BB">$backColor</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">transparent</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagecolortransparent</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,</span><span style="color: #0000BB">$backColor</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$foreColor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(int)(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foreColor&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">0x1000000&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">0x10000</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(int)(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foreColor&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">0x10000&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">0x100</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foreColor&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">0x100</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fontFile&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fontFile&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">'/Duality.ttf'</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$length&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$code</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$box&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagettfbbox</span><span style="color: #007700">(</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fontFile</span><span style="color: #007700">,</span><span style="color: #0000BB">$code</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$w&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$box</span><span style="color: #007700">[</span><span style="color: #0000BB">4</span><span style="color: #007700">]&nbsp;-&nbsp;</span><span style="color: #0000BB">$box</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;+&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">offset&nbsp;</span><span style="color: #007700">*&nbsp;(</span><span style="color: #0000BB">$length&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$h&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$box</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;-&nbsp;</span><span style="color: #0000BB">$box</span><span style="color: #007700">[</span><span style="color: #0000BB">5</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$scale&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">min</span><span style="color: #007700">((</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">width&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">padding&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;/&nbsp;</span><span style="color: #0000BB">$w</span><span style="color: #007700">,(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">height&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">padding&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;/&nbsp;</span><span style="color: #0000BB">$h</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$y&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">round</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">height&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">27&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">40</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;for(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">$length</span><span style="color: #007700">;&nbsp;++</span><span style="color: #0000BB">$i</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$fontSize&nbsp;</span><span style="color: #007700">=&nbsp;(int)(</span><span style="color: #0000BB">rand</span><span style="color: #007700">(</span><span style="color: #0000BB">26</span><span style="color: #007700">,</span><span style="color: #0000BB">32</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">$scale&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">0.8</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$angle&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">rand</span><span style="color: #007700">(-</span><span style="color: #0000BB">10</span><span style="color: #007700">,</span><span style="color: #0000BB">10</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$letter&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$box&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagettftext</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,</span><span style="color: #0000BB">$fontSize</span><span style="color: #007700">,</span><span style="color: #0000BB">$angle</span><span style="color: #007700">,</span><span style="color: #0000BB">$x</span><span style="color: #007700">,</span><span style="color: #0000BB">$y</span><span style="color: #007700">,</span><span style="color: #0000BB">$foreColor</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fontFile</span><span style="color: #007700">,</span><span style="color: #0000BB">$letter</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$box</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]&nbsp;+&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">offset</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagecolordeallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,</span><span style="color: #0000BB">$foreColor</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Pragma:&nbsp;public'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Expires:&nbsp;0'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Cache-Control:&nbsp;must-revalidate,&nbsp;post-check=0,&nbsp;pre-check=0'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Transfer-Encoding:&nbsp;binary'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-type:&nbsp;image/png"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>渲染基于验证码值的验证码图片。</p>
+
+
+<div class="detailHeader" id="run-detail">
+run()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>run</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/captcha/CCaptchaAction.php#110">framework/web/widgets/captcha/CCaptchaAction.php#110</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">REFRESH_GET_VAR</span><span style="color: #007700">]))&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;AJAX&nbsp;request&nbsp;for&nbsp;regenerating&nbsp;code<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getVerifyCode</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CJSON</span><span style="color: #007700">::</span><span style="color: #0000BB">encode</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'hash1'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">generateValidationHash</span><span style="color: #007700">(</span><span style="color: #0000BB">$code</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'hash2'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">generateValidationHash</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$code</span><span style="color: #007700">)),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;we&nbsp;add&nbsp;a&nbsp;random&nbsp;'v'&nbsp;parameter&nbsp;so&nbsp;that&nbsp;FireFox&nbsp;can&nbsp;refresh&nbsp;the&nbsp;image<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;when&nbsp;src&nbsp;attribute&nbsp;of&nbsp;image&nbsp;tag&nbsp;is&nbsp;changed<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'url'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getController</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">createUrl</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getId</span><span style="color: #007700">(),array(</span><span style="color: #DD0000">'v'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">uniqid</span><span style="color: #007700">())),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getVerifyCode</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">end</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>执行动作。</p>
+
+
+<div class="detailHeader" id="validate-detail">
+validate()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>validate</b>(string $input, boolean $caseSensitive)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$input</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">用户输入值</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$caseSensitive</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">匹配时是否区分大小写</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">输入是否有效</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/widgets/captcha/CCaptchaAction.php#168">framework/web/widgets/captcha/CCaptchaAction.php#168</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">validate</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">,</span><span style="color: #0000BB">$caseSensitive</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getVerifyCode</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$valid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$caseSensitive&nbsp;</span><span style="color: #007700">?&nbsp;(</span><span style="color: #0000BB">$input&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">)&nbsp;:&nbsp;!</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">,</span><span style="color: #0000BB">$code</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$session&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">session</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">open</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSessionKey</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">'count'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$session</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$session</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">testLimit&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">testLimit&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getVerifyCode</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$valid</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>验证用户输入是否匹配生成的验证码。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

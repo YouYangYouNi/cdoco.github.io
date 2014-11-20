@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CFileHelper</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CFileHelper</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.utils">system.utils</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CFileHelper</td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CFileHelper.php 3289 2011-06-18 21:20:13Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/utils/CFileHelper.php">framework/utils/CFileHelper.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CFileHelper提供了一系列用于常用的文件系统操作的助手方法。</div>
+<a name="properties"></a>
+
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="copyDirectory">
+  <td><a href="CFileHelper.html#copyDirectory-detail">copyDirectory()</a></td>
+  <td>递归地将一个目录进行复制。</td>
+  <td>CFileHelper</td>
+</tr>
+<tr id="findFiles">
+  <td><a href="CFileHelper.html#findFiles-detail">findFiles()</a></td>
+  <td>返回指定的目录和其子目录下的文件。</td>
+  <td>CFileHelper</td>
+</tr>
+<tr id="getExtension">
+  <td><a href="CFileHelper.html#getExtension-detail">getExtension()</a></td>
+  <td>返回一个包含路径的文件名的扩展名。</td>
+  <td>CFileHelper</td>
+</tr>
+<tr id="getMimeType">
+  <td><a href="CFileHelper.html#getMimeType-detail">getMimeType()</a></td>
+  <td>确定指定文件的 MIME 类型。</td>
+  <td>CFileHelper</td>
+</tr>
+<tr id="getMimeTypeByExtension">
+  <td><a href="CFileHelper.html#getMimeTypeByExtension-detail">getMimeTypeByExtension()</a></td>
+  <td>根据给定文件的扩展名确定它的MIME类型。</td>
+  <td>CFileHelper</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="copyDirectoryRecursive">
+  <td><a href="CFileHelper.html#copyDirectoryRecursive-detail">copyDirectoryRecursive()</a></td>
+  <td>复制一个目录。</td>
+  <td>CFileHelper</td>
+</tr>
+<tr id="findFilesRecursive">
+  <td><a href="CFileHelper.html#findFilesRecursive-detail">findFilesRecursive()</a></td>
+  <td>返回指定目录和它的子目录下的文件。</td>
+  <td>CFileHelper</td>
+</tr>
+<tr id="validatePath">
+  <td><a href="CFileHelper.html#validatePath-detail">validatePath()</a></td>
+  <td>验证一个文件或目录。</td>
+  <td>CFileHelper</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="copyDirectory-detail">
+copyDirectory()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static void <b>copyDirectory</b>(string $src, string $dst, array $options=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$src</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">源目录</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$dst</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">目标目录</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$options</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">进行目录复制时使用的选项。可用选项包括：
+<ul>
+<li>fileTypes: array, 文件名后缀列表（不包括点号）。只有扩展名在此列表中的文件才会被复制。</li>
+<li>exclude: array, 被排除的文件和目录的列表。每一个排除项可以是一个名字或一个目录。
+如果一个文件、目录或路径与一个排除项相匹配，它将不会被复制。例如，一个排除项 '.svn' 
+将把名为 '.svn' 的文件或目录排除。一个排除项 '/a/b' 将排除文件或目录 '$src/a/b'。
+注意：不管DIRECTORY_SEPARATOR常量的值是什么，都使用'/' 符号作为分隔符。
+</li>
+<li>level: integer, 递归深度，默认值为-1。
+Level -1 表示复制此目录下的所有子目录和文件；
+Level 0 表示仅表示此目录下的文件；
+level N 表示复制到第N层子目录。
+</li>
+</ul></td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/utils/CFileHelper.php#53">framework/utils/CFileHelper.php#53</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">copyDirectory</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">,</span><span style="color: #0000BB">$dst</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$level</span><span style="color: #007700">=-</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">extract</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">copyDirectoryRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">,</span><span style="color: #0000BB">$dst</span><span style="color: #007700">,</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">,</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">,</span><span style="color: #0000BB">$level</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>递归地将一个目录进行复制。
+如果目标目录不存在，它将被创建。</p>
+
+
+<div class="detailHeader" id="copyDirectoryRecursive-detail">
+copyDirectoryRecursive()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected static void <b>copyDirectoryRecursive</b>(string $src, string $dst, string $base, array $fileTypes, array $exclude, integer $level, array $options)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$src</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">源目录</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$dst</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">目标目录</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$base</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">源目录的基准路径</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$fileTypes</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">文件扩展名列表（不含点号）。只有扩展名被包含在此列表中的文件被返回。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$exclude</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">目录和文件的排除项列表。每个排除项可以是一个名字或一个路径。
+如果一个文件或一个路径与一个排除项相匹配，它将不会被返回。例如，一个排除项 '.svn' 
+将把名为 '.svn' 的文件或目录排除。一个排除项 '/a/b' 将排除文件或目录 '$src/a/b'。
+注意：不管DIRECTORY_SEPARATOR常量的值是什么，都使用'/' 符号作为分隔符。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$level</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">递归深度，默认值为-1。
+Level -1 表示复制此目录下的所有子目录和文件；
+Level 0 表示仅表示此目录下的文件；
+level N 表示复制到第N层子目录。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$options</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">附加选项。可用选项包括：
+newDirMode - 为目标目录设定的权限（默认值为 0777）；
+newFileMode - 为复制的目标文件设置的权限（默认值为当前环境的默认设置）。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/utils/CFileHelper.php#111">framework/utils/CFileHelper.php#111</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">copyDirectoryRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">,</span><span style="color: #0000BB">$dst</span><span style="color: #007700">,</span><span style="color: #0000BB">$base</span><span style="color: #007700">,</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">,</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">,</span><span style="color: #0000BB">$level</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">is_dir</span><span style="color: #007700">(</span><span style="color: #0000BB">$dst</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mkdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$dst</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'newDirMode'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@</span><span style="color: #0000BB">chmod</span><span style="color: #007700">(</span><span style="color: #0000BB">$dst</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'newDirMode'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@</span><span style="color: #0000BB">chmod</span><span style="color: #007700">(</span><span style="color: #0000BB">$dst</span><span style="color: #007700">,</span><span style="color: #0000BB">0777</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$folder</span><span style="color: #007700">=</span><span style="color: #0000BB">opendir</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;while((</span><span style="color: #0000BB">$file</span><span style="color: #007700">=</span><span style="color: #0000BB">readdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$folder</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">===</span><span style="color: #DD0000">'.'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">===</span><span style="color: #DD0000">'..'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$path</span><span style="color: #007700">=</span><span style="color: #0000BB">$src</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$isFile</span><span style="color: #007700">=</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">validatePath</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">,</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">$isFile</span><span style="color: #007700">,</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">,</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$isFile</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">copy</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">,</span><span style="color: #0000BB">$dst</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'newFileMode'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@</span><span style="color: #0000BB">chmod</span><span style="color: #007700">(</span><span style="color: #0000BB">$dst</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'newFileMode'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$level</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">copyDirectoryRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">,</span><span style="color: #0000BB">$dst</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">$base</span><span style="color: #007700">.</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">,</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">,</span><span style="color: #0000BB">$level</span><span style="color: #007700">-</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">closedir</span><span style="color: #007700">(</span><span style="color: #0000BB">$folder</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>复制一个目录。
+此方法主要被<a href="CFileHelper.html#copyDirectory">copyDirectory</a>调用。</p>
+
+
+<div class="detailHeader" id="findFiles-detail">
+findFiles()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static array <b>findFiles</b>(string $dir, array $options=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$dir</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">需要查找的目录</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$options</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">文件搜索的选项。可用的选项包括：
+<ul>
+<li>fileTypes: array, 文件扩展名的列表（不含点号）。只有扩展名被包含在此列表中的文件被返回。</li>
+<li>exclude: array, 目录和文件的排除项列表。每个排除项可以是一个名字或一个路径。
+如果一个文件或一个路径与一个排除项相匹配，它将不会被返回。例如，一个排除项 '.svn' 
+将把名为 '.svn' 的文件或目录排除。一个排除项 '/a/b' 将排除文件或目录 '$src/a/b'。
+注意：不管DIRECTORY_SEPARATOR常量的值是什么，都使用'/' 符号作为分隔符。
+</li>
+<li>level: integer, 递归深度，默认值为-1。
+Level -1 表示复制此目录下的所有子目录和文件；
+Level 0 表示仅表示此目录下的文件；
+level N 表示复制到第N层子目录。
+</li>
+</ul></td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">在此目录下找到的文件。文件的列表已经过排序。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/utils/CFileHelper.php#81">framework/utils/CFileHelper.php#81</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">findFiles</span><span style="color: #007700">(</span><span style="color: #0000BB">$dir</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$level</span><span style="color: #007700">=-</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">extract</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$list</span><span style="color: #007700">=</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">findFilesRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$dir</span><span style="color: #007700">,</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">,</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">,</span><span style="color: #0000BB">$level</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">sort</span><span style="color: #007700">(</span><span style="color: #0000BB">$list</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$list</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回指定的目录和其子目录下的文件。</p>
+
+
+<div class="detailHeader" id="findFilesRecursive-detail">
+findFilesRecursive()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected static array <b>findFilesRecursive</b>(string $dir, string $base, array $fileTypes, array $exclude, integer $level)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$dir</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">源目录</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$base</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">源目录的基准路径</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$fileTypes</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">文件扩展名列表（不含点号）。只有扩展名被包含在此列表中的文件被返回。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$exclude</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">目录和文件的排除项列表。每个排除项可以是一个名字或一个路径。
+如果一个文件或一个路径与一个排除项相匹配，它将不会被返回。例如，一个排除项 '.svn' 
+将把名为 '.svn' 的文件或目录排除。一个排除项 '/a/b' 将排除文件或目录 '$src/a/b'。
+注意：不管DIRECTORY_SEPARATOR常量的值是什么，都使用'/' 符号作为分隔符。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$level</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">递归深度，默认值为-1。
+Level -1 表示复制此目录下的所有子目录和文件；
+Level 0 表示仅表示此目录下的文件；
+level N 表示复制到第N层子目录。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">此目录下的文件</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/utils/CFileHelper.php#158">framework/utils/CFileHelper.php#158</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">findFilesRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$dir</span><span style="color: #007700">,</span><span style="color: #0000BB">$base</span><span style="color: #007700">,</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">,</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">,</span><span style="color: #0000BB">$level</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$list</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$handle</span><span style="color: #007700">=</span><span style="color: #0000BB">opendir</span><span style="color: #007700">(</span><span style="color: #0000BB">$dir</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;while((</span><span style="color: #0000BB">$file</span><span style="color: #007700">=</span><span style="color: #0000BB">readdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">===</span><span style="color: #DD0000">'.'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">===</span><span style="color: #DD0000">'..'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$path</span><span style="color: #007700">=</span><span style="color: #0000BB">$dir</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$isFile</span><span style="color: #007700">=</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">validatePath</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">,</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">$isFile</span><span style="color: #007700">,</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">,</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$isFile</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$list</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$path</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$level</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$list</span><span style="color: #007700">=</span><span style="color: #0000BB">array_merge</span><span style="color: #007700">(</span><span style="color: #0000BB">$list</span><span style="color: #007700">,</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">findFilesRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">,</span><span style="color: #0000BB">$base</span><span style="color: #007700">.</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">,</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">,</span><span style="color: #0000BB">$level</span><span style="color: #007700">-</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">closedir</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$list</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回指定目录和它的子目录下的文件。
+此方法主要被<a href="CFileHelper.html#findFiles">findFiles</a>调用。</p>
+
+
+<div class="detailHeader" id="getExtension-detail">
+getExtension()
+<span class="detailHeaderTag">
+方法
+（可用自 v1.1.2）
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static string <b>getExtension</b>(string $path)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$path</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">文件路径</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">不包含点号的扩展名</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/utils/CFileHelper.php#28">framework/utils/CFileHelper.php#28</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getExtension</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PATHINFO_EXTENSION</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回一个包含路径的文件名的扩展名。
+例如，“path/to/something.php”将返回“php”。</p>
+
+
+<div class="detailHeader" id="getMimeType-detail">
+getMimeType()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static string <b>getMimeType</b>(string $file, string $magicFile=NULL, boolean $checkExtension=true)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$file</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">文件名</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$magicFile</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">魔术数据库文件名，通常类似于 /path/to/magic.mime。
+它将作为第二个参数传递给<a href="http://php.net/manual/en/function.finfo-open.php">finfo_open</a>。
+此参数从1.1.3版开始可用。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$checkExtension</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">当MIME类型不能依据finfo和mim_content_type确定时
+是否检测文件扩展名。默认值是true。此参数从1.1.3版开始可用。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">MIME类型。当MIME类型无法确定时返回Null。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/utils/CFileHelper.php#223">framework/utils/CFileHelper.php#223</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getMimeType</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">$magicFile</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">$checkExtension</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'finfo_open'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">defined</span><span style="color: #007700">(</span><span style="color: #DD0000">'FILEINFO_MIME_TYPE'</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #0000BB">FILEINFO_MIME_TYPE&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">FILEINFO_MIME</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">=</span><span style="color: #0000BB">$magicFile</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">finfo_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">finfo_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">,</span><span style="color: #0000BB">$magicFile</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$result</span><span style="color: #007700">=</span><span style="color: #0000BB">finfo_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">,</span><span style="color: #0000BB">$file</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'mime_content_type'</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$result</span><span style="color: #007700">=</span><span style="color: #0000BB">mime_content_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$checkExtension&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">getMimeTypeByExtension</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>确定指定文件的 MIME 类型。
+此方法按下列顺序依次尝试：
+<ol>
+<li>finfo</li>
+<li>mime_content_type</li>
+<li><a href="CFileHelper.html#getMimeTypeByExtension">getMimeTypeByExtension</a>, 当 $checkExtension 被设置为true。</li>
+</ol></p>
+
+
+<div class="detailHeader" id="getMimeTypeByExtension-detail">
+getMimeTypeByExtension()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static string <b>getMimeTypeByExtension</b>(string $file, string $magicFile=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$file</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">文件名</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$magicFile</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">包含了所有有效的MIME类型信息的文件的路径
+如果没有设置，将使用默认值 'system.utils.mimeTypes' 文件。
+此参数从1.1.3版开始可用。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">MIME类型。当MIME类型无法确定时返回Null。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/utils/CFileHelper.php#249">framework/utils/CFileHelper.php#249</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getMimeTypeByExtension</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">$magicFile</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$extensions</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$extensions</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$extensions</span><span style="color: #007700">=</span><span style="color: #0000BB">$magicFile</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;require(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">getPathOfAlias</span><span style="color: #007700">(</span><span style="color: #DD0000">'system.utils.mimeTypes'</span><span style="color: #007700">).</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">$magicFile</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$ext</span><span style="color: #007700">=</span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PATHINFO_EXTENSION</span><span style="color: #007700">))!==</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ext</span><span style="color: #007700">=</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$ext</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$extensions</span><span style="color: #007700">[</span><span style="color: #0000BB">$ext</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$extensions</span><span style="color: #007700">[</span><span style="color: #0000BB">$ext</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>根据给定文件的扩展名确定它的MIME类型。
+此方法使用了一个本地的扩展名与MIME类型的映射。</p>
+
+
+<div class="detailHeader" id="validatePath-detail">
+validatePath()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected static boolean <b>validatePath</b>(string $base, string $file, boolean $isFile, array $fileTypes, array $exclude)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$base</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">源目录的基准路径</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$file</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">文件或目录的名字</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$isFile</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">是否是一个文件</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$fileTypes</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">文件扩展名列表（不含点号）。只有扩展名被包含在此列表中的文件被验证。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$exclude</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">目录和文件的排除项列表。每个排除项可以是一个名字或一个路径。
+如果一个文件或一个路径与一个排除项相匹配，它将不会被验证。例如，一个排除项 '.svn' 
+将把名为 '.svn' 的文件或目录排除。一个排除项 '/a/b' 将排除文件或目录 '$src/a/b'。
+注意：不管DIRECTORY_SEPARATOR常量的值是什么，都使用'/' 符号作为分隔符。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">此文件或目录是否有效</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/utils/CFileHelper.php#192">framework/utils/CFileHelper.php#192</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">validatePath</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">,</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">$isFile</span><span style="color: #007700">,</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">,</span><span style="color: #0000BB">$exclude</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$exclude&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">===</span><span style="color: #0000BB">$e&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">.</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">$e</span><span style="color: #007700">)===</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$isFile&nbsp;</span><span style="color: #007700">||&nbsp;empty(</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$type</span><span style="color: #007700">=</span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PATHINFO_EXTENSION</span><span style="color: #007700">))!==</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">,</span><span style="color: #0000BB">$fileTypes</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>验证一个文件或目录。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

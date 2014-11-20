@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>Yii</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>Yii</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system">system</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class Yii &raquo;
+<a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: yii.php 2799 2011-01-01 19:31:13Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/yii.php">framework/yii.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+Yii是一个服务于整个框架辅助类。
+<br/><br/>
+它封装了<a href="YiiBase.html">YiiBase</a>由YiiBase提供具体功能实现。
+你可以通过改写它定制YiiBase的一些功能。</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="classMap">
+  <td><a href="YiiBase.html#classMap-detail">classMap</a></td>
+  <td>array</td>
+  <td>用于Yii的自动加载类地图.</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="enableIncludePath">
+  <td><a href="YiiBase.html#enableIncludePath-detail">enableIncludePath</a></td>
+  <td>boolean</td>
+  <td>是否要依靠PHP包含路径到自动加载类文件。默认为true。
+如果你的宿主环境不允许你改变PHP包含路径，可以设置为false。
+或者你想添加另外的自动加载器到默认的Yii自动加载器。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="app">
+  <td><a href="YiiBase.html#app-detail">app()</a></td>
+  <td>返回应用程序单例，如果单例还没创建为null。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="autoload">
+  <td><a href="YiiBase.html#autoload-detail">autoload()</a></td>
+  <td>类自动加载器。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="beginProfile">
+  <td><a href="YiiBase.html#beginProfile-detail">beginProfile()</a></td>
+  <td>标记分析一块代码的开始位置。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="createApplication">
+  <td><a href="YiiBase.html#createApplication-detail">createApplication()</a></td>
+  <td>创建一个指定类的应用程序。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="createComponent">
+  <td><a href="YiiBase.html#createComponent-detail">createComponent()</a></td>
+  <td>创建一个对象并根据指定的配置初始化。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="createConsoleApplication">
+  <td><a href="YiiBase.html#createConsoleApplication-detail">createConsoleApplication()</a></td>
+  <td>创建一个控制台应用程序实例。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="createWebApplication">
+  <td><a href="YiiBase.html#createWebApplication-detail">createWebApplication()</a></td>
+  <td>创建一个Web应用程序实例。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="endProfile">
+  <td><a href="YiiBase.html#endProfile-detail">endProfile()</a></td>
+  <td>标记分析一块代码的结束位置。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="getFrameworkPath">
+  <td><a href="YiiBase.html#getFrameworkPath-detail">getFrameworkPath()</a></td>
+  <td>返回框架的路径</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="getLogger">
+  <td><a href="YiiBase.html#getLogger-detail">getLogger()</a></td>
+  <td>返回日志信息器</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="getPathOfAlias">
+  <td><a href="YiiBase.html#getPathOfAlias-detail">getPathOfAlias()</a></td>
+  <td>翻译一个别名为一个文件路径。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="getVersion">
+  <td><a href="YiiBase.html#getVersion-detail">getVersion()</a></td>
+  <td>返回返回Yii framework版本号</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="import">
+  <td><a href="YiiBase.html#import-detail">import()</a></td>
+  <td>导入一个类或一个目录。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="log">
+  <td><a href="YiiBase.html#log-detail">log()</a></td>
+  <td>写入一条日志信息。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="powered">
+  <td><a href="YiiBase.html#powered-detail">powered()</a></td>
+  <td>返回一个可以在网页中显示的Powered-by-Yii字符串信息</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="registerAutoloader">
+  <td><a href="YiiBase.html#registerAutoloader-detail">registerAutoloader()</a></td>
+  <td>注册一个新的类自动加载器。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="setApplication">
+  <td><a href="YiiBase.html#setApplication-detail">setApplication()</a></td>
+  <td>在类静态成员中存储应用程序实例。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="setLogger">
+  <td><a href="YiiBase.html#setLogger-detail">setLogger()</a></td>
+  <td>设置日志记录器对象。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="setPathOfAlias">
+  <td><a href="YiiBase.html#setPathOfAlias-detail">setPathOfAlias()</a></td>
+  <td>创建一个路径别名。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="t">
+  <td><a href="YiiBase.html#t-detail">t()</a></td>
+  <td>翻译一条为指定语言的信息。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+<tr class="inherited" id="trace">
+  <td><a href="YiiBase.html#trace-detail">trace()</a></td>
+  <td>写入一条跟踪信息。</td>
+  <td><a href="YiiBase.html">YiiBase</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>
