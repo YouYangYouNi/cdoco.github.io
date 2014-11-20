@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+#@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
 body {
   padding:50px;
@@ -252,4 +252,27 @@ footer {
     font-size:12pt;
     color:#444;
   }
+}
+
+#awwwards {
+	margin-top:50px;
+}
+
+
+#awwwards.left.green a {
+background-image: url('../images/green_left.png');
+}
+
+#awwwards a {
+display: block;
+width: 70px;
+height: 105px;
+text-indent: -8000px;
+background-repeat: no-repeat;
+background-position: 0 0;
+overflow: hidden;
+}
+
+h3{
+	margin:100px 100px;;
 }
