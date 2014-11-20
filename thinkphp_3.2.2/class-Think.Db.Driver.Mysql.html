@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Think\Db\Driver\Mysql | thinkphp_3.2.2</title>
+
+	<script type="text/javascript" src="resources/combined.js?2450529271"></script>
+	<script type="text/javascript" src="elementlist.js?4257362889"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Behavior.html">Behavior</a>
+						</li>
+				<li><a href="namespace-Boris.html">Boris</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-Org.html">Org<span></span></a>
+						<ul>
+				<li><a href="namespace-Org.Net.html">Net</a>
+						</li>
+				<li><a href="namespace-Org.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li class="active"><a href="namespace-Think.html">Think<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.html">Cache<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Think.Crypt.html">Crypt<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Crypt.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Think.Db.html">Db<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Think.Db.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Image.html">Image<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Image.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Log.html">Log<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Log.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-Think.Session.html">Session<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Session.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Storage.html">Storage<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Storage.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Template.html">Template<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Template.Driver.html">Driver</a>
+						</li>
+				<li><a href="namespace-Think.Template.TagLib.html">TagLib</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Upload.html">Upload<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.html">Driver<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.Bcs.html">Bcs</a>
+						</li>
+				<li><a href="namespace-Think.Upload.Driver.Qiniu.html">Qiniu</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Think.Db.Driver.Ibase.html">Ibase</a></li>
+				<li><a href="class-Think.Db.Driver.Mongo.html">Mongo</a></li>
+				<li><a href="class-Think.Db.Driver.Mssql.html">Mssql</a></li>
+				<li class="active"><a href="class-Think.Db.Driver.Mysql.html">Mysql</a></li>
+				<li><a href="class-Think.Db.Driver.Mysqli.html">Mysqli</a></li>
+				<li><a href="class-Think.Db.Driver.Oracle.html">Oracle</a></li>
+				<li><a href="class-Think.Db.Driver.Pdo.html">Pdo</a></li>
+				<li><a href="class-Think.Db.Driver.Pgsql.html">Pgsql</a></li>
+				<li><a href="class-Think.Db.Driver.Sqlite.html">Sqlite</a></li>
+				<li><a href="class-Think.Db.Driver.Sqlsrv.html">Sqlsrv</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Think.Db.Driver.html" title="Summary of Think\Db\Driver"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Mysql</h1>
+
+
+	<div class="description">
+	
+<p>Mysql数据库驱动类</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Think.Db.html"><span>Think\Db</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Think\Db\Driver\Mysql</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Think.html">Think</a>\<a href="namespace-Think.Db.html">Db</a>\<a href="namespace-Think.Db.Driver.html">Driver</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Think.Db.Driver.Mysql.html#15-347" title="Go to source code">ThinkPHP/Library/Think/Db/Driver/Mysql.class.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#20-35" title="Go to source code">__construct</a>( <span>array <var>$config</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>架构函数 读取数据库配置信息</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>架构函数 读取数据库配置信息</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$config</var></dt>
+					<dd><code>array</code><br>$config 数据库配置数组</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="connect" id="_connect">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_connect">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#37-70" title="Go to source code">connect</a>( <span>mixed <var>$config</var> = <span class="php-quote">''</span></span>, <span>mixed <var>$linkNum</var> = <span class="php-num">0</span></span>, <span>mixed <var>$force</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>连接数据库方法</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>连接数据库方法</p>
+
+
+
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>ThinkExecption</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="free" id="_free">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_free">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#72-79" title="Go to source code">free</a>( )</code>
+
+		<div class="description short">
+			
+<p>释放查询结果</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>释放查询结果</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="query" id="_query">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_query">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#81-109" title="Go to source code">query</a>( <span>string <var>$str</var></span> )</code>
+
+		<div class="description short">
+			
+<p>执行查询 返回数据集</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>执行查询 返回数据集</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$str</var></dt>
+					<dd><code>string</code><br>$str sql指令</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="execute" id="_execute">
+
+		<td class="attributes"><code>
+			 public 
+			integer|false
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_execute">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#111-136" title="Go to source code">execute</a>( <span>string <var>$str</var></span> )</code>
+
+		<div class="description short">
+			
+<p>执行语句</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>执行语句</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$str</var></dt>
+					<dd><code>string</code><br>$str sql指令</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer|false</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="startTrans" id="_startTrans">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_startTrans">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#138-152" title="Go to source code">startTrans</a>( )</code>
+
+		<div class="description short">
+			
+<p>启动事务</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>启动事务</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="commit" id="_commit">
+
+		<td class="attributes"><code>
+			 public 
+			boolen
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_commit">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#154-169" title="Go to source code">commit</a>( )</code>
+
+		<div class="description short">
+			
+<p>用于非自动提交状态下面的查询提交</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>用于非自动提交状态下面的查询提交</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolen</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="rollback" id="_rollback">
+
+		<td class="attributes"><code>
+			 public 
+			boolen
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_rollback">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#171-186" title="Go to source code">rollback</a>( )</code>
+
+		<div class="description short">
+			
+<p>事务回滚</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>事务回滚</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolen</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFields" id="_getFields">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFields">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#205-226" title="Go to source code">getFields</a>( <span>mixed <var>$tableName</var></span> )</code>
+
+		<div class="description short">
+			
+<p>取得数据表的字段信息</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>取得数据表的字段信息</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getTables" id="_getTables">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getTables">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#228-245" title="Go to source code">getTables</a>( <span>mixed <var>$dbName</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>取得数据库的表信息</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>取得数据库的表信息</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="replace" id="_replace">
+
+		<td class="attributes"><code>
+			 public 
+			false
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_replace">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#247-264" title="Go to source code">replace</a>( <span>mixed <var>$data</var></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>替换记录</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>替换记录</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data 数据</dd>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 参数表达式</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>false</code><br>| integer<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="insertAll" id="_insertAll">
+
+		<td class="attributes"><code>
+			 public 
+			false
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_insertAll">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#266-291" title="Go to source code">insertAll</a>( <span>mixed <var>$datas</var></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$replace</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>插入记录</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>插入记录</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$datas</var></dt>
+					<dd><code>mixed</code><br>$datas 数据</dd>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 参数表达式</dd>
+					<dt><var>$replace</var></dt>
+					<dd><code>boolean</code><br>$replace 是否replace</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>false</code><br>| integer<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="close" id="_close">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_close">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#293-303" title="Go to source code">close</a>( )</code>
+
+		<div class="description short">
+			
+<p>关闭数据库</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>关闭数据库</p>
+
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Db.html#_close">Think\Db::close()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="error" id="_error">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_error">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#305-318" title="Go to source code">error</a>( )</code>
+
+		<div class="description short">
+			
+<p>数据库错误信息 并显示当前的SQL语句</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>数据库错误信息 并显示当前的SQL语句</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="escapeString" id="_escapeString">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_escapeString">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#320-332" title="Go to source code">escapeString</a>( <span>string <var>$str</var></span> )</code>
+
+		<div class="description short">
+			
+<p>SQL指令安全过滤</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>SQL指令安全过滤</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$str</var></dt>
+					<dd><code>string</code><br>$str SQL字符串</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Db.html#_escapeString">Think\Db::escapeString()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseKey" id="_parseKey">
+
+		<td class="attributes"><code>
+			 protected 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseKey">#</a>
+		<code><a href="source-class-Think.Db.Driver.Mysql.html#334-346" title="Go to source code">parseKey</a>( <span>string <var>&amp; $key</var></span> )</code>
+
+		<div class="description short">
+			
+<p>字段和表名处理添加`</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>字段和表名处理添加`</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Db.html#_parseKey">Think\Db::parseKey()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Think.Db.html#methods">Think\Db</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Think.Db.html#___destruct">__destruct()</a>, 
+			<a href="class-Think.Db.html#__getDsnType">_getDsnType()</a>, 
+			<a href="class-Think.Db.html#_bindParam">bindParam()</a>, 
+			<a href="class-Think.Db.html#_buildSelectSql">buildSelectSql()</a>, 
+			<a href="class-Think.Db.html#_debug">debug()</a>, 
+			<a href="class-Think.Db.html#_delete">delete()</a>, 
+			<a href="class-Think.Db.html#_factory">factory()</a>, 
+			<a href="class-Think.Db.html#_getError">getError()</a>, 
+			<a href="class-Think.Db.html#_getInstance">getInstance()</a>, 
+			<a href="class-Think.Db.html#_getLastInsID">getLastInsID()</a>, 
+			<a href="class-Think.Db.html#_getLastSql">getLastSql()</a>, 
+			<a href="class-Think.Db.html#_initConnect">initConnect()</a>, 
+			<a href="class-Think.Db.html#_insert">insert()</a>, 
+			<a href="class-Think.Db.html#_multiConnect">multiConnect()</a>, 
+			<a href="class-Think.Db.html#_parseBind">parseBind()</a>, 
+			<a href="class-Think.Db.html#_parseComment">parseComment()</a>, 
+			<a href="class-Think.Db.html#_parseDSN">parseDSN()</a>, 
+			<a href="class-Think.Db.html#_parseDistinct">parseDistinct()</a>, 
+			<a href="class-Think.Db.html#_parseField">parseField()</a>, 
+			<a href="class-Think.Db.html#_parseGroup">parseGroup()</a>, 
+			<a href="class-Think.Db.html#_parseHaving">parseHaving()</a>, 
+			<a href="class-Think.Db.html#_parseJoin">parseJoin()</a>, 
+			<a href="class-Think.Db.html#_parseLimit">parseLimit()</a>, 
+			<a href="class-Think.Db.html#_parseLock">parseLock()</a>, 
+			<a href="class-Think.Db.html#_parseOrder">parseOrder()</a>, 
+			<a href="class-Think.Db.html#_parseSet">parseSet()</a>, 
+			<a href="class-Think.Db.html#_parseSql">parseSql()</a>, 
+			<a href="class-Think.Db.html#_parseTable">parseTable()</a>, 
+			<a href="class-Think.Db.html#_parseThinkWhere">parseThinkWhere()</a>, 
+			<a href="class-Think.Db.html#_parseUnion">parseUnion()</a>, 
+			<a href="class-Think.Db.html#_parseValue">parseValue()</a>, 
+			<a href="class-Think.Db.html#_parseWhere">parseWhere()</a>, 
+			<a href="class-Think.Db.html#_parseWhereItem">parseWhereItem()</a>, 
+			<a href="class-Think.Db.html#_select">select()</a>, 
+			<a href="class-Think.Db.html#_selectInsert">selectInsert()</a>, 
+			<a href="class-Think.Db.html#_setModel">setModel()</a>, 
+			<a href="class-Think.Db.html#_update">update()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Think.Db.html#properties">Think\Db</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Think.Db.html#$_linkID"><var>$_linkID</var></a>, 
+			<a href="class-Think.Db.html#$autoFree"><var>$autoFree</var></a>, 
+			<a href="class-Think.Db.html#$bind"><var>$bind</var></a>, 
+			<a href="class-Think.Db.html#$comparison"><var>$comparison</var></a>, 
+			<a href="class-Think.Db.html#$config"><var>$config</var></a>, 
+			<a href="class-Think.Db.html#$connected"><var>$connected</var></a>, 
+			<a href="class-Think.Db.html#$dbType"><var>$dbType</var></a>, 
+			<a href="class-Think.Db.html#$error"><var>$error</var></a>, 
+			<a href="class-Think.Db.html#$lastInsID"><var>$lastInsID</var></a>, 
+			<a href="class-Think.Db.html#$linkID"><var>$linkID</var></a>, 
+			<a href="class-Think.Db.html#$model"><var>$model</var></a>, 
+			<a href="class-Think.Db.html#$modelSql"><var>$modelSql</var></a>, 
+			<a href="class-Think.Db.html#$numCols"><var>$numCols</var></a>, 
+			<a href="class-Think.Db.html#$numRows"><var>$numRows</var></a>, 
+			<a href="class-Think.Db.html#$pconnect"><var>$pconnect</var></a>, 
+			<a href="class-Think.Db.html#$queryID"><var>$queryID</var></a>, 
+			<a href="class-Think.Db.html#$queryStr"><var>$queryStr</var></a>, 
+			<a href="class-Think.Db.html#$selectSql"><var>$selectSql</var></a>, 
+			<a href="class-Think.Db.html#$transTimes"><var>$transTimes</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		thinkphp_3.2.2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Boris\EvalWorker | thinkphp_3.2.2</title>
+
+	<script type="text/javascript" src="resources/combined.js?2450529271"></script>
+	<script type="text/javascript" src="elementlist.js?4257362889"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Behavior.html">Behavior</a>
+						</li>
+				<li class="active"><a href="namespace-Boris.html">Boris</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-Org.html">Org<span></span></a>
+						<ul>
+				<li><a href="namespace-Org.Net.html">Net</a>
+						</li>
+				<li><a href="namespace-Org.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Think.html">Think<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.html">Cache<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Think.Crypt.html">Crypt<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Crypt.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Db.html">Db<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Db.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Image.html">Image<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Image.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Log.html">Log<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Log.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-Think.Session.html">Session<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Session.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Storage.html">Storage<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Storage.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Template.html">Template<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Template.Driver.html">Driver</a>
+						</li>
+				<li><a href="namespace-Think.Template.TagLib.html">TagLib</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Upload.html">Upload<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.html">Driver<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.Bcs.html">Bcs</a>
+						</li>
+				<li><a href="namespace-Think.Upload.Driver.Qiniu.html">Qiniu</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Boris.Boris.html">Boris</a></li>
+				<li><a href="class-Boris.CLIOptionsHandler.html">CLIOptionsHandler</a></li>
+				<li><a href="class-Boris.ColoredInspector.html">ColoredInspector</a></li>
+				<li><a href="class-Boris.Config.html">Config</a></li>
+				<li><a href="class-Boris.DumpInspector.html">DumpInspector</a></li>
+				<li class="active"><a href="class-Boris.EvalWorker.html">EvalWorker</a></li>
+				<li><a href="class-Boris.ExportInspector.html">ExportInspector</a></li>
+				<li><a href="class-Boris.ReadlineClient.html">ReadlineClient</a></li>
+				<li><a href="class-Boris.ShallowParser.html">ShallowParser</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Boris.Inspector.html">Inspector</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Boris.html" title="Summary of Boris"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class EvalWorker</h1>
+
+
+	<div class="description">
+	
+<p>EvalWorker is responsible for evaluating PHP expressions in forked
+processes.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Boris.html">Boris</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Boris.EvalWorker.html#7-247" title="Go to source code">ThinkPHP/Library/Vendor/Boris/EvalWorker.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Boris.EvalWorker.html#27-36" title="Go to source code">__construct</a>( <span>resource <var>$socket</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Create a new worker using the given socket for communication.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Create a new worker using the given socket for communication.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$socket</var></dt>
+					<dd><code>resource</code><br>$socket</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setLocal" id="_setLocal">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setLocal">#</a>
+		<code><a href="source-class-Boris.EvalWorker.html#38-50" title="Go to source code">setLocal</a>( <span>array|string <var>$local</var></span>, <span>mixed <var>$value</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Set local variables to be placed in the workers's scope.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set local variables to be placed in the workers's scope.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$local</var></dt>
+					<dd><code>array|string</code><br>$local</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value, if $local is a string</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setStartHooks" id="_setStartHooks">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setStartHooks">#</a>
+		<code><a href="source-class-Boris.EvalWorker.html#52-59" title="Go to source code">setStartHooks</a>( <span>array <var>$hooks</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set hooks to run inside the worker before it starts looping.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set hooks to run inside the worker before it starts looping.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$hooks</var></dt>
+					<dd><code>array</code><br>$hooks</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setFailureHooks" id="_setFailureHooks">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setFailureHooks">#</a>
+		<code><a href="source-class-Boris.EvalWorker.html#61-68" title="Go to source code">setFailureHooks</a>( <span>array <var>$hooks</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set hooks to run inside the worker after a fatal error is caught.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set hooks to run inside the worker after a fatal error is caught.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$hooks</var></dt>
+					<dd><code>array</code><br>$hooks</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setInspector" id="_setInspector">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setInspector">#</a>
+		<code><a href="source-class-Boris.EvalWorker.html#70-77" title="Go to source code">setInspector</a>( <span>object <var>$inspector</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set an Inspector object for Boris to output return values with.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set an Inspector object for Boris to output return values with.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$inspector</var></dt>
+					<dd><code>object</code><br>$inspector any object the responds to inspect($v)</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="start" id="_start">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_start">#</a>
+		<code><a href="source-class-Boris.EvalWorker.html#79-153" title="Go to source code">start</a>( )</code>
+
+		<div class="description short">
+			
+<p>Start the worker.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Start the worker.</p>
+
+<p>This method never returns.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cancelOperation" id="_cancelOperation">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cancelOperation">#</a>
+		<code><a href="source-class-Boris.EvalWorker.html#155-163" title="Go to source code">cancelOperation</a>( )</code>
+
+		<div class="description short">
+			
+<p>While a child process is running, terminate it immediately.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>While a child process is running, terminate it immediately.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="delegateExceptionHandler" id="_delegateExceptionHandler">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_delegateExceptionHandler">#</a>
+		<code><a href="source-class-Boris.EvalWorker.html#165-171" title="Go to source code">delegateExceptionHandler</a>( <span>mixed <var>$ex</var></span> )</code>
+
+		<div class="description short">
+			
+<p>If any user-defined exception handler is present, call it, but be sure to
+exit correctly.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>If any user-defined exception handler is present, call it, but be sure to
+exit correctly.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="ABNORMAL_EXIT" id="ABNORMAL_EXIT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Boris.EvalWorker.html#11" title="Go to source code"><b>ABNORMAL_EXIT</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">255</span></code></td>
+		<td class="description"><div>
+			<a href="#ABNORMAL_EXIT" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="DONE" id="DONE">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Boris.EvalWorker.html#12" title="Go to source code"><b>DONE</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">&quot;\0&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#DONE" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="EXITED" id="EXITED">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Boris.EvalWorker.html#13" title="Go to source code"><b>EXITED</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">&quot;\1&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#EXITED" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="FAILED" id="FAILED">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Boris.EvalWorker.html#14" title="Go to source code"><b>FAILED</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">&quot;\2&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#FAILED" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="READY" id="READY">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Boris.EvalWorker.html#15" title="Go to source code"><b>READY</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">&quot;\3&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#READY" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		thinkphp_3.2.2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

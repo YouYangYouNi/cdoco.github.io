@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Org\Util\Rbac | thinkphp_3.2.2</title>
+
+	<script type="text/javascript" src="resources/combined.js?2450529271"></script>
+	<script type="text/javascript" src="elementlist.js?4257362889"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Behavior.html">Behavior</a>
+						</li>
+				<li><a href="namespace-Boris.html">Boris</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li class="active"><a href="namespace-Org.html">Org<span></span></a>
+						<ul>
+				<li><a href="namespace-Org.Net.html">Net</a>
+						</li>
+				<li class="active"><a href="namespace-Org.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Think.html">Think<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.html">Cache<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Think.Crypt.html">Crypt<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Crypt.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Db.html">Db<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Db.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Image.html">Image<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Image.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Log.html">Log<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Log.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-Think.Session.html">Session<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Session.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Storage.html">Storage<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Storage.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Template.html">Template<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Template.Driver.html">Driver</a>
+						</li>
+				<li><a href="namespace-Think.Template.TagLib.html">TagLib</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Upload.html">Upload<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.html">Driver<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.Bcs.html">Bcs</a>
+						</li>
+				<li><a href="namespace-Think.Upload.Driver.Qiniu.html">Qiniu</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Org.Util.ArrayList.html">ArrayList</a></li>
+				<li><a href="class-Org.Util.CodeSwitch.html">CodeSwitch</a></li>
+				<li><a href="class-Org.Util.Date.html">Date</a></li>
+				<li class="active"><a href="class-Org.Util.Rbac.html">Rbac</a></li>
+				<li><a href="class-Org.Util.Stack.html">Stack</a></li>
+				<li><a href="class-Org.Util.String.html">String</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Org.Util.html" title="Summary of Org\Util"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Rbac</h1>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Org.html">Org</a>\<a href="namespace-Org.Util.html">Util</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Org.Util.Rbac.html#75-285" title="Go to source code">ThinkPHP/Library/Org/Util/Rbac.class.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="authenticate" id="_authenticate">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_authenticate">#</a>
+		<code><a href="source-class-Org.Util.Rbac.html#77-81" title="Go to source code">authenticate</a>( <span>mixed <var>$map</var></span>, <span>mixed <var>$model</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="saveAccessList" id="_saveAccessList">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_saveAccessList">#</a>
+		<code><a href="source-class-Org.Util.Rbac.html#84-91" title="Go to source code">saveAccessList</a>( <span>mixed <var>$authId</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRecordAccessList" id="_getRecordAccessList">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRecordAccessList">#</a>
+		<code><a href="source-class-Org.Util.Rbac.html#94-100" title="Go to source code">getRecordAccessList</a>( <span>mixed <var>$authId</var> = <span class="php-keyword1">null</span></span>, <span>mixed <var>$module</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="checkAccess" id="_checkAccess">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkAccess">#</a>
+		<code><a href="source-class-Org.Util.Rbac.html#103-135" title="Go to source code">checkAccess</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="checkLogin" id="_checkLogin">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkLogin">#</a>
+		<code><a href="source-class-Org.Util.Rbac.html#138-155" title="Go to source code">checkLogin</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="AccessDecision" id="_AccessDecision">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_AccessDecision">#</a>
+		<code><a href="source-class-Org.Util.Rbac.html#158-190" title="Go to source code">AccessDecision</a>( <span>mixed <var>$appName</var> = MODULE_NAME</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAccessList" id="_getAccessList">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAccessList">#</a>
+		<code><a href="source-class-Org.Util.Rbac.html#192-266" title="Go to source code">getAccessList</a>( <span>integer <var>$authId</var></span> )</code>
+
+		<div class="description short">
+			
+<p>+----------------------------------------------------------
+取得当前认证号的所有权限列表
++----------------------------------------------------------</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>+----------------------------------------------------------
+取得当前认证号的所有权限列表
++----------------------------------------------------------</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$authId</var></dt>
+					<dd><code>integer</code><br>$authId 用户ID +----------------------------------------------------------</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getModuleAccessList" id="_getModuleAccessList">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getModuleAccessList">#</a>
+		<code><a href="source-class-Org.Util.Rbac.html#269-284" title="Go to source code">getModuleAccessList</a>( <span>mixed <var>$authId</var></span>, <span>mixed <var>$module</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		thinkphp_3.2.2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

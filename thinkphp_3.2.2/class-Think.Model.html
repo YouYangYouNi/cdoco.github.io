@@ -1,0 +1,3707 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Think\Model | thinkphp_3.2.2</title>
+
+	<script type="text/javascript" src="resources/combined.js?2450529271"></script>
+	<script type="text/javascript" src="elementlist.js?4257362889"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Behavior.html">Behavior</a>
+						</li>
+				<li><a href="namespace-Boris.html">Boris</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-Org.html">Org<span></span></a>
+						<ul>
+				<li><a href="namespace-Org.Net.html">Net</a>
+						</li>
+				<li><a href="namespace-Org.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li class="active"><a href="namespace-Think.html">Think<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.html">Cache<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Think.Crypt.html">Crypt<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Crypt.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Db.html">Db<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Db.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Image.html">Image<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Image.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Log.html">Log<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Log.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-Think.Session.html">Session<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Session.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Storage.html">Storage<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Storage.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Template.html">Template<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Template.Driver.html">Driver</a>
+						</li>
+				<li><a href="namespace-Think.Template.TagLib.html">TagLib</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Upload.html">Upload<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.html">Driver<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.Bcs.html">Bcs</a>
+						</li>
+				<li><a href="namespace-Think.Upload.Driver.Qiniu.html">Qiniu</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Think.App.html" class="invalid">App</a></li>
+				<li><a href="class-Think.Auth.html">Auth</a></li>
+				<li><a href="class-Think.Behavior.html">Behavior</a></li>
+				<li><a href="class-Think.Build.html">Build</a></li>
+				<li><a href="class-Think.Cache.html">Cache</a></li>
+				<li><a href="class-Think.Controller.html" class="invalid">Controller</a></li>
+				<li><a href="class-Think.Crypt.html">Crypt</a></li>
+				<li><a href="class-Think.Db.html">Db</a></li>
+				<li><a href="class-Think.Dispatcher.html" class="invalid">Dispatcher</a></li>
+				<li><a href="class-Think.Hook.html">Hook</a></li>
+				<li><a href="class-Think.Image.html">Image</a></li>
+				<li><a href="class-Think.Log.html">Log</a></li>
+				<li class="active"><a href="class-Think.Model.html">Model</a></li>
+				<li><a href="class-Think.Page.html">Page</a></li>
+				<li><a href="class-Think.Route.html">Route</a></li>
+				<li><a href="class-Think.Storage.html">Storage</a></li>
+				<li><a href="class-Think.Template.html">Template</a></li>
+				<li><a href="class-Think.Think.html">Think</a></li>
+				<li><a href="class-Think.Upload.html">Upload</a></li>
+				<li><a href="class-Think.Verify.html">Verify</a></li>
+				<li><a href="class-Think.View.html">View</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Think.Exception.html">Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Think.html" title="Summary of Think"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Model</h1>
+
+
+	<div class="description">
+	
+<p>ThinkPHP Model模型类 实现了ORM和ActiveRecords模式</p>
+
+	</div>
+
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Think.Model.AdvModel.html">Think\Model\AdvModel</a>, 
+			<a href="class-Think.Model.MongoModel.html">Think\Model\MongoModel</a>, 
+			<a href="class-Think.Model.RelationModel.html">Think\Model\RelationModel</a>, 
+			<a href="class-Think.Model.ViewModel.html">Think\Model\ViewModel</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Think.html">Think</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Think.Model.html#12-1712" title="Go to source code">ThinkPHP/Library/Think/Model.class.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Think.Model.html#62-96" title="Go to source code">__construct</a>( <span>string <var>$name</var> = <span class="php-quote">''</span></span>, <span>string <var>$tablePrefix</var> = <span class="php-quote">''</span></span>, <span>mixed <var>$connection</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>架构函数 取得DB类的实例对象 字段检查</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>架构函数 取得DB类的实例对象 字段检查</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 模型名称</dd>
+					<dt><var>$tablePrefix</var></dt>
+					<dd><code>string</code><br>$tablePrefix 表前缀</dd>
+					<dt><var>$connection</var></dt>
+					<dd><code>mixed</code><br>$connection 数据库连接信息</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_checkTableInfo" id="__checkTableInfo">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__checkTableInfo">#</a>
+		<code><a href="source-class-Think.Model.html#98-120" title="Go to source code">_checkTableInfo</a>( )</code>
+
+		<div class="description short">
+			
+<p>自动检测数据表信息</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>自动检测数据表信息</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="flush" id="_flush">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_flush">#</a>
+		<code><a href="source-class-Think.Model.html#122-153" title="Go to source code">flush</a>( )</code>
+
+		<div class="description short">
+			
+<p>获取字段信息并缓存</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取字段信息并缓存</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__set" id="___set">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___set">#</a>
+		<code><a href="source-class-Think.Model.html#155-165" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>设置数据对象的值</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>设置数据对象的值</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 名称</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value 值</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__get" id="___get">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___get">#</a>
+		<code><a href="source-class-Think.Model.html#167-175" title="Go to source code">__get</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>获取数据对象的值</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取数据对象的值</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 名称</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__isset" id="___isset">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___isset">#</a>
+		<code><a href="source-class-Think.Model.html#177-185" title="Go to source code">__isset</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>检测数据对象的值</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>检测数据对象的值</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 名称</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__unset" id="___unset">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___unset">#</a>
+		<code><a href="source-class-Think.Model.html#187-195" title="Go to source code">__unset</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>销毁数据对象的值</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>销毁数据对象的值</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 名称</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__call" id="___call">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___call">#</a>
+		<code><a href="source-class-Think.Model.html#197-229" title="Go to source code">__call</a>( <span>string <var>$method</var></span>, <span>array <var>$args</var></span> )</code>
+
+		<div class="description short">
+			
+<p>利用__call方法实现一些特殊的Model方法</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>利用__call方法实现一些特殊的Model方法</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$method</var></dt>
+					<dd><code>string</code><br>$method 方法名称</dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code><br>$args 调用参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_initialize" id="__initialize">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__initialize">#</a>
+		<code><a href="source-class-Think.Model.html#231" title="Go to source code">_initialize</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_facade" id="__facade">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__facade">#</a>
+		<code><a href="source-class-Think.Model.html#233-272" title="Go to source code">_facade</a>( <span>mixed <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+<p>对保存到数据库的数据进行处理</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>对保存到数据库的数据进行处理</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data 要操作的数据</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_before_write" id="__before_write">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__before_write">#</a>
+		<code><a href="source-class-Think.Model.html#275" title="Go to source code">_before_write</a>( <span>mixed <var>&amp; $data</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="add" id="_add">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_add">#</a>
+		<code><a href="source-class-Think.Model.html#277-321" title="Go to source code">add</a>( <span>mixed <var>$data</var> = <span class="php-quote">''</span></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$replace</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>新增数据</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>新增数据</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data 数据</dd>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 表达式</dd>
+					<dt><var>$replace</var></dt>
+					<dd><code>boolean</code><br>$replace 是否replace</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_before_insert" id="__before_insert">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__before_insert">#</a>
+		<code><a href="source-class-Think.Model.html#323" title="Go to source code">_before_insert</a>( <span>mixed <var>&amp; $data</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_insert" id="__after_insert">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_insert">#</a>
+		<code><a href="source-class-Think.Model.html#325" title="Go to source code">_after_insert</a>( <span>mixed <var>$data</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addAll" id="_addAll">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addAll">#</a>
+		<code><a href="source-class-Think.Model.html#327-347" title="Go to source code">addAll</a>( <span>mixed <var>$dataList</var></span>, <span>mixed <var>$options</var> = <span class="php-keyword1">array</span>()</span>, <span>mixed <var>$replace</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="selectAdd" id="_selectAdd">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_selectAdd">#</a>
+		<code><a href="source-class-Think.Model.html#349-369" title="Go to source code">selectAdd</a>( <span>string <var>$fields</var> = <span class="php-quote">''</span></span>, <span>string <var>$table</var> = <span class="php-quote">''</span></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>通过Select方式添加记录</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>通过Select方式添加记录</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$fields</var></dt>
+					<dd><code>string</code><br>$fields 要插入的数据表字段名</dd>
+					<dt><var>$table</var></dt>
+					<dd><code>string</code><br>$table 要插入的数据表名</dd>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 表达式</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="save" id="_save">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_save">#</a>
+		<code><a href="source-class-Think.Model.html#371-424" title="Go to source code">save</a>( <span>mixed <var>$data</var> = <span class="php-quote">''</span></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>保存数据</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>保存数据</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data 数据</dd>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 表达式</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_before_update" id="__before_update">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__before_update">#</a>
+		<code><a href="source-class-Think.Model.html#426" title="Go to source code">_before_update</a>( <span>mixed <var>&amp; $data</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_update" id="__after_update">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_update">#</a>
+		<code><a href="source-class-Think.Model.html#428" title="Go to source code">_after_update</a>( <span>mixed <var>$data</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="delete" id="_delete">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_delete">#</a>
+		<code><a href="source-class-Think.Model.html#430-476" title="Go to source code">delete</a>( <span>mixed <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>删除数据</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>删除数据</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd><code>mixed</code><br>$options 表达式</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_before_delete" id="__before_delete">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__before_delete">#</a>
+		<code><a href="source-class-Think.Model.html#478" title="Go to source code">_before_delete</a>( <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_delete" id="__after_delete">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_delete">#</a>
+		<code><a href="source-class-Think.Model.html#480" title="Go to source code">_after_delete</a>( <span>mixed <var>$data</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="select" id="_select">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_select">#</a>
+		<code><a href="source-class-Think.Model.html#482-541" title="Go to source code">select</a>( <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>查询数据集</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>查询数据集</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 表达式参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_select" id="__after_select">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_select">#</a>
+		<code><a href="source-class-Think.Model.html#543" title="Go to source code">_after_select</a>( <span>mixed <var>&amp; $resultSet</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="buildSql" id="_buildSql">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_buildSql">#</a>
+		<code><a href="source-class-Think.Model.html#545-555" title="Go to source code">buildSql</a>( <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>生成查询SQL 可用于子查询</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>生成查询SQL 可用于子查询</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 表达式参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_parseOptions" id="__parseOptions">
+
+		<td class="attributes"><code>
+			 protected 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__parseOptions">#</a>
+		<code><a href="source-class-Think.Model.html#557-605" title="Go to source code">_parseOptions</a>( <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>分析表达式</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>分析表达式</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 表达式参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_options_filter" id="__options_filter">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__options_filter">#</a>
+		<code><a href="source-class-Think.Model.html#607" title="Go to source code">_options_filter</a>( <span>mixed <var>&amp; $options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_parseType" id="__parseType">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__parseType">#</a>
+		<code><a href="source-class-Think.Model.html#609-629" title="Go to source code">_parseType</a>( <span>mixed <var>&amp; $data</var></span>, <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+<p>数据类型检测</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>数据类型检测</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data 数据</dd>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key 字段名</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_read_data" id="__read_data">
+
+		<td class="attributes"><code>
+			 protected 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__read_data">#</a>
+		<code><a href="source-class-Think.Model.html#631-648" title="Go to source code">_read_data</a>( <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+<p>数据读取后的处理</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>数据读取后的处理</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data 当前数据</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="find" id="_find">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_find">#</a>
+		<code><a href="source-class-Think.Model.html#650-694" title="Go to source code">find</a>( <span>mixed <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>查询数据</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>查询数据</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd><code>mixed</code><br>$options 表达式参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_find" id="__after_find">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_find">#</a>
+		<code><a href="source-class-Think.Model.html#696" title="Go to source code">_after_find</a>( <span>mixed <var>&amp; $result</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="returnResult" id="_returnResult">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_returnResult">#</a>
+		<code><a href="source-class-Think.Model.html#698-711" title="Go to source code">returnResult</a>( <span>mixed <var>$data</var></span>, <span>mixed <var>$type</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseFieldsMap" id="_parseFieldsMap">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseFieldsMap">#</a>
+		<code><a href="source-class-Think.Model.html#713-738" title="Go to source code">parseFieldsMap</a>( <span>array <var>$data</var></span>, <span>integer <var>$type</var> = <span class="php-num">1</span></span> )</code>
+
+		<div class="description short">
+			
+<p>处理字段映射</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>处理字段映射</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data 当前数据</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>integer</code><br>$type 类型 0 写入 1 读取</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setField" id="_setField">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setField">#</a>
+		<code><a href="source-class-Think.Model.html#740-755" title="Go to source code">setField</a>( <span>string|array <var>$field</var></span>, <span>string <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>设置记录的某个字段值 支持使用数据库字段和方法</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>设置记录的某个字段值 支持使用数据库字段和方法</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>string|array</code><br>$field 字段名</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>string</code><br>$value 字段值</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setInc" id="_setInc">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setInc">#</a>
+		<code><a href="source-class-Think.Model.html#757-766" title="Go to source code">setInc</a>( <span>string <var>$field</var></span>, <span>integer <var>$step</var> = <span class="php-num">1</span></span> )</code>
+
+		<div class="description short">
+			
+<p>字段值增长</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>字段值增长</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>string</code><br>$field 字段名</dd>
+					<dt><var>$step</var></dt>
+					<dd><code>integer</code><br>$step 增长值</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setDec" id="_setDec">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDec">#</a>
+		<code><a href="source-class-Think.Model.html#768-777" title="Go to source code">setDec</a>( <span>string <var>$field</var></span>, <span>integer <var>$step</var> = <span class="php-num">1</span></span> )</code>
+
+		<div class="description short">
+			
+<p>字段值减少</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>字段值减少</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>string</code><br>$field 字段名</dd>
+					<dt><var>$step</var></dt>
+					<dd><code>integer</code><br>$step 减少值</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getField" id="_getField">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getField">#</a>
+		<code><a href="source-class-Think.Model.html#779-848" title="Go to source code">getField</a>( <span>string <var>$field</var></span>, <span>string <var>$sepa</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>获取一条记录的某个字段值</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取一条记录的某个字段值</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>string</code><br>$field 字段名</dd>
+					<dt><var>$sepa</var></dt>
+					<dd><code>string</code><br>$spea 字段数据间隔符号 NULL返回数组</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="create" id="_create">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_create">#</a>
+		<code><a href="source-class-Think.Model.html#850-932" title="Go to source code">create</a>( <span>mixed <var>$data</var> = <span class="php-quote">''</span></span>, <span>string <var>$type</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>创建数据对象 但不保存到数据库</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>创建数据对象 但不保存到数据库</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data 创建数据</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>string</code><br>$type 状态</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="autoCheckToken" id="_autoCheckToken">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_autoCheckToken">#</a>
+		<code><a href="source-class-Think.Model.html#936-956" title="Go to source code">autoCheckToken</a>( <span>mixed <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="regex" id="_regex">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_regex">#</a>
+		<code><a href="source-class-Think.Model.html#958-981" title="Go to source code">regex</a>( <span>string <var>$value</var></span>, <span>string <var>$rule</var></span> )</code>
+
+		<div class="description short">
+			
+<p>使用正则验证数据</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>使用正则验证数据</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd><code>string</code><br>$value 要验证的数据</dd>
+					<dt><var>$rule</var></dt>
+					<dd><code>string</code><br>$rule 验证规则</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="autoValidation" id="_autoValidation">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_autoValidation">#</a>
+		<code><a href="source-class-Think.Model.html#1036-1087" title="Go to source code">autoValidation</a>( <span>array <var>$data</var></span>, <span>string <var>$type</var></span> )</code>
+
+		<div class="description short">
+			
+<p>自动表单验证</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>自动表单验证</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data 创建数据</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>string</code><br>$type 创建类型</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_validationField" id="__validationField">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__validationField">#</a>
+		<code><a href="source-class-Think.Model.html#1089-1109" title="Go to source code">_validationField</a>( <span>array <var>$data</var></span>, <span>array <var>$val</var></span> )</code>
+
+		<div class="description short">
+			
+<p>验证表单字段 支持批量验证
+如果批量验证返回错误的数组信息</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>验证表单字段 支持批量验证
+如果批量验证返回错误的数组信息</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data 创建数据</dd>
+					<dt><var>$val</var></dt>
+					<dd><code>array</code><br>$val 验证因子</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_validationFieldItem" id="__validationFieldItem">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__validationFieldItem">#</a>
+		<code><a href="source-class-Think.Model.html#1111-1159" title="Go to source code">_validationFieldItem</a>( <span>array <var>$data</var></span>, <span>array <var>$val</var></span> )</code>
+
+		<div class="description short">
+			
+<p>根据验证因子验证字段</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>根据验证因子验证字段</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data 创建数据</dd>
+					<dt><var>$val</var></dt>
+					<dd><code>array</code><br>$val 验证因子</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="check" id="_check">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_check">#</a>
+		<code><a href="source-class-Think.Model.html#1161-1210" title="Go to source code">check</a>( <span>string <var>$value</var></span>, <span>mixed <var>$rule</var></span>, <span>string <var>$type</var> = <span class="php-quote">'regex'</span></span> )</code>
+
+		<div class="description short">
+			
+<p>验证数据 支持 in between equal length regex expire ip_allow ip_deny</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>验证数据 支持 in between equal length regex expire ip_allow ip_deny</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd><code>string</code><br>$value 验证数据</dd>
+					<dt><var>$rule</var></dt>
+					<dd><code>mixed</code><br>$rule 验证表达式</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>string</code><br>$type 验证方式 默认为正则验证</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="query" id="_query">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_query">#</a>
+		<code><a href="source-class-Think.Model.html#1212-1226" title="Go to source code">query</a>( <span>string <var>$sql</var></span>, <span>mixed <var>$parse</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>SQL查询</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>SQL查询</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$sql</var></dt>
+					<dd><code>string</code><br>$sql SQL指令</dd>
+					<dt><var>$parse</var></dt>
+					<dd><code>mixed</code><br>$parse 是否需要解析SQL</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="execute" id="_execute">
+
+		<td class="attributes"><code>
+			 public 
+			false
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_execute">#</a>
+		<code><a href="source-class-Think.Model.html#1228-1242" title="Go to source code">execute</a>( <span>string <var>$sql</var></span>, <span>mixed <var>$parse</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>执行SQL语句</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>执行SQL语句</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$sql</var></dt>
+					<dd><code>string</code><br>$sql SQL指令</dd>
+					<dt><var>$parse</var></dt>
+					<dd><code>mixed</code><br>$parse 是否需要解析SQL</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>false</code><br>| integer<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseSql" id="_parseSql">
+
+		<td class="attributes"><code>
+			 protected 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseSql">#</a>
+		<code><a href="source-class-Think.Model.html#1244-1266" title="Go to source code">parseSql</a>( <span>string <var>$sql</var></span>, <span>boolean <var>$parse</var></span> )</code>
+
+		<div class="description short">
+			
+<p>解析SQL语句</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>解析SQL语句</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$sql</var></dt>
+					<dd><code>string</code><br>$sql SQL指令</dd>
+					<dt><var>$parse</var></dt>
+					<dd><code>boolean</code><br>$parse 是否需要解析SQL</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="db" id="_db">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_db">#</a>
+		<code><a href="source-class-Think.Model.html#1268-1300" title="Go to source code">db</a>( <span>integer <var>$linkNum</var> = <span class="php-quote">''</span></span>, <span>mixed <var>$config</var> = <span class="php-quote">''</span></span>, <span>boolean <var>$force</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>切换当前的数据库连接</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>切换当前的数据库连接</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$linkNum</var></dt>
+					<dd><code>integer</code><br>$linkNum 连接序号</dd>
+					<dt><var>$config</var></dt>
+					<dd><code>mixed</code><br>$config 数据库连接信息</dd>
+					<dt><var>$force</var></dt>
+					<dd><code>boolean</code><br>$force 强制重新连接</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_db" id="__after_db">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_db">#</a>
+		<code><a href="source-class-Think.Model.html#1302" title="Go to source code">_after_db</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getModelName" id="_getModelName">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getModelName">#</a>
+		<code><a href="source-class-Think.Model.html#1304-1319" title="Go to source code">getModelName</a>( )</code>
+
+		<div class="description short">
+			
+<p>得到当前的数据对象名称</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>得到当前的数据对象名称</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getTableName" id="_getTableName">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getTableName">#</a>
+		<code><a href="source-class-Think.Model.html#1321-1337" title="Go to source code">getTableName</a>( )</code>
+
+		<div class="description short">
+			
+<p>得到完整的数据表名</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>得到完整的数据表名</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="startTrans" id="_startTrans">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_startTrans">#</a>
+		<code><a href="source-class-Think.Model.html#1339-1348" title="Go to source code">startTrans</a>( )</code>
+
+		<div class="description short">
+			
+<p>启动事务</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>启动事务</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="commit" id="_commit">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_commit">#</a>
+		<code><a href="source-class-Think.Model.html#1350-1357" title="Go to source code">commit</a>( )</code>
+
+		<div class="description short">
+			
+<p>提交事务</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>提交事务</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="rollback" id="_rollback">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_rollback">#</a>
+		<code><a href="source-class-Think.Model.html#1359-1366" title="Go to source code">rollback</a>( )</code>
+
+		<div class="description short">
+			
+<p>事务回滚</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>事务回滚</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getError" id="_getError">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getError">#</a>
+		<code><a href="source-class-Think.Model.html#1368-1375" title="Go to source code">getError</a>( )</code>
+
+		<div class="description short">
+			
+<p>返回模型的错误信息</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>返回模型的错误信息</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDbError" id="_getDbError">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDbError">#</a>
+		<code><a href="source-class-Think.Model.html#1377-1384" title="Go to source code">getDbError</a>( )</code>
+
+		<div class="description short">
+			
+<p>返回数据库的错误信息</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>返回数据库的错误信息</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLastInsID" id="_getLastInsID">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLastInsID">#</a>
+		<code><a href="source-class-Think.Model.html#1386-1393" title="Go to source code">getLastInsID</a>( )</code>
+
+		<div class="description short">
+			
+<p>返回最后插入的ID</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>返回最后插入的ID</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLastSql" id="_getLastSql">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLastSql">#</a>
+		<code><a href="source-class-Think.Model.html#1395-1402" title="Go to source code">getLastSql</a>( )</code>
+
+		<div class="description short">
+			
+<p>返回最后执行的sql语句</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>返回最后执行的sql语句</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_sql" id="__sql">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__sql">#</a>
+		<code><a href="source-class-Think.Model.html#1404-1406" title="Go to source code">_sql</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPk" id="_getPk">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPk">#</a>
+		<code><a href="source-class-Think.Model.html#1408-1415" title="Go to source code">getPk</a>( )</code>
+
+		<div class="description short">
+			
+<p>获取主键名称</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取主键名称</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDbFields" id="_getDbFields">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDbFields">#</a>
+		<code><a href="source-class-Think.Model.html#1417-1434" title="Go to source code">getDbFields</a>( )</code>
+
+		<div class="description short">
+			
+<p>获取数据表字段信息</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取数据表字段信息</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="data" id="_data">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_data">#</a>
+		<code><a href="source-class-Think.Model.html#1436-1455" title="Go to source code">data</a>( <span>mixed <var>$data</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>设置数据对象值</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>设置数据对象值</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data 数据</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="table" id="_table">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_table">#</a>
+		<code><a href="source-class-Think.Model.html#1457-1473" title="Go to source code">table</a>( <span>mixed <var>$table</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定当前的数据表</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定当前的数据表</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$table</var></dt>
+					<dd><code>mixed</code><br>$table</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="join" id="_join">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_join">#</a>
+		<code><a href="source-class-Think.Model.html#1475-1496" title="Go to source code">join</a>( <span>mixed <var>$join</var></span>, <span>string <var>$type</var> = <span class="php-quote">'INNER'</span></span> )</code>
+
+		<div class="description short">
+			
+<p>查询SQL组装 join</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>查询SQL组装 join</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$join</var></dt>
+					<dd><code>mixed</code><br>$join</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>string</code><br>$type JOIN类型</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="union" id="_union">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_union">#</a>
+		<code><a href="source-class-Think.Model.html#1498-1530" title="Go to source code">union</a>( <span>mixed <var>$union</var></span>, <span>boolean <var>$all</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>查询SQL组装 union</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>查询SQL组装 union</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$union</var></dt>
+					<dd><code>mixed</code><br>$union</dd>
+					<dt><var>$all</var></dt>
+					<dd><code>boolean</code><br>$all</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cache" id="_cache">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cache">#</a>
+		<code><a href="source-class-Think.Model.html#1532-1544" title="Go to source code">cache</a>( <span>mixed <var>$key</var> = <span class="php-keyword1">true</span></span>, <span>integer <var>$expire</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$type</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>查询缓存</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>查询缓存</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>mixed</code><br>$key</dd>
+					<dt><var>$expire</var></dt>
+					<dd><code>integer</code><br>$expire</dd>
+					<dt><var>$type</var></dt>
+					<dd><code>string</code><br>$type</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="field" id="_field">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_field">#</a>
+		<code><a href="source-class-Think.Model.html#1546-1566" title="Go to source code">field</a>( <span>mixed <var>$field</var></span>, <span>boolean <var>$except</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定查询字段 支持字段排除</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定查询字段 支持字段排除</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>mixed</code><br>$field</dd>
+					<dt><var>$except</var></dt>
+					<dd><code>boolean</code><br>$except 是否排除</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="scope" id="_scope">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_scope">#</a>
+		<code><a href="source-class-Think.Model.html#1568-1601" title="Go to source code">scope</a>( <span>mixed <var>$scope</var> = <span class="php-quote">''</span></span>, <span>array <var>$args</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+		<div class="description short">
+			
+<p>调用命名范围</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>调用命名范围</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$scope</var></dt>
+					<dd><code>mixed</code><br>$scope 命名范围名称 支持多个 和直接定义</dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code><br>$args 参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="where" id="_where">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_where">#</a>
+		<code><a href="source-class-Think.Model.html#1603-1633" title="Go to source code">where</a>( <span>mixed <var>$where</var></span>, <span>mixed <var>$parse</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定查询条件 支持安全过滤</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定查询条件 支持安全过滤</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$where</var></dt>
+					<dd><code>mixed</code><br>$where 条件表达式</dd>
+					<dt><var>$parse</var></dt>
+					<dd><code>mixed</code><br>$parse 预处理参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="limit" id="_limit">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_limit">#</a>
+		<code><a href="source-class-Think.Model.html#1635-1648" title="Go to source code">limit</a>( <span>mixed <var>$offset</var></span>, <span>mixed <var>$length</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定查询数量</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定查询数量</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$offset</var></dt>
+					<dd><code>mixed</code><br>$offset 起始位置</dd>
+					<dt><var>$length</var></dt>
+					<dd><code>mixed</code><br>$length 查询数量</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="page" id="_page">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_page">#</a>
+		<code><a href="source-class-Think.Model.html#1650-1663" title="Go to source code">page</a>( <span>mixed <var>$page</var></span>, <span>mixed <var>$listRows</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定分页</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定分页</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$page</var></dt>
+					<dd><code>mixed</code><br>$page 页数</dd>
+					<dt><var>$listRows</var></dt>
+					<dd><code>mixed</code><br>$listRows 每页数量</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="comment" id="_comment">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_comment">#</a>
+		<code><a href="source-class-Think.Model.html#1665-1674" title="Go to source code">comment</a>( <span>string <var>$comment</var></span> )</code>
+
+		<div class="description short">
+			
+<p>查询注释</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>查询注释</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$comment</var></dt>
+					<dd><code>string</code><br>$comment 注释</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bind" id="_bind">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bind">#</a>
+		<code><a href="source-class-Think.Model.html#1676-1697" title="Go to source code">bind</a>( <span>string <var>$key</var></span>, <span>mixed <var>$value</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>参数绑定</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>参数绑定</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key 参数名</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value 绑定的变量及绑定参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setProperty" id="_setProperty">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setProperty">#</a>
+		<code><a href="source-class-Think.Model.html#1699-1710" title="Go to source code">setProperty</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>设置模型的属性值</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>设置模型的属性值</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 名称</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value 值</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="MODEL_INSERT" id="MODEL_INSERT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.html#18" title="Go to source code"><b>MODEL_INSERT</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">1</span></code></td>
+		<td class="description"><div>
+			<a href="#MODEL_INSERT" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="MODEL_UPDATE" id="MODEL_UPDATE">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.html#19" title="Go to source code"><b>MODEL_UPDATE</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">2</span></code></td>
+		<td class="description"><div>
+			<a href="#MODEL_UPDATE" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="MODEL_BOTH" id="MODEL_BOTH">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.html#20" title="Go to source code"><b>MODEL_BOTH</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">3</span></code></td>
+		<td class="description"><div>
+			<a href="#MODEL_BOTH" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="MUST_VALIDATE" id="MUST_VALIDATE">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.html#21" title="Go to source code"><b>MUST_VALIDATE</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">1</span></code></td>
+		<td class="description"><div>
+			<a href="#MUST_VALIDATE" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="EXISTS_VALIDATE" id="EXISTS_VALIDATE">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.html#22" title="Go to source code"><b>EXISTS_VALIDATE</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">0</span></code></td>
+		<td class="description"><div>
+			<a href="#EXISTS_VALIDATE" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="VALUE_VALIDATE" id="VALUE_VALIDATE">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.html#23" title="Go to source code"><b>VALUE_VALIDATE</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">2</span></code></td>
+		<td class="description"><div>
+			<a href="#VALUE_VALIDATE" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="db" id="$db">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#26" title="Go to source code"><var>$db</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$db" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="pk" id="$pk">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#28" title="Go to source code"><var>$pk</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'id'</span></code></td>
+		<td class="description"><div>
+			<a href="#$pk" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="autoinc" id="$autoinc">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#30" title="Go to source code"><var>$autoinc</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$autoinc" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="tablePrefix" id="$tablePrefix">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#32" title="Go to source code"><var>$tablePrefix</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$tablePrefix" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="name" id="$name">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#34" title="Go to source code"><var>$name</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$name" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="dbName" id="$dbName">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#36" title="Go to source code"><var>$dbName</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$dbName" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="connection" id="$connection">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#38" title="Go to source code"><var>$connection</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$connection" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="tableName" id="$tableName">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#40" title="Go to source code"><var>$tableName</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$tableName" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="trueTableName" id="$trueTableName">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#42" title="Go to source code"><var>$trueTableName</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$trueTableName" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="error" id="$error">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#44" title="Go to source code"><var>$error</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$error" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="fields" id="$fields">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#46" title="Go to source code"><var>$fields</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$fields" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="data" id="$data">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#48" title="Go to source code"><var>$data</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$data" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="options" id="$options">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#50" title="Go to source code"><var>$options</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$options" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_validate" id="$_validate">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#51" title="Go to source code"><var>$_validate</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$_validate" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_auto" id="$_auto">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#52" title="Go to source code"><var>$_auto</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$_auto" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_map" id="$_map">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#53" title="Go to source code"><var>$_map</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$_map" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_scope" id="$_scope">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#54" title="Go to source code"><var>$_scope</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$_scope" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="autoCheckFields" id="$autoCheckFields">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#56" title="Go to source code"><var>$autoCheckFields</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">true</span></code></td>
+		<td class="description"><div>
+			<a href="#$autoCheckFields" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="patchValidate" id="$patchValidate">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#58" title="Go to source code"><var>$patchValidate</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$patchValidate" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="methods" id="$methods">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.html#60" title="Go to source code"><var>$methods</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(<span class="php-quote">'order'</span>,<span class="php-quote">'alias'</span>,<span class="php-quote">'having'</span>,<span class="php-quote">'group'</span>,<span class="php-quote">'lock'</span>,<span class="php-quote">'distinct'</span>,<span class="php-quote">'auto'</span>,<span class="php-quote">'filter'</span>,<span class="php-quote">'validate'</span>,<span class="php-quote">'result'</span>,<span class="php-quote">'token'</span>,<span class="php-quote">'index'</span>)</code></td>
+		<td class="description"><div>
+			<a href="#$methods" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		thinkphp_3.2.2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

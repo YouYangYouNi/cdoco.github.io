@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Think\Cache\Driver\Wincache | thinkphp_3.2.2</title>
+
+	<script type="text/javascript" src="resources/combined.js?2450529271"></script>
+	<script type="text/javascript" src="elementlist.js?4257362889"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Behavior.html">Behavior</a>
+						</li>
+				<li><a href="namespace-Boris.html">Boris</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-Org.html">Org<span></span></a>
+						<ul>
+				<li><a href="namespace-Org.Net.html">Net</a>
+						</li>
+				<li><a href="namespace-Org.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li class="active"><a href="namespace-Think.html">Think<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Think.Cache.html">Cache<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Think.Cache.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Think.Crypt.html">Crypt<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Crypt.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Db.html">Db<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Db.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Image.html">Image<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Image.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Log.html">Log<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Log.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-Think.Session.html">Session<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Session.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Storage.html">Storage<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Storage.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Template.html">Template<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Template.Driver.html">Driver</a>
+						</li>
+				<li><a href="namespace-Think.Template.TagLib.html">TagLib</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Upload.html">Upload<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.html">Driver<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.Bcs.html">Bcs</a>
+						</li>
+				<li><a href="namespace-Think.Upload.Driver.Qiniu.html">Qiniu</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Think.Cache.Driver.Apachenote.html">Apachenote</a></li>
+				<li><a href="class-Think.Cache.Driver.Apc.html">Apc</a></li>
+				<li><a href="class-Think.Cache.Driver.Db.html">Db</a></li>
+				<li><a href="class-Think.Cache.Driver.Eaccelerator.html">Eaccelerator</a></li>
+				<li><a href="class-Think.Cache.Driver.File.html">File</a></li>
+				<li><a href="class-Think.Cache.Driver.Memcache.html">Memcache</a></li>
+				<li><a href="class-Think.Cache.Driver.Memcached.html">Memcached</a></li>
+				<li><a href="class-Think.Cache.Driver.Memcachesae.html">Memcachesae</a></li>
+				<li><a href="class-Think.Cache.Driver.Redis.html">Redis</a></li>
+				<li><a href="class-Think.Cache.Driver.Shmop.html">Shmop</a></li>
+				<li><a href="class-Think.Cache.Driver.Sqlite.html">Sqlite</a></li>
+				<li class="active"><a href="class-Think.Cache.Driver.Wincache.html">Wincache</a></li>
+				<li><a href="class-Think.Cache.Driver.Xcache.html">Xcache</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Think.Cache.Driver.html" title="Summary of Think\Cache\Driver"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Wincache</h1>
+
+
+	<div class="description">
+	
+<p>Wincache缓存驱动</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Think.Cache.html"><span>Think\Cache</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Think\Cache\Driver\Wincache</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Think.html">Think</a>\<a href="namespace-Think.Cache.html">Cache</a>\<a href="namespace-Think.Cache.Driver.html">Driver</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Think.Cache.Driver.Wincache.html#14-88" title="Go to source code">ThinkPHP/Library/Think/Cache/Driver/Wincache.class.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Think.Cache.Driver.Wincache.html#19-31" title="Go to source code">__construct</a>( <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>架构函数</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>架构函数</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 缓存参数</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get" id="_get">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get">#</a>
+		<code><a href="source-class-Think.Cache.Driver.Wincache.html#33-43" title="Go to source code">get</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>读取缓存</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>读取缓存</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 缓存变量名</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set" id="_set">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set">#</a>
+		<code><a href="source-class-Think.Cache.Driver.Wincache.html#45-67" title="Go to source code">set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span>, <span>integer <var>$expire</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>写入缓存</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>写入缓存</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 缓存变量名</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value 存储数据</dd>
+					<dt><var>$expire</var></dt>
+					<dd><code>integer</code><br>$expire 有效时间（秒）</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="rm" id="_rm">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_rm">#</a>
+		<code><a href="source-class-Think.Cache.Driver.Wincache.html#69-77" title="Go to source code">rm</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>删除缓存</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>删除缓存</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 缓存变量名</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clear" id="_clear">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clear">#</a>
+		<code><a href="source-class-Think.Cache.Driver.Wincache.html#79-86" title="Go to source code">clear</a>( )</code>
+
+		<div class="description short">
+			
+<p>清除缓存</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>清除缓存</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Think.Cache.html#methods">Think\Cache</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Think.Cache.html#___call">__call()</a>, 
+			<a href="class-Think.Cache.html#___get">__get()</a>, 
+			<a href="class-Think.Cache.html#___set">__set()</a>, 
+			<a href="class-Think.Cache.html#___unset">__unset()</a>, 
+			<a href="class-Think.Cache.html#_connect">connect()</a>, 
+			<a href="class-Think.Cache.html#_getInstance">getInstance()</a>, 
+			<a href="class-Think.Cache.html#_getOptions">getOptions()</a>, 
+			<a href="class-Think.Cache.html#_queue">queue()</a>, 
+			<a href="class-Think.Cache.html#_setOptions">setOptions()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Think.Cache.html#properties">Think\Cache</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Think.Cache.html#$handler"><var>$handler</var></a>, 
+			<a href="class-Think.Cache.html#$options"><var>$options</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		thinkphp_3.2.2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

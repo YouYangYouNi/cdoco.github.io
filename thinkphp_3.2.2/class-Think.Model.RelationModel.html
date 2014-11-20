@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Think\Model\RelationModel | thinkphp_3.2.2</title>
+
+	<script type="text/javascript" src="resources/combined.js?2450529271"></script>
+	<script type="text/javascript" src="elementlist.js?4257362889"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Behavior.html">Behavior</a>
+						</li>
+				<li><a href="namespace-Boris.html">Boris</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-Org.html">Org<span></span></a>
+						<ul>
+				<li><a href="namespace-Org.Net.html">Net</a>
+						</li>
+				<li><a href="namespace-Org.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li class="active"><a href="namespace-Think.html">Think<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.html">Cache<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Think.Crypt.html">Crypt<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Crypt.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Db.html">Db<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Db.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Image.html">Image<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Image.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Log.html">Log<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Log.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Think.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-Think.Session.html">Session<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Session.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Storage.html">Storage<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Storage.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Template.html">Template<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Template.Driver.html">Driver</a>
+						</li>
+				<li><a href="namespace-Think.Template.TagLib.html">TagLib</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Upload.html">Upload<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.html">Driver<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.Bcs.html">Bcs</a>
+						</li>
+				<li><a href="namespace-Think.Upload.Driver.Qiniu.html">Qiniu</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Think.Model.AdvModel.html">AdvModel</a></li>
+				<li><a href="class-Think.Model.MongoModel.html">MongoModel</a></li>
+				<li class="active"><a href="class-Think.Model.RelationModel.html">RelationModel</a></li>
+				<li><a href="class-Think.Model.ViewModel.html">ViewModel</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Think.Model.html" title="Summary of Think\Model"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class RelationModel</h1>
+
+
+	<div class="description">
+	
+<p>ThinkPHP关联模型扩展</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Think.Model.html"><span>Think\Model</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Think\Model\RelationModel</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Think.html">Think</a>\<a href="namespace-Think.Model.html">Model</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Think.Model.RelationModel.html#13-412" title="Go to source code">ThinkPHP/Library/Think/Model/RelationModel.class.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__call" id="___call">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___call">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#26-43" title="Go to source code">__call</a>( <span>string <var>$method</var></span>, <span>array <var>$args</var></span> )</code>
+
+		<div class="description short">
+			
+<p>动态方法实现</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>动态方法实现</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$method</var></dt>
+					<dd><code>string</code><br>$method 方法名称</dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code><br>$args 调用参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#___call">Think\Model::__call()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRelationTableName" id="_getRelationTableName">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRelationTableName">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#45-55" title="Go to source code">getRelationTableName</a>( <span>mixed <var>$relation</var></span> )</code>
+
+		<div class="description short">
+			
+<p>得到关联的数据表名</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>得到关联的数据表名</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_find" id="__after_find">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_find">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#58-62" title="Go to source code">_after_find</a>( <span>mixed <var>&amp; $result</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__after_find">Think\Model::_after_find()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_select" id="__after_select">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_select">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#65-69" title="Go to source code">_after_select</a>( <span>mixed <var>&amp; $result</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__after_select">Think\Model::_after_select()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_insert" id="__after_insert">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_insert">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#72-76" title="Go to source code">_after_insert</a>( <span>mixed <var>$data</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__after_insert">Think\Model::_after_insert()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_update" id="__after_update">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_update">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#79-83" title="Go to source code">_after_update</a>( <span>mixed <var>$data</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__after_update">Think\Model::_after_update()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_delete" id="__after_delete">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_delete">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#86-90" title="Go to source code">_after_delete</a>( <span>mixed <var>$data</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__after_delete">Think\Model::_after_delete()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_facade" id="__facade">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__facade">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#92-101" title="Go to source code">_facade</a>( <span>mixed <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+<p>对保存到数据库的数据进行处理</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>对保存到数据库的数据进行处理</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data 要操作的数据</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__facade">Think\Model::_facade()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRelations" id="_getRelations">
+
+		<td class="attributes"><code>
+			 protected 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRelations">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#103-117" title="Go to source code">getRelations</a>( <span>array <var>&amp; $resultSet</var></span>, <span>string|array <var>$name</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>获取返回数据集的关联记录</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取返回数据集的关联记录</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$resultSet</var></dt>
+					<dd><code>array</code><br>$resultSet 返回数据</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string|array</code><br>$name 关联名称</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRelation" id="_getRelation">
+
+		<td class="attributes"><code>
+			 protected 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRelation">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#119-237" title="Go to source code">getRelation</a>( <span>mixed <var>&amp; $result</var></span>, <span>string|array <var>$name</var> = <span class="php-quote">''</span></span>, <span>boolean <var>$return</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>获取返回数据的关联记录</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取返回数据的关联记录</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$result</var></dt>
+					<dd><code>mixed</code><br>$result 返回数据</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string|array</code><br>$name 关联名称</dd>
+					<dt><var>$return</var></dt>
+					<dd><code>boolean</code><br>$return 是否返回关联数据本身</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="opRelation" id="_opRelation">
+
+		<td class="attributes"><code>
+			 protected 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_opRelation">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#239-388" title="Go to source code">opRelation</a>( <span>string <var>$opType</var></span>, <span>mixed <var>$data</var> = <span class="php-quote">''</span></span>, <span>string <var>$name</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>操作关联数据</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>操作关联数据</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$opType</var></dt>
+					<dd><code>string</code><br>$opType 操作方式 ADD SAVE DEL</dd>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data 数据对象</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 关联名称</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="relation" id="_relation">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Model.html">Think\Model</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_relation">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#390-399" title="Go to source code">relation</a>( <span>mixed <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>进行关联查询</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>进行关联查询</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>mixed</code><br>$name 关联名称</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Model.html">Think\Model</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="relationGet" id="_relationGet">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_relationGet">#</a>
+		<code><a href="source-class-Think.Model.RelationModel.html#401-411" title="Go to source code">relationGet</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>关联数据获取 仅用于查询后</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>关联数据获取 仅用于查询后</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name 关联名称</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Think.Model.html#methods">Think\Model</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Think.Model.html#___construct">__construct()</a>, 
+			<a href="class-Think.Model.html#___get">__get()</a>, 
+			<a href="class-Think.Model.html#___isset">__isset()</a>, 
+			<a href="class-Think.Model.html#___set">__set()</a>, 
+			<a href="class-Think.Model.html#___unset">__unset()</a>, 
+			<a href="class-Think.Model.html#__after_db">_after_db()</a>, 
+			<a href="class-Think.Model.html#__before_delete">_before_delete()</a>, 
+			<a href="class-Think.Model.html#__before_insert">_before_insert()</a>, 
+			<a href="class-Think.Model.html#__before_update">_before_update()</a>, 
+			<a href="class-Think.Model.html#__before_write">_before_write()</a>, 
+			<a href="class-Think.Model.html#__checkTableInfo">_checkTableInfo()</a>, 
+			<a href="class-Think.Model.html#__initialize">_initialize()</a>, 
+			<a href="class-Think.Model.html#__options_filter">_options_filter()</a>, 
+			<a href="class-Think.Model.html#__parseOptions">_parseOptions()</a>, 
+			<a href="class-Think.Model.html#__parseType">_parseType()</a>, 
+			<a href="class-Think.Model.html#__read_data">_read_data()</a>, 
+			<a href="class-Think.Model.html#__sql">_sql()</a>, 
+			<a href="class-Think.Model.html#__validationField">_validationField()</a>, 
+			<a href="class-Think.Model.html#__validationFieldItem">_validationFieldItem()</a>, 
+			<a href="class-Think.Model.html#_add">add()</a>, 
+			<a href="class-Think.Model.html#_addAll">addAll()</a>, 
+			<a href="class-Think.Model.html#_autoCheckToken">autoCheckToken()</a>, 
+			<a href="class-Think.Model.html#_autoValidation">autoValidation()</a>, 
+			<a href="class-Think.Model.html#_bind">bind()</a>, 
+			<a href="class-Think.Model.html#_buildSql">buildSql()</a>, 
+			<a href="class-Think.Model.html#_cache">cache()</a>, 
+			<a href="class-Think.Model.html#_check">check()</a>, 
+			<a href="class-Think.Model.html#_comment">comment()</a>, 
+			<a href="class-Think.Model.html#_commit">commit()</a>, 
+			<a href="class-Think.Model.html#_create">create()</a>, 
+			<a href="class-Think.Model.html#_data">data()</a>, 
+			<a href="class-Think.Model.html#_db">db()</a>, 
+			<a href="class-Think.Model.html#_delete">delete()</a>, 
+			<a href="class-Think.Model.html#_execute">execute()</a>, 
+			<a href="class-Think.Model.html#_field">field()</a>, 
+			<a href="class-Think.Model.html#_find">find()</a>, 
+			<a href="class-Think.Model.html#_flush">flush()</a>, 
+			<a href="class-Think.Model.html#_getDbError">getDbError()</a>, 
+			<a href="class-Think.Model.html#_getDbFields">getDbFields()</a>, 
+			<a href="class-Think.Model.html#_getError">getError()</a>, 
+			<a href="class-Think.Model.html#_getField">getField()</a>, 
+			<a href="class-Think.Model.html#_getLastInsID">getLastInsID()</a>, 
+			<a href="class-Think.Model.html#_getLastSql">getLastSql()</a>, 
+			<a href="class-Think.Model.html#_getModelName">getModelName()</a>, 
+			<a href="class-Think.Model.html#_getPk">getPk()</a>, 
+			<a href="class-Think.Model.html#_getTableName">getTableName()</a>, 
+			<a href="class-Think.Model.html#_join">join()</a>, 
+			<a href="class-Think.Model.html#_limit">limit()</a>, 
+			<a href="class-Think.Model.html#_page">page()</a>, 
+			<a href="class-Think.Model.html#_parseFieldsMap">parseFieldsMap()</a>, 
+			<a href="class-Think.Model.html#_parseSql">parseSql()</a>, 
+			<a href="class-Think.Model.html#_query">query()</a>, 
+			<a href="class-Think.Model.html#_regex">regex()</a>, 
+			<a href="class-Think.Model.html#_returnResult">returnResult()</a>, 
+			<a href="class-Think.Model.html#_rollback">rollback()</a>, 
+			<a href="class-Think.Model.html#_save">save()</a>, 
+			<a href="class-Think.Model.html#_scope">scope()</a>, 
+			<a href="class-Think.Model.html#_select">select()</a>, 
+			<a href="class-Think.Model.html#_selectAdd">selectAdd()</a>, 
+			<a href="class-Think.Model.html#_setDec">setDec()</a>, 
+			<a href="class-Think.Model.html#_setField">setField()</a>, 
+			<a href="class-Think.Model.html#_setInc">setInc()</a>, 
+			<a href="class-Think.Model.html#_setProperty">setProperty()</a>, 
+			<a href="class-Think.Model.html#_startTrans">startTrans()</a>, 
+			<a href="class-Think.Model.html#_table">table()</a>, 
+			<a href="class-Think.Model.html#_union">union()</a>, 
+			<a href="class-Think.Model.html#_where">where()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="HAS_ONE" id="HAS_ONE">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.RelationModel.html#18" title="Go to source code"><b>HAS_ONE</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">1</span></code></td>
+		<td class="description"><div>
+			<a href="#HAS_ONE" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="BELONGS_TO" id="BELONGS_TO">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.RelationModel.html#19" title="Go to source code"><b>BELONGS_TO</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">2</span></code></td>
+		<td class="description"><div>
+			<a href="#BELONGS_TO" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="HAS_MANY" id="HAS_MANY">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.RelationModel.html#20" title="Go to source code"><b>HAS_MANY</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">3</span></code></td>
+		<td class="description"><div>
+			<a href="#HAS_MANY" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="MANY_TO_MANY" id="MANY_TO_MANY">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.RelationModel.html#21" title="Go to source code"><b>MANY_TO_MANY</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">4</span></code></td>
+		<td class="description"><div>
+			<a href="#MANY_TO_MANY" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-Think.Model.html#constants">Think\Model</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Think.Model.html#EXISTS_VALIDATE"><b>EXISTS_VALIDATE</b></a>, 
+			<a href="class-Think.Model.html#MODEL_BOTH"><b>MODEL_BOTH</b></a>, 
+			<a href="class-Think.Model.html#MODEL_INSERT"><b>MODEL_INSERT</b></a>, 
+			<a href="class-Think.Model.html#MODEL_UPDATE"><b>MODEL_UPDATE</b></a>, 
+			<a href="class-Think.Model.html#MUST_VALIDATE"><b>MUST_VALIDATE</b></a>, 
+			<a href="class-Think.Model.html#VALUE_VALIDATE"><b>VALUE_VALIDATE</b></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="_link" id="$_link">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.RelationModel.html#24" title="Go to source code"><var>$_link</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$_link" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Think.Model.html#properties">Think\Model</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Think.Model.html#$_auto"><var>$_auto</var></a>, 
+			<a href="class-Think.Model.html#$_map"><var>$_map</var></a>, 
+			<a href="class-Think.Model.html#$_scope"><var>$_scope</var></a>, 
+			<a href="class-Think.Model.html#$_validate"><var>$_validate</var></a>, 
+			<a href="class-Think.Model.html#$autoCheckFields"><var>$autoCheckFields</var></a>, 
+			<a href="class-Think.Model.html#$autoinc"><var>$autoinc</var></a>, 
+			<a href="class-Think.Model.html#$connection"><var>$connection</var></a>, 
+			<a href="class-Think.Model.html#$data"><var>$data</var></a>, 
+			<a href="class-Think.Model.html#$db"><var>$db</var></a>, 
+			<a href="class-Think.Model.html#$dbName"><var>$dbName</var></a>, 
+			<a href="class-Think.Model.html#$error"><var>$error</var></a>, 
+			<a href="class-Think.Model.html#$fields"><var>$fields</var></a>, 
+			<a href="class-Think.Model.html#$methods"><var>$methods</var></a>, 
+			<a href="class-Think.Model.html#$name"><var>$name</var></a>, 
+			<a href="class-Think.Model.html#$options"><var>$options</var></a>, 
+			<a href="class-Think.Model.html#$patchValidate"><var>$patchValidate</var></a>, 
+			<a href="class-Think.Model.html#$pk"><var>$pk</var></a>, 
+			<a href="class-Think.Model.html#$tableName"><var>$tableName</var></a>, 
+			<a href="class-Think.Model.html#$tablePrefix"><var>$tablePrefix</var></a>, 
+			<a href="class-Think.Model.html#$trueTableName"><var>$trueTableName</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		thinkphp_3.2.2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
