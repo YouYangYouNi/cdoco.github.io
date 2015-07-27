@@ -1,32 +1,12 @@
 # A Markdown Editor
 
-WYSIWYG
-
-[DEMO] // 已下线
-
-author: tulayang<br />
-email: itulayangi@gmail.com iwangtongi@163.com
-
-markdown的书写，比较起HTML是非常便利的，但并不是简单易行的。想要书写一套规则的文本，需要具备一定的markdown语法知识。**a markdown editor**希望提供部分的可控元素，在使用者熟悉语法之前，能够顺利的操作markdown文本。
-
-*demo网站是托管在阿里云nodejs服务器，可使用容量很低，所以图片上传锁定了固定图片，无论你输入那个图片都是同一个图片。 [see DEMO]// 已下线*
-
 ###预览
 
 ####多重选择格式化
-![screenshot](https://camo.githubusercontent.com/0f3332ab9848ec66cfcbd7a9f288bc701c805b36/687474703a2f2f64322e66726565702e636e2f3137305f3374625f313430363236303032333134657063393533333335342e706e67)
-![screenshot](https://camo.githubusercontent.com/fd19d8e01a2ccb45997a215485db22848c2bc32d/687474703a2f2f64332e66726565702e636e2f3137305f3374625f313430363236303032333134646864653533333335342e706e67)
 
 ####添加超级链接
 
-![screenshot](https://camo.githubusercontent.com/5ea859a310e823c0c2d5663426da102153e041f6/687474703a2f2f64332e66726565702e636e2f3137305f3374625f313430363236303032333134653033643533333335342e706e67)
-![screenshot](https://camo.githubusercontent.com/2f97eba35cd23fb18dafcfc13a394fbe5d4c36a0/687474703a2f2f64332e66726565702e636e2f3137305f3374625f3134303632363030323331346c6b6a713533333335342e706e67)
-
 ####插入图片
-
-![screenshot](https://camo.githubusercontent.com/28f9ace908323b2d1bfde7d93ab0ea4554848544/687474703a2f2f64332e66726565702e636e2f3137305f3374625f3134303632363030323331346b6779393533333335342e706e67)
-![screenshot](https://camo.githubusercontent.com/9a5cf2a4b32fd32a3390920368411bff1581f583/687474703a2f2f64332e66726565702e636e2f3137305f3374625f313430363236303032333135616b79613533333335342e706e67)
-![screenshot](https://camo.githubusercontent.com/4348fd0c23997bc80512573a8afc913811aca0dd/687474703a2f2f64332e66726565702e636e2f3137305f3374625f313430363236303032333134346230323533333335342e706e67)
 
 ###目前提供的功能
 
@@ -109,8 +89,3 @@ AMD.make('#amd-editor', {
  * amdPubAction  发布按钮点击，文章内容提交的服务器路径
  * titleName  发布标题name值
  * textName  发布内容name值
-
-到目前为止，**a markdown editor**的收尾做的有些仓促。未来还打算增加**mini版本的css**，编辑和预览放入一个控件位置以及增加前端图片格式预判断等。 
-还未制作的完毕的部分：上传图片URL直接输入，未来更新。
-
-*[see DEMO]// 已下线*
