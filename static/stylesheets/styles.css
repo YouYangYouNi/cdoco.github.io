@@ -32,7 +32,7 @@ a:hover,a:active {text-decoration: none;}
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
 #cdoco {margin-top:50px;}
-#cdoco.left.green a {background-image: url('../images/green_left.png');}
+#cdoco.left.green a {background-image: url('../../images/green_left.png');}
 #cdoco a {display: block;width: 70px;height: 105px;text-indent: -8000px;background-repeat: no-repeat;background-position: 0 0;overflow: hidden;}
 .style_1 {margin:100px 100px;color:#FFF;font-size:20px;font-weight:500;}
 .style_2 {margin:-300px 700px;width: 500px}
