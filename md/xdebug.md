@@ -62,4 +62,3 @@ ps：默认是disable 需要选择debug
 ps：需要点开phpstorm里面的电话按钮，然后打断点刷新页面
 
 <img width="" height="" class="amd-center" src="http://github.cdoco.com/images/xdebug/7.png" alt="screenshot" />
-
