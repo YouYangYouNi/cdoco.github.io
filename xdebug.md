@@ -3,8 +3,8 @@
 ----------
 
 ```
-zend_extension = php/zend_ext/php_xdebug-2.2.5-5.5-vc11-x86_64.dll"
-;
+zend_extension = php/zend_ext/php_xdebug-2.2.5-5.5-vc11-x86_64.dll";
+
 [xdebug]
 xdebug.collect_params=1
 xdebug.collect_return=1
