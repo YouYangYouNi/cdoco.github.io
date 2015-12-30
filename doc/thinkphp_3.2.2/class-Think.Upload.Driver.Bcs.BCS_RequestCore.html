@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Think\Upload\Driver\Bcs\BCS_RequestCore | thinkphp_3.2.2</title>
+
+	<script type="text/javascript" src="resources/combined.js?2450529271"></script>
+	<script type="text/javascript" src="elementlist.js?4257362889"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Behavior.html">Behavior</a>
+						</li>
+				<li><a href="namespace-Boris.html">Boris</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-Org.html">Org<span></span></a>
+						<ul>
+				<li><a href="namespace-Org.Net.html">Net</a>
+						</li>
+				<li><a href="namespace-Org.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li class="active"><a href="namespace-Think.html">Think<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.html">Cache<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Think.Crypt.html">Crypt<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Crypt.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Db.html">Db<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Db.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Image.html">Image<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Image.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Log.html">Log<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Log.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-Think.Session.html">Session<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Session.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Storage.html">Storage<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Storage.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Template.html">Template<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Template.Driver.html">Driver</a>
+						</li>
+				<li><a href="namespace-Think.Template.TagLib.html">TagLib</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Think.Upload.html">Upload<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Think.Upload.Driver.html">Driver<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Think.Upload.Driver.Bcs.html">Bcs</a>
+						</li>
+				<li><a href="namespace-Think.Upload.Driver.Qiniu.html">Qiniu</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Think.Upload.Driver.Bcs.BaiduBCS.html">BaiduBCS</a></li>
+				<li><a href="class-Think.Upload.Driver.Bcs.BCS_MimeTypes.html">BCS_MimeTypes</a></li>
+				<li class="active"><a href="class-Think.Upload.Driver.Bcs.BCS_RequestCore.html">BCS_RequestCore</a></li>
+				<li><a href="class-Think.Upload.Driver.Bcs.BCS_ResponseCore.html">BCS_ResponseCore</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Think.Upload.Driver.Bcs.BCS_Exception.html">BCS_Exception</a></li>
+				<li><a href="class-Think.Upload.Driver.Bcs.BCS_RequestCore_Exception.html">BCS_RequestCore_Exception</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Think.Upload.Driver.Bcs.html" title="Summary of Think\Upload\Driver\Bcs"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class BCS_RequestCore</h1>
+
+
+	<div class="description">
+	
+<p>Handles all HTTP requests using cURL and manages the responses.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Think.html">Think</a>\<a href="namespace-Think.Upload.html">Upload</a>\<a href="namespace-Think.Upload.Driver.html">Driver</a>\<a href="namespace-Think.Upload.Driver.Bcs.html">Bcs</a><br />
+		
+
+				<b>Copyright:</b>
+				2006-2011 Ryan Parman<br />
+				<b>Copyright:</b>
+				2006-2010 Foleeo Inc.<br />
+				<b>Copyright:</b>
+				2010-2011 Amazon.com, Inc. or its affiliates.<br />
+				<b>Copyright:</b>
+				2008-2011 Contributors<br />
+				<b>License:</b>
+				<a href="http://opensource.org/licenses/bsd-license.php">Simplified BSD License</a><br />
+				<b>Version:</b>
+				2011.03.01<br />
+		<b>Located at</b> <a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#7-790" title="Go to source code">ThinkPHP/Library/Think/Upload/Driver/Bcs/requestcore.class.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#151-177" title="Go to source code">__construct</a>( <span>string <var>$url</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$proxy</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$helpers</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Constructs a new instance of this class.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructs a new instance of this class.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$url</var></dt>
+					<dd><code>string</code><br>$url (Optional) The URL to request or service endpoint to query.</dd>
+					<dt><var>$proxy</var></dt>
+					<dd><code>string</code><br>$proxy (Optional) The faux-url to use for proxy settings. Takes the following
+format: <code>proxy://user:pass@hostname:port</code></dd>
+					<dt><var>$helpers</var></dt>
+					<dd><code>array</code><br>$helpers (Optional) An associative array of classnames to use for request, and
+response functionality. Gets passed in automatically by the calling class.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__destruct" id="___destruct">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___destruct">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#179-192" title="Go to source code">__destruct</a>( )</code>
+
+		<div class="description short">
+			
+<p>Destructs the instance. Closes opened file handles.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Destructs the instance. Closes opened file handles.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_credentials" id="_set_credentials">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_credentials">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#196-207" title="Go to source code">set_credentials</a>( <span>string <var>$user</var></span>, <span>string <var>$pass</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the credentials to use for authentication.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the credentials to use for authentication.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code>string</code><br>$user (Required) The username to authenticate with.</dd>
+					<dt><var>$pass</var></dt>
+					<dd><code>string</code><br>$pass (Required) The password to authenticate with.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="add_header" id="_add_header">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_add_header">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#209-219" title="Go to source code">add_header</a>( <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a custom HTTP header to the cURL request.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a custom HTTP header to the cURL request.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key (Required) The custom HTTP header to set.</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value (Required) The value to assign to the custom HTTP header.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="remove_header" id="_remove_header">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_remove_header">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#221-232" title="Go to source code">remove_header</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Removes an HTTP header from the cURL request.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Removes an HTTP header from the cURL request.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key (Required) The custom HTTP header to set.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_method" id="_set_method">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_method">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#234-243" title="Go to source code">set_method</a>( <span>string <var>$method</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set the method type for the request.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set the method type for the request.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$method</var></dt>
+					<dd><code>string</code><br>$method (Required) One of the following constants: &lt;HTTP_GET&gt;,
+&lt;HTTP_POST&gt;, &lt;HTTP_PUT&gt;, &lt;HTTP_HEAD&gt;, &lt;HTTP_DELETE&gt;.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_useragent" id="_set_useragent">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_useragent">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#245-254" title="Go to source code">set_useragent</a>( <span>string <var>$ua</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets a custom useragent string for the class.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets a custom useragent string for the class.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ua</var></dt>
+					<dd><code>string</code><br>$ua (Required) The useragent string to use.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_body" id="_set_body">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_body">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#256-265" title="Go to source code">set_body</a>( <span>string <var>$body</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set the body to send in the request.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set the body to send in the request.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$body</var></dt>
+					<dd><code>string</code><br>$body (Required) The textual content to send along in the body of the request.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_request_url" id="_set_request_url">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_request_url">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#267-276" title="Go to source code">set_request_url</a>( <span>string <var>$url</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set the URL to make the request to.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set the URL to make the request to.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$url</var></dt>
+					<dd><code>string</code><br>$url (Required) The URL to make the request to.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_curlopts" id="_set_curlopts">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_curlopts">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#278-288" title="Go to source code">set_curlopts</a>( <span>array <var>$curlopts</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set additional CURLOPT settings. These will merge with the default settings,
+and override if there is a duplicate.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set additional CURLOPT settings. These will merge with the default settings,
+and override if there is a duplicate.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$curlopts</var></dt>
+					<dd><code>array</code><br>$curlopts (Optional) A set of key-value pairs that set <code>CURLOPT</code>
+options. These will merge with the existing CURLOPTs, and ones passed here will
+override the defaults. Keys should be the <code>CURLOPT_*</code> constants, not
+strings.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_read_stream_size" id="_set_read_stream_size">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_read_stream_size">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#290-299" title="Go to source code">set_read_stream_size</a>( <span>integer <var>$size</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the length in bytes to read from the stream while streaming up.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the length in bytes to read from the stream while streaming up.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$size</var></dt>
+					<dd><code>integer</code><br>$size (Required) The length in bytes to read from the stream.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_read_stream" id="_set_read_stream">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_read_stream">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#301-322" title="Go to source code">set_read_stream</a>( <span>resource <var>$resource</var></span>, <span>integer <var>$size</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the resource to read from while streaming up. Reads the stream from its
+current position until EOF or <code>$size</code> bytes have been read. If
+<code>$size</code> is not given it will be determined by &lt;php:fstat()&gt; and
+&lt;php:ftell()&gt;.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the resource to read from while streaming up. Reads the stream from its
+current position until EOF or <code>$size</code> bytes have been read. If
+<code>$size</code> is not given it will be determined by &lt;php:fstat()&gt; and
+&lt;php:ftell()&gt;.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$resource</var></dt>
+					<dd><code>resource</code><br>$resource (Required) The readable resource to read from.</dd>
+					<dt><var>$size</var></dt>
+					<dd><code>integer</code><br>$size (Optional) The size of the stream to read.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_read_file" id="_set_read_file">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_read_file">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#324-334" title="Go to source code">set_read_file</a>( <span>string <var>$location</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the file to read from while streaming up.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the file to read from while streaming up.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$location</var></dt>
+					<dd><code>string</code><br>$location (Required) The readable location to read from.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_write_stream" id="_set_write_stream">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_write_stream">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#336-345" title="Go to source code">set_write_stream</a>( <span>resource <var>$resource</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the resource to write to while streaming down.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the resource to write to while streaming down.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$resource</var></dt>
+					<dd><code>resource</code><br>$resource (Required) The writeable resource to write to.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_write_file" id="_set_write_file">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_write_file">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#347-357" title="Go to source code">set_write_file</a>( <span>string <var>$location</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the file to write to while streaming down.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the file to write to while streaming down.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$location</var></dt>
+					<dd><code>string</code><br>$location (Required) The writeable location to write to.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_proxy" id="_set_proxy">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_proxy">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#359-372" title="Go to source code">set_proxy</a>( <span>string <var>$proxy</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set the proxy to use for making requests.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set the proxy to use for making requests.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$proxy</var></dt>
+					<dd><code>string</code><br>$proxy (Required) The faux-url to use for proxy settings. Takes the following
+format: <code>proxy://user:pass@hostname:port</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set_seek_position" id="_set_seek_position">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set_seek_position">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#374-383" title="Go to source code">set_seek_position</a>( <span>integer <var>$position</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set the intended starting seek position.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set the intended starting seek position.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$position</var></dt>
+					<dd><code>integer</code><br>$position (Required) The byte-position of the stream to begin reading from.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="register_streaming_read_callback" id="_register_streaming_read_callback">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_register_streaming_read_callback">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#385-406" title="Go to source code">register_streaming_read_callback</a>( <span>string|array|function <var>$callback</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Register a callback function to execute whenever a data stream is read from
+using &lt;CFRequest::streaming_read_callback()&gt;.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Register a callback function to execute whenever a data stream is read from
+using &lt;CFRequest::streaming_read_callback()&gt;.</p>
+
+<p>The user-defined callback function should accept three arguments:</p>
+
+<ul>
+	<li><code>&lt;span class="php-var"&gt;$curl_handle&lt;/span&gt;</code> -
+	<code>resource</code> - Required - The cURL handle resource that represents the
+	in-progress transfer.</li>
+
+	<li><code>&lt;span class="php-var"&gt;$file_handle&lt;/span&gt;</code> -
+	<code>resource</code> - Required - The file handle resource that represents the
+	file on the local file system.</li>
+
+	<li><code>&lt;span class="php-var"&gt;$length&lt;/span&gt;</code> -
+	<code>integer</code> - Required - The length in kilobytes of the data chunk that
+	was transferred.</li>
+</ul>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$callback</var></dt>
+					<dd><code>string|array|function</code><br>$callback (Required) The callback function is called by
+&lt;php:call_user_func()&gt;, so you can pass the following values:
+<ul>
+	<li>The name of a global function to execute, passed as a string.</li>
+
+	<li>A method to execute, passed as <code>&lt;span
+	class="php-keyword1"&gt;array&lt;/span&gt;(&lt;span
+	class="php-quote"&gt;'ClassName'&lt;/span&gt;, &lt;span
+	class="php-quote"&gt;'MethodName'&lt;/span&gt;)</code>.</li>
+
+	<li>An anonymous function (PHP 5.3+).</li>
+</ul>
+</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="register_streaming_write_callback" id="_register_streaming_write_callback">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_register_streaming_write_callback">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#408-428" title="Go to source code">register_streaming_write_callback</a>( <span>string|array|function <var>$callback</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Register a callback function to execute whenever a data stream is written to
+using &lt;CFRequest::streaming_write_callback()&gt;.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Register a callback function to execute whenever a data stream is written to
+using &lt;CFRequest::streaming_write_callback()&gt;.</p>
+
+<p>The user-defined callback function should accept two arguments:</p>
+
+<ul>
+	<li><code>&lt;span class="php-var"&gt;$curl_handle&lt;/span&gt;</code> -
+	<code>resource</code> - Required - The cURL handle resource that represents the
+	in-progress transfer.</li>
+
+	<li><code>&lt;span class="php-var"&gt;$length&lt;/span&gt;</code> -
+	<code>integer</code> - Required - The length in kilobytes of the data chunk that
+	was transferred.</li>
+</ul>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$callback</var></dt>
+					<dd><code>string|array|function</code><br>$callback (Required) The callback function is called by
+&lt;php:call_user_func()&gt;, so you can pass the following values:
+<ul>
+	<li>The name of a global function to execute, passed as a string.</li>
+
+	<li>A method to execute, passed as <code>&lt;span
+	class="php-keyword1"&gt;array&lt;/span&gt;(&lt;span
+	class="php-quote"&gt;'ClassName'&lt;/span&gt;, &lt;span
+	class="php-quote"&gt;'MethodName'&lt;/span&gt;)</code>.</li>
+
+	<li>An anonymous function (PHP 5.3+).</li>
+</ul>
+</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$this A reference to the current instance.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="streaming_read_callback" id="_streaming_read_callback">
+
+		<td class="attributes"><code>
+			 public 
+			binary
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_streaming_read_callback">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#432-460" title="Go to source code">streaming_read_callback</a>( <span>resource <var>$curl_handle</var></span>, <span>resource <var>$file_handle</var></span>, <span>integer <var>$length</var></span> )</code>
+
+		<div class="description short">
+			
+<p>A callback function that is invoked by cURL for streaming up.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>A callback function that is invoked by cURL for streaming up.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$curl_handle</var></dt>
+					<dd><code>resource</code><br>$curl_handle (Required) The cURL handle for the request.</dd>
+					<dt><var>$file_handle</var></dt>
+					<dd><code>resource</code><br>$file_handle (Required) The open file handle resource.</dd>
+					<dt><var>$length</var></dt>
+					<dd><code>integer</code><br>$length (Required) The maximum number of bytes to read.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>binary</code><br>Binary data from a stream.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="streaming_write_callback" id="_streaming_write_callback">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_streaming_write_callback">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#462-485" title="Go to source code">streaming_write_callback</a>( <span>resource <var>$curl_handle</var></span>, <span>binary <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+<p>A callback function that is invoked by cURL for streaming down.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>A callback function that is invoked by cURL for streaming down.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$curl_handle</var></dt>
+					<dd><code>resource</code><br>$curl_handle (Required) The cURL handle for the request.</dd>
+					<dt><var>$data</var></dt>
+					<dd><code>binary</code><br>$data (Required) The data to write.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>The number of bytes written.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="prep_request" id="_prep_request">
+
+		<td class="attributes"><code>
+			 public 
+			resource
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_prep_request">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#487-587" title="Go to source code">prep_request</a>( )</code>
+
+		<div class="description short">
+			
+<p>Prepares and adds the details of the cURL request. This can be passed along
+to a &lt;php:curl_multi_exec()&gt; function.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Prepares and adds the details of the cURL request. This can be passed along
+to a &lt;php:curl_multi_exec()&gt; function.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>resource</code><br>The handle for the cURL object.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process_response" id="_process_response">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Think.Upload.Driver.Bcs.BCS_ResponseCore.html">Think\Upload\Driver\Bcs\BCS_ResponseCore</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process_response">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#611-657" title="Go to source code">process_response</a>( <span>resource <var>$curl_handle</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$response</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Take the post-processed cURL data and break it down into useful
+header/body/info chunks. Uses the data stored in the <code>curl_handle</code>
+and <code>response</code> properties unless replacement data is passed in via
+parameters.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Take the post-processed cURL data and break it down into useful
+header/body/info chunks. Uses the data stored in the <code>curl_handle</code>
+and <code>response</code> properties unless replacement data is passed in via
+parameters.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$curl_handle</var></dt>
+					<dd><code>resource</code><br>$curl_handle (Optional) The reference to the already executed cURL request.</dd>
+					<dt><var>$response</var></dt>
+					<dd><code>string</code><br>$response (Optional) The actual response content itself that needs to be parsed.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Think.Upload.Driver.Bcs.BCS_ResponseCore.html">Think\Upload\Driver\Bcs\BCS_ResponseCore</a></code></code><br>A &lt;BCS_ResponseCore&gt; object containing a parsed HTTP response.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="send_request" id="_send_request">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_send_request">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#659-682" title="Go to source code">send_request</a>( <span>boolean <var>$parse</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Sends the request, calling necessary utility functions to update built-in
+properties.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sends the request, calling necessary utility functions to update built-in
+properties.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$parse</var></dt>
+					<dd><code>boolean</code><br>$parse (Optional) Whether to parse the response with BCS_ResponseCore or not.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The resulting unparsed data from the request.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="send_multi_request" id="_send_multi_request">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_send_multi_request">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#684-755" title="Go to source code">send_multi_request</a>( <span>array <var>$handles</var></span>, <span>array <var>$opt</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Sends the request using &lt;php:curl_multi_exec()&gt;, enabling parallel
+requests. Uses the "rolling" method.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sends the request using &lt;php:curl_multi_exec()&gt;, enabling parallel
+requests. Uses the "rolling" method.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$handles</var></dt>
+					<dd><code>array</code><br>$handles (Required) An indexed array of cURL handles to process simultaneously.</dd>
+					<dt><var>$opt</var></dt>
+					<dd><code>array</code><br>$opt (Optional) An associative array of parameters that can have the following
+keys:
+<ul>
+	<li><code>callback</code> - <code>string|&lt;span
+	class="php-keyword1"&gt;array&lt;/span&gt;</code> - Optional - The string name
+	of a function to pass the response data to. If this is a method, pass an array
+	where the <code>[&lt;span class="php-num"&gt;0&lt;/span&gt;]</code> index is the
+	class and the <code>[&lt;span class="php-num"&gt;1&lt;/span&gt;]</code> index is
+	the method name.</li>
+
+	<li><code>limit</code> - <code>integer</code> - Optional - The number of
+	simultaneous requests to make. This can be useful for scaling around slow server
+	responses. Defaults to trusting cURLs judgement as to how many to use.</li>
+</ul>
+</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>Post-processed cURL responses.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get_response_header" id="_get_response_header">
+
+		<td class="attributes"><code>
+			 public 
+			string|array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get_response_header">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#759-771" title="Go to source code">get_response_header</a>( <span>string <var>$header</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Get the HTTP response headers from the request.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the HTTP response headers from the request.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$header</var></dt>
+					<dd><code>string</code><br>$header (Optional) A specific header value to return. Defaults to all headers.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string|array</code><br>All or selected header values.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get_response_body" id="_get_response_body">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get_response_body">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#773-780" title="Go to source code">get_response_body</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get the HTTP response body from the request.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the HTTP response body from the request.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The response body.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get_response_code" id="_get_response_code">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get_response_code">#</a>
+		<code><a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#782-789" title="Go to source code">get_response_code</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get the HTTP response code from the request.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the HTTP response code from the request.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The HTTP response code.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="HTTP_GET" id="HTTP_GET">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#128-131" title="Go to source code"><b>HTTP_GET</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'GET'</span></code></td>
+		<td class="description"><div>
+			<a href="#HTTP_GET" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>GET HTTP Method</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>GET HTTP Method</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="HTTP_POST" id="HTTP_POST">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#132-135" title="Go to source code"><b>HTTP_POST</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'POST'</span></code></td>
+		<td class="description"><div>
+			<a href="#HTTP_POST" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>POST HTTP Method</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>POST HTTP Method</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="HTTP_PUT" id="HTTP_PUT">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#136-139" title="Go to source code"><b>HTTP_PUT</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'PUT'</span></code></td>
+		<td class="description"><div>
+			<a href="#HTTP_PUT" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>PUT HTTP Method</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>PUT HTTP Method</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="HTTP_DELETE" id="HTTP_DELETE">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#140-143" title="Go to source code"><b>HTTP_DELETE</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'DELETE'</span></code></td>
+		<td class="description"><div>
+			<a href="#HTTP_DELETE" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>DELETE HTTP Method</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>DELETE HTTP Method</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="HTTP_HEAD" id="HTTP_HEAD">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#144-147" title="Go to source code"><b>HTTP_HEAD</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'HEAD'</span></code></td>
+		<td class="description"><div>
+			<a href="#HTTP_HEAD" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>HEAD HTTP Method</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>HEAD HTTP Method</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="request_url" id="$request_url">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#18-21" title="Go to source code"><var>$request_url</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$request_url" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The URL being requested.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The URL being requested.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="request_headers" id="$request_headers">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#22-25" title="Go to source code"><var>$request_headers</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$request_headers" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The headers being sent in the request.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The headers being sent in the request.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="request_body" id="$request_body">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#26-29" title="Go to source code"><var>$request_body</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$request_body" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The body being sent in the request.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The body being sent in the request.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="response" id="$response">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#30-33" title="Go to source code"><var>$response</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$response" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The response returned by the request.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The response returned by the request.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="response_headers" id="$response_headers">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#34-37" title="Go to source code"><var>$response_headers</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$response_headers" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The headers returned by the request.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The headers returned by the request.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="response_body" id="$response_body">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#38-41" title="Go to source code"><var>$response_body</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$response_body" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The body returned by the request.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The body returned by the request.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="response_code" id="$response_code">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#42-45" title="Go to source code"><var>$response_code</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$response_code" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The HTTP status code returned by the request.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The HTTP status code returned by the request.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="response_info" id="$response_info">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#46-49" title="Go to source code"><var>$response_info</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$response_info" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Additional response data.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Additional response data.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="curl_handle" id="$curl_handle">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#50-53" title="Go to source code"><var>$curl_handle</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$curl_handle" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The handle for the cURL object.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The handle for the cURL object.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="method" id="$method">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#54-57" title="Go to source code"><var>$method</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$method" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The method by which the request is being made.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The method by which the request is being made.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="proxy" id="$proxy">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#58-61" title="Go to source code"><var>$proxy</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$proxy" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Stores the proxy settings to use for the request.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Stores the proxy settings to use for the request.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="username" id="$username">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#62-65" title="Go to source code"><var>$username</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$username" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The username to use for the request.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The username to use for the request.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="password" id="$password">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#66-69" title="Go to source code"><var>$password</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$password" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The password to use for the request.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The password to use for the request.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="curlopts" id="$curlopts">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#70-73" title="Go to source code"><var>$curlopts</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$curlopts" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Custom CURLOPT settings.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Custom CURLOPT settings.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="debug_mode" id="$debug_mode">
+		<td class="attributes"><code>
+			public  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#74-77" title="Go to source code"><var>$debug_mode</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$debug_mode" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The state of debug mode.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The state of debug mode.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="request_class" id="$request_class">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#78-81" title="Go to source code"><var>$request_class</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'BCS_RequestCore'</span></code></td>
+		<td class="description"><div>
+			<a href="#$request_class" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The default class to use for HTTP Requests (defaults to
+&lt;BCS_RequestCore&gt;).</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The default class to use for HTTP Requests (defaults to
+&lt;BCS_RequestCore&gt;).</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="response_class" id="$response_class">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#82-85" title="Go to source code"><var>$response_class</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'BCS_ResponseCore'</span></code></td>
+		<td class="description"><div>
+			<a href="#$response_class" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The default class to use for HTTP Responses (defaults to
+&lt;BCS_ResponseCore&gt;).</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The default class to use for HTTP Responses (defaults to
+&lt;BCS_ResponseCore&gt;).</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="useragent" id="$useragent">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#86-89" title="Go to source code"><var>$useragent</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'BCS_RequestCore/1.4.2'</span></code></td>
+		<td class="description"><div>
+			<a href="#$useragent" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Default useragent string to use.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Default useragent string to use.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="read_file" id="$read_file">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#90-93" title="Go to source code"><var>$read_file</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$read_file" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>File to read from while streaming up.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>File to read from while streaming up.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="read_stream" id="$read_stream">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#94-97" title="Go to source code"><var>$read_stream</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$read_stream" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The resource to read from while streaming up.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The resource to read from while streaming up.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="read_stream_size" id="$read_stream_size">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#98-101" title="Go to source code"><var>$read_stream_size</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$read_stream_size" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The size of the stream to read from.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The size of the stream to read from.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="read_stream_read" id="$read_stream_read">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#102-105" title="Go to source code"><var>$read_stream_read</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">0</span></code></td>
+		<td class="description"><div>
+			<a href="#$read_stream_read" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The length already read from the stream.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The length already read from the stream.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="write_file" id="$write_file">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#106-109" title="Go to source code"><var>$write_file</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$write_file" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>File to write to while streaming down.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>File to write to while streaming down.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="write_stream" id="$write_stream">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#110-113" title="Go to source code"><var>$write_stream</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$write_stream" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The resource to write to while streaming down.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The resource to write to while streaming down.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="seek_position" id="$seek_position">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#114-117" title="Go to source code"><var>$seek_position</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$seek_position" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Stores the intended starting seek position.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Stores the intended starting seek position.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="registered_streaming_read_callback" id="$registered_streaming_read_callback">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#118-121" title="Go to source code"><var>$registered_streaming_read_callback</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$registered_streaming_read_callback" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The user-defined callback function to call when a stream is read from.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The user-defined callback function to call when a stream is read from.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="registered_streaming_write_callback" id="$registered_streaming_write_callback">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Upload.Driver.Bcs.BCS_RequestCore.html#122-125" title="Go to source code"><var>$registered_streaming_write_callback</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$registered_streaming_write_callback" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The user-defined callback function to call when a stream is written to.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The user-defined callback function to call when a stream is written to.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		thinkphp_3.2.2 API documentation generated by <a href="http://cdoco.com">Cdoco.Com</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

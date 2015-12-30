@@ -1,0 +1,1130 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>API | Elasticsearch 权威指南（中文版）</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.4.1">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="../010_Intro/20_Document.html" />
+    
+    
+    <link rel="prev" href="../010_Intro/10_Installing_ES.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-level="1.3" data-basepath=".." data-revision="1418205808702">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="010_Intro/00_README.html">
+            
+                
+                    <a href="../010_Intro/00_README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         入门
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="010_Intro/05_What_is_it.html">
+            
+                
+                    <a href="../010_Intro/05_What_is_it.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         是什么
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.2" data-path="010_Intro/10_Installing_ES.html">
+            
+                
+                    <a href="../010_Intro/10_Installing_ES.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         安装
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="1.3" data-path="010_Intro/15_API.html">
+            
+                
+                    <a href="../010_Intro/15_API.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.4" data-path="010_Intro/20_Document.html">
+            
+                
+                    <a href="../010_Intro/20_Document.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                         文档
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.5" data-path="010_Intro/25_Tutorial_Indexing.html">
+            
+                
+                    <a href="../010_Intro/25_Tutorial_Indexing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                         索引
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.6" data-path="010_Intro/30_Tutorial_Search.html">
+            
+                
+                    <a href="../010_Intro/30_Tutorial_Search.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                         搜索
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.7" data-path="010_Intro/35_Tutorial_Aggregations.html">
+            
+                
+                    <a href="../010_Intro/35_Tutorial_Aggregations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                         聚合
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.8" data-path="010_Intro/40_Tutorial_Conclusion.html">
+            
+                
+                    <a href="../010_Intro/40_Tutorial_Conclusion.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                         小结
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.9" data-path="010_Intro/45_Distributed.html">
+            
+                
+                    <a href="../010_Intro/45_Distributed.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.</b>
+                        
+                         分布式
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.10" data-path="010_Intro/50_Conclusion.html">
+            
+                
+                    <a href="../010_Intro/50_Conclusion.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.10.</b>
+                        
+                         结语
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="020_Distributed_Cluster/00_Intro.html">
+            
+                
+                    <a href="../020_Distributed_Cluster/00_Intro.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         分布式集群
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="020_Distributed_Cluster/05_Empty_cluster.html">
+            
+                
+                    <a href="../020_Distributed_Cluster/05_Empty_cluster.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         空集群
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="020_Distributed_Cluster/10_Cluster_health.html">
+            
+                
+                    <a href="../020_Distributed_Cluster/10_Cluster_health.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         集群健康
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="020_Distributed_Cluster/15_Add_an_index.html">
+            
+                
+                    <a href="../020_Distributed_Cluster/15_Add_an_index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         添加索引
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="020_Distributed_Cluster/20_Add_failover.html">
+            
+                
+                    <a href="../020_Distributed_Cluster/20_Add_failover.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         故障转移
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.5" data-path="020_Distributed_Cluster/25_Scale_horizontally.html">
+            
+                
+                    <a href="../020_Distributed_Cluster/25_Scale_horizontally.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         横向扩展
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="020_Distributed_Cluster/30_Scale_more.html">
+            
+                
+                    <a href="../020_Distributed_Cluster/30_Scale_more.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                         更多扩展
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.7" data-path="020_Distributed_Cluster/35_Coping_with_failure.html">
+            
+                
+                    <a href="../020_Distributed_Cluster/35_Coping_with_failure.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                         应对故障
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="030_Data/00_Intro.html">
+            
+                
+                    <a href="../030_Data/00_Intro.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         数据
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="030_Data/05_Document.html">
+            
+                
+                    <a href="../030_Data/05_Document.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         文档
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="030_Data/10_Index.html">
+            
+                
+                    <a href="../030_Data/10_Index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         索引
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="030_Data/15_Get.html">
+            
+                
+                    <a href="../030_Data/15_Get.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         获取
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.4" data-path="030_Data/20_Exists.html">
+            
+                
+                    <a href="../030_Data/20_Exists.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                         存在
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.5" data-path="030_Data/25_Update.html">
+            
+                
+                    <a href="../030_Data/25_Update.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                         更新
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.6" data-path="030_Data/30_Create.html">
+            
+                
+                    <a href="../030_Data/30_Create.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                         创建
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.7" data-path="030_Data/35_Delete.html">
+            
+                
+                    <a href="../030_Data/35_Delete.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                         删除
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.8" data-path="030_Data/40_Version_control.html">
+            
+                
+                    <a href="../030_Data/40_Version_control.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                         版本控制
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.9" data-path="030_Data/45_Partial_update.html">
+            
+                
+                    <a href="../030_Data/45_Partial_update.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                         局部更新
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.10" data-path="030_Data/50_Mget.html">
+            
+                
+                    <a href="../030_Data/50_Mget.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                         Mget
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.11" data-path="030_Data/55_Bulk.html">
+            
+                
+                    <a href="../030_Data/55_Bulk.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.11.</b>
+                        
+                         批量
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.12" data-path="030_Data/60_Conclusion.html">
+            
+                
+                    <a href="../030_Data/60_Conclusion.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.12.</b>
+                        
+                         结语
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="040_Distributed_CRUD/00_Intro.html">
+            
+                
+                    <a href="../040_Distributed_CRUD/00_Intro.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         分布式增删改查
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.1" data-path="040_Distributed_CRUD/05_Routing.html">
+            
+                
+                    <a href="../040_Distributed_CRUD/05_Routing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                         路由
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.2" data-path="040_Distributed_CRUD/10_Shard_interaction.html">
+            
+                
+                    <a href="../040_Distributed_CRUD/10_Shard_interaction.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                         分片交互
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.3" data-path="040_Distributed_CRUD/15_Create_index_delete.html">
+            
+                
+                    <a href="../040_Distributed_CRUD/15_Create_index_delete.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                         新建、索引和删除
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.4" data-path="040_Distributed_CRUD/20_Retrieving.html">
+            
+                
+                    <a href="../040_Distributed_CRUD/20_Retrieving.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                         检索
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.5" data-path="040_Distributed_CRUD/25_Partial_updates.html">
+            
+                
+                    <a href="../040_Distributed_CRUD/25_Partial_updates.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                         局部更新
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.6" data-path="040_Distributed_CRUD/30_Bulk_requests.html">
+            
+                
+                    <a href="../040_Distributed_CRUD/30_Bulk_requests.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                         批量请求
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.7" data-path="040_Distributed_CRUD/35_Bulk_format.html">
+            
+                
+                    <a href="../040_Distributed_CRUD/35_Bulk_format.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                         批量格式
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="050_Search/00_Intro.html">
+            
+                
+                    <a href="../050_Search/00_Intro.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         搜索
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="5.1" data-path="050_Search/05_Empty_search.html">
+            
+                
+                    <a href="../050_Search/05_Empty_search.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                         空搜索
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.2" data-path="050_Search/10_Multi_index_multi_type.html">
+            
+                
+                    <a href="../050_Search/10_Multi_index_multi_type.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                         多索引和多类型
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.3" data-path="050_Search/15_Pagination.html">
+            
+                
+                    <a href="../050_Search/15_Pagination.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                         分页
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.4" data-path="050_Search/20_Query_string.html">
+            
+                
+                    <a href="../050_Search/20_Query_string.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                         查询语句
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="052_Mapping_Analysis/00_Intro.html">
+            
+                
+                    <a href="../052_Mapping_Analysis/00_Intro.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         映射和分析
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="6.1" data-path="052_Mapping_Analysis/25_Data_type_differences.html">
+            
+                
+                    <a href="../052_Mapping_Analysis/25_Data_type_differences.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                         数据类型差异
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.2" data-path="052_Mapping_Analysis/30_Exact_vs_full_text.html">
+            
+                
+                    <a href="../052_Mapping_Analysis/30_Exact_vs_full_text.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                         提取对决全文
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.3" data-path="052_Mapping_Analysis/35_Inverted_index.html">
+            
+                
+                    <a href="../052_Mapping_Analysis/35_Inverted_index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                         倒排索引
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.4" data-path="052_Mapping_Analysis/40_Analysis.html">
+            
+                
+                    <a href="../052_Mapping_Analysis/40_Analysis.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                         分析
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.5" data-path="052_Mapping_Analysis/45_Mapping.html">
+            
+                
+                    <a href="../052_Mapping_Analysis/45_Mapping.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                         映射
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.6" data-path="052_Mapping_Analysis/50_Complex_datatypes.html">
+            
+                
+                    <a href="../052_Mapping_Analysis/50_Complex_datatypes.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.6.</b>
+                        
+                         复合类型
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Elasticsearch 权威指南（中文版）</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_14">
+                    
+                        <h2 id="elasticsearch">与Elasticsearch交互</h2>
+<p>如何与ELasticsearch交互取决于你是否使用Java。</p>
+<h3 id="java-api">Java API</h3>
+<p>如果你使用Java，ELasticsearch提供两种内置客户端用于你的代码：</p>
+<h4 id="node-client">节点客户端(node client)：</h4>
+<p>节点客户端以<strong>无数据节点(none data node)</strong>身份加入集群，换言之，它自己没有数据，但是知道什么数据位于集群的哪个节点上，能够直接转发请求到对应的节点上。</p>
+<h4 id="transport-client">传输客户端(Transport client)：</h4>
+<p>更轻量的传输客户端能够发送请求到远程集群，它自己不加入集群，只是简单转发请求给集群中的节点。</p>
+<p>两个Java客户端都通过<strong>9300端口</strong>与集群交互，使用<strong>Elasticsearch传输协议(Elasticsearch Transport Protocol)</strong>。集群中的节点也通过<strong>9300端口</strong>通信。如果此端口未开放，你的节点将不能形成集群。</p>
+<blockquote>
+<p><strong>提示</strong></p>
+<p>Java客户端版本必须与集群中的节点一致，换言之，它们可能互相无法识别。</p>
+</blockquote>
+<p>关于Java API的更多信息请查看相关章节：<a href="http://www.elasticsearch.org/guide/" target="_blank">Java API</a></p>
+<h3 id="httpjsonrestful-api">通过HTTP使用附带JSON数据的RESTful API</h3>
+<p>其他所有程序语言都可以通过<strong>9200端口</strong>的RESTful API与Elasticsearch通信，事实上，如你所见，你甚至可以通过命令行的<code>curl</code>命令与ELasticsearch通信。</p>
+<p>Elasticsearch官方提供了多种程序语言的客户端——Groovy，Javascript， .NET，PHP，Perl，Python，and Ruby——还有数量庞大的社区提供的客户端和集成插件，所有这些可以在这里找到：<a href="http://www.elasticsearch.org/guide/" target="_blank">Guide</a>。</p>
+<p>向Elasticsearch发出的请求与其它HTTP请求组成是一致的，例如统计集群中文件的数量，我们可以这样：</p>
+<pre><code class="lang-bash">      &lt;<span class="hljs-number">1</span>&gt;     &lt;<span class="hljs-number">2</span>&gt;                     &lt;<span class="hljs-number">3</span>&gt;    &lt;<span class="hljs-number">4</span>&gt;
+curl -XGET <span class="hljs-string">'http://localhost:9200/_count?pretty'</span> <span class="hljs-operator">-d</span> <span class="hljs-string">'
+{  &lt;5&gt;
+    "query": {
+        "match_all": {}
+    }
+}
+'</span>
+</code></pre>
+<hr>
+<ul>
+<li><1> 合适的HTTP方法或动词：<code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>HEAD</code> or <code>DELETE</code>。</li>
+<li><2> 任意一个节点的协议、主机名和端口。</li>
+<li><3> 请求路径。</li>
+<li><4> 一些可选的查询参数，例如<code>?pretty</code>返回更加美观易读的JSON。</li>
+<li><5> 一个JSON编码过的请求主体（如果需要）。</li>
+</ul>
+<p>Elasticsearch返回一个类似<code>200 OK</code>的HTTP状态码和JSON格式主体（除<code>HEAD</code>请求）。上面的请求会得到如下的响应主体：</p>
+<pre><code class="lang-Javascript">{
+    <span class="hljs-string">"count"</span> : <span class="hljs-number">0</span>,
+    <span class="hljs-string">"_shards"</span> : {
+        <span class="hljs-string">"total"</span> : <span class="hljs-number">5</span>,
+        <span class="hljs-string">"successful"</span> : <span class="hljs-number">5</span>,
+        <span class="hljs-string">"failed"</span> : <span class="hljs-number">0</span>
+    }
+}
+</code></pre>
+<p>我们看不到HTTP头是因为没有让<code>curl</code>显示它们，如果想显示，使用<code>curl</code>命令后跟<code>-i</code>参数:</p>
+<pre><code class="lang-Javascript">curl -i -XGET <span class="hljs-string">'localhost:9200/'</span>
+</code></pre>
+<p>对于本书的其余部分，我们将简写<code>curl</code>中每次重复的部分，例如主机名和端口，还有<code>curl</code>命令本身。原代码：</p>
+<pre><code class="lang-Javascript">curl -XGET &#39;localhost:9200/_count?pretty&#39; -d &#39;
+{
+    &quot;query&quot;: {
+        &quot;match_all&quot;: {}
+    }
+}&#39;
+</code></pre>
+<p>我们将简写成这样：</p>
+<pre><code class="lang-Javascript">GET /_count
+{
+    <span class="hljs-string">"query"</span>: {
+        <span class="hljs-string">"match_all"</span>: {}
+    }
+}
+</code></pre>
+<p>事实上，这与在<strong>Sense终端</strong>中使用的格式相同，你可以点击顶部的<code>View in Sense</code>来运行这段代码。</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../010_Intro/10_Installing_ES.html" class="navigation navigation-prev " aria-label="Previous page: 安装"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../010_Intro/20_Document.html" class="navigation navigation-next " aria-label="Next page: 文档"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

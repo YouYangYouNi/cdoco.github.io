@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CTimestampBehavior</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CTimestampBehavior</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#zii.behaviors">zii.behaviors</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CTimestampBehavior &raquo;
+<a href="CActiveRecordBehavior.html">CActiveRecordBehavior</a> &raquo;
+<a href="CModelBehavior.html">CModelBehavior</a> &raquo;
+<a href="CBehavior.html">CBehavior</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>实现</th>
+  <td><a href="IBehavior.html">IBehavior</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.1</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CTimestampBehavior.php 3229 2011-05-21 00:20:29Z alexander.makarow $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/zii/behaviors/CTimestampBehavior.php">framework/zii/behaviors/CTimestampBehavior.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CTimestampBehavior会自动填充日期和时间相关的属性。
+<br/><br/>
+会自动填充日期时间属性当active record 
+被创建以及/或者更新时。
+你可以像下面这样指定一个active record模型类来使用此behavior：
+<pre>
+public function behaviors(){
+	return array(
+		'CTimestampBehavior' =&gt; array(
+			'class' =&gt; 'zii.behaviors.CTimestampBehavior',
+			'createAttribute' =&gt; 'create_time_attribute',
+			'updateAttribute' =&gt; 'update_time_attribute',
+		)
+	);
+}
+</pre>
+<a href="CTimestampBehavior.html#createAttribute">createAttribute</a>和<a href="CTimestampBehavior.html#updateAttribute">updateAttribute</a>选项实际上分别默认为‘create_time’和‘update_time’，
+因此设置它们并非必须。如果你不希望CTimestampBehavior
+为该record的更新或创建设置一个timestamp值，可以设定相应的属性选项为null。
+<br/><br/>
+默认情况下，update属性只在记录被更新是才被设置。如果你想让其在记录被创建的时候也被设置，
+可将<a href="CTimestampBehavior.html#setUpdateOnCreate">setUpdateOnCreate</a>选项设置为true。
+<br/><br/>
+尽管CTimestampBehavior会自行决定将什么样的值写入timestamp类型的属性，
+你仍然可以通过<a href="CTimestampBehavior.html#timestampExpression">timestampExpression</a>用自定义的值来替代它</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="createAttribute">
+  <td><a href="CTimestampBehavior.html#createAttribute-detail">createAttribute</a></td>
+  <td>mixed</td>
+  <td>用来存储创建时间属性的名称。
+设置为null是创建属性不使用一个时间戳。默认是‘create_time’</td>
+  <td>CTimestampBehavior</td>
+</tr>
+<tr class="inherited" id="enabled">
+  <td><a href="CBehavior.html#enabled-detail">enabled</a></td>
+  <td>boolean</td>
+  <td>事件是否被启用。</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr class="inherited" id="owner">
+  <td><a href="CBehavior.html#owner-detail">owner</a></td>
+  <td><a href="CComponent.html">CComponent</a></td>
+  <td>获得附加行为的组件。</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr id="setUpdateOnCreate">
+  <td><a href="CTimestampBehavior.html#setUpdateOnCreate-detail">setUpdateOnCreate</a></td>
+  <td>bool</td>
+  <td>更新属性是否设置在创建时创建时间戳。
+否则将被单独留下。默认为false。</td>
+  <td>CTimestampBehavior</td>
+</tr>
+<tr id="timestampExpression">
+  <td><a href="CTimestampBehavior.html#timestampExpression-detail">timestampExpression</a></td>
+  <td>mixed</td>
+  <td>将用于生成时间戳的表达式。
+它可以是一个字符串，代表一个PHP表达式（例如：'itme()'），
+或者一个<a href="CDbExpression.html">CDbExpression</a>对象代表一个DB表达式（例如：new CDbExpression('NOW()')）。
+默认为空，这意味着我们将尝试自动计算出相应的时间戳。
+如果我们不能找到合适的时间戳，
+然后，它会后退到当前的UNIX时间戳</td>
+  <td>CTimestampBehavior</td>
+</tr>
+<tr id="updateAttribute">
+  <td><a href="CTimestampBehavior.html#updateAttribute-detail">updateAttribute</a></td>
+  <td>mixed</td>
+  <td>用来存储修改时间属性的名称。
+设置为null是更新属性不使用一个时间戳。默认是‘update_time’</td>
+  <td>CTimestampBehavior</td>
+</tr>
+</table>
+</div>
+<div class="summary docProperty">
+<h2>受保护属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="map">
+  <td><a href="CTimestampBehavior.html#map-detail">map</a></td>
+  <td>array</td>
+  <td>映射列类型到数据库的方法</td>
+  <td>CTimestampBehavior</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>如果类中没有调的方法名，则调用这个方法。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>返回一个属性值、一个事件处理程序列表或一个行为名称。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>检查一个属性是否为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>设置一个组件的属性值。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>设置一个组件的属性为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="afterConstruct">
+  <td><a href="CModelBehavior.html#afterConstruct-detail">afterConstruct()</a></td>
+  <td>响应<a href="CModel.html#onAfterConstruct">CModel::onAfterConstruct</a>事件。</td>
+  <td><a href="CModelBehavior.html">CModelBehavior</a></td>
+</tr>
+<tr class="inherited" id="afterDelete">
+  <td><a href="CActiveRecordBehavior.html#afterDelete-detail">afterDelete()</a></td>
+  <td>响应到 <a href="CActiveRecord.html#onAfterDelete">CActiveRecord::onAfterDelete</a> 事件。</td>
+  <td><a href="CActiveRecordBehavior.html">CActiveRecordBehavior</a></td>
+</tr>
+<tr class="inherited" id="afterFind">
+  <td><a href="CActiveRecordBehavior.html#afterFind-detail">afterFind()</a></td>
+  <td>响应到 <a href="CActiveRecord.html#onAfterFind">CActiveRecord::onAfterFind</a> 事件。</td>
+  <td><a href="CActiveRecordBehavior.html">CActiveRecordBehavior</a></td>
+</tr>
+<tr class="inherited" id="afterSave">
+  <td><a href="CActiveRecordBehavior.html#afterSave-detail">afterSave()</a></td>
+  <td>响应到 <a href="CActiveRecord.html#onAfterSave">CActiveRecord::onAfterSave</a> 事件。</td>
+  <td><a href="CActiveRecordBehavior.html">CActiveRecordBehavior</a></td>
+</tr>
+<tr class="inherited" id="afterValidate">
+  <td><a href="CModelBehavior.html#afterValidate-detail">afterValidate()</a></td>
+  <td>响应<a href="CModel.html#onAfterValidate">CModel::onAfterValidate</a>事件。</td>
+  <td><a href="CModelBehavior.html">CModelBehavior</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>返回这个名字的行为对象。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attach">
+  <td><a href="CBehavior.html#attach-detail">attach()</a></td>
+  <td>附加事件处理程序到组件。</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>附加一个行为到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>附加一个行为列表到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>为事件附加一个事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="beforeDelete">
+  <td><a href="CActiveRecordBehavior.html#beforeDelete-detail">beforeDelete()</a></td>
+  <td>响应到 <a href="CActiveRecord.html#onBeforeDelete">CActiveRecord::onBeforeDelete</a> 事件。</td>
+  <td><a href="CActiveRecordBehavior.html">CActiveRecordBehavior</a></td>
+</tr>
+<tr class="inherited" id="beforeFind">
+  <td><a href="CActiveRecordBehavior.html#beforeFind-detail">beforeFind()</a></td>
+  <td>响应到 <a href="CActiveRecord.html#onBeforeFind">CActiveRecord::onBeforeFind</a> 事件。</td>
+  <td><a href="CActiveRecordBehavior.html">CActiveRecordBehavior</a></td>
+</tr>
+<tr id="beforeSave">
+  <td><a href="CTimestampBehavior.html#beforeSave-detail">beforeSave()</a></td>
+  <td>响应CModel::onBeforeSave事件。</td>
+  <td>CTimestampBehavior</td>
+</tr>
+<tr class="inherited" id="beforeValidate">
+  <td><a href="CModelBehavior.html#beforeValidate-detail">beforeValidate()</a></td>
+  <td>响应<a href="CModel.html#onBeforeValidate">CModel::onBeforeValidate</a>事件。</td>
+  <td><a href="CModelBehavior.html">CModelBehavior</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>确定属性是否可读。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>确定属性是否可写。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detach">
+  <td><a href="CBehavior.html#detach-detail">detach()</a></td>
+  <td>从组件分离行为对象。</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>从组件中分离一个行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>从组件中分离所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>分离一个存在的事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>禁用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>禁用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>启用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>启用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>计算一个PHP表达式，或根据组件上下文执行回调。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="events">
+  <td><a href="CActiveRecordBehavior.html#events-detail">events()</a></td>
+  <td>定义事件和相应的事件处理方法。</td>
+  <td><a href="CActiveRecordBehavior.html">CActiveRecordBehavior</a></td>
+</tr>
+<tr class="inherited" id="getEnabled">
+  <td><a href="CBehavior.html#getEnabled-detail">getEnabled()</a></td>
+  <td>返回事件是否被启用。</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>返回一个事件的附加处理程序列表。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getOwner">
+  <td><a href="CBehavior.html#getOwner-detail">getOwner()</a></td>
+  <td>返回获得附加行为的组件。</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>确定一个事件是否定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>检查事件是否有附加的处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>确定属性是否被定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>发起一个事件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="setEnabled">
+  <td><a href="CBehavior.html#setEnabled-detail">setEnabled()</a></td>
+  <td>设置是否启用行为</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="getTimestampByAttribute">
+  <td><a href="CTimestampBehavior.html#getTimestampByAttribute-detail">getTimestampByAttribute()</a></td>
+  <td>获得合适的时间戳取决于列类型$attribute</td>
+  <td>CTimestampBehavior</td>
+</tr>
+<tr id="getTimestampByColumnType">
+  <td><a href="CTimestampBehavior.html#getTimestampByColumnType-detail">getTimestampByColumnType()</a></td>
+  <td>返回合适的时间戳取决于$columnType</td>
+  <td>CTimestampBehavior</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>属性详细</h2>
+<div class="detailHeader" id="createAttribute-detail">
+createAttribute<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public mixed <b>$createAttribute</b>;</div>
+
+<p>用来存储创建时间属性的名称。
+设置为null是创建属性不使用一个时间戳。默认是‘create_time’</p>
+
+
+<div class="detailHeader" id="map-detail">
+map<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+protected static array <b>$map</b>;</div>
+
+<p>映射列类型到数据库的方法</p>
+
+
+<div class="detailHeader" id="setUpdateOnCreate-detail">
+setUpdateOnCreate<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public bool <b>$setUpdateOnCreate</b>;</div>
+
+<p>更新属性是否设置在创建时创建时间戳。
+否则将被单独留下。默认为false。</p>
+
+
+<div class="detailHeader" id="timestampExpression-detail">
+timestampExpression<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public mixed <b>$timestampExpression</b>;</div>
+
+<p>将用于生成时间戳的表达式。
+它可以是一个字符串，代表一个PHP表达式（例如：'itme()'），
+或者一个<a href="CDbExpression.html">CDbExpression</a>对象代表一个DB表达式（例如：new CDbExpression('NOW()')）。
+默认为空，这意味着我们将尝试自动计算出相应的时间戳。
+如果我们不能找到合适的时间戳，
+然后，它会后退到当前的UNIX时间戳</p>
+
+
+<div class="detailHeader" id="updateAttribute-detail">
+updateAttribute<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public mixed <b>$updateAttribute</b>;</div>
+
+<p>用来存储修改时间属性的名称。
+设置为null是更新属性不使用一个时间戳。默认是‘update_time’</p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="beforeSave-detail">
+beforeSave()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>beforeSave</b>(<a href="CModelEvent.html">CModelEvent</a> $event)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$event</td>
+  <td class="paramTypeCol"><a href="CModelEvent.html">CModelEvent</a></td>
+  <td class="paramDescCol">事件参数</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/zii/behaviors/CTimestampBehavior.php#87">framework/zii/behaviors/CTimestampBehavior.php#87</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">beforeSave</span><span style="color: #007700">(</span><span style="color: #0000BB">$event</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getIsNewRecord</span><span style="color: #007700">()&nbsp;&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">createAttribute&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()-&gt;{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">createAttribute</span><span style="color: #007700">}&nbsp;=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTimestampByAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">createAttribute</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;((!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getIsNewRecord</span><span style="color: #007700">()&nbsp;||&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setUpdateOnCreate</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">updateAttribute&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()-&gt;{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">updateAttribute</span><span style="color: #007700">}&nbsp;=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTimestampByAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">updateAttribute</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>响应CModel::onBeforeSave事件。
+设置创建或修改的属性值的配置</p>
+
+
+<div class="detailHeader" id="getTimestampByAttribute-detail">
+getTimestampByAttribute()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected mixed <b>getTimestampByAttribute</b>(string $attribute)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">$attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">时间戳（例如，unix时间戳或者一个mysql函数）</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/zii/behaviors/CTimestampBehavior.php#102">framework/zii/behaviors/CTimestampBehavior.php#102</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">getTimestampByAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">timestampExpression&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">CDbExpression</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">timestampExpression</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if&nbsp;(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">timestampExpression&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;@eval(</span><span style="color: #DD0000">'return&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">timestampExpression</span><span style="color: #007700">.</span><span style="color: #DD0000">';'</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$columnType&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getTableSchema</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getColumn</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">dbType</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTimestampByColumnType</span><span style="color: #007700">(</span><span style="color: #0000BB">$columnType</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>获得合适的时间戳取决于列类型$attribute</p>
+
+
+<div class="detailHeader" id="getTimestampByColumnType-detail">
+getTimestampByColumnType()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected mixed <b>getTimestampByColumnType</b>(string $columnType)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$columnType</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">$columnType</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">时间戳（例如，unix时间戳或者一个mysql函数）</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/zii/behaviors/CTimestampBehavior.php#118">framework/zii/behaviors/CTimestampBehavior.php#118</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">getTimestampByColumnType</span><span style="color: #007700">(</span><span style="color: #0000BB">$columnType</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$map</span><span style="color: #007700">[</span><span style="color: #0000BB">$columnType</span><span style="color: #007700">])&nbsp;?&nbsp;new&nbsp;</span><span style="color: #0000BB">CDbExpression</span><span style="color: #007700">(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$map</span><span style="color: #007700">[</span><span style="color: #0000BB">$columnType</span><span style="color: #007700">])&nbsp;:&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回合适的时间戳取决于$columnType</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

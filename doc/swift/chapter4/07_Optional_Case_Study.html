@@ -1,0 +1,1080 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>可选类型完美解决占位问题 | The Swift Programming Language 中文版</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.1.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    
+    <link rel="prev" href="../chapter4/06_Access_Control_and_Protected.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-level="4.7" data-basepath=".." data-revision="1411895597091">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="chapter1/chapter1.html">
+            
+                
+                    <a href="../chapter1/chapter1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         欢迎使用 Swift
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="chapter1/01_swift.html">
+            
+                
+                    <a href="../chapter1/01_swift.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         关于 Swift
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.2" data-path="chapter1/02_a_swift_tour.html">
+            
+                
+                    <a href="../chapter1/02_a_swift_tour.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         Swift 初见
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.3" data-path="chapter1/03_revision_history.html">
+            
+                
+                    <a href="../chapter1/03_revision_history.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         Swift 版本历史记录
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="chapter2/chapter2.html">
+            
+                
+                    <a href="../chapter2/chapter2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Swift 教程
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="chapter2/01_The_Basics.html">
+            
+                
+                    <a href="../chapter2/01_The_Basics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         基础部分
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="chapter2/02_Basic_Operators.html">
+            
+                
+                    <a href="../chapter2/02_Basic_Operators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         基本运算符
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="chapter2/03_Strings_and_Characters.html">
+            
+                
+                    <a href="../chapter2/03_Strings_and_Characters.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         字符串和字符
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="chapter2/04_Collection_Types.html">
+            
+                
+                    <a href="../chapter2/04_Collection_Types.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         集合类型
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.5" data-path="chapter2/05_Control_Flow.html">
+            
+                
+                    <a href="../chapter2/05_Control_Flow.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         控制流
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="chapter2/06_Functions.html">
+            
+                
+                    <a href="../chapter2/06_Functions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                         函数
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.7" data-path="chapter2/07_Closures.html">
+            
+                
+                    <a href="../chapter2/07_Closures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                         闭包
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.8" data-path="chapter2/08_Enumerations.html">
+            
+                
+                    <a href="../chapter2/08_Enumerations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                         枚举
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.9" data-path="chapter2/09_Classes_and_Structures.html">
+            
+                
+                    <a href="../chapter2/09_Classes_and_Structures.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                         类和结构体
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.10" data-path="chapter2/10_Properties.html">
+            
+                
+                    <a href="../chapter2/10_Properties.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                         属性
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.11" data-path="chapter2/11_Methods.html">
+            
+                
+                    <a href="../chapter2/11_Methods.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.11.</b>
+                        
+                         方法
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.12" data-path="chapter2/12_Subscripts.html">
+            
+                
+                    <a href="../chapter2/12_Subscripts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.12.</b>
+                        
+                         下标脚本
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.13" data-path="chapter2/13_Inheritance.html">
+            
+                
+                    <a href="../chapter2/13_Inheritance.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.13.</b>
+                        
+                         继承
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.14" data-path="chapter2/14_Initialization.html">
+            
+                
+                    <a href="../chapter2/14_Initialization.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.14.</b>
+                        
+                         构造过程
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.15" data-path="chapter2/15_Deinitialization.html">
+            
+                
+                    <a href="../chapter2/15_Deinitialization.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.15.</b>
+                        
+                         析构过程
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.16" data-path="chapter2/16_Automatic_Reference_Counting.html">
+            
+                
+                    <a href="../chapter2/16_Automatic_Reference_Counting.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.16.</b>
+                        
+                         自动引用计数
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.17" data-path="chapter2/17_Optional_Chaining.html">
+            
+                
+                    <a href="../chapter2/17_Optional_Chaining.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.17.</b>
+                        
+                         可选链
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.18" data-path="chapter2/18_Type_Casting.html">
+            
+                
+                    <a href="../chapter2/18_Type_Casting.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.18.</b>
+                        
+                         类型转换
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.19" data-path="chapter2/19_Nested_Types.html">
+            
+                
+                    <a href="../chapter2/19_Nested_Types.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.19.</b>
+                        
+                         嵌套类型
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.20" data-path="chapter2/20_Extensions.html">
+            
+                
+                    <a href="../chapter2/20_Extensions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.20.</b>
+                        
+                         扩展
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.21" data-path="chapter2/21_Protocols.html">
+            
+                
+                    <a href="../chapter2/21_Protocols.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.21.</b>
+                        
+                         协议
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.22" data-path="chapter2/22_Generics.html">
+            
+                
+                    <a href="../chapter2/22_Generics.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.22.</b>
+                        
+                         泛型
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.23" data-path="chapter2/23_Access_Control.html">
+            
+                
+                    <a href="../chapter2/23_Access_Control.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.23.</b>
+                        
+                         权限控制
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.24" data-path="chapter2/24_Advanced_Operators.html">
+            
+                
+                    <a href="../chapter2/24_Advanced_Operators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.24.</b>
+                        
+                         高级操作符
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="chapter3/chapter3.html">
+            
+                
+                    <a href="../chapter3/chapter3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         语言参考
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="chapter3/01_About_the_Language_Reference.html">
+            
+                
+                    <a href="../chapter3/01_About_the_Language_Reference.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         关于语言参考
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="chapter3/02_Lexical_Structure.html">
+            
+                
+                    <a href="../chapter3/02_Lexical_Structure.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         词法结构
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="chapter3/03_Types.html">
+            
+                
+                    <a href="../chapter3/03_Types.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         类型
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.4" data-path="chapter3/04_Expressions.html">
+            
+                
+                    <a href="../chapter3/04_Expressions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                         表达式
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.5" data-path="chapter3/10_Statements.html">
+            
+                
+                    <a href="../chapter3/10_Statements.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                         语句
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.6" data-path="chapter3/05_Declarations.html">
+            
+                
+                    <a href="../chapter3/05_Declarations.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                         声明
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.7" data-path="chapter3/06_Attributes.html">
+            
+                
+                    <a href="../chapter3/06_Attributes.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                         特性
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.8" data-path="chapter3/07_Patterns.html">
+            
+                
+                    <a href="../chapter3/07_Patterns.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                         模式
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.9" data-path="chapter3/08_Generic_Parameters_and_Arguments.html">
+            
+                
+                    <a href="../chapter3/08_Generic_Parameters_and_Arguments.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                         泛型参数
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.10" data-path="chapter3/09_Summary_of_the_Grammar.html">
+            
+                
+                    <a href="../chapter3/09_Summary_of_the_Grammar.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                         语法总结
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="chapter4/chapter4.html">
+            
+                
+                    <a href="../chapter4/chapter4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         苹果官方Blog官方翻译
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.1" data-path="chapter4/01_Access_Control.html">
+            
+                
+                    <a href="../chapter4/01_Access_Control.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                         Access Control 权限控制的黑与白
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.2" data-path="chapter4/02_Type_Custom.html">
+            
+                
+                    <a href="../chapter4/02_Type_Custom.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                         造个类型不是梦-白话Swift类型创建
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.3" data-path="chapter4/03_Ballons.html">
+            
+                
+                    <a href="../chapter4/03_Ballons.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                         WWDC里面的那个“大炮打气球”
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.4" data-path="chapter4/04_Interacting_with_C_Pointers.html">
+            
+                
+                    <a href="../chapter4/04_Interacting_with_C_Pointers.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                         Swift与C语言指针友好合作
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.5" data-path="chapter4/05_Value_and_Reference_Types.html">
+            
+                
+                    <a href="../chapter4/05_Value_and_Reference_Types.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                         引用类型和值类型的恩怨
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.6" data-path="chapter4/06_Access_Control_and_Protected.html">
+            
+                
+                    <a href="../chapter4/06_Access_Control_and_Protected.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                         访问控制和Protected
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="4.7" data-path="chapter4/07_Optional_Case_Study.html">
+            
+                
+                    <a href="../chapter4/07_Optional_Case_Study.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                         可选类型完美解决占位问题
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >The Swift Programming Language 中文版</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_94">
+                    
+                        <blockquote>
+<p>翻译：<a href="http://weibo.com/u/5241713117" target="_blank">老码团队翻译组-Tyrion</a><br>校对：<a href="http://weibo.com/littlekok/" target="_blank">老码团队翻译组-Ayra</a></p>
+</blockquote>
+<h1 id="">可选类型完美解决占位问题</h1>
+<hr>
+<p>本页包含内容：</p>
+<ul>
+<li><a href="#add-function">为Dictionary增加objectsForKeys函数</a></li>
+<li><a href="##easy-function">Swift中更简便的方法</a></li>
+<li><a href="#nested-optional">内嵌可选类型</a></li>
+<li><a href="#provide-default">提供一个默认值</a></li>
+</ul>
+<p>可选类型是Swift中新引入的，功能很强大。在这篇博文里讨论的，是在Swift里，如何通过可选类型来保证强类型的安全性。作为例子，我们来创建一个Objective-C API的Swift版本，但实际上Swift本身并不需要这样的API。</p>
+<p><a name="#add-function"></a></p>
+<h4 id="dictionaryobjectsforkeys">为Dictionary增加objectsForKeys函数</h4>
+<p>在Objective-C中，<code>NSDictionary</code>有一个方法<code>-objectsForKeys:NoFoundMarker:</code>, 这个方法需要一个<code>NSArray</code>数组作为键值参数，然后返回一个包含相关值的数组。文档里写到：&quot;返回数组中的第N个值，和输入数组中的第N个值相对应&quot;，那如果有某个键值在字典里不存在呢？于是就有了<code>notFoundMarker</code>作为返回提示。比如第三个键值没有找到，那么在返回数组中第三个值就是这个<code>notFoundMarker</code>，而不是字典中的第三个值，但是这个值只是用来提醒原字典中没有找到对应值，但在返回数组中该元素存在，且用<code>notFoundMarker</code>作为占位符，因为这个对象不能直接使用，所以在Foundation框架中有个专门的类处理这个情况：<code>NSNull</code>。</p>
+<p>在Swift中，<code>Dictionary</code>类没有类似<code>objectsForKeys</code>的函数，为了说明问题，我们动手加一个，并且使其成为操作字典值的通用方法。我们可以用<code>extension</code>来实现：</p>
+<pre><code>extension Dictionary{
+    func valuesForKeys(keys:[K], notFoundMarker: V )-&gt;[V]{
+        //具体实现代码后面会写到
+    }
+}
+</code></pre><p>以上就是我们实现的Swift版本，这个和Objective-C版本有很大区别。在Swift中，因为其强类型的原因限制了返回的结果数组只能包含单一类型的元素，所以我们不能放<code>NSNull</code>在字符串数组中，但是，Swift有更好的选择，我们可以返回一个可选类型数据。我们所有的值都封包在可选类型中，而不是<code>NSNull</code>, 我们只用<code>nil</code>就可以了。</p>
+<pre><code>extension Dictionary{
+    func valuesForKeys(keys: [Key]) -&gt; [Value?] {
+        var result = [Value?]()
+        result.reserveCapacity(keys.count)
+        for key in keys{
+            result.append(self[key])
+        }
+        return result
+    }
+}
+</code></pre><p><a name="#easy-function"></a></p>
+<h4 id="swift">Swift中更简便的方法</h4>
+<p>小伙伴们可能会问，为什么Swift中不需要实现这么一个API呢？其实其有更简单的实现，如下面代码所示：</p>
+<pre><code>extension Dictionary {
+    func valuesForKeys(keys: [Key]) -&gt; [Value?] {
+        return keys.map { self[$0] }
+    }
+}
+</code></pre><p>上述方式实现的功能和最开始的方法实现的功能相同，虽然核心的功能是封装了<code>map</code>的调用，这个例子也说明了为什么Swift没有提供轻量级的API接口，因为小伙伴们简单的调用<code>map</code>就可以实现。</p>
+<p>接下来，我们实验几个例子：</p>
+<pre><code>var dic: Dictionary = [ &quot;1&quot;: 2, &quot;3&quot;:3, &quot;4&quot;:5 ]
+
+var t = dic.valuesForKeys([&quot;1&quot;, &quot;4&quot;]) 
+//结果为：[Optional(2), Optional(5)]
+
+var t = dict.valuesForKeys([&quot;3&quot;, &quot;9&quot;])
+// 结果为：[Optional(3), nil]
+
+t = dic.valuesForKeys([])
+//结果为：[]
+</code></pre><p><a name="#nested-optional"></a></p>
+<h4 id="">内嵌可选类型</h4>
+<p>现在，如果我们为每一个结果调用<code>last</code>方法，看下结果如何？</p>
+<pre><code>var dic: Dictionary = [ &quot;1&quot;: 2, &quot;3&quot;:3, &quot;4&quot;:5 ]
+
+var t = dic.valuesForKeys([&quot;1&quot;, &quot;4&quot;]).last //结果为：Optional(Optional(5))
+// Optional(Optional(&quot;Ching&quot;))
+
+var t = dict.valuesForKeys([&quot;3&quot;, &quot;9&quot;]).last
+// 结果为：Optional(nil)
+
+var t = dict.valuesForKeys([]).last
+// 结果为：nil
+</code></pre><p>小伙伴们立马迷糊了，为什么会出现两层包含的可选类型呢？，特别对第二种情况的<code>Optional(nil)</code>，这是什么节奏？</p>
+<p>我们回过头看看<code>last</code>属性的定义：</p>
+<pre><code>var last:T? { get }
+</code></pre><p>很明显<code>last</code>属性的类型是数组元素类型的可选类型，这种情况下，因为元素类型是<code>(String?)</code>，那么再结合返回的类型，于是其结果就是<code>String??</code>了，这就是所谓的嵌套可选类型。但嵌套可选类型本质是什么意思呢？</p>
+<p>如果在Objective-C中重新调用上述方法，我们将使用<code>NSNull</code>作为占位符，Objective-C的调用语法如下所示：</p>
+<pre><code>[dict valuesForKeys:@[@&quot;1&quot;, @&quot;4&quot;] notFoundMarker:[NSNull null]].lastObject
+// 5
+[dict valuesForKeys:@[@&quot;1&quot;, @&quot;3&quot;] notFoundMarker:[NSNull null]].lastObject
+// NSNull
+[dict valuesForKeys:@[] notFoundMarker:[NSNull null]].lastObject
+// nil
+</code></pre><p>不管是Swift版本还是Objective-C版本，返回值为<code>nil</code>都意味数组是空的，所以它就没有最后一个元素。 但是如果返回是<code>Optional(nil)</code>或者Objective-C中的<code>NSNull</code>都表示数组中的最后一个元素存在，但是元素的内容是空的。在Objective-C中只能借助<code>NSNull</code>作为占位符来达到这个目的，但是Swift却可以语言系统类型的角度的实现。</p>
+<p><a name="#provide-default"></a></p>
+<h4 id="">提供一个默认值</h4>
+<p>进一步封装，如果我字典中的某个或某些元素不存在，我们想提供一个默认值怎么办呢？实现方法很简单：</p>
+<pre><code>extension Dictionary {
+    func valuesForKeys( keys:[Key], notFoundMarker: Value)-&gt;[Value]{
+        return self.valueForKeys(kes).map{ $0 ?? notFoundMarker }
+    }
+}
+</code></pre><pre><code>dict.valuesForKeys([&quot;1&quot;, &quot;5&quot;], notFoundMarker: &quot;Anonymous&quot;)
+</code></pre><p>和Objective-C相比，其需要占位符来达到占位的目的，但是Swift却已经从语言类型系统的层面原生的支持了这种用法，同时提供了丰富的语法功能。这就是Swift可选类型的强大之处。同时注意上述例子中用到了空合运算符<code>??</code>。</p>
+<hr>
+<p>本章节不是老码的原创，是老码认真的阅读了苹果的官方博客，自己的练习总结，如果小伙伴们费了吃奶的劲还是看不懂，请找度娘谷歌。还是看不懂？请到老码<a href="http://weibo.com/u/5241713117" target="_blank">官方微博</a>咆哮。  </p>
+<h5 id="apple-swift-blog-optionals-case-study-valuesforkeyshttpsdeveloperapplecomswiftblogid12">本文由翻译自Apple Swift Blog ：<a href="https://developer.apple.com/swift/blog/?id=12" target="_blank">Optionals Case Study: valuesForKeys</a></h5>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../chapter4/06_Access_Control_and_Protected.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 访问控制和Protected"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CActiveDataProvider</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CActiveDataProvider</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.web">system.web</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CActiveDataProvider &raquo;
+<a href="CDataProvider.html">CDataProvider</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>实现</th>
+  <td><a href="IDataProvider.html">IDataProvider</a></td>
+</tr>
+<tr>
+  <th>源自</th>
+  <td>1.1</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CActiveDataProvider.php 3426 2011-10-25 00:01:09Z alexander.makarow $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/CActiveDataProvider.php">framework/web/CActiveDataProvider.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CActiveDataProvider是基于ActiveRecord实现的一个数据数据提供者。
+<br/><br/>
+CActiveDataProvider为类<a href="CActiveDataProvider.html#modelClass">modelClass</a>的ActiveRecord对象
+提供数据。它使用AR的<a href="CActiveRecord.html#findAll">CActiveRecord::findAll</a>方法，
+从数据库中检索信息。<a href="CActiveDataProvider.html#criteria">criteria</a>属性能够用来
+查询多种指定条件。
+<br/><br/>
+CActiveDataProvider的使用方法如下：
+<pre>
+$dataProvider=new CActiveDataProvider('Post', array(
+    'criteria'=&gt;array(
+        'condition'=&gt;'status=1',
+        'order'=&gt;'create_time DESC',
+        'with'=&gt;array('author'),
+    ),
+    'pagination'=&gt;array(
+        'pageSize'=&gt;20,
+    ),
+));
+// $dataProvider-&gt;getData() will return a list of Post objects
+</pre></div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="criteria">
+  <td><a href="CActiveDataProvider.html#criteria-detail">criteria</a></td>
+  <td><a href="CDbCriteria.html">CDbCriteria</a></td>
+  <td>返回的查询条件。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr class="inherited" id="data">
+  <td><a href="CDataProvider.html#data-detail">data</a></td>
+  <td>array</td>
+  <td>返回当前可用的数据项。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="id">
+  <td><a href="CDataProvider.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>返回所有数据提供者的唯一标识ID。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="itemCount">
+  <td><a href="CDataProvider.html#itemCount-detail">itemCount</a></td>
+  <td>integer</td>
+  <td>返回当前页面的数据项数目。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr id="keyAttribute">
+  <td><a href="CActiveDataProvider.html#keyAttribute-detail">keyAttribute</a></td>
+  <td>string</td>
+  <td><a href="CActiveDataProvider.html#modelClass">modelClass</a>的键值属性的名称。如果没有设置，
+这意味着将使用相应的数据库表的主键。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr class="inherited" id="keys">
+  <td><a href="CDataProvider.html#keys-detail">keys</a></td>
+  <td>array</td>
+  <td>返回相关数据项的键。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr id="model">
+  <td><a href="CActiveDataProvider.html#model-detail">model</a></td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+  <td>AR finder的实例（例如 <code>Post::model()</code>）。
+这个属性可以通过将finder的实例作为构造器的第一个参数来设置。
+例如, <code>Post::model()->published()</code>.</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr id="modelClass">
+  <td><a href="CActiveDataProvider.html#modelClass-detail">modelClass</a></td>
+  <td>string</td>
+  <td>主ActiveRecord的类名。 
+<a href="CActiveDataProvider.html#getData">getData()</a>方法将会返回这个类的对象的列表。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr class="inherited" id="pagination">
+  <td><a href="CDataProvider.html#pagination-detail">pagination</a></td>
+  <td><a href="CPagination.html">CPagination</a></td>
+  <td>返回pagination对象。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr id="sort">
+  <td><a href="CActiveDataProvider.html#sort-detail">sort</a></td>
+  <td><a href="CSort.html">CSort</a></td>
+  <td>返回排序的对象。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr class="inherited" id="totalItemCount">
+  <td><a href="CDataProvider.html#totalItemCount-detail">totalItemCount</a></td>
+  <td>integer</td>
+  <td>返回所有数据项的总数。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>如果类中没有调的方法名，则调用这个方法。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="__construct">
+  <td><a href="CActiveDataProvider.html#__construct-detail">__construct()</a></td>
+  <td>构造方法。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>返回一个属性值、一个事件处理程序列表或一个行为名称。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>检查一个属性是否为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>设置一个组件的属性值。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>设置一个组件的属性为null。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>返回这个名字的行为对象。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>附加一个行为到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>附加一个行为列表到组件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>为事件附加一个事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>确定属性是否可读。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>确定属性是否可写。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>从组件中分离一个行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>从组件中分离所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>分离一个存在的事件处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>禁用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>禁用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>启用一个附加行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>启用组件附加的所有行为。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>计算一个PHP表达式，或根据组件上下文执行回调。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getCriteria">
+  <td><a href="CActiveDataProvider.html#getCriteria-detail">getCriteria()</a></td>
+  <td>返回的查询条件。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr class="inherited" id="getData">
+  <td><a href="CDataProvider.html#getData-detail">getData()</a></td>
+  <td>返回当前可用的数据项。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>返回一个事件的附加处理程序列表。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getId">
+  <td><a href="CDataProvider.html#getId-detail">getId()</a></td>
+  <td>返回所有数据提供者的唯一标识ID。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="getItemCount">
+  <td><a href="CDataProvider.html#getItemCount-detail">getItemCount()</a></td>
+  <td>返回当前页面的数据项数目。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="getKeys">
+  <td><a href="CDataProvider.html#getKeys-detail">getKeys()</a></td>
+  <td>返回相关数据项的键。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="getPagination">
+  <td><a href="CDataProvider.html#getPagination-detail">getPagination()</a></td>
+  <td>返回pagination对象。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr id="getSort">
+  <td><a href="CActiveDataProvider.html#getSort-detail">getSort()</a></td>
+  <td>返回排序的对象。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr class="inherited" id="getTotalItemCount">
+  <td><a href="CDataProvider.html#getTotalItemCount-detail">getTotalItemCount()</a></td>
+  <td>返回所有数据项的总数。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>确定一个事件是否定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>检查事件是否有附加的处理程序。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>确定属性是否被定义。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>发起一个事件。</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="setCriteria">
+  <td><a href="CActiveDataProvider.html#setCriteria-detail">setCriteria()</a></td>
+  <td>设置查询条件。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr class="inherited" id="setData">
+  <td><a href="CDataProvider.html#setData-detail">setData()</a></td>
+  <td>为provider设置数据项。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="setId">
+  <td><a href="CDataProvider.html#setId-detail">setId()</a></td>
+  <td>设置provider的ID。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="setKeys">
+  <td><a href="CDataProvider.html#setKeys-detail">setKeys()</a></td>
+  <td>为provider设置数据项的键。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="setPagination">
+  <td><a href="CDataProvider.html#setPagination-detail">setPagination()</a></td>
+  <td>设置provider的pagination对象。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="setSort">
+  <td><a href="CDataProvider.html#setSort-detail">setSort()</a></td>
+  <td>为数据提供者设置排序。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+<tr class="inherited" id="setTotalItemCount">
+  <td><a href="CDataProvider.html#setTotalItemCount-detail">setTotalItemCount()</a></td>
+  <td>设置所有数据项的总数。</td>
+  <td><a href="CDataProvider.html">CDataProvider</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>受保护方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="calculateTotalItemCount">
+  <td><a href="CActiveDataProvider.html#calculateTotalItemCount-detail">calculateTotalItemCount()</a></td>
+  <td>计算所有数据项的总数。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr id="fetchData">
+  <td><a href="CActiveDataProvider.html#fetchData-detail">fetchData()</a></td>
+  <td>从持久性数据存储中获取数据。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+<tr id="fetchKeys">
+  <td><a href="CActiveDataProvider.html#fetchKeys-detail">fetchKeys()</a></td>
+  <td>获取持久性数据存储的数据项键。</td>
+  <td>CActiveDataProvider</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>属性详细</h2>
+<div class="detailHeader" id="criteria-detail">
+criteria<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public <a href="CDbCriteria.html">CDbCriteria</a> <a href="CActiveDataProvider.html#getCriteria"><b>getCriteria</b></a>()<br/>public void <a href="CActiveDataProvider.html#setCriteria"><b>setCriteria</b></a>(mixed $value)</div>
+
+<p>返回的查询条件。</p>
+
+
+<div class="detailHeader" id="keyAttribute-detail">
+keyAttribute<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$keyAttribute</b>;</div>
+
+<p><a href="CActiveDataProvider.html#modelClass">modelClass</a>的键值属性的名称。如果没有设置，
+这意味着将使用相应的数据库表的主键。</p>
+
+
+<div class="detailHeader" id="model-detail">
+model<span class="detailHeaderTag">
+属性
+（可用自 v1.1.3）
+</span>
+</div>
+
+<div class="signature">
+public <a href="CActiveRecord.html">CActiveRecord</a> <b>$model</b>;</div>
+
+<p>AR finder的实例（例如 <code>Post::model()</code>）。
+这个属性可以通过将finder的实例作为构造器的第一个参数来设置。
+例如, <code>Post::model()->published()</code>.</p>
+
+
+<div class="detailHeader" id="modelClass-detail">
+modelClass<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public string <b>$modelClass</b>;</div>
+
+<p>主ActiveRecord的类名。 
+<a href="CActiveDataProvider.html#getData">getData()</a>方法将会返回这个类的对象的列表。</p>
+
+
+<div class="detailHeader" id="sort-detail">
+sort<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public <a href="CSort.html">CSort</a> <a href="CActiveDataProvider.html#getSort"><b>getSort</b></a>()<br/>public void <a href="CActiveDataProvider.html#setSort"><b>setSort</b></a>(mixed $value)</div>
+
+<p>返回排序的对象。</p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="__construct-detail">
+__construct()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>__construct</b>(mixed $modelClass, array $config=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$modelClass</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">模型的类（例如‘Post’）或者模型的finder实例
+（例如<code>Post::model()</code>，<code>Post::model()->published()</code>）。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$config</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">配置参数（name=>value）将作为这个类的初始属性值。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/CActiveDataProvider.php#70">framework/web/CActiveDataProvider.php#70</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$modelClass</span><span style="color: #007700">,</span><span style="color: #0000BB">$config</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$modelClass</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modelClass</span><span style="color: #007700">=</span><span style="color: #0000BB">$modelClass</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">=</span><span style="color: #0000BB">CActiveRecord</span><span style="color: #007700">::</span><span style="color: #0000BB">model</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modelClass</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$modelClass&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">CActiveRecord</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modelClass</span><span style="color: #007700">=</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$modelClass</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">=</span><span style="color: #0000BB">$modelClass</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setId</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modelClass</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$config&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>构造方法。</p>
+
+
+<div class="detailHeader" id="calculateTotalItemCount-detail">
+calculateTotalItemCount()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected integer <b>calculateTotalItemCount</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">数据项的总数。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/CActiveDataProvider.php#174">framework/web/CActiveDataProvider.php#174</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">calculateTotalItemCount</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$baseCriteria</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getDbCriteria</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$baseCriteria</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$baseCriteria</span><span style="color: #007700">=clone&nbsp;</span><span style="color: #0000BB">$baseCriteria</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCriteria</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setDbCriteria</span><span style="color: #007700">(</span><span style="color: #0000BB">$baseCriteria</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>计算所有数据项的总数。</p>
+
+
+<div class="detailHeader" id="fetchData-detail">
+fetchData()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected array <b>fetchData</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">数据项列表</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/CActiveDataProvider.php#123">framework/web/CActiveDataProvider.php#123</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">fetchData</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">=clone&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCriteria</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$pagination</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getPagination</span><span style="color: #007700">())!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pagination</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setItemCount</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTotalItemCount</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pagination</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">applyLimit</span><span style="color: #007700">(</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$baseCriteria</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getDbCriteria</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$sort</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSort</span><span style="color: #007700">())!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;set&nbsp;model&nbsp;criteria&nbsp;so&nbsp;that&nbsp;CSort&nbsp;can&nbsp;use&nbsp;its&nbsp;table&nbsp;alias&nbsp;setting<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">$baseCriteria</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$c</span><span style="color: #007700">=clone&nbsp;</span><span style="color: #0000BB">$baseCriteria</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mergeWith</span><span style="color: #007700">(</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setDbCriteria</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setDbCriteria</span><span style="color: #007700">(</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sort</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">applyOrder</span><span style="color: #007700">(</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setDbCriteria</span><span style="color: #007700">(</span><span style="color: #0000BB">$baseCriteria</span><span style="color: #007700">!==</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;clone&nbsp;</span><span style="color: #0000BB">$baseCriteria&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">findAll</span><span style="color: #007700">(</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setDbCriteria</span><span style="color: #007700">(</span><span style="color: #0000BB">$baseCriteria</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;restore&nbsp;original&nbsp;criteria<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>从持久性数据存储中获取数据。</p>
+
+
+<div class="detailHeader" id="fetchKeys-detail">
+fetchKeys()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected array <b>fetchKeys</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">列表数据项的键。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/CActiveDataProvider.php#159">framework/web/CActiveDataProvider.php#159</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">fetchKeys</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$keys</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getData</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$data</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">keyAttribute</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getPrimaryKey</span><span style="color: #007700">()&nbsp;:&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">keyAttribute</span><span style="color: #007700">};<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$keys</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]=</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">','</span><span style="color: #007700">,</span><span style="color: #0000BB">$key</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$keys</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>获取持久性数据存储的数据项键。</p>
+
+
+<div class="detailHeader" id="getCriteria-detail">
+getCriteria()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CDbCriteria.html">CDbCriteria</a> <b>getCriteria</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbCriteria.html">CDbCriteria</a></td>
+  <td class="paramDescCol">查询条件</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/CActiveDataProvider.php#91">framework/web/CActiveDataProvider.php#91</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCriteria</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_criteria</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_criteria</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CDbCriteria</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_criteria</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回的查询条件。</p>
+
+
+<div class="detailHeader" id="getSort-detail">
+getSort()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CSort.html">CSort</a> <b>getSort</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CSort.html">CSort</a></td>
+  <td class="paramDescCol">排序的对象。如果返回为false，这意味着排序被禁用。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/CActiveDataProvider.php#112">framework/web/CActiveDataProvider.php#112</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getSort</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$sort</span><span style="color: #007700">=</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">getSort</span><span style="color: #007700">())!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sort</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modelClass</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modelClass</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$sort</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>返回排序的对象。</p>
+
+
+<div class="detailHeader" id="setCriteria-detail">
+setCriteria()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setCriteria</b>(mixed $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">查询条件。
+这可以是一个CDbCriteria的对象或数组构成的查询条件。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/CActiveDataProvider.php#103">framework/web/CActiveDataProvider.php#103</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setCriteria</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_criteria</span><span style="color: #007700">=</span><span style="color: #0000BB">$value&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">CDbCriteria&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">$value&nbsp;</span><span style="color: #007700">:&nbsp;new&nbsp;</span><span style="color: #0000BB">CDbCriteria</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>设置查询条件。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

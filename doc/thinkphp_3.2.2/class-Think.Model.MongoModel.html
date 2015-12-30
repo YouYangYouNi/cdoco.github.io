@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Think\Model\MongoModel | thinkphp_3.2.2</title>
+
+	<script type="text/javascript" src="resources/combined.js?2450529271"></script>
+	<script type="text/javascript" src="elementlist.js?4257362889"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Behavior.html">Behavior</a>
+						</li>
+				<li><a href="namespace-Boris.html">Boris</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-Org.html">Org<span></span></a>
+						<ul>
+				<li><a href="namespace-Org.Net.html">Net</a>
+						</li>
+				<li><a href="namespace-Org.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li class="active"><a href="namespace-Think.html">Think<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.html">Cache<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Cache.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Think.Crypt.html">Crypt<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Crypt.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Db.html">Db<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Db.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Image.html">Image<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Image.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Log.html">Log<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Log.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Think.Model.html">Model</a>
+						</li>
+				<li><a href="namespace-Think.Session.html">Session<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Session.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Storage.html">Storage<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Storage.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Template.html">Template<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Template.Driver.html">Driver</a>
+						</li>
+				<li><a href="namespace-Think.Template.TagLib.html">TagLib</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Think.Upload.html">Upload<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.html">Driver<span></span></a>
+						<ul>
+				<li><a href="namespace-Think.Upload.Driver.Bcs.html">Bcs</a>
+						</li>
+				<li><a href="namespace-Think.Upload.Driver.Qiniu.html">Qiniu</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Think.Model.AdvModel.html">AdvModel</a></li>
+				<li class="active"><a href="class-Think.Model.MongoModel.html">MongoModel</a></li>
+				<li><a href="class-Think.Model.RelationModel.html">RelationModel</a></li>
+				<li><a href="class-Think.Model.ViewModel.html">ViewModel</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Think.Model.html" title="Summary of Think\Model"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class MongoModel</h1>
+
+
+	<div class="description">
+	
+<p>MongoModel模型类 实现了ODM和ActiveRecords模式</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Think.Model.html"><span>Think\Model</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Think\Model\MongoModel</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Think.html">Think</a>\<a href="namespace-Think.Model.html">Model</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Think.Model.MongoModel.html#13-346" title="Go to source code">ThinkPHP/Library/Think/Model/MongoModel.class.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__call" id="___call">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___call">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#34-60" title="Go to source code">__call</a>( <span>string <var>$method</var></span>, <span>array <var>$args</var></span> )</code>
+
+		<div class="description short">
+			
+<p>利用__call方法实现一些特殊的Model方法</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>利用__call方法实现一些特殊的Model方法</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$method</var></dt>
+					<dd><code>string</code><br>$method 方法名称</dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code><br>$args 调用参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#___call">Think\Model::__call()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="flush" id="_flush">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_flush">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#62-87" title="Go to source code">flush</a>( )</code>
+
+		<div class="description short">
+			
+<p>获取字段信息并缓存 主键和自增信息直接配置</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取字段信息并缓存 主键和自增信息直接配置</p>
+
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#_flush">Think\Model::flush()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_before_write" id="__before_write">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__before_write">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#90-96" title="Go to source code">_before_write</a>( <span>mixed <var>&amp; $data</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__before_write">Think\Model::_before_write()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="count" id="_count">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_count">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#98-107" title="Go to source code">count</a>( )</code>
+
+		<div class="description short">
+			
+<p>count统计 配合where连贯操作</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>count统计 配合where连贯操作</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMongoNextId" id="_getMongoNextId">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMongoNextId">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#109-120" title="Go to source code">getMongoNextId</a>( <span>string <var>$pk</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>获取下一ID 用于自动增长型</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取下一ID 用于自动增长型</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$pk</var></dt>
+					<dd><code>string</code><br>$pk 字段名 默认为主键</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="add" id="_add">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_add">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#122-158" title="Go to source code">add</a>( <span>mixed <var>$data</var> = <span class="php-quote">''</span></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$replace</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>新增数据</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>新增数据</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>mixed</code><br>$data 数据</dd>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 表达式</dd>
+					<dt><var>$replace</var></dt>
+					<dd><code>boolean</code><br>$replace 是否replace</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#_add">Think\Model::add()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_before_insert" id="__before_insert">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__before_insert">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#161-169" title="Go to source code">_before_insert</a>( <span>mixed <var>&amp; $data</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__before_insert">Think\Model::_before_insert()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clear" id="_clear">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clear">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#171-173" title="Go to source code">clear</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_select" id="__after_select">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_select">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#176-178" title="Go to source code">_after_select</a>( <span>mixed <var>&amp; $resultSet</var></span>, <span>mixed <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__after_select">Think\Model::_after_select()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="checkMongoId" id="_checkMongoId">
+
+		<td class="attributes"><code>
+			 protected 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkMongoId">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#180-191" title="Go to source code">checkMongoId</a>( <span>array <var>&amp; $result</var></span> )</code>
+
+		<div class="description short">
+			
+<p>获取MongoId</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取MongoId</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$result</var></dt>
+					<dd><code>array</code><br>$result 返回数据</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_options_filter" id="__options_filter">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__options_filter">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#194-199" title="Go to source code">_options_filter</a>( <span>mixed <var>&amp; $options</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__options_filter">Think\Model::_options_filter()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="find" id="_find">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_find">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#201-228" title="Go to source code">find</a>( <span>mixed <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>查询数据</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>查询数据</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd><code>mixed</code><br>$options 表达式参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#_find">Think\Model::find()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setInc" id="_setInc">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setInc">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#230-239" title="Go to source code">setInc</a>( <span>string <var>$field</var></span>, <span>integer <var>$step</var> = <span class="php-num">1</span></span> )</code>
+
+		<div class="description short">
+			
+<p>字段值增长</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>字段值增长</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>string</code><br>$field 字段名</dd>
+					<dt><var>$step</var></dt>
+					<dd><code>integer</code><br>$step 增长值</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#_setInc">Think\Model::setInc()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setDec" id="_setDec">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDec">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#241-250" title="Go to source code">setDec</a>( <span>string <var>$field</var></span>, <span>integer <var>$step</var> = <span class="php-num">1</span></span> )</code>
+
+		<div class="description short">
+			
+<p>字段值减少</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>字段值减少</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>string</code><br>$field 字段名</dd>
+					<dt><var>$step</var></dt>
+					<dd><code>integer</code><br>$step 减少值</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#_setDec">Think\Model::setDec()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getField" id="_getField">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getField">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#252-300" title="Go to source code">getField</a>( <span>string <var>$field</var></span>, <span>string <var>$sepa</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>获取一条记录的某个字段值</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>获取一条记录的某个字段值</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>string</code><br>$field 字段名</dd>
+					<dt><var>$sepa</var></dt>
+					<dd><code>string</code><br>$spea 字段数据间隔符号</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#_getField">Think\Model::getField()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="command" id="_command">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_command">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#302-310" title="Go to source code">command</a>( <span>array <var>$command</var></span> )</code>
+
+		<div class="description short">
+			
+<p>执行Mongo指令</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>执行Mongo指令</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$command</var></dt>
+					<dd><code>array</code><br>$command 指令</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="mongoCode" id="_mongoCode">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_mongoCode">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#312-321" title="Go to source code">mongoCode</a>( <span>string <var>$code</var></span>, <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>执行MongoCode</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>执行MongoCode</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code MongoCode</dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code><br>$args 参数</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_after_db" id="__after_db">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__after_db">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#324-327" title="Go to source code">_after_db</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#__after_db">Think\Model::_after_db()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getTableName" id="_getTableName">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getTableName">#</a>
+		<code><a href="source-class-Think.Model.MongoModel.html#329-345" title="Go to source code">getTableName</a>( )</code>
+
+		<div class="description short">
+			
+<p>得到完整的数据表名 Mongo表名不带dbName</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>得到完整的数据表名 Mongo表名不带dbName</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Think.Model.html#_getTableName">Think\Model::getTableName()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Think.Model.html#methods">Think\Model</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Think.Model.html#___construct">__construct()</a>, 
+			<a href="class-Think.Model.html#___get">__get()</a>, 
+			<a href="class-Think.Model.html#___isset">__isset()</a>, 
+			<a href="class-Think.Model.html#___set">__set()</a>, 
+			<a href="class-Think.Model.html#___unset">__unset()</a>, 
+			<a href="class-Think.Model.html#__after_delete">_after_delete()</a>, 
+			<a href="class-Think.Model.html#__after_find">_after_find()</a>, 
+			<a href="class-Think.Model.html#__after_insert">_after_insert()</a>, 
+			<a href="class-Think.Model.html#__after_update">_after_update()</a>, 
+			<a href="class-Think.Model.html#__before_delete">_before_delete()</a>, 
+			<a href="class-Think.Model.html#__before_update">_before_update()</a>, 
+			<a href="class-Think.Model.html#__checkTableInfo">_checkTableInfo()</a>, 
+			<a href="class-Think.Model.html#__facade">_facade()</a>, 
+			<a href="class-Think.Model.html#__initialize">_initialize()</a>, 
+			<a href="class-Think.Model.html#__parseOptions">_parseOptions()</a>, 
+			<a href="class-Think.Model.html#__parseType">_parseType()</a>, 
+			<a href="class-Think.Model.html#__read_data">_read_data()</a>, 
+			<a href="class-Think.Model.html#__sql">_sql()</a>, 
+			<a href="class-Think.Model.html#__validationField">_validationField()</a>, 
+			<a href="class-Think.Model.html#__validationFieldItem">_validationFieldItem()</a>, 
+			<a href="class-Think.Model.html#_addAll">addAll()</a>, 
+			<a href="class-Think.Model.html#_autoCheckToken">autoCheckToken()</a>, 
+			<a href="class-Think.Model.html#_autoValidation">autoValidation()</a>, 
+			<a href="class-Think.Model.html#_bind">bind()</a>, 
+			<a href="class-Think.Model.html#_buildSql">buildSql()</a>, 
+			<a href="class-Think.Model.html#_cache">cache()</a>, 
+			<a href="class-Think.Model.html#_check">check()</a>, 
+			<a href="class-Think.Model.html#_comment">comment()</a>, 
+			<a href="class-Think.Model.html#_commit">commit()</a>, 
+			<a href="class-Think.Model.html#_create">create()</a>, 
+			<a href="class-Think.Model.html#_data">data()</a>, 
+			<a href="class-Think.Model.html#_db">db()</a>, 
+			<a href="class-Think.Model.html#_delete">delete()</a>, 
+			<a href="class-Think.Model.html#_execute">execute()</a>, 
+			<a href="class-Think.Model.html#_field">field()</a>, 
+			<a href="class-Think.Model.html#_getDbError">getDbError()</a>, 
+			<a href="class-Think.Model.html#_getDbFields">getDbFields()</a>, 
+			<a href="class-Think.Model.html#_getError">getError()</a>, 
+			<a href="class-Think.Model.html#_getLastInsID">getLastInsID()</a>, 
+			<a href="class-Think.Model.html#_getLastSql">getLastSql()</a>, 
+			<a href="class-Think.Model.html#_getModelName">getModelName()</a>, 
+			<a href="class-Think.Model.html#_getPk">getPk()</a>, 
+			<a href="class-Think.Model.html#_join">join()</a>, 
+			<a href="class-Think.Model.html#_limit">limit()</a>, 
+			<a href="class-Think.Model.html#_page">page()</a>, 
+			<a href="class-Think.Model.html#_parseFieldsMap">parseFieldsMap()</a>, 
+			<a href="class-Think.Model.html#_parseSql">parseSql()</a>, 
+			<a href="class-Think.Model.html#_query">query()</a>, 
+			<a href="class-Think.Model.html#_regex">regex()</a>, 
+			<a href="class-Think.Model.html#_returnResult">returnResult()</a>, 
+			<a href="class-Think.Model.html#_rollback">rollback()</a>, 
+			<a href="class-Think.Model.html#_save">save()</a>, 
+			<a href="class-Think.Model.html#_scope">scope()</a>, 
+			<a href="class-Think.Model.html#_select">select()</a>, 
+			<a href="class-Think.Model.html#_selectAdd">selectAdd()</a>, 
+			<a href="class-Think.Model.html#_setField">setField()</a>, 
+			<a href="class-Think.Model.html#_setProperty">setProperty()</a>, 
+			<a href="class-Think.Model.html#_startTrans">startTrans()</a>, 
+			<a href="class-Think.Model.html#_table">table()</a>, 
+			<a href="class-Think.Model.html#_union">union()</a>, 
+			<a href="class-Think.Model.html#_where">where()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="TYPE_OBJECT" id="TYPE_OBJECT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.MongoModel.html#19" title="Go to source code"><b>TYPE_OBJECT</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">1</span></code></td>
+		<td class="description"><div>
+			<a href="#TYPE_OBJECT" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="TYPE_INT" id="TYPE_INT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.MongoModel.html#20" title="Go to source code"><b>TYPE_INT</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">2</span></code></td>
+		<td class="description"><div>
+			<a href="#TYPE_INT" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="TYPE_STRING" id="TYPE_STRING">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-Think.Model.MongoModel.html#21" title="Go to source code"><b>TYPE_STRING</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">3</span></code></td>
+		<td class="description"><div>
+			<a href="#TYPE_STRING" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-Think.Model.html#constants">Think\Model</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Think.Model.html#EXISTS_VALIDATE"><b>EXISTS_VALIDATE</b></a>, 
+			<a href="class-Think.Model.html#MODEL_BOTH"><b>MODEL_BOTH</b></a>, 
+			<a href="class-Think.Model.html#MODEL_INSERT"><b>MODEL_INSERT</b></a>, 
+			<a href="class-Think.Model.html#MODEL_UPDATE"><b>MODEL_UPDATE</b></a>, 
+			<a href="class-Think.Model.html#MUST_VALIDATE"><b>MUST_VALIDATE</b></a>, 
+			<a href="class-Think.Model.html#VALUE_VALIDATE"><b>VALUE_VALIDATE</b></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="pk" id="$pk">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.MongoModel.html#24" title="Go to source code"><var>$pk</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'_id'</span></code></td>
+		<td class="description"><div>
+			<a href="#$pk" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_idType" id="$_idType">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.MongoModel.html#26" title="Go to source code"><var>$_idType</var></a>
+		</td>
+		<td class="value"><code><code><a href="class-Think.Model.MongoModel.html#TYPE_OBJECT">Think\Model\MongoModel::<b>TYPE_OBJECT</b></a></code></code></td>
+		<td class="description"><div>
+			<a href="#$_idType" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_autoinc" id="$_autoinc">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.MongoModel.html#28" title="Go to source code"><var>$_autoinc</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">true</span></code></td>
+		<td class="description"><div>
+			<a href="#$_autoinc" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="autoCheckFields" id="$autoCheckFields">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.MongoModel.html#30" title="Go to source code"><var>$autoCheckFields</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$autoCheckFields" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="methods" id="$methods">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Think.Model.MongoModel.html#32" title="Go to source code"><var>$methods</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(<span class="php-quote">'table'</span>,<span class="php-quote">'order'</span>,<span class="php-quote">'auto'</span>,<span class="php-quote">'filter'</span>,<span class="php-quote">'validate'</span>)</code></td>
+		<td class="description"><div>
+			<a href="#$methods" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Think.Model.html#properties">Think\Model</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Think.Model.html#$_auto"><var>$_auto</var></a>, 
+			<a href="class-Think.Model.html#$_map"><var>$_map</var></a>, 
+			<a href="class-Think.Model.html#$_scope"><var>$_scope</var></a>, 
+			<a href="class-Think.Model.html#$_validate"><var>$_validate</var></a>, 
+			<a href="class-Think.Model.html#$autoinc"><var>$autoinc</var></a>, 
+			<a href="class-Think.Model.html#$connection"><var>$connection</var></a>, 
+			<a href="class-Think.Model.html#$data"><var>$data</var></a>, 
+			<a href="class-Think.Model.html#$db"><var>$db</var></a>, 
+			<a href="class-Think.Model.html#$dbName"><var>$dbName</var></a>, 
+			<a href="class-Think.Model.html#$error"><var>$error</var></a>, 
+			<a href="class-Think.Model.html#$fields"><var>$fields</var></a>, 
+			<a href="class-Think.Model.html#$name"><var>$name</var></a>, 
+			<a href="class-Think.Model.html#$options"><var>$options</var></a>, 
+			<a href="class-Think.Model.html#$patchValidate"><var>$patchValidate</var></a>, 
+			<a href="class-Think.Model.html#$tableName"><var>$tableName</var></a>, 
+			<a href="class-Think.Model.html#$tablePrefix"><var>$tablePrefix</var></a>, 
+			<a href="class-Think.Model.html#$trueTableName"><var>$trueTableName</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		thinkphp_3.2.2 API documentation generated by <a href="http://cdoco.com">Cdoco.Com</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

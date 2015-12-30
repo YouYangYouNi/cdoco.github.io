@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CGoogleApi</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+<a href="http://www.yiiframework.com">Yii Framework</a> v1.1.10 类参考
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CGoogleApi</h1>
+<div id="nav">
+<a href="index.html">所有包</a>
+| <a href="#properties">属性</a>
+| <a href="#methods">方法</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>包</th>
+  <td><a href="index.html#system.web.helpers">system.web.helpers</a></td>
+</tr>
+<tr>
+  <th>继承</th>
+  <td>class CGoogleApi</td>
+</tr>
+<tr>
+  <th>版本</th>
+  <td>$Id: CGoogleApi.php 3515 2011-12-28 12:29:24Z mdomba $</td>
+</tr>
+<tr>
+  <th>源码</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/helpers/CGoogleApi.php">framework/web/helpers/CGoogleApi.php</a></td>
+</tr>
+</table>
+
+<div id="classDescription">
+CGoogleApi 提供辅助方法以便用户更加容易的使用<a href="http://code.google.com/apis/ajax/">谷歌AJAX接口</a>。</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>公共属性</h2>
+
+<p><a href="#" class="toggle">隐藏继承属性</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>属性</th><th>类型</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="bootstrapUrl">
+  <td><a href="CGoogleApi.html#bootstrapUrl-detail">bootstrapUrl</a></td>
+  <td></td>
+  <td></td>
+  <td>CGoogleApi</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>公共方法</h2>
+
+<p><a href="#" class="toggle">隐藏继承方法</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>方法</th><th>描述</th><th>定义在</th>
+</tr>
+<tr id="init">
+  <td><a href="CGoogleApi.html#init-detail">init()</a></td>
+  <td>渲染jsapi脚本文件。</td>
+  <td>CGoogleApi</td>
+</tr>
+<tr id="load">
+  <td><a href="CGoogleApi.html#load-detail">load()</a></td>
+  <td>加载指定的接口模块。</td>
+  <td>CGoogleApi</td>
+</tr>
+<tr id="register">
+  <td><a href="CGoogleApi.html#register-detail">register()</a></td>
+  <td>注册指定的接口模块。</td>
+  <td>CGoogleApi</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>属性详细</h2>
+<div class="detailHeader" id="bootstrapUrl-detail">
+bootstrapUrl<span class="detailHeaderTag">
+属性
+</span>
+</div>
+
+<div class="signature">
+public static <b>$bootstrapUrl</b>;</div>
+
+<p></p>
+
+
+<h2>方法详细</h2>
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static string <b>init</b>(string $apiKey=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$apiKey</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">接口密钥。如果没有个密钥则为null。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">加载的谷歌jsapi的脚本连接。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/helpers/CGoogleApi.php#27">framework/web/helpers/CGoogleApi.php#27</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">(</span><span style="color: #0000BB">$apiKey</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$apiKey</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">scriptFile</span><span style="color: #007700">(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$bootstrapUrl</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">scriptFile</span><span style="color: #007700">(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$bootstrapUrl</span><span style="color: #007700">.</span><span style="color: #DD0000">'?key='</span><span style="color: #007700">.</span><span style="color: #0000BB">$apiKey</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>渲染jsapi脚本文件。</p>
+
+
+<div class="detailHeader" id="load-detail">
+load()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static string <b>load</b>(string $name, string $version='1', array $options=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">模块名</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$version</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">模块版本</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$options</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">将被传到load()方法中的额外的js选项。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">加载模板的js代码。你可以使用 <a href="CHtml.html#script">CHtml::script()</a>
+把它装入到脚本标签中。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/helpers/CGoogleApi.php#44">framework/web/helpers/CGoogleApi.php#44</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$version</span><span style="color: #007700">=</span><span style="color: #DD0000">'1'</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(empty(</span><span style="color: #0000BB">$options</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"google.load(\"</span><span style="color: #007700">{</span><span style="color: #0000BB">$name</span><span style="color: #007700">}</span><span style="color: #DD0000">\",\"</span><span style="color: #007700">{</span><span style="color: #0000BB">$version</span><span style="color: #007700">}</span><span style="color: #DD0000">\");"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"google.load(\"</span><span style="color: #007700">{</span><span style="color: #0000BB">$name</span><span style="color: #007700">}</span><span style="color: #DD0000">\",\"</span><span style="color: #007700">{</span><span style="color: #0000BB">$version</span><span style="color: #007700">}</span><span style="color: #DD0000">\","</span><span style="color: #007700">.</span><span style="color: #0000BB">CJavaScript</span><span style="color: #007700">::</span><span style="color: #0000BB">encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">).</span><span style="color: #DD0000">");"</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>加载指定的接口模块。
+注意，你应该首先调用<a href="CGoogleApi.html#init">init</a>方法。</p>
+
+
+<div class="detailHeader" id="register-detail">
+register()
+<span class="detailHeaderTag">
+方法
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static void <b>register</b>(string $name, string $version='1', array $options=array (
+), string $apiKey=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">模块名</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$version</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">模块版本</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$options</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">将被传到load()方法中的额外的js选项。</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$apiKey</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">接口密钥。如果没有个密钥则为null。</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>源码：</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/tags/1.1.10/framework/web/helpers/CGoogleApi.php#62">framework/web/helpers/CGoogleApi.php#62</a> (<b><a href="#" class="show">显示</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">register</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$version</span><span style="color: #007700">=</span><span style="color: #DD0000">'1'</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">=array(),</span><span style="color: #0000BB">$apiKey</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getClientScript</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$url</span><span style="color: #007700">=</span><span style="color: #0000BB">$apiKey</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">?</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$bootstrapUrl</span><span style="color: #007700">:</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$bootstrapUrl</span><span style="color: #007700">.</span><span style="color: #DD0000">'?key='</span><span style="color: #007700">.</span><span style="color: #0000BB">$apiKey</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">registerScriptFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$js</span><span style="color: #007700">=</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$version</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">registerScript</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$js</span><span style="color: #007700">,</span><span style="color: #0000BB">CClientScript</span><span style="color: #007700">::</span><span style="color: #0000BB">POS_HEAD</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>注册指定的接口模块。
+这个类似于 <a href="CGoogleApi.html#load">load</a> ，只不过这个是注册加载的代码。
+用 <a href="CClientScript.html">CClientScript</a> 代替返回。
+这个方法也注册jsapi脚本，需要加载时调用。</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/显示/,'隐藏'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/隐藏/,'显示'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>
